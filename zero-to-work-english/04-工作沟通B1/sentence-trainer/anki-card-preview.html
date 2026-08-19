@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anki 卡片预览</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #e8ebe5;
+      --paper: #f7f8f3;
+      --ink: #17231f;
+      --muted: #68736e;
+      --line: #d9ded9;
+      --surface: #ffffff;
+      --accent: #c94b37;
+      --accent-bright: #ed5b42;
+      --response: #3f5d53;
+      --tip: #f5c84c;
+      --shadow: 0 22px 60px rgba(23, 35, 31, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(23, 35, 31, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(23, 35, 31, 0.035) 1px, transparent 1px),
+        var(--page);
+      background-size: 24px 24px;
+      color: var(--ink);
+      font-family: "Avenir Next", "PingFang SC", sans-serif;
+    }
+
+    body.night {
+      color-scheme: dark;
+      --page: #101916;
+      --paper: #17231f;
+      --ink: #f7f8f3;
+      --muted: #bdc7c2;
+      --line: #43534d;
+      --surface: #22312c;
+      --response: #b9d2c8;
+      --shadow: 0 22px 60px rgba(0, 0, 0, 0.34);
+    }
+
+    button { font: inherit; }
+
+    .preview-shell {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100vh;
+    }
+
+    .preview-bar {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      min-height: 56px;
+      padding: 10px 18px;
+    }
+
+    .preview-title {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .preview-status {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .icon-button,
+    .play-button {
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      color: var(--ink);
+      cursor: pointer;
+      display: inline-flex;
+      height: 38px;
+      justify-content: center;
+      width: 38px;
+    }
+
+    .icon-button:hover,
+    .play-button:hover { border-color: var(--accent); }
+
+    .stage {
+      align-items: start;
+      display: grid;
+      justify-items: center;
+      padding: 14px 18px 28px;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid rgba(104, 115, 110, 0.18);
+      border-radius: 7px;
+      box-shadow: var(--shadow);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+      font-size: 18px;
+      line-height: 1.55;
+      max-width: 680px;
+      min-height: 330px;
+      padding: 28px;
+      text-align: left;
+      width: min(100%, 680px);
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 26px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .prompt,
+    .answer {
+      font-size: 24px;
+      font-weight: 750;
+    }
+
+    .sentence + .sentence { margin-top: 12px; }
+    .response { color: var(--response); }
+
+    .vocabulary {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      margin-top: 16px;
+      overflow: hidden;
+    }
+
+    .vocabulary-header {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      padding: 9px 12px 7px;
+    }
+
+    .vocabulary-header::-webkit-details-marker { display: none; }
+
+    .vocabulary-header::before {
+      color: var(--response);
+      content: "▶";
+      font-size: 10px;
+      margin-right: 7px;
+      transition: transform 160ms ease;
+    }
+
+    .vocabulary[open] .vocabulary-header::before { transform: rotate(90deg); }
+
+    .vocabulary-title {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      margin-right: auto;
+    }
+
+    .vocabulary-count {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .word-entry {
+      border-top: 1px solid var(--line);
+      padding: 9px 12px 10px;
+    }
+
+    .word-summary {
+      align-items: baseline;
+      display: flex;
+      gap: 7px;
+    }
+
+    .word {
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .part-of-speech {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .word-meaning {
+      color: var(--response);
+      font-size: 13px;
+      margin-left: auto;
+      text-align: right;
+    }
+
+    .pronunciations {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 5px;
+    }
+
+    .pronunciation-label {
+      color: var(--muted);
+      display: block;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .pronunciation {
+      font-family: "Charis SIL", "Doulos SIL", "Times New Roman", serif;
+      font-size: 14px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid var(--line);
+      margin: 24px 0;
+    }
+
+    .audio-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      margin-top: 16px;
+      overflow: hidden;
+    }
+
+    .audio-panel-header,
+    .voice-row {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .audio-panel-header {
+      border-bottom: 1px solid var(--line);
+      min-height: 42px;
+      padding: 5px 7px 5px 13px;
+    }
+
+    .audio-panel-title {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .voice-row {
+      min-height: 48px;
+      padding: 6px 7px 6px 13px;
+    }
+
+    .voice-row + .voice-row { border-top: 1px solid var(--line); }
+
+    .voice-name {
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .mode-buttons {
+      display: grid;
+      gap: 6px;
+      grid-template-columns: repeat(2, minmax(62px, 1fr));
+    }
+
+    .mode-button,
+    .loop-button {
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      font-size: 13px;
+      font-weight: 800;
+      justify-content: center;
+      min-height: 34px;
+      padding: 5px 10px;
+    }
+
+    .mode-button {
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .mode-button:hover { border-color: var(--accent); }
+
+    .loop-button {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--paper);
+      min-width: 104px;
+    }
+
+    .loop-button.is-playing {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .answer-button {
+      border: 0;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 800;
+      min-height: 48px;
+      padding: 10px 16px;
+    }
+
+    body.night .loop-button:not(.is-playing) { background: var(--tip); border-color: var(--tip); color: #17231f; }
+
+    .reference {
+      border-top: 1px solid var(--line);
+      margin-top: 22px;
+      padding-top: 14px;
+    }
+
+    .reference summary {
+      color: var(--response);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .reference[open] summary { margin-bottom: 12px; }
+
+    .expression-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .expression-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 11px 12px;
+    }
+
+    .expression-label {
+      color: var(--accent);
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 3px;
+    }
+
+    .expression-main {
+      font-size: 16px;
+      font-weight: 750;
+    }
+
+    .expression-note {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 3px;
+    }
+
+    .example-list {
+      display: grid;
+      gap: 7px;
+      margin-top: 7px;
+    }
+
+    .example-row { font-size: 14px; }
+    .example-row span { color: var(--muted); display: block; font-size: 13px; }
+
+    .tip {
+      background: var(--tip);
+      border-radius: 7px;
+      color: #17231f;
+      font-size: 14px;
+      margin-top: 18px;
+      padding: 12px;
+    }
+
+    .review-controls {
+      align-items: center;
+      background: color-mix(in srgb, var(--page) 92%, transparent);
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: center;
+      min-height: 76px;
+      padding: 12px 18px;
+      position: sticky;
+      bottom: 0;
+    }
+
+    .answer-button {
+      background: var(--accent-bright);
+      color: #17231f;
+      max-width: 420px;
+      width: 100%;
+    }
+
+    .back-only[hidden] { display: none; }
+
+    @media (max-width: 560px) {
+      .preview-bar { padding-inline: 12px; }
+      .stage { padding: 6px 10px 22px; }
+      .card {
+        border-radius: 0;
+        min-height: 390px;
+        padding: 22px 18px;
+      }
+      .prompt,
+      .answer { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="preview-shell">
+    <header class="preview-bar">
+      <div>
+        <div class="preview-title">句练 · 软件工作英语</div>
+        <div class="preview-status" id="preview-status">卡片正面</div>
+      </div>
+      <button class="icon-button" id="theme-button" type="button" aria-label="切换深色模式" title="切换深色模式">◐</button>
+    </header>
+
+    <section class="stage">
+      <article class="card">
+        <div class="meta">#001 · 会议基础表达</div>
+        <div class="eyebrow">先完整说出英文问答</div>
+        <div class="prompt">
+          <div class="sentence question">我们开始吧？（核心必会）</div>
+          <div class="sentence response">好的，开始吧。</div>
+        </div>
+
+        <div class="back-only" id="back" hidden>
+          <hr>
+          <div class="answer">
+            <div class="sentence question">Shall we get started?</div>
+            <div class="sentence response">Yes, let's begin.</div>
+          </div>
+
+          <section class="audio-panel" aria-label="发音播放控制">
+            <div class="audio-panel-header">
+              <span class="audio-panel-title">发音</span>
+              <button class="loop-button" id="loop-button" type="button" aria-pressed="false">↻ 循环全部</button>
+            </div>
+            <div class="voice-row">
+              <span class="voice-name">Aria</span>
+              <div class="mode-buttons">
+                <button class="mode-button" type="button" data-audio="public/audio/001.mp3" aria-label="播放 Aria 自然连读">▶ 连读</button>
+                <button class="mode-button" type="button" data-audio="public/audio/no-linking/001.mp3" aria-label="播放 Aria 清晰分词">▶ 分词</button>
+              </div>
+            </div>
+            <div class="voice-row">
+              <span class="voice-name">Jenny</span>
+              <div class="mode-buttons">
+                <button class="mode-button" type="button" data-audio="public/audio/jenny/001.mp3" aria-label="播放 Jenny 自然连读">▶ 连读</button>
+                <button class="mode-button" type="button" data-audio="public/audio/jenny/no-linking/001.mp3" aria-label="播放 Jenny 清晰分词">▶ 分词</button>
+              </div>
+            </div>
+          </section>
+
+          <details class="vocabulary" open>
+            <summary class="vocabulary-header">
+              <span class="vocabulary-title">全部词汇 · 美式 IPA / 英式 IPA / KK</span>
+              <span class="vocabulary-count">7 词</span>
+            </summary>
+            <div class="word-entry">
+              <div class="word-summary"><span class="word">shall</span><span class="part-of-speech">modal v. · 情态动词</span><span class="word-meaning">（用于提议）……好吗</span></div>
+              <div class="pronunciations">
+                <div class="pronunciation"><span class="pronunciation-label">美式 IPA</span>/ʃæl/</div>
+                <div class="pronunciation"><span class="pronunciation-label">英式 IPA</span>/ʃæl/</div>
+                <div class="pronunciation"><span class="pronunciation-label">KK</span>/ʃæl/</div>
+              </div>
+            </div>
+            <div class="word-entry">
+              <div class="word-summary"><span class="word">we</span><span class="part-of-speech">pron. · 代词</span><span class="word-meaning">我们</span></div>
+              <div class="pronunciations">
+                <div class="pronunciation"><span class="pronunciation-label">美式 IPA</span>/wiː/</div>
+                <div class="pronunciation"><span class="pronunciation-label">英式 IPA</span>/wiː/</div>
+                <div class="pronunciation"><span class="pronunciation-label">KK</span>/wi/</div>
+              </div>
+            </div>
+            <div class="word-entry">
+              <div class="word-summary"><span class="word">get</span><span class="part-of-speech">v. · 动词</span><span class="word-meaning">使进入（某种状态）</span></div>
+              <div class="pronunciations">
+                <div class="pronunciation"><span class="pronunciation-label">美式 IPA</span>/ɡet/</div>
+                <div class="pronunciation"><span class="pronunciation-label">英式 IPA</span>/ɡet/</div>
+                <div class="pronunciation"><span class="pronunciation-label">KK</span>/ɡɛt/</div>
+              </div>
+            </div>
+            <div class="word-entry">
+              <div class="word-summary"><span class="word">started</span><span class="part-of-speech">v. · 过去分词</span><span class="word-meaning">开始；着手</span></div>
+              <div class="pronunciations">
+                <div class="pronunciation"><span class="pronunciation-label">美式 IPA</span>/ˈstɑːrtɪd/</div>
+                <div class="pronunciation"><span class="pronunciation-label">英式 IPA</span>/ˈstɑːtɪd/</div>
+                <div class="pronunciation"><span class="pronunciation-label">KK</span>/ˋstɑrtɪd/</div>
+              </div>
+            </div>
+            <div class="word-entry">
+              <div class="word-summary"><span class="word">yes</span><span class="part-of-speech">interj. · 感叹词</span><span class="word-meaning">是的；好的</span></div>
+              <div class="pronunciations">
+                <div class="pronunciation"><span class="pronunciation-label">美式 IPA</span>/jes/</div>
+                <div class="pronunciation"><span class="pronunciation-label">英式 IPA</span>/jes/</div>
+                <div class="pronunciation"><span class="pronunciation-label">KK</span>/jɛs/</div>
+              </div>
+            </div>
+            <div class="word-entry">
+              <div class="word-summary"><span class="word">let's</span><span class="part-of-speech">contr. · 缩写</span><span class="word-meaning">let us；让我们……吧</span></div>
+              <div class="pronunciations">
+                <div class="pronunciation"><span class="pronunciation-label">美式 IPA</span>/lets/</div>
+                <div class="pronunciation"><span class="pronunciation-label">英式 IPA</span>/lets/</div>
+                <div class="pronunciation"><span class="pronunciation-label">KK</span>/lɛts/</div>
+              </div>
+            </div>
+            <div class="word-entry">
+              <div class="word-summary"><span class="word">begin</span><span class="part-of-speech">v. · 动词</span><span class="word-meaning">开始</span></div>
+              <div class="pronunciations">
+                <div class="pronunciation"><span class="pronunciation-label">美式 IPA</span>/bɪˈɡɪn/</div>
+                <div class="pronunciation"><span class="pronunciation-label">英式 IPA</span>/bɪˈɡɪn/</div>
+                <div class="pronunciation"><span class="pronunciation-label">KK</span>/bɪˋɡɪn/</div>
+              </div>
+            </div>
+          </details>
+
+          <details class="reference">
+            <summary>表达提示</summary>
+            <div class="expression-list">
+              <div class="expression-item">
+                <span class="expression-label">常用表达</span>
+                <div class="expression-main">get started</div>
+                <div class="expression-note">开始；着手。工作交流中常作为一个整体使用。</div>
+              </div>
+              <div class="expression-item">
+                <span class="expression-label">可替换句型</span>
+                <div class="expression-main">Let's + 动词原形</div>
+                <div class="expression-note">表示“让我们……吧”，动词可以根据场景替换。</div>
+              </div>
+              <div class="expression-item">
+                <span class="expression-label">替换练习</span>
+                <div class="example-list">
+                  <div class="example-row">Shall we move on?<span>我们继续下一项吗？</span></div>
+                  <div class="example-row">Let's review the issue.<span>我们来检查一下这个问题吧。</span></div>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <div class="tip">听清晰分词版跟读三遍，再听自然连读版复述，最后替换句型内容造句。</div>
+        </div>
+      </article>
+    </section>
+
+    <footer class="review-controls">
+      <button class="answer-button" id="answer-button" type="button">显示答案</button>
+    </footer>
+  </main>
+
+  <script>
+    const answerButton = document.getElementById('answer-button')
+    const back = document.getElementById('back')
+    const loopButton = document.getElementById('loop-button')
+    const status = document.getElementById('preview-status')
+    const themeButton = document.getElementById('theme-button')
+    const audioFiles = Array.from(document.querySelectorAll('[data-audio]')).map((button) => button.dataset.audio)
+    let currentAudio = null
+    let loopActive = false
+    let loopIndex = 0
+
+    const stopAudio = () => {
+      loopActive = false
+      if (currentAudio) {
+        currentAudio.pause()
+        currentAudio.currentTime = 0
+        currentAudio = null
+      }
+      loopButton.textContent = '↻ 循环全部'
+      loopButton.setAttribute('aria-pressed', 'false')
+      loopButton.classList.remove('is-playing')
+    }
+
+    const playFile = (file, onEnded) => {
+      if (currentAudio) currentAudio.pause()
+      currentAudio = new Audio(file)
+      if (onEnded) currentAudio.addEventListener('ended', onEnded, { once: true })
+      currentAudio.play().catch(stopAudio)
+    }
+
+    const playLoopItem = () => {
+      if (!loopActive) return
+      playFile(audioFiles[loopIndex], () => {
+        loopIndex = (loopIndex + 1) % audioFiles.length
+        playLoopItem()
+      })
+    }
+
+    document.querySelectorAll('[data-audio]').forEach((button) => {
+      button.addEventListener('click', () => {
+        stopAudio()
+        playFile(button.dataset.audio)
+      })
+    })
+
+    loopButton.addEventListener('click', () => {
+      if (loopActive) {
+        stopAudio()
+        return
+      }
+      stopAudio()
+      loopActive = true
+      loopIndex = 0
+      loopButton.textContent = '■ 停止'
+      loopButton.setAttribute('aria-pressed', 'true')
+      loopButton.classList.add('is-playing')
+      playLoopItem()
+    })
+
+    answerButton.addEventListener('click', () => {
+      const showingAnswer = !back.hidden
+      stopAudio()
+      back.hidden = showingAnswer
+      answerButton.textContent = showingAnswer ? '显示答案' : '返回正面'
+      status.textContent = showingAnswer ? '卡片正面' : '卡片背面'
+      if (!showingAnswer) playFile(audioFiles[0], () => playFile(audioFiles[1], () => playFile(audioFiles[2], () => playFile(audioFiles[3]))))
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    })
+
+    themeButton.addEventListener('click', () => {
+      document.body.classList.toggle('night')
+      themeButton.setAttribute('aria-label', document.body.classList.contains('night') ? '切换浅色模式' : '切换深色模式')
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,920 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e9]:
+      - strong [ref=e10]: 句练
+      - generic [ref=e11]: 软件英语 · 100 句
+    - generic "连续学习天数" [ref=e13]: "0"
+  - main [ref=e16]:
+    - generic [ref=e117]:
+      - generic [ref=e118]:
+        - paragraph [ref=e119]: 完整句库
+        - heading "100 个工作场景" [level=1] [ref=e120]
+        - paragraph [ref=e121]: 搜索中文、英文或软件术语，点喇叭直接复听。
+      - textbox [ref=e126]:
+        - /placeholder: 搜索句子，例如 PR、发布、阻塞…
+      - generic [ref=e127]: 找到 100 句
+      - generic [ref=e128]:
+        - article [ref=e129]:
+          - generic [ref=e130]: "001"
+          - generic [ref=e131]:
+            - text: 会议基础表达
+            - heading "Shall we get started?" [level=2] [ref=e132]
+            - paragraph [ref=e133]: 我们开始吧？
+            - strong [ref=e134]: Yes, let's begin.
+            - generic [ref=e135]: 一般将来时
+          - button "播放自然连读" [ref=e136] [cursor=pointer]
+        - article [ref=e141]:
+          - generic [ref=e142]: "002"
+          - generic [ref=e143]:
+            - text: 会议基础表达
+            - heading "Can you hear me?" [level=2] [ref=e144]
+            - paragraph [ref=e145]: 能听到我说话吗？
+            - strong [ref=e146]: Yes, loud and clear.
+            - generic [ref=e147]: 情态动词结构
+          - button "播放自然连读" [ref=e148] [cursor=pointer]
+        - article [ref=e153]:
+          - generic [ref=e154]: "003"
+          - generic [ref=e155]:
+            - text: 会议基础表达
+            - heading "Can you see my screen?" [level=2] [ref=e156]
+            - paragraph [ref=e157]: 能看到我的屏幕吗？
+            - strong [ref=e158]: Yes, I can see it.
+            - generic [ref=e159]: 情态动词结构
+          - button "播放自然连读" [ref=e160] [cursor=pointer]
+        - article [ref=e165]:
+          - generic [ref=e166]: "004"
+          - generic [ref=e167]:
+            - text: 会议基础表达
+            - heading "Is everyone here?" [level=2] [ref=e168]
+            - paragraph [ref=e169]: 大家都到了吗？
+            - strong [ref=e170]: We are still waiting for [name].
+            - generic [ref=e171]: 一般现在时 + 现在进行时
+          - button "播放自然连读" [ref=e172] [cursor=pointer]
+        - article [ref=e177]:
+          - generic [ref=e178]: "005"
+          - generic [ref=e179]:
+            - text: 会议基础表达
+            - heading "What is the agenda today?" [level=2] [ref=e180]
+            - paragraph [ref=e181]: 今天的议程是什么？
+            - strong [ref=e182]: We will discuss [topic] and agree on the next steps.
+            - generic [ref=e183]: 一般现在时 + 一般将来时
+          - button "播放自然连读" [ref=e184] [cursor=pointer]
+        - article [ref=e189]:
+          - generic [ref=e190]: "006"
+          - generic [ref=e191]:
+            - text: 会议基础表达
+            - heading "How much time do we have?" [level=2] [ref=e192]
+            - paragraph [ref=e193]: 我们有多少时间？
+            - strong [ref=e194]: We have about [30 minutes].
+            - generic [ref=e195]: 一般现在时
+          - button "播放自然连读" [ref=e196] [cursor=pointer]
+        - article [ref=e201]:
+          - generic [ref=e202]: "007"
+          - generic [ref=e203]:
+            - text: 会议基础表达
+            - heading "Can we move on to the next topic?" [level=2] [ref=e204]
+            - paragraph [ref=e205]: 可以进入下一个议题吗？
+            - strong [ref=e206]: Yes, let's move on.
+            - generic [ref=e207]: 情态动词结构
+          - button "播放自然连读" [ref=e208] [cursor=pointer]
+        - article [ref=e213]:
+          - generic [ref=e214]: "008"
+          - generic [ref=e215]:
+            - text: 会议基础表达
+            - heading "Does anyone have anything to add?" [level=2] [ref=e216]
+            - paragraph [ref=e217]: 有人要补充吗？
+            - strong [ref=e218]: Nothing from me.
+            - generic [ref=e219]: 一般现在时
+          - button "播放自然连读" [ref=e220] [cursor=pointer]
+        - article [ref=e225]:
+          - generic [ref=e226]: "009"
+          - generic [ref=e227]:
+            - text: 会议基础表达
+            - heading "Can we discuss this offline?" [level=2] [ref=e228]
+            - paragraph [ref=e229]: 可以会后单独讨论吗？
+            - strong [ref=e230]: Sure. I will message you after the meeting.
+            - generic [ref=e231]: 一般将来时 + 情态动词结构
+          - button "播放自然连读" [ref=e232] [cursor=pointer]
+        - article [ref=e237]:
+          - generic [ref=e238]: "010"
+          - generic [ref=e239]:
+            - text: 会议基础表达
+            - heading "Could you share the meeting notes?" [level=2] [ref=e240]
+            - paragraph [ref=e241]: 可以分享会议记录吗？
+            - strong [ref=e242]: Yes, I will send them shortly.
+            - generic [ref=e243]: 一般将来时 + 情态动词结构
+          - button "播放自然连读" [ref=e244] [cursor=pointer]
+        - article [ref=e249]:
+          - generic [ref=e250]: "011"
+          - generic [ref=e251]:
+            - text: 没听清与请求澄清
+            - heading "Could you repeat that, please?" [level=2] [ref=e252]
+            - paragraph [ref=e253]: 可以再说一遍吗？
+            - strong [ref=e254]: Sure. I said [repeat the key point].
+            - generic [ref=e255]: 一般过去时 + 情态动词结构
+          - button "播放自然连读" [ref=e256] [cursor=pointer]
+        - article [ref=e261]:
+          - generic [ref=e262]: "012"
+          - generic [ref=e263]:
+            - text: 没听清与请求澄清
+            - heading "Could you speak a little more slowly?" [level=2] [ref=e264]
+            - paragraph [ref=e265]: 可以说慢一点吗？
+            - strong [ref=e266]: Of course.
+            - generic [ref=e267]: 情态动词结构
+          - button "播放自然连读" [ref=e268] [cursor=pointer]
+        - article [ref=e273]:
+          - generic [ref=e274]: "013"
+          - generic [ref=e275]:
+            - text: 没听清与请求澄清
+            - heading "What do you mean by [term]?" [level=2] [ref=e276]
+            - paragraph [ref=e277]: "[术语] 是什么意思？"
+            - strong [ref=e278]: I mean [simple explanation].
+            - generic [ref=e279]: 一般现在时
+          - button "播放自然连读" [ref=e280] [cursor=pointer]
+        - article [ref=e285]:
+          - generic [ref=e286]: "014"
+          - generic [ref=e287]:
+            - text: 没听清与请求澄清
+            - heading "Could you explain that again?" [level=2] [ref=e288]
+            - paragraph [ref=e289]: 可以再解释一次吗？
+            - strong [ref=e290]: Sure. Let me explain it another way.
+            - generic [ref=e291]: 情态动词结构
+          - button "播放自然连读" [ref=e292] [cursor=pointer]
+        - article [ref=e297]:
+          - generic [ref=e298]: "015"
+          - generic [ref=e299]:
+            - text: 没听清与请求澄清
+            - heading "Could you give me an example?" [level=2] [ref=e300]
+            - paragraph [ref=e301]: 可以举个例子吗？
+            - strong [ref=e302]: For example, [example].
+            - generic [ref=e303]: 情态动词结构
+          - button "播放自然连读" [ref=e304] [cursor=pointer]
+        - article [ref=e309]:
+          - generic [ref=e310]: "016"
+          - generic [ref=e311]:
+            - text: 没听清与请求澄清
+            - heading "Did I understand you correctly?" [level=2] [ref=e312]
+            - paragraph [ref=e313]: 我理解得对吗？
+            - strong [ref=e314]: Yes, that is correct.
+            - generic [ref=e315]: 一般现在时 + 一般过去时
+          - button "播放自然连读" [ref=e316] [cursor=pointer]
+        - article [ref=e321]:
+          - generic [ref=e322]: "017"
+          - generic [ref=e323]:
+            - text: 没听清与请求澄清
+            - heading "Are you asking about [A] or [B]?" [level=2] [ref=e324]
+            - paragraph [ref=e325]: 你问的是 [A] 还是 [B]？
+            - strong [ref=e326]: I am asking about [A].
+            - generic [ref=e327]: 一般现在时 + 现在进行时
+          - button "播放自然连读" [ref=e328] [cursor=pointer]
+        - article [ref=e333]:
+          - generic [ref=e334]: "018"
+          - generic [ref=e335]:
+            - text: 没听清与请求澄清
+            - heading "Could you put that in the chat?" [level=2] [ref=e336]
+            - paragraph [ref=e337]: 可以把它发到聊天框吗？
+            - strong [ref=e338]: Sure. I will post it now.
+            - generic [ref=e339]: 一般将来时 + 情态动词结构
+          - button "播放自然连读" [ref=e340] [cursor=pointer]
+        - article [ref=e345]:
+          - generic [ref=e346]: "019"
+          - generic [ref=e347]:
+            - text: 没听清与请求澄清
+            - heading "What was the last point?" [level=2] [ref=e348]
+            - paragraph [ref=e349]: 上一个要点是什么？
+            - strong [ref=e350]: The last point was [point].
+            - generic [ref=e351]: 一般过去时
+          - button "播放自然连读" [ref=e352] [cursor=pointer]
+        - article [ref=e357]:
+          - generic [ref=e358]: "020"
+          - generic [ref=e359]:
+            - text: 没听清与请求澄清
+            - heading "Does that make sense?" [level=2] [ref=e360]
+            - paragraph [ref=e361]: 这样说清楚吗？
+            - strong [ref=e362]: Yes, that is clear now.
+            - generic [ref=e363]: 一般现在时
+          - button "播放自然连读" [ref=e364] [cursor=pointer]
+        - article [ref=e369]:
+          - generic [ref=e370]: "021"
+          - generic [ref=e371]:
+            - text: 工作与进度
+            - heading "What are you working on?" [level=2] [ref=e372]
+            - paragraph [ref=e373]: 你在做什么？
+            - strong [ref=e374]: I am working on [task].
+            - generic [ref=e375]: 一般现在时 + 现在进行时
+          - button "播放自然连读" [ref=e376] [cursor=pointer]
+        - article [ref=e381]:
+          - generic [ref=e382]: "022"
+          - generic [ref=e383]:
+            - text: 工作与进度
+            - heading "What is the current status?" [level=2] [ref=e384]
+            - paragraph [ref=e385]: 当前进度如何？
+            - strong [ref=e386]: The implementation is complete, and testing is in progress.
+            - generic [ref=e387]: 一般现在时 + 现在进行时
+          - button "播放自然连读" [ref=e388] [cursor=pointer]
+        - article [ref=e393]:
+          - generic [ref=e394]: "023"
+          - generic [ref=e395]:
+            - text: 工作与进度
+            - heading "Are we on track?" [level=2] [ref=e396]
+            - paragraph [ref=e397]: 我们能按计划完成吗？
+            - strong [ref=e398]: Yes, we are on track for [date].
+            - generic [ref=e399]: 一般现在时
+          - button "播放自然连读" [ref=e400] [cursor=pointer]
+        - article [ref=e405]:
+          - generic [ref=e406]: "024"
+          - generic [ref=e407]:
+            - text: 工作与进度
+            - heading "When will it be ready?" [level=2] [ref=e408]
+            - paragraph [ref=e409]: 什么时候可以完成？
+            - strong [ref=e410]: It should be ready by [date/time].
+            - generic [ref=e411]: 一般将来时 + 情态动词结构
+          - button "播放自然连读" [ref=e412] [cursor=pointer]
+        - article [ref=e417]:
+          - generic [ref=e418]: "025"
+          - generic [ref=e419]:
+            - text: 工作与进度
+            - heading "What is left to do?" [level=2] [ref=e420]
+            - paragraph [ref=e421]: 还剩什么工作？
+            - strong [ref=e422]: We still need to finish [testing/documentation/review].
+            - generic [ref=e423]: 一般现在时 + 情态动词结构
+          - button "播放自然连读" [ref=e424] [cursor=pointer]
+        - article [ref=e429]:
+          - generic [ref=e430]: "026"
+          - generic [ref=e431]:
+            - text: 工作与进度
+            - heading "Is anything blocking you?" [level=2] [ref=e432]
+            - paragraph [ref=e433]: 有什么阻碍吗？
+            - strong [ref=e434]: Yes, I am waiting for [access/API/decision].
+            - generic [ref=e435]: 一般现在时 + 现在进行时
+          - button "播放自然连读" [ref=e436] [cursor=pointer]
+        - article [ref=e441]:
+          - generic [ref=e442]: "027"
+          - generic [ref=e443]:
+            - text: 工作与进度
+            - heading "Do you need any help?" [level=2] [ref=e444]
+            - paragraph [ref=e445]: 需要帮助吗？
+            - strong [ref=e446]: Yes, could you help me with [task]?
+            - generic [ref=e447]: 一般现在时 + 情态动词结构
+          - button "播放自然连读" [ref=e448] [cursor=pointer]
+        - article [ref=e453]:
+          - generic [ref=e454]: "028"
+          - generic [ref=e455]:
+            - text: 工作与进度
+            - heading "Who is working on this?" [level=2] [ref=e456]
+            - paragraph [ref=e457]: 谁在负责这项工作？
+            - strong [ref=e458]: "[Name] is the owner."
+            - generic [ref=e459]: 一般现在时 + 现在进行时
+          - button "播放自然连读" [ref=e460] [cursor=pointer]
+        - article [ref=e465]:
+          - generic [ref=e466]: "029"
+          - generic [ref=e467]:
+            - text: 工作与进度
+            - heading "Have you finished the task?" [level=2] [ref=e468]
+            - paragraph [ref=e469]: 任务完成了吗？
+            - strong [ref=e470]: Not yet. I expect to finish it today.
+            - generic [ref=e471]: 现在完成时
+          - button "播放自然连读" [ref=e472] [cursor=pointer]
+        - article [ref=e477]:
+          - generic [ref=e478]: "030"
+          - generic [ref=e479]:
+            - text: 工作与进度
+            - heading "Can you give us an update?" [level=2] [ref=e480]
+            - paragraph [ref=e481]: 可以汇报一下进度吗？
+            - strong [ref=e482]: Sure. [work] is done, and [remaining work] is next.
+            - generic [ref=e483]: 一般现在时 + 现在进行时 + 情态动词结构
+          - button "播放自然连读" [ref=e484] [cursor=pointer]
+        - article [ref=e489]:
+          - generic [ref=e490]: "031"
+          - generic [ref=e491]:
+            - text: 任务、截止日期与优先级
+            - heading "Can you take this task?" [level=2] [ref=e492]
+            - paragraph [ref=e493]: 你可以接这个任务吗？
+            - strong [ref=e494]: Yes, I can take it.
+            - generic [ref=e495]: 情态动词结构
+          - button "播放自然连读" [ref=e496] [cursor=pointer]
+        - article [ref=e501]:
+          - generic [ref=e502]: "032"
+          - generic [ref=e503]:
+            - text: 任务、截止日期与优先级
+            - heading "Could you finish this by Friday?" [level=2] [ref=e504]
+            - paragraph [ref=e505]: 可以在周五前完成吗？
+            - strong [ref=e506]: Yes, Friday works for me.
+            - generic [ref=e507]: 情态动词结构
+          - button "播放自然连读" [ref=e508] [cursor=pointer]
+        - article [ref=e513]:
+          - generic [ref=e514]: "033"
+          - generic [ref=e515]:
+            - text: 任务、截止日期与优先级
+            - heading "Can we move the deadline?" [level=2] [ref=e516]
+            - paragraph [ref=e517]: 可以调整截止日期吗？
+            - strong [ref=e518]: Yes. What date would be more realistic?
+            - generic [ref=e519]: 情态动词结构
+          - button "播放自然连读" [ref=e520] [cursor=pointer]
+        - article [ref=e525]:
+          - generic [ref=e526]: "034"
+          - generic [ref=e527]:
+            - text: 任务、截止日期与优先级
+            - heading "Which task has the highest priority?" [level=2] [ref=e528]
+            - paragraph [ref=e529]: 哪个任务优先级最高？
+            - strong [ref=e530]: "[Task A] is the top priority."
+            - generic [ref=e531]: 一般现在时
+          - button "播放自然连读" [ref=e532] [cursor=pointer]
+        - article [ref=e537]:
+          - generic [ref=e538]: "035"
+          - generic [ref=e539]:
+            - text: 任务、截止日期与优先级
+            - heading "Is this urgent?" [level=2] [ref=e540]
+            - paragraph [ref=e541]: 这很紧急吗？
+            - strong [ref=e542]: Yes, it is blocking the release.
+            - generic [ref=e543]: 一般现在时 + 现在进行时
+          - button "播放自然连读" [ref=e544] [cursor=pointer]
+        - article [ref=e549]:
+          - generic [ref=e550]: "036"
+          - generic [ref=e551]:
+            - text: 任务、截止日期与优先级
+            - heading "Can this wait until next week?" [level=2] [ref=e552]
+            - paragraph [ref=e553]: 这个可以等到下周吗？
+            - strong [ref=e554]: Yes, it is not urgent.
+            - generic [ref=e555]: 一般现在时 + 情态动词结构
+          - button "播放自然连读" [ref=e556] [cursor=pointer]
+        - article [ref=e561]:
+          - generic [ref=e562]: "037"
+          - generic [ref=e563]:
+            - text: 任务、截止日期与优先级
+            - heading "How long will this take?" [level=2] [ref=e564]
+            - paragraph [ref=e565]: 这需要多长时间？
+            - strong [ref=e566]: I estimate [two to three days].
+            - generic [ref=e567]: 一般将来时
+          - button "播放自然连读" [ref=e568] [cursor=pointer]
+        - article [ref=e573]:
+          - generic [ref=e574]: "038"
+          - generic [ref=e575]:
+            - text: 任务、截止日期与优先级
+            - heading "Can we reduce the scope?" [level=2] [ref=e576]
+            - paragraph [ref=e577]: 可以缩小范围吗？
+            - strong [ref=e578]: Yes, we can postpone [feature].
+            - generic [ref=e579]: 情态动词结构
+          - button "播放自然连读" [ref=e580] [cursor=pointer]
+        - article [ref=e585]:
+          - generic [ref=e586]: "039"
+          - generic [ref=e587]:
+            - text: 任务、截止日期与优先级
+            - heading "What should I work on next?" [level=2] [ref=e588]
+            - paragraph [ref=e589]: 我接下来应该做什么？
+            - strong [ref=e590]: Please start with [task].
+            - generic [ref=e591]: 情态动词结构
+          - button "播放自然连读" [ref=e592] [cursor=pointer]
+        - article [ref=e597]:
+          - generic [ref=e598]: "040"
+          - generic [ref=e599]:
+            - text: 任务、截止日期与优先级
+            - heading "Can you create a ticket for this?" [level=2] [ref=e600]
+            - paragraph [ref=e601]: 可以为此创建一个工单吗？
+            - strong [ref=e602]: Sure. I will create one today.
+            - generic [ref=e603]: 一般将来时 + 情态动词结构
+          - button "播放自然连读" [ref=e604] [cursor=pointer]
+        - article [ref=e609]:
+          - generic [ref=e610]: "041"
+          - generic [ref=e611]:
+            - text: 需求与产品问题
+            - heading "What problem are we solving?" [level=2] [ref=e612]
+            - paragraph [ref=e613]: 我们要解决什么问题？
+            - strong [ref=e614]: We are helping users [goal].
+            - generic [ref=e615]: 一般现在时 + 现在进行时
+          - button "播放自然连读" [ref=e616] [cursor=pointer]
+        - article [ref=e621]:
+          - generic [ref=e622]: "042"
+          - generic [ref=e623]:
+            - text: 需求与产品问题
+            - heading "Who is this feature for?" [level=2] [ref=e624]
+            - paragraph [ref=e625]: 这个功能面向谁？
+            - strong [ref=e626]: It is mainly for [user group].
+            - generic [ref=e627]: 一般现在时
+          - button "播放自然连读" [ref=e628] [cursor=pointer]
+        - article [ref=e633]:
+          - generic [ref=e634]: "043"
+          - generic [ref=e635]:
+            - text: 需求与产品问题
+            - heading "What is the expected behavior?" [level=2] [ref=e636]
+            - paragraph [ref=e637]: 预期行为是什么？
+            - strong [ref=e638]: The system should [expected behavior].
+            - generic [ref=e639]: 一般现在时 + 情态动词结构
+          - button "播放自然连读" [ref=e640] [cursor=pointer]
+        - article [ref=e645]:
+          - generic [ref=e646]: "044"
+          - generic [ref=e647]:
+            - text: 需求与产品问题
+            - heading "What are the acceptance criteria?" [level=2] [ref=e648]
+            - paragraph [ref=e649]: 验收标准是什么？
+            - strong [ref=e650]: The feature must support [criteria].
+            - generic [ref=e651]: 一般现在时 + 情态动词结构
+          - button "播放自然连读" [ref=e652] [cursor=pointer]
+        - article [ref=e657]:
+          - generic [ref=e658]: "045"
+          - generic [ref=e659]:
+            - text: 需求与产品问题
+            - heading "Is this in scope?" [level=2] [ref=e660]
+            - paragraph [ref=e661]: 这在范围内吗？
+            - strong [ref=e662]: Yes, it is part of this release.
+            - generic [ref=e663]: 一般现在时
+          - button "播放自然连读" [ref=e664] [cursor=pointer]
+        - article [ref=e669]:
+          - generic [ref=e670]: "046"
+          - generic [ref=e671]:
+            - text: 需求与产品问题
+            - heading "Is this required for the first version?" [level=2] [ref=e672]
+            - paragraph [ref=e673]: 第一版必须包含这个吗？
+            - strong [ref=e674]: No, we can add it later.
+            - generic [ref=e675]: 一般现在时 + 情态动词结构
+          - button "播放自然连读" [ref=e676] [cursor=pointer]
+        - article [ref=e681]:
+          - generic [ref=e682]: "047"
+          - generic [ref=e683]:
+            - text: 需求与产品问题
+            - heading "What should happen if it fails?" [level=2] [ref=e684]
+            - paragraph [ref=e685]: 如果失败了，应该发生什么？
+            - strong [ref=e686]: The user should see a clear error message.
+            - generic [ref=e687]: 情态动词结构
+          - button "播放自然连读" [ref=e688] [cursor=pointer]
+        - article [ref=e693]:
+          - generic [ref=e694]: "048"
+          - generic [ref=e695]:
+            - text: 需求与产品问题
+            - heading "Do we need to support existing users?" [level=2] [ref=e696]
+            - paragraph [ref=e697]: 需要支持现有用户吗？
+            - strong [ref=e698]: Yes, the change must be backward compatible.
+            - generic [ref=e699]: 一般现在时 + 情态动词结构
+          - button "播放自然连读" [ref=e700] [cursor=pointer]
+        - article [ref=e705]:
+          - generic [ref=e706]: "049"
+          - generic [ref=e707]:
+            - text: 需求与产品问题
+            - heading "Can you clarify this requirement?" [level=2] [ref=e708]
+            - paragraph [ref=e709]: 可以说明一下这个需求吗？
+            - strong [ref=e710]: Sure. The user needs to [action].
+            - generic [ref=e711]: 情态动词结构
+          - button "播放自然连读" [ref=e712] [cursor=pointer]
+        - article [ref=e717]:
+          - generic [ref=e718]: "050"
+          - generic [ref=e719]:
+            - text: 需求与产品问题
+            - heading "Has the requirement changed?" [level=2] [ref=e720]
+            - paragraph [ref=e721]: 需求变更了吗？
+            - strong [ref=e722]: Yes, [change] was added yesterday.
+            - generic [ref=e723]: 现在完成时 + 一般过去时
+          - button "播放自然连读" [ref=e724] [cursor=pointer]
+        - article [ref=e729]:
+          - generic [ref=e730]: "051"
+          - generic [ref=e731]:
+            - text: 技术讨论
+            - heading "How does this work?" [level=2] [ref=e732]
+            - paragraph [ref=e733]: 它是如何工作的？
+            - strong [ref=e734]: The client sends a request, and the server returns [result].
+            - generic [ref=e735]: 一般现在时
+          - button "播放自然连读" [ref=e736] [cursor=pointer]
+        - article [ref=e741]:
+          - generic [ref=e742]: "052"
+          - generic [ref=e743]:
+            - text: 技术讨论
+            - heading "Why did you choose this approach?" [level=2] [ref=e744]
+            - paragraph [ref=e745]: 为什么选择这种方案？
+            - strong [ref=e746]: It is simpler and easier to maintain.
+            - generic [ref=e747]: 一般现在时 + 一般过去时
+          - button "播放自然连读" [ref=e748] [cursor=pointer]
+        - article [ref=e753]:
+          - generic [ref=e754]: "053"
+          - generic [ref=e755]:
+            - text: 技术讨论
+            - heading "What are the risks?" [level=2] [ref=e756]
+            - paragraph [ref=e757]: 有哪些风险？
+            - strong [ref=e758]: The main risk is [risk].
+            - generic [ref=e759]: 一般现在时
+          - button "播放自然连读" [ref=e760] [cursor=pointer]
+        - article [ref=e765]:
+          - generic [ref=e766]: "054"
+          - generic [ref=e767]:
+            - text: 技术讨论
+            - heading "What are the trade-offs?" [level=2] [ref=e768]
+            - paragraph [ref=e769]: 有哪些取舍？
+            - strong [ref=e770]: It is faster, but it uses more memory.
+            - generic [ref=e771]: 一般现在时
+          - button "播放自然连读" [ref=e772] [cursor=pointer]
+        - article [ref=e777]:
+          - generic [ref=e778]: "055"
+          - generic [ref=e779]:
+            - text: 技术讨论
+            - heading "Do we have another option?" [level=2] [ref=e780]
+            - paragraph [ref=e781]: 有其他方案吗？
+            - strong [ref=e782]: Yes, we could use [alternative].
+            - generic [ref=e783]: 一般现在时 + 情态动词结构
+          - button "播放自然连读" [ref=e784] [cursor=pointer]
+        - article [ref=e789]:
+          - generic [ref=e790]: "056"
+          - generic [ref=e791]:
+            - text: 技术讨论
+            - heading "Will this affect performance?" [level=2] [ref=e792]
+            - paragraph [ref=e793]: 这会影响性能吗？
+            - strong [ref=e794]: The impact should be small.
+            - generic [ref=e795]: 一般将来时 + 情态动词结构
+          - button "播放自然连读" [ref=e796] [cursor=pointer]
+        - article [ref=e801]:
+          - generic [ref=e802]: "057"
+          - generic [ref=e803]:
+            - text: 技术讨论
+            - heading "Is this backward compatible?" [level=2] [ref=e804]
+            - paragraph [ref=e805]: 这向后兼容吗？
+            - strong [ref=e806]: Yes, existing clients will continue to work.
+            - generic [ref=e807]: 一般现在时 + 一般将来时
+          - button "播放自然连读" [ref=e808] [cursor=pointer]
+        - article [ref=e813]:
+          - generic [ref=e814]: "058"
+          - generic [ref=e815]:
+            - text: 技术讨论
+            - heading "Can this scale?" [level=2] [ref=e816]
+            - paragraph [ref=e817]: 这可以扩展吗？
+            - strong [ref=e818]: Yes, we can add more worker instances.
+            - generic [ref=e819]: 情态动词结构
+          - button "播放自然连读" [ref=e820] [cursor=pointer]
+        - article [ref=e825]:
+          - generic [ref=e826]: "059"
+          - generic [ref=e827]:
+            - text: 技术讨论
+            - heading "What happens in this case?" [level=2] [ref=e828]
+            - paragraph [ref=e829]: 这种情况下会发生什么？
+            - strong [ref=e830]: The request fails and is retried automatically.
+            - generic [ref=e831]: 一般现在时
+          - button "播放自然连读" [ref=e832] [cursor=pointer]
+        - article [ref=e837]:
+          - generic [ref=e838]: "060"
+          - generic [ref=e839]:
+            - text: 技术讨论
+            - heading "Can we reuse the existing code?" [level=2] [ref=e840]
+            - paragraph [ref=e841]: 可以复用现有代码吗？
+            - strong [ref=e842]: Yes, most of the logic can be reused.
+            - generic [ref=e843]: 情态动词结构
+          - button "播放自然连读" [ref=e844] [cursor=pointer]
+        - article [ref=e849]:
+          - generic [ref=e850]: "061"
+          - generic [ref=e851]:
+            - text: 代码、PR 与评审
+            - heading "Have you pushed your changes?" [level=2] [ref=e852]
+            - paragraph [ref=e853]: 你推送代码了吗？
+            - strong [ref=e854]: Yes, I pushed them this morning.
+            - generic [ref=e855]: 现在完成时 + 一般过去时
+          - button "播放自然连读" [ref=e856] [cursor=pointer]
+        - article [ref=e861]:
+          - generic [ref=e862]: "062"
+          - generic [ref=e863]:
+            - text: 代码、PR 与评审
+            - heading "Is the PR ready for review?" [level=2] [ref=e864]
+            - paragraph [ref=e865]: PR 可以评审了吗？
+            - strong [ref=e866]: Yes, it is ready.
+            - generic [ref=e867]: 一般现在时
+          - button "播放自然连读" [ref=e868] [cursor=pointer]
+        - article [ref=e873]:
+          - generic [ref=e874]: "063"
+          - generic [ref=e875]:
+            - text: 代码、PR 与评审
+            - heading "Could you review my PR?" [level=2] [ref=e876]
+            - paragraph [ref=e877]: 可以评审一下我的 PR 吗？
+            - strong [ref=e878]: Sure. I will review it today.
+            - generic [ref=e879]: 一般将来时 + 情态动词结构
+          - button "播放自然连读" [ref=e880] [cursor=pointer]
+        - article [ref=e885]:
+          - generic [ref=e886]: "064"
+          - generic [ref=e887]:
+            - text: 代码、PR 与评审
+            - heading "What does this PR change?" [level=2] [ref=e888]
+            - paragraph [ref=e889]: 这个 PR 修改了什么？
+            - strong [ref=e890]: It fixes [bug] and adds [feature].
+            - generic [ref=e891]: 一般现在时
+          - button "播放自然连读" [ref=e892] [cursor=pointer]
+        - article [ref=e897]:
+          - generic [ref=e898]: "065"
+          - generic [ref=e899]:
+            - text: 代码、PR 与评审
+            - heading "Did you add tests?" [level=2] [ref=e900]
+            - paragraph [ref=e901]: 你添加测试了吗？
+            - strong [ref=e902]: Yes, I added unit and integration tests.
+            - generic [ref=e903]: 一般过去时
+          - button "播放自然连读" [ref=e904] [cursor=pointer]
+        - article [ref=e909]:
+          - generic [ref=e910]: "066"
+          - generic [ref=e911]:
+            - text: 代码、PR 与评审
+            - heading "Could you update this code?" [level=2] [ref=e912]
+            - paragraph [ref=e913]: 可以更新这段代码吗？
+            - strong [ref=e914]: Sure. I will make the change.
+            - generic [ref=e915]: 一般将来时 + 情态动词结构
+          - button "播放自然连读" [ref=e916] [cursor=pointer]
+        - article [ref=e921]:
+          - generic [ref=e922]: "067"
+          - generic [ref=e923]:
+            - text: 代码、PR 与评审
+            - heading "Why do we need this check?" [level=2] [ref=e924]
+            - paragraph [ref=e925]: 为什么需要这项检查？
+            - strong [ref=e926]: It prevents [invalid state/error].
+            - generic [ref=e927]: 一般现在时
+          - button "播放自然连读" [ref=e928] [cursor=pointer]
+        - article [ref=e933]:
+          - generic [ref=e934]: "068"
+          - generic [ref=e935]:
+            - text: 代码、PR 与评审
+            - heading "Can you resolve the conflict?" [level=2] [ref=e936]
+            - paragraph [ref=e937]: 可以解决冲突吗？
+            - strong [ref=e938]: Yes, I will rebase the branch.
+            - generic [ref=e939]: 一般将来时 + 情态动词结构
+          - button "播放自然连读" [ref=e940] [cursor=pointer]
+        - article [ref=e945]:
+          - generic [ref=e946]: "069"
+          - generic [ref=e947]:
+            - text: 代码、PR 与评审
+            - heading "Have you addressed the comments?" [level=2] [ref=e948]
+            - paragraph [ref=e949]: 你处理评审意见了吗？
+            - strong [ref=e950]: Yes, I pushed the updates.
+            - generic [ref=e951]: 现在完成时 + 一般过去时
+          - button "播放自然连读" [ref=e952] [cursor=pointer]
+        - article [ref=e957]:
+          - generic [ref=e958]: "070"
+          - generic [ref=e959]:
+            - text: 代码、PR 与评审
+            - heading "Is this comment blocking?" [level=2] [ref=e960]
+            - paragraph [ref=e961]: 这条意见是阻塞性的吗？
+            - strong [ref=e962]: No, it is only a suggestion.
+            - generic [ref=e963]: 一般现在时 + 现在进行时
+          - button "播放自然连读" [ref=e964] [cursor=pointer]
+        - article [ref=e969]:
+          - generic [ref=e970]: "071"
+          - generic [ref=e971]:
+            - text: 测试与 Bug
+            - heading "Can you reproduce the issue?" [level=2] [ref=e972]
+            - paragraph [ref=e973]: 你能复现这个问题吗？
+            - strong [ref=e974]: Yes, I can reproduce it consistently.
+            - generic [ref=e975]: 情态动词结构
+          - button "播放自然连读" [ref=e976] [cursor=pointer]
+        - article [ref=e981]:
+          - generic [ref=e982]: "072"
+          - generic [ref=e983]:
+            - text: 测试与 Bug
+            - heading "What are the steps to reproduce it?" [level=2] [ref=e984]
+            - paragraph [ref=e985]: 复现步骤是什么？
+            - strong [ref=e986]: First [step one], then [step two].
+            - generic [ref=e987]: 一般现在时
+          - button "播放自然连读" [ref=e988] [cursor=pointer]
+        - article [ref=e993]:
+          - generic [ref=e994]: "073"
+          - generic [ref=e995]:
+            - text: 测试与 Bug
+            - heading "What did you expect to happen?" [level=2] [ref=e996]
+            - paragraph [ref=e997]: 你的预期结果是什么？
+            - strong [ref=e998]: I expected the page to [expected result].
+            - generic [ref=e999]: 一般过去时
+          - button "播放自然连读" [ref=e1000] [cursor=pointer]
+        - article [ref=e1005]:
+          - generic [ref=e1006]: "074"
+          - generic [ref=e1007]:
+            - text: 测试与 Bug
+            - heading "What actually happened?" [level=2] [ref=e1008]
+            - paragraph [ref=e1009]: 实际发生了什么？
+            - strong [ref=e1010]: The page showed [error/incorrect result].
+            - generic [ref=e1011]: 一般过去时
+          - button "播放自然连读" [ref=e1012] [cursor=pointer]
+        - article [ref=e1017]:
+          - generic [ref=e1018]: "075"
+          - generic [ref=e1019]:
+            - text: 测试与 Bug
+            - heading "Which environment are you using?" [level=2] [ref=e1020]
+            - paragraph [ref=e1021]: 你使用哪个环境？
+            - strong [ref=e1022]: I am using [staging/production/local].
+            - generic [ref=e1023]: 一般现在时 + 现在进行时
+          - button "播放自然连读" [ref=e1024] [cursor=pointer]
+        - article [ref=e1029]:
+          - generic [ref=e1030]: "076"
+          - generic [ref=e1031]:
+            - text: 测试与 Bug
+            - heading "Is this a known issue?" [level=2] [ref=e1032]
+            - paragraph [ref=e1033]: 这是已知问题吗？
+            - strong [ref=e1034]: Yes, we already have a ticket for it.
+            - generic [ref=e1035]: 一般现在时
+          - button "播放自然连读" [ref=e1036] [cursor=pointer]
+        - article [ref=e1041]:
+          - generic [ref=e1042]: "077"
+          - generic [ref=e1043]:
+            - text: 测试与 Bug
+            - heading "Is this a release blocker?" [level=2] [ref=e1044]
+            - paragraph [ref=e1045]: 这是发布阻塞问题吗？
+            - strong [ref=e1046]: Yes, it affects the main user flow.
+            - generic [ref=e1047]: 一般现在时
+          - button "播放自然连读" [ref=e1048] [cursor=pointer]
+        - article [ref=e1053]:
+          - generic [ref=e1054]: "078"
+          - generic [ref=e1055]:
+            - text: 测试与 Bug
+            - heading "Has the fix been tested?" [level=2] [ref=e1056]
+            - paragraph [ref=e1057]: 修复已经测试了吗？
+            - strong [ref=e1058]: Yes, QA verified it in staging.
+            - generic [ref=e1059]: 现在完成时
+          - button "播放自然连读" [ref=e1060] [cursor=pointer]
+        - article [ref=e1065]:
+          - generic [ref=e1066]: "079"
+          - generic [ref=e1067]:
+            - text: 测试与 Bug
+            - heading "Do we have a workaround?" [level=2] [ref=e1068]
+            - paragraph [ref=e1069]: 有临时解决方法吗？
+            - strong [ref=e1070]: Yes, users can [temporary action].
+            - generic [ref=e1071]: 一般现在时 + 情态动词结构
+          - button "播放自然连读" [ref=e1072] [cursor=pointer]
+        - article [ref=e1077]:
+          - generic [ref=e1078]: "080"
+          - generic [ref=e1079]:
+            - text: 测试与 Bug
+            - heading "Can you attach the logs?" [level=2] [ref=e1080]
+            - paragraph [ref=e1081]: 可以附上日志吗？
+            - strong [ref=e1082]: Sure. I will add them to the ticket.
+            - generic [ref=e1083]: 一般将来时 + 情态动词结构
+          - button "播放自然连读" [ref=e1084] [cursor=pointer]
+        - article [ref=e1089]:
+          - generic [ref=e1090]: "081"
+          - generic [ref=e1091]:
+            - text: 演示、发布与生产环境
+            - heading "Can you show us how it works?" [level=2] [ref=e1092]
+            - paragraph [ref=e1093]: 可以演示一下它如何工作吗？
+            - strong [ref=e1094]: Sure. Let me share my screen.
+            - generic [ref=e1095]: 情态动词结构
+          - button "播放自然连读" [ref=e1096] [cursor=pointer]
+        - article [ref=e1101]:
+          - generic [ref=e1102]: "082"
+          - generic [ref=e1103]:
+            - text: 演示、发布与生产环境
+            - heading "What are you going to show?" [level=2] [ref=e1104]
+            - paragraph [ref=e1105]: 你要演示什么？
+            - strong [ref=e1106]: I will show the main user flow.
+            - generic [ref=e1107]: 一般现在时 + 现在进行时 + 一般将来时
+          - button "播放自然连读" [ref=e1108] [cursor=pointer]
+        - article [ref=e1113]:
+          - generic [ref=e1114]: "083"
+          - generic [ref=e1115]:
+            - text: 演示、发布与生产环境
+            - heading "Is this the latest version?" [level=2] [ref=e1116]
+            - paragraph [ref=e1117]: 这是最新版本吗？
+            - strong [ref=e1118]: Yes, this is the latest staging build.
+            - generic [ref=e1119]: 一般现在时 + 现在进行时
+          - button "播放自然连读" [ref=e1120] [cursor=pointer]
+        - article [ref=e1125]:
+          - generic [ref=e1126]: "084"
+          - generic [ref=e1127]:
+            - text: 演示、发布与生产环境
+            - heading "What changed in this release?" [level=2] [ref=e1128]
+            - paragraph [ref=e1129]: 本次发布有哪些变更？
+            - strong [ref=e1130]: We added [feature] and fixed [bug].
+            - generic [ref=e1131]: 一般过去时
+          - button "播放自然连读" [ref=e1132] [cursor=pointer]
+        - article [ref=e1137]:
+          - generic [ref=e1138]: "085"
+          - generic [ref=e1139]:
+            - text: 演示、发布与生产环境
+            - heading "Are we ready to release?" [level=2] [ref=e1140]
+            - paragraph [ref=e1141]: 可以发布了吗？
+            - strong [ref=e1142]: Yes, all required checks are passing.
+            - generic [ref=e1143]: 一般现在时 + 现在进行时
+          - button "播放自然连读" [ref=e1144] [cursor=pointer]
+        - article [ref=e1149]:
+          - generic [ref=e1150]: "086"
+          - generic [ref=e1151]:
+            - text: 演示、发布与生产环境
+            - heading "Do we have a rollback plan?" [level=2] [ref=e1152]
+            - paragraph [ref=e1153]: 有回滚方案吗？
+            - strong [ref=e1154]: Yes, we can restore the previous version.
+            - generic [ref=e1155]: 一般现在时 + 情态动词结构
+          - button "播放自然连读" [ref=e1156] [cursor=pointer]
+        - article [ref=e1161]:
+          - generic [ref=e1162]: "087"
+          - generic [ref=e1163]:
+            - text: 演示、发布与生产环境
+            - heading "Has the deployment started?" [level=2] [ref=e1164]
+            - paragraph [ref=e1165]: 部署开始了吗？
+            - strong [ref=e1166]: Yes, it is in progress.
+            - generic [ref=e1167]: 一般现在时 + 现在完成时
+          - button "播放自然连读" [ref=e1168] [cursor=pointer]
+        - article [ref=e1173]:
+          - generic [ref=e1174]: "088"
+          - generic [ref=e1175]:
+            - text: 演示、发布与生产环境
+            - heading "Did the deployment succeed?" [level=2] [ref=e1176]
+            - paragraph [ref=e1177]: 部署成功了吗？
+            - strong [ref=e1178]: Yes, it completed successfully.
+            - generic [ref=e1179]: 一般过去时
+          - button "播放自然连读" [ref=e1180] [cursor=pointer]
+        - article [ref=e1185]:
+          - generic [ref=e1186]: "089"
+          - generic [ref=e1187]:
+            - text: 演示、发布与生产环境
+            - heading "Is production stable?" [level=2] [ref=e1188]
+            - paragraph [ref=e1189]: 生产环境稳定吗？
+            - strong [ref=e1190]: Yes, the key metrics look normal.
+            - generic [ref=e1191]: 一般现在时
+          - button "播放自然连读" [ref=e1192] [cursor=pointer]
+        - article [ref=e1197]:
+          - generic [ref=e1198]: "090"
+          - generic [ref=e1199]:
+            - text: 演示、发布与生产环境
+            - heading "Are customers affected?" [level=2] [ref=e1200]
+            - paragraph [ref=e1201]: 客户受到影响了吗？
+            - strong [ref=e1202]: Only a small number of users are affected.
+            - generic [ref=e1203]: 一般现在时
+          - button "播放自然连读" [ref=e1204] [cursor=pointer]
+        - article [ref=e1209]:
+          - generic [ref=e1210]: "091"
+          - generic [ref=e1211]:
+            - text: 意见、决定与跟进
+            - heading "What do you think?" [level=2] [ref=e1212]
+            - paragraph [ref=e1213]: 你怎么看？
+            - strong [ref=e1214]: I think this is a good approach.
+            - generic [ref=e1215]: 一般现在时
+          - button "播放自然连读" [ref=e1216] [cursor=pointer]
+        - article [ref=e1221]:
+          - generic [ref=e1222]: "092"
+          - generic [ref=e1223]:
+            - text: 意见、决定与跟进
+            - heading "Do you agree?" [level=2] [ref=e1224]
+            - paragraph [ref=e1225]: 你同意吗？
+            - strong [ref=e1226]: Yes, I agree.
+            - generic [ref=e1227]: 一般现在时
+          - button "播放自然连读" [ref=e1228] [cursor=pointer]
+        - article [ref=e1233]:
+          - generic [ref=e1234]: "093"
+          - generic [ref=e1235]:
+            - text: 意见、决定与跟进
+            - heading "Do you have any concerns?" [level=2] [ref=e1236]
+            - paragraph [ref=e1237]: 你有什么担忧吗？
+            - strong [ref=e1238]: Yes, I am concerned about [risk].
+            - generic [ref=e1239]: 一般现在时
+          - button "播放自然连读" [ref=e1240] [cursor=pointer]
+        - article [ref=e1245]:
+          - generic [ref=e1246]: "094"
+          - generic [ref=e1247]:
+            - text: 意见、决定与跟进
+            - heading "Which option do you prefer?" [level=2] [ref=e1248]
+            - paragraph [ref=e1249]: 你倾向于哪个方案？
+            - strong [ref=e1250]: I prefer option B because it is simpler.
+            - generic [ref=e1251]: 一般现在时
+          - button "播放自然连读" [ref=e1252] [cursor=pointer]
+        - article [ref=e1257]:
+          - generic [ref=e1258]: "095"
+          - generic [ref=e1259]:
+            - text: 意见、决定与跟进
+            - heading "Can we make a decision today?" [level=2] [ref=e1260]
+            - paragraph [ref=e1261]: 我们今天能作出决定吗？
+            - strong [ref=e1262]: Yes, I think we have enough information.
+            - generic [ref=e1263]: 情态动词结构
+          - button "播放自然连读" [ref=e1264] [cursor=pointer]
+        - article [ref=e1269]:
+          - generic [ref=e1270]: "096"
+          - generic [ref=e1271]:
+            - text: 意见、决定与跟进
+            - heading "What did we decide?" [level=2] [ref=e1272]
+            - paragraph [ref=e1273]: 我们作出了什么决定？
+            - strong [ref=e1274]: We decided to [decision].
+            - generic [ref=e1275]: 一般过去时
+          - button "播放自然连读" [ref=e1276] [cursor=pointer]
+        - article [ref=e1281]:
+          - generic [ref=e1282]: "097"
+          - generic [ref=e1283]:
+            - text: 意见、决定与跟进
+            - heading "What are the next steps?" [level=2] [ref=e1284]
+            - paragraph [ref=e1285]: 后续步骤是什么？
+            - strong [ref=e1286]: I will [action], and [name] will [action].
+            - generic [ref=e1287]: 一般现在时 + 一般将来时
+          - button "播放自然连读" [ref=e1288] [cursor=pointer]
+        - article [ref=e1293]:
+          - generic [ref=e1294]: "098"
+          - generic [ref=e1295]:
+            - text: 意见、决定与跟进
+            - heading "Who will follow up?" [level=2] [ref=e1296]
+            - paragraph [ref=e1297]: 谁来跟进？
+            - strong [ref=e1298]: I will follow up after the meeting.
+            - generic [ref=e1299]: 一般将来时
+          - button "播放自然连读" [ref=e1300] [cursor=pointer]
+        - article [ref=e1305]:
+          - generic [ref=e1306]: "099"
+          - generic [ref=e1307]:
+            - text: 意见、决定与跟进
+            - heading "When can you get back to me?" [level=2] [ref=e1308]
+            - paragraph [ref=e1309]: 你什么时候可以回复我？
+            - strong [ref=e1310]: I will get back to you by [time].
+            - generic [ref=e1311]: 一般将来时 + 情态动词结构
+          - button "播放自然连读" [ref=e1312] [cursor=pointer]
+        - article [ref=e1317]:
+          - generic [ref=e1318]: "100"
+          - generic [ref=e1319]:
+            - text: 意见、决定与跟进
+            - heading "Is there anything else?" [level=2] [ref=e1320]
+            - paragraph [ref=e1321]: 还有其他内容吗？
+            - strong [ref=e1322]: No, that is all from me.
+            - generic [ref=e1323]: 一般现在时 + 现在进行时
+          - button "播放自然连读" [ref=e1324] [cursor=pointer]
+  - navigation "主导航" [ref=e41]:
+    - button "学习" [ref=e42] [cursor=pointer]
+    - button "句库" [active] [ref=e46] [cursor=pointer]
+    - button "进度" [ref=e50] [cursor=pointer]

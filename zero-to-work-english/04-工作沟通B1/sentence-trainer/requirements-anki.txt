@@ -1,0 +1,3 @@
+genanki==0.13.1
+cmudict==1.1.1
+eng-to-ipa==0.0.2

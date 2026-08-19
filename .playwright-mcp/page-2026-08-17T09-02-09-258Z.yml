@@ -1,0 +1,82 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e9]:
+      - strong [ref=e10]: 句练
+      - generic [ref=e11]: 软件英语 · 100 句
+    - generic "连续学习天数" [ref=e13]: "0"
+  - main [ref=e16]:
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - generic [ref=e20]: 今日复习
+          - strong [ref=e21]:
+            - text: "1"
+            - generic [ref=e22]: / 10
+        - generic "学习进度 1/10" [ref=e23]
+      - article [ref=e25]:
+        - generic [ref=e26]:
+          - generic [ref=e27]: "#001"
+          - generic [ref=e28]: 会议基础表达
+        - generic [ref=e29]:
+          - generic [ref=e54]:
+            - text: QUESTION
+            - heading "Shall we get started?" [level=1] [ref=e55]
+            - paragraph [ref=e56]: 我们开始吧？
+          - generic [ref=e57]:
+            - text: RESPONSE
+            - heading "Yes, let's begin." [level=2] [ref=e58]
+            - paragraph [ref=e59]: 好的，开始吧。
+          - generic [ref=e32]:
+            - button "自然连读 Jenny · -15%" [ref=e60] [cursor=pointer]:
+              - generic [ref=e65]:
+                - text: 自然连读
+                - generic [ref=e66]: Jenny · -15%
+            - button "清晰分词 逐词短停顿" [active] [ref=e67] [cursor=pointer]:
+              - generic [ref=e74]:
+                - text: 清晰分词
+                - generic [ref=e75]: 逐词短停顿
+          - generic [ref=e76]:
+            - generic [ref=e77]:
+              - generic [ref=e78]: 句子拆解
+              - generic [ref=e79]: 先骨架，再替换
+            - generic [ref=e80]:
+              - generic [ref=e81]:
+                - term [ref=e82]: 问句句型
+                - definition [ref=e83]: Shall + we + 动词原形 ...?（提出建议）
+              - generic [ref=e84]:
+                - term [ref=e85]: 回答句型
+                - definition [ref=e86]: 简短回应 + 主语 + 谓语 + 宾语/补语
+              - generic [ref=e87]:
+                - term [ref=e88]: 时态
+                - definition [ref=e89]: 一般将来时
+              - generic [ref=e90]:
+                - term [ref=e91]: 意群切块
+                - definition [ref=e92]: Shall we get started? → Yes, let's begin.
+            - generic [ref=e93]:
+              - generic [ref=e94]:
+                - strong [ref=e95]: get started
+                - text: 动词短语
+                - paragraph [ref=e96]: 开始
+              - generic [ref=e97]:
+                - strong [ref=e98]: begin
+                - text: 动词
+                - paragraph [ref=e99]: 开始
+            - paragraph [ref=e103]:
+              - strong [ref=e104]: 三遍影子跟读：
+              - text: 先听清晰分词版，看文本跟读；再听自然连读版，不看文本复述；最后替换方括号内容造一个自己的句子。
+      - generic [ref=e105]:
+        - paragraph [ref=e106]: 刚才能独立说出来吗？
+        - generic [ref=e107]:
+          - button "忘记 1 分钟" [ref=e108] [cursor=pointer]:
+            - strong [ref=e109]: 忘记
+            - generic [ref=e110]: 1 分钟
+          - button "困难 1 天" [ref=e111] [cursor=pointer]:
+            - strong [ref=e112]: 困难
+            - generic [ref=e113]: 1 天
+          - button "记住 3 天" [ref=e114] [cursor=pointer]:
+            - strong [ref=e115]: 记住
+            - generic [ref=e116]: 3 天
+  - navigation "主导航" [ref=e41]:
+    - button "学习" [ref=e42] [cursor=pointer]
+    - button "句库" [ref=e46] [cursor=pointer]
+    - button "进度" [ref=e50] [cursor=pointer]

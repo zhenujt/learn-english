@@ -1,0 +1,55 @@
+:root {
+  font-family: 'Avenir Next', Avenir, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: #17231f;
+  background: #e8ece8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --ink: #17231f;
+  --muted: #65706c;
+  --paper: #f7f8f3;
+  --white: #ffffff;
+  --line: #ced5d0;
+  --orange: #ed5b42;
+  --orange-soft: #fff0ec;
+  --teal: #137c70;
+  --teal-soft: #e8f5f1;
+  --yellow: #f5c84c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #e8ece8;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100svh;
+  margin: 0;
+  background-image:
+    linear-gradient(rgba(23, 35, 31, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 35, 31, 0.035) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid rgba(19, 124, 112, 0.3);
+  outline-offset: 2px;
+}
+
+#root {
+  min-height: 100svh;
+}

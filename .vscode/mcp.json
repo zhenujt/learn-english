@@ -1,0 +1,28 @@
+{
+  "servers": {
+    "google-docs-app-carter": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@a-bonus/google-docs-mcp@1.11.3"],
+      "env": {
+        "GOOGLE_CLIENT_ID": "${input:carterGoogleClientIdV2}",
+        "GOOGLE_CLIENT_SECRET": "${input:carterGoogleClientSecretV2}",
+        "MCP_TOOL_GROUPS": "docs",
+        "GOOGLE_MCP_PROFILE": "personal"
+      }
+    }
+  },
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "carterGoogleClientIdV2",
+      "description": "Google OAuth client ID"
+    },
+    {
+      "type": "promptString",
+      "id": "carterGoogleClientSecretV2",
+      "description": "Google OAuth client secret",
+      "password": true
+    }
+  ]
+}

@@ -1,0 +1,1133 @@
+#separator:tab
+#html:true
+#columns:Front	Back	Tags
+I	/aɪ/　<b>pron.</b>　我<br>I am a developer. 我是开发者。	代词
+you	/juː/　<b>pron.</b>　你；你们<br>You are right. 你说得对。	代词
+he	/hiː/　<b>pron.</b>　他<br>He is my colleague. 他是我同事。	代词
+she	/ʃiː/　<b>pron.</b>　她<br>She works here. 她在这儿工作。	代词
+it	/ɪt/　<b>pron.</b>　它<br>It is a good idea. 这是个好主意。	代词
+we	/wiː/　<b>pron.</b>　我们<br>We are a team. 我们是一个团队。	代词
+they	/ðeɪ/　<b>pron.</b>　他们<br>They are late. 他们迟到了。	代词
+me	/miː/　<b>pron.</b>　我（宾格）<br>Call me later. 待会儿打给我。	代词
+him	/hɪm/　<b>pron.</b>　他（宾格）<br>I know him. 我认识他。	代词
+her	/hɜː/　<b>pron.</b>　她（宾格）；她的<br>I saw her. 我看见她了。	代词
+us	/ʌs/　<b>pron.</b>　我们（宾格）<br>Join us. 加入我们吧。	代词
+them	/ðem/　<b>pron.</b>　他们（宾格）<br>Tell them. 告诉他们。	代词
+my	/maɪ/　<b>pron.</b>　我的<br>This is my desk. 这是我的桌子。	代词
+your	/jɔː/　<b>pron.</b>　你的<br>Is this your bag? 这是你的包吗？	代词
+his	/hɪz/　<b>pron.</b>　他的<br>His name is Tom. 他叫 Tom。	代词
+its	/ɪts/　<b>pron.</b>　它的<br>The app lost its data. 这个 App 丢了数据。	代词
+our	/ˈaʊə/　<b>pron.</b>　我们的<br>Our team is small. 我们团队很小。	代词
+their	/ðeə/　<b>pron.</b>　他们的<br>Their office is big. 他们的办公室很大。	代词
+mine	/maɪn/　<b>pron.</b>　我的（东西）<br>This book is mine. 这本书是我的。	代词
+yours	/jɔːz/　<b>pron.</b>　你的（东西）<br>Is this yours? 这是你的吗？	代词
+this	/ðɪs/　<b>pron.</b>　这（个）<br>This is easy. 这很简单。	代词
+that	/ðæt/　<b>pron.</b>　那（个）<br>That is hard. 那很难。	代词
+these	/ðiːz/　<b>pron.</b>　这些<br>These are my files. 这些是我的文件。	代词
+those	/ðəʊz/　<b>pron.</b>　那些<br>Those are old. 那些是旧的。	代词
+who	/huː/　<b>pron.</b>　谁<br>Who is he? 他是谁？	代词
+what	/wɒt/　<b>pron.</b>　什么<br>What is this? 这是什么？	代词
+which	/wɪtʃ/　<b>pron.</b>　哪一个<br>Which one? 哪一个？	代词
+someone	/ˈsʌmwʌn/　<b>pron.</b>　某人<br>Someone called you. 有人打给你。	代词
+something	/ˈsʌmθɪŋ/　<b>pron.</b>　某事物<br>I need something. 我需要点东西。	代词
+anyone	/ˈeniwʌn/　<b>pron.</b>　任何人<br>Is anyone here? 有人吗？	代词
+anything	/ˈeniθɪŋ/　<b>pron.</b>　任何事物<br>Anything else? 还要别的吗？	代词
+everyone	/ˈevriwʌn/　<b>pron.</b>　每个人<br>Everyone is here. 大家都到了。	代词
+everything	/ˈevriθɪŋ/　<b>pron.</b>　每件事<br>Everything is fine. 一切都好。	代词
+nothing	/ˈnʌθɪŋ/　<b>pron.</b>　什么都没有<br>Nothing is wrong. 没什么问题。	代词
+nobody	/ˈnəʊbədi/　<b>pron.</b>　没有人<br>Nobody knows. 没人知道。	代词
+a	/ə/　<b>art.</b>　一个<br>I have a question. 我有个问题。	冠词与限定词
+an	/ən/　<b>art.</b>　一个（元音前）<br>It's an error. 这是个错误。	冠词与限定词
+the	/ðə/　<b>art.</b>　这/那（特指）<br>Open the door. 打开门。	冠词与限定词
+some	/sʌm/　<b>det.</b>　一些<br>I need some help. 我需要些帮助。	冠词与限定词
+any	/ˈeni/　<b>det.</b>　任何；一些<br>Do you have any time? 你有空吗？	冠词与限定词
+many	/ˈmeni/　<b>det.</b>　许多（可数）<br>Many people came. 很多人来了。	冠词与限定词
+much	/mʌtʃ/　<b>det.</b>　许多（不可数）<br>Not much time. 时间不多。	冠词与限定词
+more	/mɔː/　<b>det.</b>　更多<br>I need more time. 我需要更多时间。	冠词与限定词
+most	/məʊst/　<b>det.</b>　大多数<br>Most users like it. 大多数用户喜欢它。	冠词与限定词
+all	/ɔːl/　<b>det.</b>　所有<br>All done. 全部完成。	冠词与限定词
+both	/bəʊθ/　<b>det.</b>　两者都<br>Both are good. 两个都好。	冠词与限定词
+each	/iːtʃ/　<b>det.</b>　每一个<br>Each one is different. 每个都不同。	冠词与限定词
+every	/ˈevri/　<b>det.</b>　每个<br>Every day. 每天。	冠词与限定词
+few	/fjuː/　<b>det.</b>　很少（可数）<br>A few bugs. 几个 bug。	冠词与限定词
+little	/ˈlɪtl/　<b>det.</b>　很少（不可数）<br>A little water. 一点水。	冠词与限定词
+no	/nəʊ/　<b>det.</b>　没有<br>No problem. 没问题。	冠词与限定词
+other	/ˈʌðə/　<b>det.</b>　其他的<br>The other file. 另一个文件。	冠词与限定词
+another	/əˈnʌðə/　<b>det.</b>　另一个<br>Another cup, please. 再来一杯。	冠词与限定词
+such	/sʌtʃ/　<b>det.</b>　这样的<br>Such a good day. 多好的一天。	冠词与限定词
+enough	/ɪˈnʌf/　<b>det.</b>　足够的<br>Enough time. 时间够了。	冠词与限定词
+several	/ˈsevrəl/　<b>det.</b>　几个<br>Several times. 好几次。	冠词与限定词
+be	/biː/　<b>v.</b>　是（原形）<br>It will be fine. 会没事的。	be动词_助动词_情态动词
+am	/æm/　<b>v.</b>　是（配 I）<br>I am ready. 我准备好了。	be动词_助动词_情态动词
+is	/ɪz/　<b>v.</b>　是（第三人称单数）<br>She is busy. 她很忙。	be动词_助动词_情态动词
+are	/ɑː/　<b>v.</b>　是（复数/you）<br>We are here. 我们到了。	be动词_助动词_情态动词
+was	/wɒz/　<b>v.</b>　是（过去，单数）<br>I was tired. 我当时很累。	be动词_助动词_情态动词
+were	/wɜː/　<b>v.</b>　是（过去，复数）<br>They were late. 他们迟到了。	be动词_助动词_情态动词
+been	/biːn/　<b>v.</b>　be 的过去分词<br>I have been busy. 我一直很忙。	be动词_助动词_情态动词
+do	/duː/　<b>v./aux.</b>　做；助动词<br>Do you know? 你知道吗？	be动词_助动词_情态动词
+does	/dʌz/　<b>aux.</b>　助动词（三单）<br>Does it work? 它能用吗？	be动词_助动词_情态动词
+did	/dɪd/　<b>aux.</b>　助动词（过去）<br>Did you finish? 你完成了吗？	be动词_助动词_情态动词
+have	/hæv/　<b>v./aux.</b>　有；已经<br>I have a plan. 我有个计划。	be动词_助动词_情态动词
+has	/hæz/　<b>v./aux.</b>　有（三单）<br>She has a car. 她有辆车。	be动词_助动词_情态动词
+had	/hæd/　<b>v./aux.</b>　有（过去）<br>We had lunch. 我们吃了午饭。	be动词_助动词_情态动词
+will	/wɪl/　<b>modal</b>　将要<br>I will call you. 我会打给你。	be动词_助动词_情态动词
+would	/wʊd/　<b>modal</b>　将会（委婉）<br>Would you help? 你能帮忙吗？	be动词_助动词_情态动词
+can	/kæn/　<b>modal</b>　能，可以<br>I can do it. 我能做到。	be动词_助动词_情态动词
+could	/kʊd/　<b>modal</b>　能（委婉/过去）<br>Could you wait? 能等一下吗？	be动词_助动词_情态动词
+shall	/ʃæl/　<b>modal</b>　将（提议）<br>Shall we start? 我们开始吧？	be动词_助动词_情态动词
+should	/ʃʊd/　<b>modal</b>　应该<br>You should rest. 你该休息了。	be动词_助动词_情态动词
+may	/meɪ/　<b>modal</b>　可以；可能<br>May I ask? 我能问一下吗？	be动词_助动词_情态动词
+might	/maɪt/　<b>modal</b>　可能<br>It might rain. 可能会下雨。	be动词_助动词_情态动词
+must	/mʌst/　<b>modal</b>　必须<br>You must try. 你必须试试。	be动词_助动词_情态动词
+need	/niːd/　<b>v./modal</b>　需要<br>I need to go. 我得走了。	be动词_助动词_情态动词
+in	/ɪn/　<b>prep.</b>　在…里；在（月/年）<br>In the office. 在办公室。	介词
+on	/ɒn/　<b>prep.</b>　在…上；在（某天）<br>On the table. 在桌上。	介词
+at	/æt/　<b>prep.</b>　在（点/地点）<br>At 3 p.m. 下午三点。	介词
+to	/tuː/　<b>prep.</b>　到，向<br>Go to work. 去上班。	介词
+from	/frɒm/　<b>prep.</b>　从，来自<br>I'm from China. 我来自中国。	介词
+of	/ɒv/　<b>prep.</b>　…的<br>A cup of tea. 一杯茶。	介词
+for	/fɔː/　<b>prep.</b>　为了；给<br>This is for you. 这是给你的。	介词
+with	/wɪð/　<b>prep.</b>　和…一起<br>Come with me. 跟我来。	介词
+without	/wɪˈðaʊt/　<b>prep.</b>　没有<br>Without water. 没有水。	介词
+about	/əˈbaʊt/　<b>prep.</b>　关于<br>Talk about work. 谈工作。	介词
+by	/baɪ/　<b>prep.</b>　通过；在…旁<br>By bus. 坐公交。	介词
+as	/æz/　<b>prep.</b>　作为<br>As a manager. 作为经理。	介词
+into	/ˈɪntuː/　<b>prep.</b>　进入<br>Go into the room. 进房间。	介词
+over	/ˈəʊvə/　<b>prep.</b>　在…上方；超过<br>Over the desk. 在桌子上方。	介词
+under	/ˈʌndə/　<b>prep.</b>　在…下面<br>Under the chair. 在椅子下。	介词
+after	/ˈɑːftə/　<b>prep.</b>　在…之后<br>After lunch. 午饭后。	介词
+before	/bɪˈfɔː/　<b>prep.</b>　在…之前<br>Before the meeting. 会议前。	介词
+between	/bɪˈtwiːn/　<b>prep.</b>　在…之间<br>Between us. 我们之间。	介词
+during	/ˈdjʊərɪŋ/　<b>prep.</b>　在…期间<br>During the day. 白天。	介词
+near	/nɪə/　<b>prep.</b>　在…附近<br>Near the station. 车站附近。	介词
+next to	/nekst tuː/　<b>prep.</b>　紧挨着<br>Next to the bank. 银行旁边。	介词
+behind	/bɪˈhaɪnd/　<b>prep.</b>　在…后面<br>Behind the door. 在门后。	介词
+through	/θruː/　<b>prep.</b>　穿过<br>Through the door. 穿过门。	介词
+across	/əˈkrɒs/　<b>prep.</b>　横过<br>Across the street. 过马路。	介词
+around	/əˈraʊnd/　<b>prep.</b>　在…周围<br>Around the office. 办公室周围。	介词
+up	/ʌp/　<b>prep./adv.</b>　向上<br>Look up. 往上看。	介词
+down	/daʊn/　<b>prep./adv.</b>　向下<br>Sit down. 坐下。	介词
+off	/ɒf/　<b>prep./adv.</b>　离开；关<br>Turn off the light. 关灯。	介词
+out	/aʊt/　<b>prep./adv.</b>　向外<br>Go out. 出去。	介词
+like	/laɪk/　<b>prep.</b>　像<br>Like this. 像这样。	介词
+against	/əˈɡenst/　<b>prep.</b>　反对；靠着<br>I'm against it. 我反对。	介词
+among	/əˈmʌŋ/　<b>prep.</b>　在…之中<br>Among friends. 在朋友之中。	介词
+since	/sɪns/　<b>prep.</b>　自从<br>Since Monday. 从周一起。	介词
+until	/ənˈtɪl/　<b>prep.</b>　直到<br>Wait until 5. 等到五点。	介词
+within	/wɪˈðɪn/　<b>prep.</b>　在…之内<br>Within a week. 一周之内。	介词
+and	/ænd/　<b>conj.</b>　和<br>You and me. 你和我。	连词
+but	/bʌt/　<b>conj.</b>　但是<br>Cheap but good. 便宜但好用。	连词
+or	/ɔː/　<b>conj.</b>　或者<br>Tea or coffee? 茶还是咖啡？	连词
+so	/səʊ/　<b>conj.</b>　所以<br>I'm tired, so I'll rest. 我累了，所以休息。	连词
+because	/bɪˈkɒz/　<b>conj.</b>　因为<br>Because it's late. 因为晚了。	连词
+if	/ɪf/　<b>conj.</b>　如果<br>If you agree. 如果你同意。	连词
+when	/wen/　<b>conj.</b>　当…时<br>When I arrive. 当我到达时。	连词
+while	/waɪl/　<b>conj.</b>　当…时；然而<br>While I work. 我工作时。	连词
+although	/ɔːlˈðəʊ/　<b>conj.</b>　虽然<br>Although it's hard. 虽然很难。	连词
+though	/ðəʊ/　<b>conj.</b>　虽然<br>It works, though. 不过它能用。	连词
+as	/æz/　<b>conj.</b>　因为；随着<br>As you know. 如你所知。	连词
+after	/ˈɑːftə/　<b>conj.</b>　在…之后<br>After I finish. 我完成后。	连词
+before	/bɪˈfɔː/　<b>conj.</b>　在…之前<br>Before you leave. 你走之前。	连词
+until	/ənˈtɪl/　<b>conj.</b>　直到<br>Until it works. 直到它能用。	连词
+unless	/ənˈles/　<b>conj.</b>　除非<br>Unless it rains. 除非下雨。	连词
+than	/ðæn/　<b>conj.</b>　比<br>Better than before. 比以前好。	连词
+that	/ðæt/　<b>conj.</b>　（引导从句）<br>I think that's right. 我认为对。	连词
+whether	/ˈweðə/　<b>conj.</b>　是否<br>Whether or not. 无论是否。	连词
+both...and	—　<b>conj.</b>　既…又…<br>Both fast and safe. 又快又安全。	连词
+either...or	—　<b>conj.</b>　要么…要么…<br>Either now or later. 要么现在要么以后。	连词
+neither...nor	—　<b>conj.</b>　既不…也不…<br>Neither good nor bad. 不好也不坏。	连词
+who	/huː/　<b>pron.</b>　谁<br>Who did this? 谁做的？	疑问词
+whose	/huːz/　<b>pron.</b>　谁的<br>Whose code is this? 这是谁的代码？	疑问词
+what	/wɒt/　<b>pron.</b>　什么<br>What happened? 发生了什么？	疑问词
+which	/wɪtʃ/　<b>pron.</b>　哪个<br>Which version? 哪个版本？	疑问词
+when	/wen/　<b>adv.</b>　什么时候<br>When is the meeting? 会议什么时候？	疑问词
+where	/weə/　<b>adv.</b>　哪里<br>Where are you? 你在哪？	疑问词
+why	/waɪ/　<b>adv.</b>　为什么<br>Why not? 为什么不呢？	疑问词
+how	/haʊ/　<b>adv.</b>　怎样；多么<br>How are you? 你好吗？	疑问词
+how much	—　<b>—</b>　多少（钱/量）<br>How much is it? 多少钱？	疑问词
+how many	—　<b>—</b>　多少（数量）<br>How many people? 多少人？	疑问词
+how long	—　<b>—</b>　多久<br>How long does it take? 要多久？	疑问词
+how often	—　<b>—</b>　多久一次<br>How often? 多久一次？	疑问词
+zero	/ˈzɪərəʊ/　<b>num.</b>　零<br>Zero errors. 零错误。	数字
+one	/wʌn/　<b>num.</b>　一<br>One moment. 稍等。	数字
+two	/tuː/　<b>num.</b>　二<br>Two coffees. 两杯咖啡。	数字
+three	/θriː/　<b>num.</b>　三<br>Three days. 三天。	数字
+four	/fɔː/　<b>num.</b>　四<br>Four people. 四个人。	数字
+five	/faɪv/　<b>num.</b>　五<br>Five minutes. 五分钟。	数字
+six	/sɪks/　<b>num.</b>　六<br>Six months. 六个月。	数字
+seven	/ˈsevn/　<b>num.</b>　七<br>Seven days a week. 一周七天。	数字
+eight	/eɪt/　<b>num.</b>　八<br>Eight hours. 八小时。	数字
+nine	/naɪn/　<b>num.</b>　九<br>Nine o'clock. 九点。	数字
+ten	/ten/　<b>num.</b>　十<br>Ten items. 十个。	数字
+eleven	/ɪˈlevn/　<b>num.</b>　十一<br>Eleven users. 十一个用户。	数字
+twelve	/twelv/　<b>num.</b>　十二<br>Twelve months. 十二个月。	数字
+thirteen	/ˌθɜːˈtiːn/　<b>num.</b>　十三<br>Thirteen years. 十三年。	数字
+fourteen	/ˌfɔːˈtiːn/　<b>num.</b>　十四<br>Page fourteen. 第十四页。	数字
+fifteen	/ˌfɪfˈtiːn/　<b>num.</b>　十五<br>Fifteen minutes. 十五分钟。	数字
+twenty	/ˈtwenti/　<b>num.</b>　二十<br>Twenty dollars. 二十美元。	数字
+thirty	/ˈθɜːti/　<b>num.</b>　三十<br>Thirty people. 三十人。	数字
+forty	/ˈfɔːti/　<b>num.</b>　四十<br>Forty years old. 四十岁。	数字
+fifty	/ˈfɪfti/　<b>num.</b>　五十<br>Fifty percent. 百分之五十。	数字
+sixty	/ˈsɪksti/　<b>num.</b>　六十<br>Sixty seconds. 六十秒。	数字
+seventy	/ˈsevnti/　<b>num.</b>　七十<br>Seventy users. 七十个用户。	数字
+eighty	/ˈeɪti/　<b>num.</b>　八十<br>Eighty percent. 百分之八十。	数字
+ninety	/ˈnaɪnti/　<b>num.</b>　九十<br>Ninety days. 九十天。	数字
+hundred	/ˈhʌndrəd/　<b>num.</b>　百<br>One hundred. 一百。	数字
+thousand	/ˈθaʊznd/　<b>num.</b>　千<br>A thousand users. 一千个用户。	数字
+million	/ˈmɪljən/　<b>num.</b>　百万<br>One million. 一百万。	数字
+first	/fɜːst/　<b>num.</b>　第一<br>The first step. 第一步。	数字
+second	/ˈsekənd/　<b>num.</b>　第二；秒<br>The second time. 第二次。	数字
+third	/θɜːd/　<b>num.</b>　第三<br>The third floor. 三楼。	数字
+next	/nekst/　<b>adj.</b>　下一个<br>Next week. 下周。	数字
+last	/lɑːst/　<b>adj.</b>　最后；上一个<br>Last month. 上个月。	数字
+half	/hɑːf/　<b>n.</b>　一半<br>Half an hour. 半小时。	数字
+double	/ˈdʌbl/　<b>adj.</b>　两倍<br>Double check. 复核一遍。	数字
+time	/taɪm/　<b>n.</b>　时间<br>What time is it? 几点了？	时间与日期
+day	/deɪ/　<b>n.</b>　天<br>Have a nice day. 祝你愉快。	时间与日期
+week	/wiːk/　<b>n.</b>　星期<br>This week. 这周。	时间与日期
+month	/mʌnθ/　<b>n.</b>　月<br>Last month. 上个月。	时间与日期
+year	/jɪə/　<b>n.</b>　年<br>This year. 今年。	时间与日期
+hour	/ˈaʊə/　<b>n.</b>　小时<br>An hour ago. 一小时前。	时间与日期
+minute	/ˈmɪnɪt/　<b>n.</b>　分钟<br>Wait a minute. 等一下。	时间与日期
+second	/ˈsekənd/　<b>n.</b>　秒<br>In a second. 马上。	时间与日期
+morning	/ˈmɔːnɪŋ/　<b>n.</b>　早上<br>Good morning. 早上好。	时间与日期
+afternoon	/ˌɑːftəˈnuːn/　<b>n.</b>　下午<br>This afternoon. 今天下午。	时间与日期
+evening	/ˈiːvnɪŋ/　<b>n.</b>　晚上<br>Good evening. 晚上好。	时间与日期
+night	/naɪt/　<b>n.</b>　夜晚<br>Good night. 晚安。	时间与日期
+today	/təˈdeɪ/　<b>adv.</b>　今天<br>See you today. 今天见。	时间与日期
+tomorrow	/təˈmɒrəʊ/　<b>adv.</b>　明天<br>See you tomorrow. 明天见。	时间与日期
+yesterday	/ˈjestədeɪ/　<b>adv.</b>　昨天<br>It rained yesterday. 昨天下雨了。	时间与日期
+now	/naʊ/　<b>adv.</b>　现在<br>Right now. 就现在。	时间与日期
+then	/ðen/　<b>adv.</b>　那时；然后<br>See you then. 到时见。	时间与日期
+soon	/suːn/　<b>adv.</b>　很快<br>See you soon. 回头见。	时间与日期
+early	/ˈɜːli/　<b>adj./adv.</b>　早<br>I'm early. 我来早了。	时间与日期
+late	/leɪt/　<b>adj./adv.</b>　晚，迟<br>Sorry I'm late. 抱歉我迟到了。	时间与日期
+Monday	/ˈmʌndeɪ/　<b>n.</b>　星期一<br>On Monday. 在周一。	时间与日期
+Tuesday	/ˈtjuːzdeɪ/　<b>n.</b>　星期二<br>Every Tuesday. 每周二。	时间与日期
+Wednesday	/ˈwenzdeɪ/　<b>n.</b>　星期三<br>This Wednesday. 这周三。	时间与日期
+Thursday	/ˈθɜːzdeɪ/　<b>n.</b>　星期四<br>Next Thursday. 下周四。	时间与日期
+Friday	/ˈfraɪdeɪ/　<b>n.</b>　星期五<br>Happy Friday. 周五快乐。	时间与日期
+Saturday	/ˈsætədeɪ/　<b>n.</b>　星期六<br>On Saturday. 在周六。	时间与日期
+Sunday	/ˈsʌndeɪ/　<b>n.</b>　星期日<br>Every Sunday. 每周日。	时间与日期
+weekend	/ˌwiːkˈend/　<b>n.</b>　周末<br>Have a good weekend. 周末愉快。	时间与日期
+holiday	/ˈhɒlədeɪ/　<b>n.</b>　假日<br>Public holiday. 公共假期。	时间与日期
+go	/ɡəʊ/　<b>v.</b>　去（went, gone）<br>Let's go. 我们走吧。	高频动词
+come	/kʌm/　<b>v.</b>　来（came, come）<br>Come here. 过来。	高频动词
+get	/ɡet/　<b>v.</b>　得到；变得（got）<br>I got it. 我懂了/拿到了。	高频动词
+make	/meɪk/　<b>v.</b>　制作；使（made）<br>Make a plan. 制定计划。	高频动词
+take	/teɪk/　<b>v.</b>　拿；花费（took, taken）<br>Take a break. 休息一下。	高频动词
+give	/ɡɪv/　<b>v.</b>　给（gave, given）<br>Give me a call. 给我打电话。	高频动词
+put	/pʊt/　<b>v.</b>　放（put, put）<br>Put it here. 放这儿。	高频动词
+do	/duː/　<b>v.</b>　做（did, done）<br>Do your best. 尽力而为。	高频动词
+have	/hæv/　<b>v.</b>　有（had）<br>Have a seat. 请坐。	高频动词
+let	/let/　<b>v.</b>　让（let, let）<br>Let me see. 让我看看。	高频动词
+keep	/kiːp/　<b>v.</b>　保持（kept）<br>Keep trying. 继续努力。	高频动词
+hold	/həʊld/　<b>v.</b>　握住（held）<br>Hold on. 稍等。	高频动词
+bring	/brɪŋ/　<b>v.</b>　带来（brought）<br>Bring your laptop. 带上你的电脑。	高频动词
+send	/send/　<b>v.</b>　发送（sent）<br>Send me the file. 把文件发我。	高频动词
+leave	/liːv/　<b>v.</b>　离开；留下（left）<br>I have to leave. 我得走了。	高频动词
+stay	/steɪ/　<b>v.</b>　停留<br>Stay here. 待在这儿。	高频动词
+move	/muːv/　<b>v.</b>　移动<br>Move it up. 往上挪。	高频动词
+turn	/tɜːn/　<b>v.</b>　转；变<br>Turn left. 左转。	高频动词
+open	/ˈəʊpən/　<b>v.</b>　打开<br>Open the file. 打开文件。	高频动词
+close	/kləʊz/　<b>v.</b>　关闭<br>Close the door. 关门。	高频动词
+start	/stɑːt/　<b>v.</b>　开始<br>Let's start. 开始吧。	高频动词
+stop	/stɒp/　<b>v.</b>　停止<br>Stop here. 停这儿。	高频动词
+begin	/bɪˈɡɪn/　<b>v.</b>　开始（began, begun）<br>Begin now. 现在开始。	高频动词
+end	/end/　<b>v.</b>　结束<br>It ends here. 到此结束。	高频动词
+finish	/ˈfɪnɪʃ/　<b>v.</b>　完成<br>I finished it. 我完成了。	高频动词
+continue	/kənˈtɪnjuː/　<b>v.</b>　继续<br>Please continue. 请继续。	高频动词
+wait	/weɪt/　<b>v.</b>　等待<br>Wait for me. 等我。	高频动词
+use	/juːz/　<b>v.</b>　使用<br>Use this tool. 用这个工具。	高频动词
+try	/traɪ/　<b>v.</b>　尝试<br>Try again. 再试一次。	高频动词
+work	/wɜːk/　<b>v.</b>　工作；运转<br>It works! 好使了！	高频动词
+play	/pleɪ/　<b>v.</b>　玩；播放<br>Play music. 放音乐。	高频动词
+run	/rʌn/　<b>v.</b>　跑；运行（ran, run）<br>Run the code. 运行代码。	高频动词
+walk	/wɔːk/　<b>v.</b>　走路<br>Let's walk. 我们走着去。	高频动词
+sit	/sɪt/　<b>v.</b>　坐（sat）<br>Sit down. 坐下。	高频动词
+stand	/stænd/　<b>v.</b>　站（stood）<br>Stand up. 起立。	高频动词
+think	/θɪŋk/　<b>v.</b>　想（thought）<br>I think so. 我想是的。	高频动词
+know	/nəʊ/　<b>v.</b>　知道（knew, known）<br>I don't know. 我不知道。	高频动词
+understand	/ˌʌndəˈstænd/　<b>v.</b>　理解（understood）<br>I understand. 我明白了。	高频动词
+mean	/miːn/　<b>v.</b>　意思是（meant）<br>What do you mean? 你什么意思？	高频动词
+say	/seɪ/　<b>v.</b>　说（said）<br>Say it again. 再说一遍。	高频动词
+tell	/tel/　<b>v.</b>　告诉（told）<br>Tell me more. 多说点。	高频动词
+speak	/spiːk/　<b>v.</b>　说话（spoke, spoken）<br>Speak slowly. 说慢点。	高频动词
+talk	/tɔːk/　<b>v.</b>　谈话<br>Let's talk. 我们聊聊。	高频动词
+ask	/ɑːsk/　<b>v.</b>　问；请求<br>Ask a question. 提个问题。	高频动词
+answer	/ˈɑːnsə/　<b>v.</b>　回答<br>Answer the phone. 接电话。	高频动词
+explain	/ɪkˈspleɪn/　<b>v.</b>　解释<br>Explain it to me. 给我解释下。	高频动词
+agree	/əˈɡriː/　<b>v.</b>　同意<br>I agree. 我同意。	高频动词
+mention	/ˈmenʃn/　<b>v.</b>　提到<br>You mentioned it. 你提过。	高频动词
+discuss	/dɪˈskʌs/　<b>v.</b>　讨论<br>Let's discuss it. 我们讨论下。	高频动词
+suggest	/səˈdʒest/　<b>v.</b>　建议<br>I suggest we wait. 我建议等等。	高频动词
+decide	/dɪˈsaɪd/　<b>v.</b>　决定<br>You decide. 你决定。	高频动词
+remember	/rɪˈmembə/　<b>v.</b>　记得<br>Remember to save. 记得保存。	高频动词
+forget	/fəˈɡet/　<b>v.</b>　忘记（forgot）<br>Don't forget. 别忘了。	高频动词
+believe	/bɪˈliːv/　<b>v.</b>　相信<br>I believe you. 我相信你。	高频动词
+hope	/həʊp/　<b>v.</b>　希望<br>I hope so. 但愿如此。	高频动词
+guess	/ɡes/　<b>v.</b>　猜<br>I guess so. 我猜是的。	高频动词
+wonder	/ˈwʌndə/　<b>v.</b>　想知道<br>I wonder why. 我想知道为什么。	高频动词
+notice	/ˈnəʊtɪs/　<b>v.</b>　注意到<br>I noticed a bug. 我注意到一个 bug。	高频动词
+realize	/ˈriːəlaɪz/　<b>v.</b>　意识到<br>I realized my mistake. 我意识到我的错。	高频动词
+see	/siː/　<b>v.</b>　看见（saw, seen）<br>I see. 我明白了。	高频动词
+look	/lʊk/　<b>v.</b>　看<br>Look at this. 看这个。	高频动词
+watch	/wɒtʃ/　<b>v.</b>　观看<br>Watch out. 小心。	高频动词
+hear	/hɪə/　<b>v.</b>　听见（heard）<br>I hear you. 我听到了。	高频动词
+listen	/ˈlɪsn/　<b>v.</b>　听<br>Listen carefully. 仔细听。	高频动词
+feel	/fiːl/　<b>v.</b>　感觉（felt）<br>I feel good. 我感觉不错。	高频动词
+want	/wɒnt/　<b>v.</b>　想要<br>I want to learn. 我想学。	高频动词
+like	/laɪk/　<b>v.</b>　喜欢<br>I like it. 我喜欢。	高频动词
+love	/lʌv/　<b>v.</b>　爱<br>I love coding. 我热爱编程。	高频动词
+hate	/heɪt/　<b>v.</b>　讨厌<br>I hate bugs. 我讨厌 bug。	高频动词
+enjoy	/ɪnˈdʒɔɪ/　<b>v.</b>　享受<br>Enjoy your meal. 用餐愉快。	高频动词
+prefer	/prɪˈfɜː/　<b>v.</b>　更喜欢<br>I prefer tea. 我更喜欢茶。	高频动词
+care	/keə/　<b>v.</b>　在乎<br>I don't care. 我不在乎。	高频动词
+worry	/ˈwʌri/　<b>v.</b>　担心<br>Don't worry. 别担心。	高频动词
+smell	/smel/　<b>v.</b>　闻<br>It smells good. 闻起来不错。	高频动词
+taste	/teɪst/　<b>v.</b>　尝<br>Taste this. 尝尝这个。	高频动词
+touch	/tʌtʃ/　<b>v.</b>　触摸<br>Don't touch it. 别碰它。	高频动词
+eat	/iːt/　<b>v.</b>　吃（ate, eaten）<br>Let's eat. 吃饭吧。	高频动词
+drink	/drɪŋk/　<b>v.</b>　喝（drank, drunk）<br>Drink water. 喝水。	高频动词
+sleep	/sliːp/　<b>v.</b>　睡（slept）<br>Sleep well. 睡个好觉。	高频动词
+wake	/weɪk/　<b>v.</b>　醒（woke）<br>Wake up. 醒醒。	高频动词
+buy	/baɪ/　<b>v.</b>　买（bought）<br>Buy a ticket. 买张票。	高频动词
+sell	/sel/　<b>v.</b>　卖（sold）<br>They sell coffee. 他们卖咖啡。	高频动词
+pay	/peɪ/　<b>v.</b>　付钱（paid）<br>I'll pay. 我来付。	高频动词
+cost	/kɒst/　<b>v.</b>　花费（cost）<br>It costs 10 yuan. 要 10 元。	高频动词
+cook	/kʊk/　<b>v.</b>　做饭<br>I cook dinner. 我做晚饭。	高频动词
+clean	/kliːn/　<b>v.</b>　打扫<br>Clean the room. 打扫房间。	高频动词
+wash	/wɒʃ/　<b>v.</b>　洗<br>Wash your hands. 洗手。	高频动词
+wear	/weə/　<b>v.</b>　穿（wore, worn）<br>Wear a coat. 穿外套。	高频动词
+drive	/draɪv/　<b>v.</b>　开车（drove, driven）<br>I drive to work. 我开车上班。	高频动词
+ride	/raɪd/　<b>v.</b>　骑（rode, ridden）<br>Ride a bike. 骑自行车。	高频动词
+travel	/ˈtrævl/　<b>v.</b>　旅行<br>I love to travel. 我爱旅行。	高频动词
+visit	/ˈvɪzɪt/　<b>v.</b>　拜访<br>Visit a friend. 拜访朋友。	高频动词
+meet	/miːt/　<b>v.</b>　遇见（met）<br>Nice to meet you. 很高兴认识你。	高频动词
+call	/kɔːl/　<b>v.</b>　打电话；叫<br>Call me. 给我打电话。	高频动词
+help	/help/　<b>v.</b>　帮助<br>Can you help? 你能帮忙吗？	高频动词
+show	/ʃəʊ/　<b>v.</b>　展示（showed, shown）<br>Show me. 给我看看。	高频动词
+bring	/brɪŋ/　<b>v.</b>　带来（brought）<br>Bring it here. 拿过来。	高频动词
+carry	/ˈkæri/　<b>v.</b>　携带<br>Carry the bag. 拿着包。	高频动词
+find	/faɪnd/　<b>v.</b>　找到（found）<br>I found it. 我找到了。	高频动词
+lose	/luːz/　<b>v.</b>　丢失（lost）<br>Don't lose it. 别弄丢了。	高频动词
+win	/wɪn/　<b>v.</b>　赢（won）<br>We won. 我们赢了。	高频动词
+choose	/tʃuːz/　<b>v.</b>　选择（chose, chosen）<br>Choose one. 选一个。	高频动词
+change	/tʃeɪndʒ/　<b>v.</b>　改变<br>Change the plan. 改变计划。	高频动词
+follow	/ˈfɒləʊ/　<b>v.</b>　跟随<br>Follow me. 跟着我。	高频动词
+join	/dʒɔɪn/　<b>v.</b>　加入<br>Join the call. 加入通话。	高频动词
+return	/rɪˈtɜːn/　<b>v.</b>　返回<br>I'll return soon. 我很快回来。	高频动词
+learn	/lɜːn/　<b>v.</b>　学习<br>Learn English. 学英语。	高频动词
+study	/ˈstʌdi/　<b>v.</b>　学习，研究<br>Study hard. 努力学习。	高频动词
+teach	/tiːtʃ/　<b>v.</b>　教（taught）<br>She teaches Java. 她教 Java。	高频动词
+read	/riːd/　<b>v.</b>　读（read /red/）<br>Read the docs. 读文档。	高频动词
+write	/raɪt/　<b>v.</b>　写（wrote, written）<br>Write the code. 写代码。	高频动词
+build	/bɪld/　<b>v.</b>　构建（built）<br>Build the app. 构建应用。	高频动词
+create	/kriˈeɪt/　<b>v.</b>　创建<br>Create a file. 新建文件。	高频动词
+add	/æd/　<b>v.</b>　添加<br>Add a comment. 加个注释。	高频动词
+remove	/rɪˈmuːv/　<b>v.</b>　移除<br>Remove the bug. 移除 bug。	高频动词
+delete	/dɪˈliːt/　<b>v.</b>　删除<br>Delete the row. 删除这行。	高频动词
+update	/ˌʌpˈdeɪt/　<b>v.</b>　更新<br>Update the app. 更新应用。	高频动词
+check	/tʃek/　<b>v.</b>　检查<br>Check the code. 检查代码。	高频动词
+test	/test/　<b>v.</b>　测试<br>Test it first. 先测试。	高频动词
+fix	/fɪks/　<b>v.</b>　修复<br>Fix the bug. 修复 bug。	高频动词
+solve	/sɒlv/　<b>v.</b>　解决<br>Solve the problem. 解决问题。	高频动词
+design	/dɪˈzaɪn/　<b>v.</b>　设计<br>Design the UI. 设计界面。	高频动词
+plan	/plæn/　<b>v.</b>　计划<br>Plan ahead. 提前计划。	高频动词
+manage	/ˈmænɪdʒ/　<b>v.</b>　管理<br>Manage the team. 管理团队。	高频动词
+complete	/kəmˈpliːt/　<b>v.</b>　完成<br>Complete the task. 完成任务。	高频动词
+improve	/ɪmˈpruːv/　<b>v.</b>　改进<br>Improve the code. 改进代码。	高频动词
+develop	/dɪˈveləp/　<b>v.</b>　开发<br>Develop an app. 开发一个应用。	高频动词
+support	/səˈpɔːt/　<b>v.</b>　支持<br>We support it. 我们支持它。	高频动词
+provide	/prəˈvaɪd/　<b>v.</b>　提供<br>Provide feedback. 提供反馈。	高频动词
+require	/rɪˈkwaɪə/　<b>v.</b>　需要，要求<br>It requires login. 它需要登录。	高频动词
+allow	/əˈlaʊ/　<b>v.</b>　允许<br>Allow access. 允许访问。	高频动词
+include	/ɪnˈkluːd/　<b>v.</b>　包括<br>Include the file. 包含这个文件。	高频动词
+set	/set/　<b>v.</b>　设置（set）<br>Set a password. 设置密码。	高频动词
+save	/seɪv/　<b>v.</b>　保存<br>Save your work. 保存你的工作。	高频动词
+share	/ʃeə/　<b>v.</b>　分享<br>Share the link. 分享链接。	高频动词
+report	/rɪˈpɔːt/　<b>v.</b>　报告<br>Report a problem. 报告问题。	高频动词
+review	/rɪˈvjuː/　<b>v.</b>　评审<br>Review my code. 评审我的代码。	高频动词
+deploy	/dɪˈplɔɪ/　<b>v.</b>　部署<br>Deploy to server. 部署到服务器。	高频动词
+release	/rɪˈliːs/　<b>v.</b>　发布<br>Release the version. 发布版本。	高频动词
+connect	/kəˈnekt/　<b>v.</b>　连接<br>Connect to WiFi. 连接 WiFi。	高频动词
+download	/ˌdaʊnˈləʊd/　<b>v.</b>　下载<br>Download the app. 下载应用。	高频动词
+upload	/ˌʌpˈləʊd/　<b>v.</b>　上传<br>Upload the file. 上传文件。	高频动词
+click	/klɪk/　<b>v.</b>　点击<br>Click the button. 点击按钮。	高频动词
+type	/taɪp/　<b>v.</b>　打字，输入<br>Type your name. 输入你的名字。	高频动词
+search	/sɜːtʃ/　<b>v.</b>　搜索<br>Search online. 在线搜索。	高频动词
+happen	/ˈhæpən/　<b>v.</b>　发生<br>What happened? 发生了什么？	高频动词
+seem	/siːm/　<b>v.</b>　似乎<br>It seems fine. 看起来没问题。	高频动词
+become	/bɪˈkʌm/　<b>v.</b>　变成（became）<br>It became slow. 它变慢了。	高频动词
+appear	/əˈpɪə/　<b>v.</b>　出现<br>An error appeared. 出现了一个错误。	高频动词
+people	/ˈpiːpl/　<b>n.</b>　人们<br>Many people. 很多人。	名词_人与家庭
+person	/ˈpɜːsn/　<b>n.</b>　人<br>A nice person. 一个好人。	名词_人与家庭
+man	/mæn/　<b>n.</b>　男人<br>That man. 那个男人。	名词_人与家庭
+woman	/ˈwʊmən/　<b>n.</b>　女人<br>A woman. 一个女人。	名词_人与家庭
+child	/tʃaɪld/　<b>n.</b>　孩子（复 children）<br>A little child. 一个小孩。	名词_人与家庭
+boy	/bɔɪ/　<b>n.</b>　男孩<br>A young boy. 一个小男孩。	名词_人与家庭
+girl	/ɡɜːl/　<b>n.</b>　女孩<br>A little girl. 一个小女孩。	名词_人与家庭
+baby	/ˈbeɪbi/　<b>n.</b>　婴儿<br>A cute baby. 一个可爱的宝宝。	名词_人与家庭
+family	/ˈfæməli/　<b>n.</b>　家庭<br>My family. 我的家人。	名词_人与家庭
+father	/ˈfɑːðə/　<b>n.</b>　父亲<br>My father. 我父亲。	名词_人与家庭
+mother	/ˈmʌðə/　<b>n.</b>　母亲<br>My mother. 我母亲。	名词_人与家庭
+parents	/ˈpeərənts/　<b>n.</b>　父母<br>My parents. 我父母。	名词_人与家庭
+son	/sʌn/　<b>n.</b>　儿子<br>Their son. 他们的儿子。	名词_人与家庭
+daughter	/ˈdɔːtə/　<b>n.</b>　女儿<br>Their daughter. 他们的女儿。	名词_人与家庭
+brother	/ˈbrʌðə/　<b>n.</b>　兄弟<br>My brother. 我兄弟。	名词_人与家庭
+sister	/ˈsɪstə/　<b>n.</b>　姐妹<br>My sister. 我姐妹。	名词_人与家庭
+husband	/ˈhʌzbənd/　<b>n.</b>　丈夫<br>Her husband. 她丈夫。	名词_人与家庭
+wife	/waɪf/　<b>n.</b>　妻子<br>His wife. 他妻子。	名词_人与家庭
+friend	/frend/　<b>n.</b>　朋友<br>A good friend. 一个好朋友。	名词_人与家庭
+name	/neɪm/　<b>n.</b>　名字<br>My name is Li. 我叫李。	名词_人与家庭
+people	/ˈpiːpl/　<b>n.</b>　人们<br>Nice people. 好人。	名词_人与家庭
+team	/tiːm/　<b>n.</b>　团队<br>Our team. 我们团队。	名词_人与家庭
+group	/ɡruːp/　<b>n.</b>　小组<br>A study group. 学习小组。	名词_人与家庭
+everyone	/ˈevriwʌn/　<b>pron.</b>　每个人<br>Hi everyone. 大家好。	名词_人与家庭
+neighbor	/ˈneɪbə/　<b>n.</b>　邻居<br>My neighbor. 我邻居。	名词_人与家庭
+colleague	/ˈkɒliːɡ/　<b>n.</b>　同事<br>My colleague. 我同事。	名词_人与家庭
+boss	/bɒs/　<b>n.</b>　老板<br>My boss. 我老板。	名词_人与家庭
+customer	/ˈkʌstəmə/　<b>n.</b>　顾客<br>A happy customer. 满意的顾客。	名词_人与家庭
+user	/ˈjuːzə/　<b>n.</b>　用户<br>Active users. 活跃用户。	名词_人与家庭
+body	/ˈbɒdi/　<b>n.</b>　身体<br>The human body. 人体。	名词_身体与健康
+head	/hed/　<b>n.</b>　头<br>My head hurts. 我头疼。	名词_身体与健康
+face	/feɪs/　<b>n.</b>　脸<br>Wash your face. 洗脸。	名词_身体与健康
+eye	/aɪ/　<b>n.</b>　眼睛<br>Close your eyes. 闭上眼睛。	名词_身体与健康
+ear	/ɪə/　<b>n.</b>　耳朵<br>My ears. 我的耳朵。	名词_身体与健康
+nose	/nəʊz/　<b>n.</b>　鼻子<br>A runny nose. 流鼻涕。	名词_身体与健康
+mouth	/maʊθ/　<b>n.</b>　嘴<br>Open your mouth. 张嘴。	名词_身体与健康
+tooth	/tuːθ/　<b>n.</b>　牙齿（复 teeth）<br>Brush your teeth. 刷牙。	名词_身体与健康
+hair	/heə/　<b>n.</b>　头发<br>Long hair. 长发。	名词_身体与健康
+hand	/hænd/　<b>n.</b>　手<br>Raise your hand. 举手。	名词_身体与健康
+arm	/ɑːm/　<b>n.</b>　手臂<br>My left arm. 我左臂。	名词_身体与健康
+leg	/leɡ/　<b>n.</b>　腿<br>Long legs. 长腿。	名词_身体与健康
+foot	/fʊt/　<b>n.</b>　脚（复 feet）<br>My feet hurt. 我脚疼。	名词_身体与健康
+finger	/ˈfɪŋɡə/　<b>n.</b>　手指<br>Ten fingers. 十根手指。	名词_身体与健康
+back	/bæk/　<b>n.</b>　背<br>My back hurts. 我背疼。	名词_身体与健康
+heart	/hɑːt/　<b>n.</b>　心脏<br>A strong heart. 强健的心脏。	名词_身体与健康
+health	/helθ/　<b>n.</b>　健康<br>Good health. 身体健康。	名词_身体与健康
+doctor	/ˈdɒktə/　<b>n.</b>　医生<br>See a doctor. 看医生。	名词_身体与健康
+hospital	/ˈhɒspɪtl/　<b>n.</b>　医院<br>Go to hospital. 去医院。	名词_身体与健康
+medicine	/ˈmedsn/　<b>n.</b>　药<br>Take medicine. 吃药。	名词_身体与健康
+pain	/peɪn/　<b>n.</b>　疼痛<br>I feel pain. 我觉得疼。	名词_身体与健康
+cold	/kəʊld/　<b>n.</b>　感冒<br>I have a cold. 我感冒了。	名词_身体与健康
+fever	/ˈfiːvə/　<b>n.</b>　发烧<br>A high fever. 高烧。	名词_身体与健康
+sleep	/sliːp/　<b>n.</b>　睡眠<br>Enough sleep. 充足睡眠。	名词_身体与健康
+exercise	/ˈeksəsaɪz/　<b>n.</b>　锻炼<br>Do exercise. 做运动。	名词_身体与健康
+food	/fuːd/　<b>n.</b>　食物<br>Good food. 美食。	名词_食物与饮料
+water	/ˈwɔːtə/　<b>n.</b>　水<br>A glass of water. 一杯水。	名词_食物与饮料
+tea	/tiː/　<b>n.</b>　茶<br>Green tea. 绿茶。	名词_食物与饮料
+coffee	/ˈkɒfi/　<b>n.</b>　咖啡<br>A cup of coffee. 一杯咖啡。	名词_食物与饮料
+milk	/mɪlk/　<b>n.</b>　牛奶<br>Fresh milk. 鲜奶。	名词_食物与饮料
+juice	/dʒuːs/　<b>n.</b>　果汁<br>Orange juice. 橙汁。	名词_食物与饮料
+rice	/raɪs/　<b>n.</b>　米饭<br>A bowl of rice. 一碗饭。	名词_食物与饮料
+bread	/bred/　<b>n.</b>　面包<br>Fresh bread. 新鲜面包。	名词_食物与饮料
+noodle	/ˈnuːdl/　<b>n.</b>　面条<br>Beef noodles. 牛肉面。	名词_食物与饮料
+egg	/eɡ/　<b>n.</b>　鸡蛋<br>Two eggs. 两个鸡蛋。	名词_食物与饮料
+meat	/miːt/　<b>n.</b>　肉<br>Red meat. 红肉。	名词_食物与饮料
+chicken	/ˈtʃɪkɪn/　<b>n.</b>　鸡肉<br>Fried chicken. 炸鸡。	名词_食物与饮料
+fish	/fɪʃ/　<b>n.</b>　鱼<br>Fresh fish. 鲜鱼。	名词_食物与饮料
+fruit	/fruːt/　<b>n.</b>　水果<br>Fresh fruit. 新鲜水果。	名词_食物与饮料
+apple	/ˈæpl/　<b>n.</b>　苹果<br>An apple a day. 一天一苹果。	名词_食物与饮料
+banana	/bəˈnɑːnə/　<b>n.</b>　香蕉<br>A yellow banana. 黄香蕉。	名词_食物与饮料
+vegetable	/ˈvedʒtəbl/　<b>n.</b>　蔬菜<br>Eat vegetables. 吃蔬菜。	名词_食物与饮料
+soup	/suːp/　<b>n.</b>　汤<br>Hot soup. 热汤。	名词_食物与饮料
+sugar	/ˈʃʊɡə/　<b>n.</b>　糖<br>No sugar. 不加糖。	名词_食物与饮料
+salt	/sɔːlt/　<b>n.</b>　盐<br>Add salt. 加点盐。	名词_食物与饮料
+breakfast	/ˈbrekfəst/　<b>n.</b>　早餐<br>Have breakfast. 吃早餐。	名词_食物与饮料
+lunch	/lʌntʃ/　<b>n.</b>　午餐<br>Have lunch. 吃午饭。	名词_食物与饮料
+dinner	/ˈdɪnə/　<b>n.</b>　晚餐<br>Cook dinner. 做晚饭。	名词_食物与饮料
+meal	/miːl/　<b>n.</b>　一餐<br>A big meal. 一顿大餐。	名词_食物与饮料
+restaurant	/ˈrestrɒnt/　<b>n.</b>　餐厅<br>A nice restaurant. 一家好餐厅。	名词_食物与饮料
+menu	/ˈmenjuː/　<b>n.</b>　菜单<br>The menu, please. 请给我菜单。	名词_食物与饮料
+plate	/pleɪt/　<b>n.</b>　盘子<br>A clean plate. 干净的盘子。	名词_食物与饮料
+cup	/kʌp/　<b>n.</b>　杯子<br>A cup of tea. 一杯茶。	名词_食物与饮料
+house	/haʊs/　<b>n.</b>　房子<br>A big house. 一栋大房子。	名词_家居与日常物品
+home	/həʊm/　<b>n.</b>　家<br>Go home. 回家。	名词_家居与日常物品
+room	/ruːm/　<b>n.</b>　房间<br>My room. 我的房间。	名词_家居与日常物品
+door	/dɔː/　<b>n.</b>　门<br>Open the door. 开门。	名词_家居与日常物品
+window	/ˈwɪndəʊ/　<b>n.</b>　窗户<br>Close the window. 关窗。	名词_家居与日常物品
+wall	/wɔːl/　<b>n.</b>　墙<br>On the wall. 在墙上。	名词_家居与日常物品
+floor	/flɔː/　<b>n.</b>　地板；楼层<br>Third floor. 三楼。	名词_家居与日常物品
+table	/ˈteɪbl/　<b>n.</b>　桌子<br>On the table. 在桌上。	名词_家居与日常物品
+chair	/tʃeə/　<b>n.</b>　椅子<br>Sit on the chair. 坐椅子上。	名词_家居与日常物品
+bed	/bed/　<b>n.</b>　床<br>Go to bed. 睡觉。	名词_家居与日常物品
+desk	/desk/　<b>n.</b>　书桌<br>At my desk. 在我桌前。	名词_家居与日常物品
+light	/laɪt/　<b>n.</b>　灯；光<br>Turn on the light. 开灯。	名词_家居与日常物品
+key	/kiː/　<b>n.</b>　钥匙；键<br>My keys. 我的钥匙。	名词_家居与日常物品
+bag	/bæɡ/　<b>n.</b>　包<br>A shopping bag. 购物袋。	名词_家居与日常物品
+box	/bɒks/　<b>n.</b>　盒子<br>A big box. 一个大箱子。	名词_家居与日常物品
+book	/bʊk/　<b>n.</b>　书<br>Read a book. 读一本书。	名词_家居与日常物品
+paper	/ˈpeɪpə/　<b>n.</b>　纸<br>A piece of paper. 一张纸。	名词_家居与日常物品
+pen	/pen/　<b>n.</b>　笔<br>A blue pen. 一支蓝笔。	名词_家居与日常物品
+clock	/klɒk/　<b>n.</b>　钟<br>The wall clock. 挂钟。	名词_家居与日常物品
+phone	/fəʊn/　<b>n.</b>　电话<br>My phone. 我的手机。	名词_家居与日常物品
+clothes	/kləʊðz/　<b>n.</b>　衣服<br>Wear clothes. 穿衣服。	名词_家居与日常物品
+shoe	/ʃuː/　<b>n.</b>　鞋<br>New shoes. 新鞋。	名词_家居与日常物品
+money	/ˈmʌni/　<b>n.</b>　钱<br>Save money. 存钱。	名词_家居与日常物品
+card	/kɑːd/　<b>n.</b>　卡片<br>A credit card. 信用卡。	名词_家居与日常物品
+picture	/ˈpɪktʃə/　<b>n.</b>　图片<br>Take a picture. 拍张照。	名词_家居与日常物品
+gift	/ɡɪft/　<b>n.</b>　礼物<br>A nice gift. 一份好礼物。	名词_家居与日常物品
+thing	/θɪŋ/　<b>n.</b>　东西<br>My things. 我的东西。	名词_家居与日常物品
+stuff	/stʌf/　<b>n.</b>　东西（笼统）<br>A lot of stuff. 很多东西。	名词_家居与日常物品
+place	/pleɪs/　<b>n.</b>　地方<br>A quiet place. 安静的地方。	名词_地点与场所
+city	/ˈsɪti/　<b>n.</b>　城市<br>A big city. 大城市。	名词_地点与场所
+town	/taʊn/　<b>n.</b>　城镇<br>A small town. 小镇。	名词_地点与场所
+country	/ˈkʌntri/　<b>n.</b>　国家；乡村<br>My country. 我的国家。	名词_地点与场所
+street	/striːt/　<b>n.</b>　街道<br>On the street. 在街上。	名词_地点与场所
+road	/rəʊd/　<b>n.</b>　路<br>A long road. 一条长路。	名词_地点与场所
+school	/skuːl/　<b>n.</b>　学校<br>Go to school. 上学。	名词_地点与场所
+office	/ˈɒfɪs/　<b>n.</b>　办公室<br>At the office. 在办公室。	名词_地点与场所
+company	/ˈkʌmpəni/　<b>n.</b>　公司<br>A big company. 大公司。	名词_地点与场所
+shop	/ʃɒp/　<b>n.</b>　商店<br>A coffee shop. 咖啡店。	名词_地点与场所
+store	/stɔː/　<b>n.</b>　商店<br>The app store. 应用商店。	名词_地点与场所
+market	/ˈmɑːkɪt/　<b>n.</b>　市场<br>The fruit market. 水果市场。	名词_地点与场所
+bank	/bæŋk/　<b>n.</b>　银行<br>Go to the bank. 去银行。	名词_地点与场所
+hotel	/həʊˈtel/　<b>n.</b>　酒店<br>Book a hotel. 订酒店。	名词_地点与场所
+airport	/ˈeəpɔːt/　<b>n.</b>　机场<br>At the airport. 在机场。	名词_地点与场所
+station	/ˈsteɪʃn/　<b>n.</b>　车站<br>The train station. 火车站。	名词_地点与场所
+park	/pɑːk/　<b>n.</b>　公园<br>Walk in the park. 在公园散步。	名词_地点与场所
+bathroom	/ˈbɑːθruːm/　<b>n.</b>　卫生间<br>The bathroom. 洗手间。	名词_地点与场所
+kitchen	/ˈkɪtʃɪn/　<b>n.</b>　厨房<br>In the kitchen. 在厨房。	名词_地点与场所
+garden	/ˈɡɑːdn/　<b>n.</b>　花园<br>A small garden. 小花园。	名词_地点与场所
+library	/ˈlaɪbrəri/　<b>n.</b>　图书馆<br>The city library. 市图书馆。	名词_地点与场所
+center	/ˈsentə/　<b>n.</b>　中心<br>The city center. 市中心。	名词_地点与场所
+world	/wɜːld/　<b>n.</b>　世界<br>Around the world. 全世界。	名词_地点与场所
+area	/ˈeəriə/　<b>n.</b>　区域<br>This area. 这个区域。	名词_地点与场所
+way	/weɪ/　<b>n.</b>　路；方式<br>This way, please. 这边请。	名词_地点与场所
+weather	/ˈweðə/　<b>n.</b>　天气<br>Nice weather. 好天气。	名词_自然与天气
+sun	/sʌn/　<b>n.</b>　太阳<br>The sun is out. 出太阳了。	名词_自然与天气
+moon	/muːn/　<b>n.</b>　月亮<br>A full moon. 满月。	名词_自然与天气
+sky	/skaɪ/　<b>n.</b>　天空<br>Blue sky. 蓝天。	名词_自然与天气
+star	/stɑː/　<b>n.</b>　星星<br>Many stars. 很多星星。	名词_自然与天气
+rain	/reɪn/　<b>n.</b>　雨<br>Heavy rain. 大雨。	名词_自然与天气
+snow	/snəʊ/　<b>n.</b>　雪<br>White snow. 白雪。	名词_自然与天气
+wind	/wɪnd/　<b>n.</b>　风<br>Strong wind. 大风。	名词_自然与天气
+cloud	/klaʊd/　<b>n.</b>　云<br>Dark clouds. 乌云。	名词_自然与天气
+air	/eə/　<b>n.</b>　空气<br>Fresh air. 新鲜空气。	名词_自然与天气
+water	/ˈwɔːtə/　<b>n.</b>　水<br>Clean water. 干净的水。	名词_自然与天气
+fire	/ˈfaɪə/　<b>n.</b>　火<br>A big fire. 大火。	名词_自然与天气
+tree	/triː/　<b>n.</b>　树<br>A tall tree. 一棵高树。	名词_自然与天气
+flower	/ˈflaʊə/　<b>n.</b>　花<br>Beautiful flowers. 美丽的花。	名词_自然与天气
+grass	/ɡrɑːs/　<b>n.</b>　草<br>Green grass. 绿草。	名词_自然与天气
+mountain	/ˈmaʊntən/　<b>n.</b>　山<br>A high mountain. 一座高山。	名词_自然与天气
+river	/ˈrɪvə/　<b>n.</b>　河<br>A long river. 一条长河。	名词_自然与天气
+sea	/siː/　<b>n.</b>　海<br>The blue sea. 蓝色的大海。	名词_自然与天气
+beach	/biːtʃ/　<b>n.</b>　海滩<br>On the beach. 在海滩上。	名词_自然与天气
+animal	/ˈænɪml/　<b>n.</b>　动物<br>Wild animals. 野生动物。	名词_自然与天气
+dog	/dɒɡ/　<b>n.</b>　狗<br>A cute dog. 一只可爱的狗。	名词_自然与天气
+cat	/kæt/　<b>n.</b>　猫<br>A black cat. 一只黑猫。	名词_自然与天气
+bird	/bɜːd/　<b>n.</b>　鸟<br>A small bird. 一只小鸟。	名词_自然与天气
+season	/ˈsiːzn/　<b>n.</b>　季节<br>Four seasons. 四季。	名词_自然与天气
+work	/wɜːk/　<b>n.</b>　工作<br>A lot of work. 很多工作。	名词_工作与软件开发
+job	/dʒɒb/　<b>n.</b>　工作，职位<br>A new job. 一份新工作。	名词_工作与软件开发
+project	/ˈprɒdʒekt/　<b>n.</b>　项目<br>A big project. 一个大项目。	名词_工作与软件开发
+task	/tɑːsk/　<b>n.</b>　任务<br>Finish the task. 完成任务。	名词_工作与软件开发
+meeting	/ˈmiːtɪŋ/　<b>n.</b>　会议<br>A team meeting. 团队会议。	名词_工作与软件开发
+plan	/plæn/　<b>n.</b>　计划<br>Make a plan. 制定计划。	名词_工作与软件开发
+idea	/aɪˈdɪə/　<b>n.</b>　主意<br>A good idea. 一个好主意。	名词_工作与软件开发
+problem	/ˈprɒbləm/　<b>n.</b>　问题<br>No problem. 没问题。	名词_工作与软件开发
+question	/ˈkwestʃən/　<b>n.</b>　问题<br>A good question. 好问题。	名词_工作与软件开发
+answer	/ˈɑːnsə/　<b>n.</b>　答案<br>The right answer. 正确答案。	名词_工作与软件开发
+result	/rɪˈzʌlt/　<b>n.</b>　结果<br>The test result. 测试结果。	名词_工作与软件开发
+report	/rɪˈpɔːt/　<b>n.</b>　报告<br>A daily report. 日报。	名词_工作与软件开发
+email	/ˈiːmeɪl/　<b>n.</b>　邮件<br>Send an email. 发封邮件。	名词_工作与软件开发
+message	/ˈmesɪdʒ/　<b>n.</b>　消息<br>A new message. 一条新消息。	名词_工作与软件开发
+computer	/kəmˈpjuːtə/　<b>n.</b>　电脑<br>On the computer. 在电脑上。	名词_工作与软件开发
+laptop	/ˈlæptɒp/　<b>n.</b>　笔记本电脑<br>My laptop. 我的笔记本。	名词_工作与软件开发
+screen	/skriːn/　<b>n.</b>　屏幕<br>On the screen. 在屏幕上。	名词_工作与软件开发
+keyboard	/ˈkiːbɔːd/　<b>n.</b>　键盘<br>A new keyboard. 新键盘。	名词_工作与软件开发
+mouse	/maʊs/　<b>n.</b>　鼠标<br>Click the mouse. 点鼠标。	名词_工作与软件开发
+software	/ˈsɒftweə/　<b>n.</b>　软件<br>Update the software. 更新软件。	名词_工作与软件开发
+app	/æp/　<b>n.</b>　应用<br>A mobile app. 手机应用。	名词_工作与软件开发
+code	/kəʊd/　<b>n.</b>　代码<br>Write code. 写代码。	名词_工作与软件开发
+bug	/bʌɡ/　<b>n.</b>　缺陷，故障<br>Fix the bug. 修 bug。	名词_工作与软件开发
+file	/faɪl/　<b>n.</b>　文件<br>Save the file. 保存文件。	名词_工作与软件开发
+folder	/ˈfəʊldə/　<b>n.</b>　文件夹<br>In this folder. 在这个文件夹里。	名词_工作与软件开发
+data	/ˈdeɪtə/　<b>n.</b>　数据<br>User data. 用户数据。	名词_工作与软件开发
+database	/ˈdeɪtəbeɪs/　<b>n.</b>　数据库<br>The database is down. 数据库挂了。	名词_工作与软件开发
+server	/ˈsɜːvə/　<b>n.</b>　服务器<br>The server is slow. 服务器很慢。	名词_工作与软件开发
+system	/ˈsɪstəm/　<b>n.</b>　系统<br>The system works. 系统正常。	名词_工作与软件开发
+network	/ˈnetwɜːk/　<b>n.</b>　网络<br>A slow network. 网络很慢。	名词_工作与软件开发
+internet	/ˈɪntənet/　<b>n.</b>　互联网<br>On the internet. 在网上。	名词_工作与软件开发
+website	/ˈwebsaɪt/　<b>n.</b>　网站<br>Visit the website. 访问网站。	名词_工作与软件开发
+page	/peɪdʒ/　<b>n.</b>　页面<br>The home page. 主页。	名词_工作与软件开发
+button	/ˈbʌtn/　<b>n.</b>　按钮<br>The save button. 保存按钮。	名词_工作与软件开发
+password	/ˈpɑːswɜːd/　<b>n.</b>　密码<br>Enter your password. 输入密码。	名词_工作与软件开发
+account	/əˈkaʊnt/　<b>n.</b>　账户<br>Create an account. 创建账户。	名词_工作与软件开发
+version	/ˈvɜːʃn/　<b>n.</b>　版本<br>The new version. 新版本。	名词_工作与软件开发
+feature	/ˈfiːtʃə/　<b>n.</b>　功能<br>A new feature. 新功能。	名词_工作与软件开发
+test	/test/　<b>n.</b>　测试<br>Run a test. 跑一次测试。	名词_工作与软件开发
+team	/tiːm/　<b>n.</b>　团队<br>The dev team. 开发团队。	名词_工作与软件开发
+deadline	/ˈdedlaɪn/　<b>n.</b>　截止日期<br>Meet the deadline. 赶上截止日期。	名词_工作与软件开发
+manager	/ˈmænɪdʒə/　<b>n.</b>　经理<br>My manager. 我的经理。	名词_工作与软件开发
+developer	/dɪˈveləpə/　<b>n.</b>　开发者<br>A software developer. 软件开发者。	名词_工作与软件开发
+service	/ˈsɜːvɪs/　<b>n.</b>　服务<br>Good service. 好服务。	名词_工作与软件开发
+document	/ˈdɒkjumənt/　<b>n.</b>　文档<br>Read the document. 读文档。	名词_工作与软件开发
+tool	/tuːl/　<b>n.</b>　工具<br>A useful tool. 有用的工具。	名词_工作与软件开发
+thing	/θɪŋ/　<b>n.</b>　事物<br>One more thing. 还有一件事。	名词_抽象与其他
+way	/weɪ/　<b>n.</b>　方法<br>A better way. 更好的办法。	名词_抽象与其他
+life	/laɪf/　<b>n.</b>　生活，生命<br>Enjoy life. 享受生活。	名词_抽象与其他
+world	/wɜːld/　<b>n.</b>　世界<br>The whole world. 整个世界。	名词_抽象与其他
+word	/wɜːd/　<b>n.</b>　单词<br>A new word. 一个新词。	名词_抽象与其他
+language	/ˈlæŋɡwɪdʒ/　<b>n.</b>　语言<br>English is a language. 英语是一门语言。	名词_抽象与其他
+number	/ˈnʌmbə/　<b>n.</b>　数字<br>A phone number. 电话号码。	名词_抽象与其他
+example	/ɪɡˈzɑːmpl/　<b>n.</b>　例子<br>For example. 例如。	名词_抽象与其他
+reason	/ˈriːzn/　<b>n.</b>　原因<br>The main reason. 主要原因。	名词_抽象与其他
+fact	/fækt/　<b>n.</b>　事实<br>In fact. 事实上。	名词_抽象与其他
+point	/pɔɪnt/　<b>n.</b>　要点<br>Good point. 说得好。	名词_抽象与其他
+part	/pɑːt/　<b>n.</b>　部分<br>The best part. 最好的部分。	名词_抽象与其他
+kind	/kaɪnd/　<b>n.</b>　种类<br>What kind? 哪种？	名词_抽象与其他
+type	/taɪp/　<b>n.</b>　类型<br>This type. 这种类型。	名词_抽象与其他
+level	/ˈlevl/　<b>n.</b>　级别，水平<br>A high level. 高水平。	名词_抽象与其他
+chance	/tʃɑːns/　<b>n.</b>　机会<br>A good chance. 好机会。	名词_抽象与其他
+choice	/tʃɔɪs/　<b>n.</b>　选择<br>A hard choice. 艰难的选择。	名词_抽象与其他
+change	/tʃeɪndʒ/　<b>n.</b>　变化；零钱<br>A big change. 大变化。	名词_抽象与其他
+help	/help/　<b>n.</b>　帮助<br>Thanks for your help. 谢谢帮忙。	名词_抽象与其他
+news	/njuːz/　<b>n.</b>　消息，新闻<br>Good news. 好消息。	名词_抽象与其他
+story	/ˈstɔːri/　<b>n.</b>　故事<br>A long story. 说来话长。	名词_抽象与其他
+question	/ˈkwestʃən/　<b>n.</b>　问题<br>Any questions? 有问题吗？	名词_抽象与其他
+information	/ˌɪnfəˈmeɪʃn/　<b>n.</b>　信息<br>More information. 更多信息。	名词_抽象与其他
+number	/ˈnʌmbə/　<b>n.</b>　数量<br>A large number. 大量。	名词_抽象与其他
+price	/praɪs/　<b>n.</b>　价格<br>A good price. 好价格。	名词_抽象与其他
+color	/ˈkʌlə/　<b>n.</b>　颜色<br>My favorite color. 我最喜欢的颜色。	名词_抽象与其他
+size	/saɪz/　<b>n.</b>　尺寸<br>What size? 什么尺寸？	名词_抽象与其他
+game	/ɡeɪm/　<b>n.</b>　游戏<br>Play a game. 玩游戏。	名词_抽象与其他
+music	/ˈmjuːzɪk/　<b>n.</b>　音乐<br>Listen to music. 听音乐。	名词_抽象与其他
+movie	/ˈmuːvi/　<b>n.</b>　电影<br>Watch a movie. 看电影。	名词_抽象与其他
+sport	/spɔːt/　<b>n.</b>　运动<br>My favorite sport. 我最爱的运动。	名词_抽象与其他
+number	/ˈnʌmbə/　<b>n.</b>　号码<br>Room number. 房间号。	名词_抽象与其他
+big	/bɪɡ/　<b>adj.</b>　大的<br>A big house. 一栋大房子。	形容词
+small	/smɔːl/　<b>adj.</b>　小的<br>A small bug. 一个小 bug。	形容词
+large	/lɑːdʒ/　<b>adj.</b>　大的，大量的<br>A large team. 一个大团队。	形容词
+little	/ˈlɪtl/　<b>adj.</b>　小的；少的<br>A little time. 一点时间。	形容词
+long	/lɒŋ/　<b>adj.</b>　长的<br>A long day. 漫长的一天。	形容词
+short	/ʃɔːt/　<b>adj.</b>　短的，矮的<br>A short break. 短暂休息。	形容词
+high	/haɪ/　<b>adj.</b>　高的<br>High quality. 高质量。	形容词
+low	/ləʊ/　<b>adj.</b>　低的<br>Low price. 低价。	形容词
+tall	/tɔːl/　<b>adj.</b>　高的（人/物）<br>A tall man. 一个高个子。	形容词
+wide	/waɪd/　<b>adj.</b>　宽的<br>A wide road. 一条宽路。	形容词
+full	/fʊl/　<b>adj.</b>　满的<br>The cup is full. 杯子满了。	形容词
+empty	/ˈempti/　<b>adj.</b>　空的<br>An empty box. 空盒子。	形容词
+heavy	/ˈhevi/　<b>adj.</b>　重的<br>A heavy bag. 重包。	形容词
+light	/laɪt/　<b>adj.</b>　轻的；浅的<br>A light meal. 便餐。	形容词
+many	/ˈmeni/　<b>adj.</b>　许多<br>Many people. 很多人。	形容词
+much	/mʌtʃ/　<b>adj.</b>　许多（不可数）<br>Too much work. 太多工作。	形容词
+more	/mɔː/　<b>adj.</b>　更多的<br>More time. 更多时间。	形容词
+most	/məʊst/　<b>adj.</b>　最多的<br>Most people. 大多数人。	形容词
+few	/fjuː/　<b>adj.</b>　很少<br>A few days. 几天。	形容词
+enough	/ɪˈnʌf/　<b>adj.</b>　足够的<br>Enough money. 足够的钱。	形容词
+good	/ɡʊd/　<b>adj.</b>　好的<br>A good idea. 好主意。	形容词
+bad	/bæd/　<b>adj.</b>　坏的<br>Bad news. 坏消息。	形容词
+great	/ɡreɪt/　<b>adj.</b>　很棒的<br>That's great! 太好了！	形容词
+nice	/naɪs/　<b>adj.</b>　好的，友善的<br>A nice person. 好人。	形容词
+fine	/faɪn/　<b>adj.</b>　好的，还行<br>I'm fine. 我很好。	形容词
+best	/best/　<b>adj.</b>　最好的<br>The best choice. 最佳选择。	形容词
+better	/ˈbetə/　<b>adj.</b>　更好的<br>Much better. 好多了。	形容词
+happy	/ˈhæpi/　<b>adj.</b>　快乐的<br>I'm happy. 我很开心。	形容词
+sad	/sæd/　<b>adj.</b>　伤心的<br>Don't be sad. 别难过。	形容词
+angry	/ˈæŋɡri/　<b>adj.</b>　生气的<br>He's angry. 他生气了。	形容词
+tired	/ˈtaɪəd/　<b>adj.</b>　累的<br>I'm tired. 我累了。	形容词
+busy	/ˈbɪzi/　<b>adj.</b>　忙的<br>I'm busy. 我很忙。	形容词
+free	/friː/　<b>adj.</b>　空闲的；免费的<br>Are you free? 你有空吗？	形容词
+ready	/ˈredi/　<b>adj.</b>　准备好的<br>I'm ready. 我准备好了。	形容词
+sure	/ʃʊə/　<b>adj.</b>　确定的<br>Are you sure? 你确定吗？	形容词
+glad	/ɡlæd/　<b>adj.</b>　高兴的<br>I'm glad. 我很高兴。	形容词
+afraid	/əˈfreɪd/　<b>adj.</b>　害怕的<br>I'm afraid so. 恐怕是的。	形容词
+worried	/ˈwʌrid/　<b>adj.</b>　担心的<br>Don't be worried. 别担心。	形容词
+interested	/ˈɪntrəstɪd/　<b>adj.</b>　感兴趣的<br>I'm interested. 我有兴趣。	形容词
+surprised	/səˈpraɪzd/　<b>adj.</b>　惊讶的<br>I'm surprised. 我很惊讶。	形容词
+new	/njuː/　<b>adj.</b>　新的<br>A new phone. 新手机。	形容词
+old	/əʊld/　<b>adj.</b>　旧的，老的<br>An old friend. 老朋友。	形容词
+young	/jʌŋ/　<b>adj.</b>　年轻的<br>A young team. 年轻的团队。	形容词
+easy	/ˈiːzi/　<b>adj.</b>　容易的<br>An easy task. 简单任务。	形容词
+hard	/hɑːd/　<b>adj.</b>　难的，硬的<br>A hard problem. 难题。	形容词
+difficult	/ˈdɪfɪkəlt/　<b>adj.</b>　困难的<br>A difficult choice. 艰难选择。	形容词
+simple	/ˈsɪmpl/　<b>adj.</b>　简单的<br>A simple idea. 简单的想法。	形容词
+important	/ɪmˈpɔːtnt/　<b>adj.</b>　重要的<br>A key point. 重要的一点。	形容词
+fast	/fɑːst/　<b>adj.</b>　快的<br>A fast car. 快车。	形容词
+slow	/sləʊ/　<b>adj.</b>　慢的<br>A slow network. 慢网络。	形容词
+quick	/kwɪk/　<b>adj.</b>　迅速的<br>A quick question. 一个小问题。	形容词
+right	/raɪt/　<b>adj.</b>　对的；右边的<br>You're right. 你对了。	形容词
+wrong	/rɒŋ/　<b>adj.</b>　错的<br>Something's wrong. 有点不对。	形容词
+true	/truː/　<b>adj.</b>　真的<br>Is it true? 是真的吗？	形容词
+real	/rɪəl/　<b>adj.</b>　真实的<br>Real life. 现实生活。	形容词
+same	/seɪm/　<b>adj.</b>　相同的<br>The same idea. 同样的想法。	形容词
+different	/ˈdɪfrənt/　<b>adj.</b>　不同的<br>A different way. 不同的方法。	形容词
+clean	/kliːn/　<b>adj.</b>　干净的<br>A clean room. 干净的房间。	形容词
+dirty	/ˈdɜːti/　<b>adj.</b>　脏的<br>Dirty hands. 脏手。	形容词
+hot	/hɒt/　<b>adj.</b>　热的<br>Hot water. 热水。	形容词
+cold	/kəʊld/　<b>adj.</b>　冷的<br>Cold weather. 冷天气。	形容词
+warm	/wɔːm/　<b>adj.</b>　温暖的<br>Warm clothes. 保暖衣物。	形容词
+open	/ˈəʊpən/　<b>adj.</b>　开着的<br>The shop is open. 店开着。	形容词
+closed	/kləʊzd/　<b>adj.</b>　关着的<br>The door is closed. 门关着。	形容词
+beautiful	/ˈbjuːtɪfl/　<b>adj.</b>　美丽的<br>A beautiful view. 美景。	形容词
+nice	/naɪs/　<b>adj.</b>　好看的<br>A nice design. 漂亮的设计。	形容词
+popular	/ˈpɒpjələ/　<b>adj.</b>　流行的<br>A popular app. 热门应用。	形容词
+famous	/ˈfeɪməs/　<b>adj.</b>　著名的<br>A famous person. 名人。	形容词
+safe	/seɪf/　<b>adj.</b>　安全的<br>Stay safe. 注意安全。	形容词
+dangerous	/ˈdeɪndʒərəs/　<b>adj.</b>　危险的<br>It's dangerous. 很危险。	形容词
+strong	/strɒŋ/　<b>adj.</b>　强的<br>A strong password. 强密码。	形容词
+weak	/wiːk/　<b>adj.</b>　弱的<br>A weak signal. 信号弱。	形容词
+cheap	/tʃiːp/　<b>adj.</b>　便宜的<br>A cheap phone. 便宜手机。	形容词
+expensive	/ɪkˈspensɪv/　<b>adj.</b>　贵的<br>Too expensive. 太贵了。	形容词
+next	/nekst/　<b>adj.</b>　下一个<br>Next time. 下次。	形容词
+last	/lɑːst/　<b>adj.</b>　最后的<br>The last one. 最后一个。	形容词
+whole	/həʊl/　<b>adj.</b>　整个的<br>The whole day. 一整天。	形容词
+own	/əʊn/　<b>adj.</b>　自己的<br>My own room. 我自己的房间。	形容词
+possible	/ˈpɒsəbl/　<b>adj.</b>　可能的<br>Is it possible? 有可能吗？	形容词
+clear	/klɪə/　<b>adj.</b>　清楚的<br>Is that clear? 清楚了吗？	形容词
+useful	/ˈjuːsfl/　<b>adj.</b>　有用的<br>Very useful. 很有用。	形容词
+available	/əˈveɪləbl/　<b>adj.</b>　可用的<br>Is it available? 有货吗/可用吗？	形容词
+very	/ˈveri/　<b>adv.</b>　非常<br>Very good. 非常好。	副词
+really	/ˈrɪəli/　<b>adv.</b>　真的，确实<br>Really? 真的吗？	副词
+too	/tuː/　<b>adv.</b>　太；也<br>Too slow. 太慢了。	副词
+so	/səʊ/　<b>adv.</b>　如此，这么<br>So good! 太棒了！	副词
+also	/ˈɔːlsəʊ/　<b>adv.</b>　也<br>I also agree. 我也同意。	副词
+just	/dʒʌst/　<b>adv.</b>　只是；刚刚<br>Just a minute. 就一分钟。	副词
+only	/ˈəʊnli/　<b>adv.</b>　仅仅<br>Only one. 只有一个。	副词
+even	/ˈiːvn/　<b>adv.</b>　甚至<br>Even better. 甚至更好。	副词
+still	/stɪl/　<b>adv.</b>　仍然<br>Still working. 还在运行。	副词
+already	/ɔːlˈredi/　<b>adv.</b>　已经<br>Already done. 已经完成。	副词
+yet	/jet/　<b>adv.</b>　还（没）<br>Not yet. 还没。	副词
+again	/əˈɡen/　<b>adv.</b>　再一次<br>Try again. 再试一次。	副词
+always	/ˈɔːlweɪz/　<b>adv.</b>　总是<br>I always do. 我一直这样。	副词
+usually	/ˈjuːʒuəli/　<b>adv.</b>　通常<br>Usually fine. 通常没问题。	副词
+often	/ˈɒfn/　<b>adv.</b>　经常<br>Often late. 经常迟到。	副词
+sometimes	/ˈsʌmtaɪmz/　<b>adv.</b>　有时<br>Sometimes it fails. 有时会失败。	副词
+never	/ˈnevə/　<b>adv.</b>　从不<br>Never mind. 没关系。	副词
+here	/hɪə/　<b>adv.</b>　这里<br>Come here. 过来。	副词
+there	/ðeə/　<b>adv.</b>　那里<br>Over there. 在那边。	副词
+now	/naʊ/　<b>adv.</b>　现在<br>Do it now. 现在做。	副词
+then	/ðen/　<b>adv.</b>　然后<br>And then? 然后呢？	副词
+today	/təˈdeɪ/　<b>adv.</b>　今天<br>Not today. 今天不行。	副词
+well	/wel/　<b>adv.</b>　好地<br>Well done. 干得好。	副词
+fast	/fɑːst/　<b>adv.</b>　快地<br>Run fast. 跑得快。	副词
+slowly	/ˈsləʊli/　<b>adv.</b>　慢地<br>Speak slowly. 说慢点。	副词
+hard	/hɑːd/　<b>adv.</b>　努力地<br>Work hard. 努力工作。	副词
+together	/təˈɡeðə/　<b>adv.</b>　一起<br>Work together. 一起工作。	副词
+almost	/ˈɔːlməʊst/　<b>adv.</b>　几乎<br>Almost done. 快好了。	副词
+maybe	/ˈmeɪbi/　<b>adv.</b>　也许<br>Maybe later. 也许待会。	副词
+probably	/ˈprɒbəbli/　<b>adv.</b>　很可能<br>Probably yes. 很可能是的。	副词
+perhaps	/pəˈhæps/　<b>adv.</b>　也许<br>Perhaps. 也许吧。	副词
+quickly	/ˈkwɪkli/　<b>adv.</b>　快速地<br>Reply quickly. 快速回复。	副词
+carefully	/ˈkeəfəli/　<b>adv.</b>　仔细地<br>Read carefully. 仔细读。	副词
+more	/mɔː/　<b>adv.</b>　更<br>Say more. 多说些。	副词
+less	/les/　<b>adv.</b>　更少<br>Less work. 更少的工作。	副词
+enough	/ɪˈnʌf/　<b>adv.</b>　足够地<br>Good enough. 够好了。	副词
+soon	/suːn/　<b>adv.</b>　不久<br>See you soon. 回头见。	副词
+later	/ˈleɪtə/　<b>adv.</b>　稍后<br>Talk later. 待会聊。	副词
+early	/ˈɜːli/　<b>adv.</b>　早<br>Come early. 早点来。	副词
+ago	/əˈɡəʊ/　<b>adv.</b>　以前<br>Long ago. 很久以前。	副词
+forward	/ˈfɔːwəd/　<b>adv.</b>　向前<br>Move forward. 向前进。	副词
+away	/əˈweɪ/　<b>adv.</b>　离开<br>Go away. 走开。	副词
+back	/bæk/　<b>adv.</b>　回<br>Come back. 回来。	副词
+around	/əˈraʊnd/　<b>adv.</b>　周围；大约<br>Look around. 四处看看。	副词
+instead	/ɪnˈsted/　<b>adv.</b>　代替<br>Use this instead. 用这个代替。	副词
+however	/haʊˈevə/　<b>adv.</b>　然而<br>However, it works. 不过它能用。	副词
+color	/ˈkʌlə/　<b>n.</b>　颜色<br>What color? 什么颜色？	颜色
+red	/red/　<b>adj./n.</b>　红色<br>A red apple. 一个红苹果。	颜色
+orange	/ˈɒrɪndʒ/　<b>adj./n.</b>　橙色<br>An orange shirt. 一件橙色衬衫。	颜色
+yellow	/ˈjeləʊ/　<b>adj./n.</b>　黄色<br>Yellow flowers. 黄花。	颜色
+green	/ɡriːn/　<b>adj./n.</b>　绿色<br>Green tea. 绿茶。	颜色
+blue	/bluː/　<b>adj./n.</b>　蓝色<br>The blue sky. 蓝天。	颜色
+white	/waɪt/　<b>adj./n.</b>　白色<br>A white wall. 白墙。	颜色
+black	/blæk/　<b>adj./n.</b>　黑色<br>Black coffee. 黑咖啡。	颜色
+gray	/ɡreɪ/　<b>adj./n.</b>　灰色<br>A gray cat. 一只灰猫。	颜色
+brown	/braʊn/　<b>adj./n.</b>　棕色<br>Brown bread. 全麦面包。	颜色
+pink	/pɪŋk/　<b>adj./n.</b>　粉色<br>A pink flower. 一朵粉花。	颜色
+purple	/ˈpɜːpl/　<b>adj./n.</b>　紫色<br>A purple bag. 一个紫包。	颜色
+thank you	谢谢<br>Thank you very much. 非常感谢。	常用短语与词块
+you're welcome	不客气<br>— You're welcome. 不客气。	常用短语与词块
+excuse me	打扰一下<br>Excuse me, where is…? 请问…在哪？	常用短语与词块
+I'm sorry	对不起<br>I'm sorry, I'm late. 抱歉，我迟到了。	常用短语与词块
+no problem	没问题<br>Sure, no problem. 当然，没问题。	常用短语与词块
+of course	当然<br>Of course you can. 你当然可以。	常用短语与词块
+a little	一点<br>A little tired. 有点累。	常用短语与词块
+a lot of	很多<br>A lot of work. 很多工作。	常用短语与词块
+a few	几个<br>A few minutes. 几分钟。	常用短语与词块
+kind of	有点<br>Kind of hard. 有点难。	常用短语与词块
+for example	例如<br>For example, this. 比如这个。	常用短语与词块
+in fact	事实上<br>In fact, it works. 事实上它能用。	常用短语与词块
+by the way	顺便说<br>By the way, thanks. 顺便说谢谢。	常用短语与词块
+at least	至少<br>At least try. 至少试试。	常用短语与词块
+at first	起初<br>At first it failed. 起初它失败了。	常用短语与词块
+right now	现在<br>I need it right now. 我现在就要。	常用短语与词块
+all right	好的<br>All right, let's go. 好，走吧。	常用短语与词块
+I think so	我想是的<br>— I think so. 我想是的。	常用短语与词块
+I don't know	我不知道<br>I don't know yet. 我还不知道。	常用短语与词块
+I'm not sure	我不确定<br>I'm not sure. 我不确定。	常用短语与词块
+let me see	让我看看<br>Let me see. 我看看。	常用短语与词块
+let me know	告诉我<br>Let me know. 告诉我一声。	常用短语与词块
+hold on	等一下<br>Hold on a second. 稍等一下。	常用短语与词块
+never mind	没关系<br>Never mind. 算了。	常用短语与词块
+take care	保重<br>Take care! 保重！	常用短语与词块
+see you	再见<br>See you later. 待会见。	常用短语与词块
+good luck	祝你好运<br>Good luck! 祝好运！	常用短语与词块
+how about…?	…怎么样？<br>How about tomorrow? 明天怎么样？	常用短语与词块
+what about…?	…呢？<br>What about you? 你呢？	常用短语与词块
+would you like…?	你想要…吗？<br>Would you like tea? 要喝茶吗？	常用短语与词块
+can you help me?	你能帮我吗？<br>Can you help me? 你能帮我吗？	常用短语与词块
+I'd like to…	我想…<br>I'd like to learn. 我想学。	常用短语与词块
+looking forward to…	期待…<br>Looking forward to it. 很期待。	常用短语与词块
+make sure	确保<br>Make sure to save. 记得保存。	常用短语与词块
+more or less	差不多<br>More or less. 差不多。	常用短语与词块
+so far	到目前为止<br>So far so good. 目前为止都好。	常用短语与词块
+as soon as possible	尽快<br>ASAP. 尽快。	常用短语与词块
+on time	准时<br>Be on time. 准时。	常用短语与词块
+in time	及时<br>Just in time. 正好赶上。	常用短语与词块
+all day	一整天<br>I worked all day. 我工作了一整天。	常用短语与词块
+act	/ækt/　<b>v.</b>　行动<br>Act now. 立刻行动。	补充高频词
+apply	/əˈplaɪ/　<b>v.</b>　申请；应用<br>Apply for a job. 申请工作。	补充高频词
+avoid	/əˈvɔɪd/　<b>v.</b>　避免<br>Avoid mistakes. 避免错误。	补充高频词
+break	/breɪk/　<b>v.</b>　打破（broke, broken）<br>Don't break it. 别弄坏。	补充高频词
+catch	/kætʃ/　<b>v.</b>　抓住（caught）<br>Catch the bus. 赶公交。	补充高频词
+cause	/kɔːz/　<b>v.</b>　引起<br>It caused a bug. 它引发了 bug。	补充高频词
+compare	/kəmˈpeə/　<b>v.</b>　比较<br>Compare the two. 比较两者。	补充高频词
+contain	/kənˈteɪn/　<b>v.</b>　包含<br>It contains data. 它含有数据。	补充高频词
+control	/kənˈtrəʊl/　<b>v.</b>　控制<br>Control the flow. 控制流程。	补充高频词
+count	/kaʊnt/　<b>v.</b>　数<br>Count them. 数一数。	补充高频词
+cover	/ˈkʌvə/　<b>v.</b>　覆盖<br>Cover the cost. 覆盖成本。	补充高频词
+draw	/drɔː/　<b>v.</b>　画（drew, drawn）<br>Draw a line. 画条线。	补充高频词
+drop	/drɒp/　<b>v.</b>　掉落<br>Don't drop it. 别掉了。	补充高频词
+expect	/ɪkˈspekt/　<b>v.</b>　期待<br>As expected. 不出所料。	补充高频词
+fill	/fɪl/　<b>v.</b>　填<br>Fill the form. 填表。	补充高频词
+grow	/ɡrəʊ/　<b>v.</b>　生长（grew, grown）<br>It grows fast. 它长得快。	补充高频词
+handle	/ˈhændl/　<b>v.</b>　处理<br>Handle the error. 处理错误。	补充高频词
+increase	/ɪnˈkriːs/　<b>v.</b>　增加<br>Increase speed. 提高速度。	补充高频词
+introduce	/ˌɪntrəˈdjuːs/　<b>v.</b>　介绍<br>Introduce yourself. 自我介绍。	补充高频词
+involve	/ɪnˈvɒlv/　<b>v.</b>　涉及<br>It involves risk. 有风险。	补充高频词
+lead	/liːd/　<b>v.</b>　领导（led）<br>Lead the team. 带领团队。	补充高频词
+matter	/ˈmætə/　<b>v.</b>　要紧<br>It doesn't matter. 没关系。	补充高频词
+offer	/ˈɒfə/　<b>v.</b>　提供<br>Offer help. 提供帮助。	补充高频词
+pick	/pɪk/　<b>v.</b>　挑选<br>Pick one. 选一个。	补充高频词
+pass	/pɑːs/　<b>v.</b>　通过<br>Pass the test. 通过测试。	补充高频词
+produce	/prəˈdjuːs/　<b>v.</b>　生产<br>Produce results. 产出结果。	补充高频词
+pull	/pʊl/　<b>v.</b>　拉<br>Pull the branch. 拉取分支。	补充高频词
+push	/pʊʃ/　<b>v.</b>　推<br>Push the code. 推送代码。	补充高频词
+raise	/reɪz/　<b>v.</b>　提高，举起<br>Raise a question. 提个问题。	补充高频词
+reach	/riːtʃ/　<b>v.</b>　到达<br>Reach the goal. 达成目标。	补充高频词
+receive	/rɪˈsiːv/　<b>v.</b>　收到<br>Receive an email. 收到邮件。	补充高频词
+reduce	/rɪˈdjuːs/　<b>v.</b>　减少<br>Reduce the cost. 降低成本。	补充高频词
+refer	/rɪˈfɜː/　<b>v.</b>　参考<br>Refer to the doc. 参考文档。	补充高频词
+remain	/rɪˈmeɪn/　<b>v.</b>　保持<br>It remains open. 它仍开着。	补充高频词
+repeat	/rɪˈpiːt/　<b>v.</b>　重复<br>Please repeat. 请再说一遍。	补充高频词
+replace	/rɪˈpleɪs/　<b>v.</b>　替换<br>Replace the file. 替换文件。	补充高频词
+serve	/sɜːv/　<b>v.</b>　服务<br>Serve customers. 服务顾客。	补充高频词
+set up	/set ʌp/　<b>v.</b>　搭建<br>Set up the server. 搭建服务器。	补充高频词
+spend	/spend/　<b>v.</b>　花费（spent）<br>Spend time. 花时间。	补充高频词
+stand	/stænd/　<b>v.</b>　忍受<br>I can't stand it. 我受不了。	补充高频词
+suppose	/səˈpəʊz/　<b>v.</b>　假设<br>I suppose so. 我想是的。	补充高频词
+throw	/θrəʊ/　<b>v.</b>　扔（threw, thrown）<br>Throw it away. 扔掉。	补充高频词
+touch	/tʌtʃ/　<b>v.</b>　接触<br>Keep in touch. 保持联系。	补充高频词
+wish	/wɪʃ/　<b>v.</b>　希望<br>I wish you luck. 祝你好运。	补充高频词
+answer	/ˈɑːnsə/　<b>n.</b>　回答<br>Good answer. 好回答。	补充高频词
+business	/ˈbɪznəs/　<b>n.</b>　生意，业务<br>On business. 出差。	补充高频词
+case	/keɪs/　<b>n.</b>　情况；案例<br>In this case. 这种情况下。	补充高频词
+class	/klɑːs/　<b>n.</b>　班级；类<br>An English class. 英语课。	补充高频词
+course	/kɔːs/　<b>n.</b>　课程<br>An online course. 网课。	补充高频词
+detail	/ˈdiːteɪl/　<b>n.</b>　细节<br>In detail. 详细地。	补充高频词
+effort	/ˈefət/　<b>n.</b>　努力<br>Great effort. 很努力。	补充高频词
+end	/end/　<b>n.</b>　结尾<br>The end. 结束。	补充高频词
+event	/ɪˈvent/　<b>n.</b>　事件<br>A big event. 大事件。	补充高频词
+experience	/ɪkˈspɪəriəns/　<b>n.</b>　经验<br>Work experience. 工作经验。	补充高频词
+goal	/ɡəʊl/　<b>n.</b>　目标<br>My goal. 我的目标。	补充高频词
+hand	/hænd/　<b>n.</b>　帮手<br>Give me a hand. 帮我一把。	补充高频词
+history	/ˈhɪstri/　<b>n.</b>　历史<br>A long history. 悠久历史。	补充高频词
+interest	/ˈɪntrəst/　<b>n.</b>　兴趣<br>My interest. 我的兴趣。	补充高频词
+line	/laɪn/　<b>n.</b>　线；行<br>The first line. 第一行。	补充高频词
+list	/lɪst/　<b>n.</b>　列表<br>A to-do list. 待办清单。	补充高频词
+mind	/maɪnd/　<b>n.</b>　头脑<br>In my mind. 在我脑中。	补充高频词
+moment	/ˈməʊmənt/　<b>n.</b>　片刻<br>One moment. 稍等。	补充高频词
+order	/ˈɔːdə/　<b>n.</b>　订单；顺序<br>Place an order. 下单。	补充高频词
+power	/ˈpaʊə/　<b>n.</b>　力量，电力<br>Power off. 断电。	补充高频词
+process	/ˈprəʊses/　<b>n.</b>　过程<br>The whole process. 整个过程。	补充高频词
+question	/ˈkwestʃən/　<b>n.</b>　疑问<br>A quick question. 一个小问题。	补充高频词
+rest	/rest/　<b>n.</b>　休息；其余<br>Take a rest. 休息一下。	补充高频词
+room	/ruːm/　<b>n.</b>　空间<br>Room to grow. 成长空间。	补充高频词
+side	/saɪd/　<b>n.</b>　边，方面<br>On the other side. 在另一边。	补充高频词
+space	/speɪs/　<b>n.</b>　空间<br>Free space. 空闲空间。	补充高频词
+step	/step/　<b>n.</b>　步骤<br>Step by step. 一步一步。	补充高频词
+subject	/ˈsʌbdʒɪkt/　<b>n.</b>　主题<br>The email subject. 邮件主题。	补充高频词
+success	/səkˈses/　<b>n.</b>　成功<br>A big success. 巨大成功。	补充高频词
+value	/ˈvæljuː/　<b>n.</b>　价值<br>Good value. 物有所值。	补充高频词
+view	/vjuː/　<b>n.</b>　视野，观点<br>In my view. 在我看来。	补充高频词
+voice	/vɔɪs/　<b>n.</b>　声音<br>A soft voice. 温柔的声音。	补充高频词
+word	/wɜːd/　<b>n.</b>　话<br>In other words. 换句话说。	补充高频词
+able	/ˈeɪbl/　<b>adj.</b>　能够的<br>I'm able to help. 我能帮忙。	补充高频词
+certain	/ˈsɜːtn/　<b>adj.</b>　确定的<br>A certain day. 某一天。	补充高频词
+common	/ˈkɒmən/　<b>adj.</b>　常见的<br>A common word. 常用词。	补充高频词
+complete	/kəmˈpliːt/　<b>adj.</b>　完整的<br>A complete list. 完整清单。	补充高频词
+correct	/kəˈrekt/　<b>adj.</b>　正确的<br>The correct answer. 正确答案。	补充高频词
+current	/ˈkʌrənt/　<b>adj.</b>　当前的<br>The current version. 当前版本。	补充高频词
+dark	/dɑːk/　<b>adj.</b>　黑暗的<br>A dark room. 暗房间。	补充高频词
+dear	/dɪə/　<b>adj.</b>　亲爱的<br>Dear friend. 亲爱的朋友。	补充高频词
+deep	/diːp/　<b>adj.</b>　深的<br>A deep problem. 深层问题。	补充高频词
+dry	/draɪ/　<b>adj.</b>　干的<br>Dry clothes. 干衣服。	补充高频词
+final	/ˈfaɪnl/　<b>adj.</b>　最终的<br>The final result. 最终结果。	补充高频词
+fresh	/freʃ/　<b>adj.</b>　新鲜的<br>Fresh air. 新鲜空气。	补充高频词
+friendly	/ˈfrendli/　<b>adj.</b>　友好的<br>A friendly team. 友好的团队。	补充高频词
+general	/ˈdʒenrəl/　<b>adj.</b>　一般的<br>In general. 一般来说。	补充高频词
+local	/ˈləʊkl/　<b>adj.</b>　本地的<br>The local server. 本地服务器。	补充高频词
+main	/meɪn/　<b>adj.</b>　主要的<br>The main point. 要点。	补充高频词
+modern	/ˈmɒdn/　<b>adj.</b>　现代的<br>A modern app. 现代应用。	补充高频词
+natural	/ˈnætʃrəl/　<b>adj.</b>　自然的<br>Natural light. 自然光。	补充高频词
+normal	/ˈnɔːml/　<b>adj.</b>　正常的<br>It's normal. 这很正常。	补充高频词
+perfect	/ˈpɜːfɪkt/　<b>adj.</b>　完美的<br>It's perfect. 完美。	补充高频词
+poor	/pɔː/　<b>adj.</b>　差的，贫穷的<br>Poor quality. 质量差。	补充高频词
+public	/ˈpʌblɪk/　<b>adj.</b>　公共的<br>A public place. 公共场所。	补充高频词
+quiet	/ˈkwaɪət/　<b>adj.</b>　安静的<br>Be quiet. 安静点。	补充高频词
+rich	/rɪtʃ/　<b>adj.</b>　富有的<br>A rich country. 富裕的国家。	补充高频词
+serious	/ˈsɪəriəs/　<b>adj.</b>　严肃的，严重的<br>A serious bug. 严重的 bug。	补充高频词
+single	/ˈsɪŋɡl/　<b>adj.</b>　单一的<br>A single click. 单击。	补充高频词
+special	/ˈspeʃl/　<b>adj.</b>　特别的<br>A special day. 特别的一天。	补充高频词
+stupid	/ˈstjuːpɪd/　<b>adj.</b>　愚蠢的<br>A stupid mistake. 愚蠢的错误。	补充高频词
+terrible	/ˈterəbl/　<b>adj.</b>　糟糕的<br>Terrible weather. 糟糕的天气。	补充高频词
+wet	/wet/　<b>adj.</b>　湿的<br>Wet floor. 地板湿滑。	补充高频词
+wonderful	/ˈwʌndəfl/　<b>adj.</b>　极好的<br>A wonderful idea. 一个好主意。	补充高频词
+finally	/ˈfaɪnəli/　<b>adv.</b>　最终<br>Finally done! 终于完成了！	补充高频词
+exactly	/ɪɡˈzæktli/　<b>adv.</b>　确切地<br>Exactly! 完全正确！	补充高频词
+clearly	/ˈklɪəli/　<b>adv.</b>　清楚地<br>Speak clearly. 说清楚。	补充高频词
+especially	/ɪˈspeʃəli/　<b>adv.</b>　尤其<br>Especially now. 尤其是现在。	补充高频词
+directly	/dɪˈrektli/　<b>adv.</b>　直接地<br>Contact me directly. 直接联系我。	补充高频词
+certainly	/ˈsɜːtnli/　<b>adv.</b>　当然<br>Certainly! 当然！	补充高频词
+each	/iːtʃ/　<b>det.</b>　每个<br>Each one. 每一个。	补充高频词
+both	/bəʊθ/　<b>det.</b>　两者都<br>Both of them. 他们俩。	补充高频词
+such	/sʌtʃ/　<b>det.</b>　这样的<br>Such a nice day. 多好的一天。	补充高频词
+another	/əˈnʌðə/　<b>det.</b>　另一个<br>Another one. 另一个。	补充高频词
+something	/ˈsʌmθɪŋ/　<b>pron.</b>　某事<br>Something new. 新东西。	补充高频词
+anything	/ˈeniθɪŋ/　<b>pron.</b>　任何事<br>Anything else? 还要别的吗？	补充高频词
+nothing	/ˈnʌθɪŋ/　<b>pron.</b>　什么都没有<br>Nothing works. 都不好使。	补充高频词
+everything	/ˈevriθɪŋ/　<b>pron.</b>　一切<br>Everything is fine. 一切都好。	补充高频词
+someone	/ˈsʌmwʌn/　<b>pron.</b>　某人<br>Someone called. 有人打电话。	补充高频词
+anyone	/ˈeniwʌn/　<b>pron.</b>　任何人<br>Anyone here? 有人吗？	补充高频词
+no one	/ˈnəʊ wʌn/　<b>pron.</b>　没有人<br>No one knows. 没人知道。	补充高频词
+somewhere	/ˈsʌmweə/　<b>adv.</b>　某处<br>Somewhere else. 别的地方。	补充高频词
+anywhere	/ˈeniweə/　<b>adv.</b>　任何地方<br>Anywhere is fine. 哪里都行。	补充高频词
+everywhere	/ˈevriweə/　<b>adv.</b>　到处<br>Bugs everywhere. 到处是 bug。	补充高频词
+yes	/jes/　<b>int.</b>　是的<br>Yes, please. 好的，谢谢。	补充高频词
+no	/nəʊ/　<b>int.</b>　不<br>No, thanks. 不用，谢谢。	补充高频词
+okay	/ˌəʊˈkeɪ/　<b>int.</b>　好的<br>Okay, got it. 好的，明白了。	补充高频词
+hello	/həˈləʊ/　<b>int.</b>　你好<br>Hello there. 你好。	补充高频词
+hi	/haɪ/　<b>int.</b>　嗨<br>Hi everyone. 大家好。	补充高频词
+bye	/baɪ/　<b>int.</b>　再见<br>Bye for now. 先再见了。	补充高频词
+please	/pliːz/　<b>int.</b>　请<br>Come in, please. 请进。	补充高频词
+sorry	/ˈsɒri/　<b>int.</b>　抱歉<br>Sorry about that. 对此抱歉。	补充高频词
+welcome	/ˈwelkəm/　<b>int.</b>　欢迎<br>Welcome aboard. 欢迎加入。	补充高频词
+oh	/əʊ/　<b>int.</b>　哦<br>Oh, I see. 哦，我懂了。	补充高频词
+well	/wel/　<b>int.</b>　那么，嗯<br>Well, let's start. 那么，开始吧。	补充高频词
+accept	/əkˈsept/　<b>v.</b>　接受<br>I accept the offer. 我接受这个提议。	扩充不同词形
+achieve	/əˈtʃiːv/　<b>v.</b>　实现<br>We achieved our goal. 我们实现了目标。	扩充不同词形
+arrive	/əˈraɪv/　<b>v.</b>　到达<br>I arrived early. 我早到了。	扩充不同词形
+attend	/əˈtend/　<b>v.</b>　参加<br>Attend the meeting. 参加会议。	扩充不同词形
+beat	/biːt/　<b>v.</b>　击败（beat, beaten）<br>We beat the other team. 我们击败了另一队。	扩充不同词形
+belong	/bɪˈlɒŋ/　<b>v.</b>　属于<br>This belongs to me. 这是我的。	扩充不同词形
+borrow	/ˈbɒrəʊ/　<b>v.</b>　借入<br>Can I borrow it? 我能借用它吗？	扩充不同词形
+cancel	/ˈkænsl/　<b>v.</b>　取消<br>Cancel the meeting. 取消会议。	扩充不同词形
+collect	/kəˈlekt/　<b>v.</b>　收集<br>Collect the data. 收集数据。	扩充不同词形
+consider	/kənˈsɪdə/　<b>v.</b>　考虑<br>Consider this option. 考虑这个选项。	扩充不同词形
+copy	/ˈkɒpi/　<b>v.</b>　复制<br>Copy the text. 复制文本。	扩充不同词形
+cross	/krɒs/　<b>v.</b>　穿过<br>Cross the street. 过马路。	扩充不同词形
+dance	/dɑːns/　<b>v.</b>　跳舞<br>They love to dance. 他们喜欢跳舞。	扩充不同词形
+die	/daɪ/　<b>v.</b>　死亡<br>The battery died. 电池没电了。	扩充不同词形
+discover	/dɪˈskʌvə/　<b>v.</b>　发现<br>We discovered a bug. 我们发现了一个 bug。	扩充不同词形
+enter	/ˈentə/　<b>v.</b>　进入；输入<br>Enter your name. 输入你的名字。	扩充不同词形
+fail	/feɪl/　<b>v.</b>　失败<br>The test failed. 测试失败了。	扩充不同词形
+fight	/faɪt/　<b>v.</b>　战斗（fought）<br>Fight for your goal. 为目标奋斗。	扩充不同词形
+fly	/flaɪ/　<b>v.</b>　飞（flew, flown）<br>We fly tomorrow. 我们明天坐飞机。	扩充不同词形
+hide	/haɪd/　<b>v.</b>　隐藏（hid, hidden）<br>Hide the menu. 隐藏菜单。	扩充不同词形
+hit	/hɪt/　<b>v.</b>　击中（hit, hit）<br>Hit the button. 按下按钮。	扩充不同词形
+kill	/kɪl/　<b>v.</b>　终止；杀死<br>Kill the process. 终止进程。	扩充不同词形
+laugh	/lɑːf/　<b>v.</b>　笑<br>We laughed together. 我们一起笑了。	扩充不同词形
+lend	/lend/　<b>v.</b>　借出（lent）<br>Lend me your pen. 把笔借给我。	扩充不同词形
+lie	/laɪ/　<b>v.</b>　躺；说谎<br>Lie down and rest. 躺下休息。	扩充不同词形
+lift	/lɪft/　<b>v.</b>　举起<br>Lift the box. 抬起箱子。	扩充不同词形
+live	/lɪv/　<b>v.</b>　居住；生活<br>I live in Beijing. 我住在北京。	扩充不同词形
+lock	/lɒk/　<b>v.</b>　锁上<br>Lock the door. 锁门。	扩充不同词形
+marry	/ˈmæri/　<b>v.</b>　结婚<br>They plan to marry. 他们计划结婚。	扩充不同词形
+miss	/mɪs/　<b>v.</b>　错过；想念<br>Don't miss the bus. 别错过公交车。	扩充不同词形
+obtain	/əbˈteɪn/　<b>v.</b>　获得<br>Obtain permission first. 先获得许可。	扩充不同词形
+pack	/pæk/　<b>v.</b>　打包<br>Pack your bag. 收拾你的包。	扩充不同词形
+print	/prɪnt/　<b>v.</b>　打印<br>Print the report. 打印报告。	扩充不同词形
+protect	/prəˈtekt/　<b>v.</b>　保护<br>Protect your data. 保护你的数据。	扩充不同词形
+repair	/rɪˈpeə/　<b>v.</b>　修理<br>Repair the computer. 修理电脑。	扩充不同词形
+ring	/rɪŋ/　<b>v.</b>　响；打电话（rang, rung）<br>The phone rang. 电话响了。	扩充不同词形
+rise	/raɪz/　<b>v.</b>　上升（rose, risen）<br>Prices may rise. 价格可能上涨。	扩充不同词形
+sign	/saɪn/　<b>v.</b>　签署<br>Sign the form. 在表格上签字。	扩充不同词形
+sing	/sɪŋ/　<b>v.</b>　唱歌（sang, sung）<br>She can sing. 她会唱歌。	扩充不同词形
+swim	/swɪm/　<b>v.</b>　游泳（swam, swum）<br>I swim every week. 我每周游泳。	扩充不同词形
+age	/eɪdʒ/　<b>n.</b>　年龄<br>What's your age? 你多大？	扩充不同词形
+address	/əˈdres/　<b>n.</b>　地址<br>Enter your address. 输入地址。	扩充不同词形
+ball	/bɔːl/　<b>n.</b>　球<br>Kick the ball. 踢球。	扩充不同词形
+bill	/bɪl/　<b>n.</b>　账单<br>Pay the bill. 付账。	扩充不同词形
+bus	/bʌs/　<b>n.</b>　公交车<br>Take the bus. 坐公交车。	扩充不同词形
+car	/kɑː/　<b>n.</b>　汽车<br>My car is new. 我的车是新的。	扩充不同词形
+material	/məˈtɪəriəl/　<b>n.</b>　材料；资料<br>Read the course material. 阅读课程资料。	扩充不同词形
+community	/kəˈmjuːnəti/　<b>n.</b>　社区<br>Join the community. 加入社区。	扩充不同词形
+conversation	/ˌkɒnvəˈseɪʃn/　<b>n.</b>　对话<br>Start a conversation. 开始交谈。	扩充不同词形
+culture	/ˈkʌltʃə/　<b>n.</b>　文化<br>Learn about the culture. 了解这种文化。	扩充不同词形
+date	/deɪt/　<b>n.</b>　日期<br>Check the date. 查看日期。	扩充不同词形
+decision	/dɪˈsɪʒn/　<b>n.</b>　决定<br>Make a decision. 做决定。	扩充不同词形
+difference	/ˈdɪfrəns/　<b>n.</b>　区别<br>See the difference. 看出区别。	扩充不同词形
+direction	/dəˈrekʃn/　<b>n.</b>　方向<br>Follow the direction. 按照方向走。	扩充不同词形
+education	/ˌedʒuˈkeɪʃn/　<b>n.</b>　教育<br>Education is important. 教育很重要。	扩充不同词形
+energy	/ˈenədʒi/　<b>n.</b>　能量；精力<br>I need more energy. 我需要更多精力。	扩充不同词形
+environment	/ɪnˈvaɪrənmənt/　<b>n.</b>　环境<br>A safe environment. 安全的环境。	扩充不同词形
+form	/fɔːm/　<b>n.</b>　表格；形式<br>Fill in the form. 填写表格。	扩充不同词形
+government	/ˈɡʌvənmənt/　<b>n.</b>　政府<br>The local government. 当地政府。	扩充不同词形
+industry	/ˈɪndəstri/　<b>n.</b>　行业<br>The software industry. 软件行业。	扩充不同词形
+issue	/ˈɪʃuː/　<b>n.</b>　问题<br>We found an issue. 我们发现了一个问题。	扩充不同词形
+law	/lɔː/　<b>n.</b>　法律<br>Follow the law. 遵守法律。	扩充不同词形
+letter	/ˈletə/　<b>n.</b>　信；字母<br>Write a letter. 写一封信。	扩充不同词形
+map	/mæp/　<b>n.</b>　地图<br>Check the map. 查看地图。	扩充不同词形
+parent	/ˈpeərənt/　<b>n.</b>　父亲或母亲<br>Every parent worries. 每位家长都会担心。	扩充不同词形
+party	/ˈpɑːti/　<b>n.</b>　聚会<br>Join the party. 参加聚会。	扩充不同词形
+period	/ˈpɪəriəd/　<b>n.</b>　时期；句号<br>A short period. 一段短时间。	扩充不同词形
+policy	/ˈpɒləsi/　<b>n.</b>　政策；规定<br>Read the policy. 阅读规定。	扩充不同词形
+program	/ˈprəʊɡræm/　<b>n.</b>　程序；项目<br>Run the program. 运行程序。	扩充不同词形
+relationship	/rɪˈleɪʃnʃɪp/　<b>n.</b>　关系<br>Build a good relationship. 建立良好关系。	扩充不同词形
+rule	/ruːl/　<b>n.</b>　规则<br>Follow the rules. 遵守规则。	扩充不同词形
+shape	/ʃeɪp/　<b>n.</b>　形状<br>A round shape. 圆形。	扩充不同词形
+situation	/ˌsɪtʃuˈeɪʃn/　<b>n.</b>　情况<br>Understand the situation. 了解情况。	扩充不同词形
+society	/səˈsaɪəti/　<b>n.</b>　社会<br>Modern society. 现代社会。	扩充不同词形
+state	/steɪt/　<b>n.</b>　状态；州<br>Check the current state. 检查当前状态。	扩充不同词形
+teacher	/ˈtiːtʃə/　<b>n.</b>　老师<br>My English teacher. 我的英语老师。	扩充不同词形
+train	/treɪn/　<b>n.</b>　火车<br>Catch the train. 赶火车。	扩充不同词形
+trip	/trɪp/　<b>n.</b>　旅行<br>Have a good trip. 旅途愉快。	扩充不同词形
+truth	/truːθ/　<b>n.</b>　真相<br>Tell the truth. 说实话。	扩充不同词形
+unit	/ˈjuːnɪt/　<b>n.</b>　单元；单位<br>The first unit. 第一单元。	扩充不同词形
+active	/ˈæktɪv/　<b>adj.</b>　活跃的<br>An active user. 活跃用户。	扩充不同词形
+basic	/ˈbeɪsɪk/　<b>adj.</b>　基本的<br>Basic English. 基础英语。	扩充不同词形
+careful	/ˈkeəfl/　<b>adj.</b>　小心的<br>Be careful. 小心。	扩充不同词形
+central	/ˈsentrəl/　<b>adj.</b>　中央的；核心的<br>The central area. 中心区域。	扩充不同词形
+comfortable	/ˈkʌmftəbl/　<b>adj.</b>　舒适的<br>A comfortable chair. 舒适的椅子。	扩充不同词形
+daily	/ˈdeɪli/　<b>adj.</b>　每日的<br>A daily meeting. 每日会议。	扩充不同词形
+dead	/ded/　<b>adj.</b>　死的；没电的<br>The battery is dead. 电池没电了。	扩充不同词形
+fair	/feə/　<b>adj.</b>　公平的<br>That's fair. 这很公平。	扩充不同词形
+favorite	/ˈfeɪvərɪt/　<b>adj.</b>　最喜欢的<br>My favorite book. 我最喜欢的书。	扩充不同词形
+foreign	/ˈfɒrən/　<b>adj.</b>　外国的<br>A foreign language. 一门外语。	扩充不同词形
+future	/ˈfjuːtʃə/　<b>adj.</b>　未来的<br>Future plans. 未来计划。	扩充不同词形
+healthy	/ˈhelθi/　<b>adj.</b>　健康的<br>Stay healthy. 保持健康。	扩充不同词形
+huge	/hjuːdʒ/　<b>adj.</b>　巨大的<br>A huge change. 巨大变化。	扩充不同词形
+human	/ˈhjuːmən/　<b>adj.</b>　人类的<br>Human language. 人类语言。	扩充不同词形
+hungry	/ˈhʌŋɡri/　<b>adj.</b>　饥饿的<br>I'm hungry. 我饿了。	扩充不同词形
+international	/ˌɪntəˈnæʃnəl/　<b>adj.</b>　国际的<br>An international team. 国际团队。	扩充不同词形
+left	/left/　<b>adj.</b>　左边的<br>The left side. 左边。	扩充不同词形
+likely	/ˈlaɪkli/　<b>adj.</b>　可能的<br>It is likely to rain. 可能会下雨。	扩充不同词形
+lucky	/ˈlʌki/　<b>adj.</b>　幸运的<br>You're lucky. 你很幸运。	扩充不同词形
+necessary	/ˈnesəsəri/　<b>adj.</b>　必要的<br>Is it necessary? 有必要吗？	扩充不同词形
+personal	/ˈpɜːsənl/　<b>adj.</b>　个人的<br>Personal information. 个人信息。	扩充不同词形
+physical	/ˈfɪzɪkl/　<b>adj.</b>　身体的；实体的<br>Physical health. 身体健康。	扩充不同词形
+present	/ˈpreznt/　<b>adj.</b>　当前的；在场的<br>The present situation. 当前情况。	扩充不同词形
+private	/ˈpraɪvət/　<b>adj.</b>　私人的<br>A private message. 私信。	扩充不同词形
+recent	/ˈriːsnt/　<b>adj.</b>　最近的<br>Recent changes. 最近的变化。	扩充不同词形
+similar	/ˈsɪmələ/　<b>adj.</b>　相似的<br>The two are similar. 两者相似。	扩充不同词形
+soft	/sɒft/　<b>adj.</b>　柔软的；轻柔的<br>A soft voice. 轻柔的声音。	扩充不同词形
+successful	/səkˈsesfl/　<b>adj.</b>　成功的<br>A successful project. 成功的项目。	扩充不同词形
+sweet	/swiːt/　<b>adj.</b>　甜的<br>This tea is sweet. 这茶很甜。	扩充不同词形
+traditional	/trəˈdɪʃənl/　<b>adj.</b>　传统的<br>Traditional food. 传统食物。	扩充不同词形
+usual	/ˈjuːʒuəl/　<b>adj.</b>　通常的<br>The usual time. 通常的时间。	扩充不同词形
+valuable	/ˈvæljuəbl/　<b>adj.</b>　有价值的<br>Valuable feedback. 有价值的反馈。	扩充不同词形
+western	/ˈwestən/　<b>adj.</b>　西方的<br>Western culture. 西方文化。	扩充不同词形
+working	/ˈwɜːkɪŋ/　<b>adj.</b>　工作的；正常运转的<br>A working version. 可运行版本。	扩充不同词形
+bright	/braɪt/　<b>adj.</b>　明亮的<br>A bright room. 明亮的房间。	扩充不同词形
+cool	/kuːl/　<b>adj.</b>　凉爽的；很棒的<br>That's cool. 那很棒。	扩充不同词形
+funny	/ˈfʌni/　<b>adj.</b>　有趣的；奇怪的<br>A funny story. 有趣的故事。	扩充不同词形
+honest	/ˈɒnɪst/　<b>adj.</b>　诚实的<br>Be honest. 诚实一点。	扩充不同词形
+loud	/laʊd/　<b>adj.</b>　响亮的<br>The music is loud. 音乐很响。	扩充不同词形
+strange	/streɪndʒ/　<b>adj.</b>　奇怪的<br>That's strange. 那很奇怪。	扩充不同词形
+above	/əˈbʌv/　<b>adv.</b>　在上面<br>See the example above. 看上面的例子。	扩充不同词形
+ahead	/əˈhed/　<b>adv.</b>　向前；提前<br>Plan ahead. 提前计划。	扩充不同词形
+alone	/əˈləʊn/　<b>adv.</b>　独自<br>I work alone. 我独自工作。	扩充不同词形
+along	/əˈlɒŋ/　<b>adv.</b>　向前；一起<br>Come along. 一起来吧。	扩充不同词形
+below	/bɪˈləʊ/　<b>adv.</b>　在下面<br>See below. 见下文。	扩充不同词形
+completely	/kəmˈpliːtli/　<b>adv.</b>　完全地<br>I completely agree. 我完全同意。	扩充不同词形
+ever	/ˈevə/　<b>adv.</b>　曾经<br>Have you ever tried? 你试过吗？	扩充不同词形
+far	/fɑː/　<b>adv.</b>　远<br>It's too far. 太远了。	扩充不同词形
+inside	/ˌɪnˈsaɪd/　<b>adv.</b>　在里面<br>Come inside. 进来吧。	扩充不同词形
+nearby	/ˌnɪəˈbaɪ/　<b>adv.</b>　在附近<br>I live nearby. 我住在附近。	扩充不同词形
+outside	/ˌaʊtˈsaɪd/　<b>adv.</b>　在外面<br>Wait outside. 在外面等。	扩充不同词形
+once	/wʌns/　<b>adv.</b>　一次；曾经<br>Try it once. 试一次。	扩充不同词形
+rather	/ˈrɑːðə/　<b>adv.</b>　相当；宁愿<br>It's rather easy. 这相当容易。	扩充不同词形
+straight	/streɪt/　<b>adv.</b>　直地<br>Go straight. 直走。	扩充不同词形
+suddenly	/ˈsʌdənli/　<b>adv.</b>　突然<br>It suddenly stopped. 它突然停了。	扩充不同词形
+tonight	/təˈnaɪt/　<b>adv.</b>　今晚<br>See you tonight. 今晚见。	扩充不同词形
+twice	/twaɪs/　<b>adv.</b>　两次<br>Check it twice. 检查两遍。	扩充不同词形
+upstairs	/ˌʌpˈsteəz/　<b>adv.</b>　在楼上<br>Go upstairs. 上楼。	扩充不同词形
+downstairs	/ˌdaʊnˈsteəz/　<b>adv.</b>　在楼下<br>Wait downstairs. 在楼下等。	扩充不同词形
+abroad	/əˈbrɔːd/　<b>adv.</b>　在国外<br>Work abroad. 在国外工作。	扩充不同词形
+actually	/ˈæktʃuəli/　<b>adv.</b>　实际上<br>Actually, I agree. 其实我同意。	扩充不同词形
+else	/els/　<b>adv.</b>　其他<br>Anything else? 还有别的吗？	扩充不同词形
+online	/ˌɒnˈlaɪn/　<b>adv.</b>　在线<br>Learn online. 在线学习。	扩充不同词形
+otherwise	/ˈʌðəwaɪz/　<b>adv.</b>　否则<br>Hurry, otherwise we'll be late. 快点，否则会迟到。	扩充不同词形
+recently	/ˈriːsntli/　<b>adv.</b>　最近<br>I moved recently. 我最近搬家了。	扩充不同词形
+simply	/ˈsɪmpli/　<b>adv.</b>　简单地；仅仅<br>Put it simply. 简单来说。	扩充不同词形
+immediately	/ɪˈmiːdiətli/　<b>adv.</b>　立即<br>Reply immediately. 立即回复。	扩充不同词形
+luckily	/ˈlʌkɪli/　<b>adv.</b>　幸运地<br>Luckily, it worked. 幸好它能用。	扩充不同词形
+mostly	/ˈməʊstli/　<b>adv.</b>　大部分地<br>It's mostly correct. 大体正确。	扩充不同词形
+normally	/ˈnɔːməli/　<b>adv.</b>　通常；正常地<br>It normally works. 它通常能运行。	扩充不同词形
+partly	/ˈpɑːtli/　<b>adv.</b>　部分地<br>It is partly done. 完成了一部分。	扩充不同词形
+possibly	/ˈpɒsəbli/　<b>adv.</b>　可能地<br>Reply as soon as you possibly can. 尽快回复。	扩充不同词形
+rarely	/ˈreəli/　<b>adv.</b>　很少<br>It rarely fails. 它很少失败。	扩充不同词形
+separately	/ˈseprətli/　<b>adv.</b>　分别地<br>Test them separately. 分别测试。	扩充不同词形
+seriously	/ˈsɪəriəsli/　<b>adv.</b>　认真地；严重地<br>Take it seriously. 认真对待。	扩充不同词形
+currently	/ˈkʌrəntli/　<b>adv.</b>　目前<br>It is currently unavailable. 目前不可用。	扩充不同词形
+nearly	/ˈnɪəli/　<b>adv.</b>　几乎<br>It's nearly ready. 快准备好了。	扩充不同词形
+generally	/ˈdʒenrəli/　<b>adv.</b>　一般地<br>It generally works. 它通常能用。	扩充不同词形
+easily	/ˈiːzɪli/　<b>adv.</b>　容易地<br>You can easily fix it. 你可以轻松修好。	扩充不同词形
+forever	/fərˈevə/　<b>adv.</b>　永远<br>It won't last forever. 它不会永远持续。	扩充不同词形
+bake	/beɪk/　<b>v.</b>　烘烤<br>Bake the bread. 烤面包。	补足1000个单词
+burn	/bɜːn/　<b>v.</b>　燃烧；烫伤<br>Don't burn the food. 别把食物烧焦。	补足1000个单词
+climb	/klaɪm/　<b>v.</b>　攀登<br>Climb the stairs. 爬楼梯。	补足1000个单词
+deliver	/dɪˈlɪvə/　<b>v.</b>　递送；交付<br>Deliver the package. 递送包裹。	补足1000个单词
+depend	/dɪˈpend/　<b>v.</b>　取决于<br>It depends on the time. 这取决于时间。	补足1000个单词
+describe	/dɪˈskraɪb/　<b>v.</b>　描述<br>Describe the problem. 描述问题。	补足1000个单词
+destroy	/dɪˈstrɔɪ/　<b>v.</b>　破坏<br>Don't destroy the data. 别破坏数据。	补足1000个单词
+feed	/fiːd/　<b>v.</b>　喂养（fed）<br>Feed the cat. 喂猫。	补足1000个单词
+invite	/ɪnˈvaɪt/　<b>v.</b>　邀请<br>Invite her to the meeting. 邀请她参会。	补足1000个单词
+jump	/dʒʌmp/　<b>v.</b>　跳<br>Jump over the line. 跳过这条线。	补足1000个单词
+knock	/nɒk/　<b>v.</b>　敲<br>Knock on the door. 敲门。	补足1000个单词
+mark	/mɑːk/　<b>v.</b>　标记<br>Mark the task as done. 把任务标为完成。	补足1000个单词
+prepare	/prɪˈpeə/　<b>v.</b>　准备<br>Prepare for the meeting. 为会议做准备。	补足1000个单词
+promise	/ˈprɒmɪs/　<b>v.</b>　承诺<br>I promise to help. 我答应帮忙。	补足1000个单词
+record	/rɪˈkɔːd/　<b>v.</b>　记录<br>Record the result. 记录结果。	补足1000个单词
+refuse	/rɪˈfjuːz/　<b>v.</b>　拒绝<br>He refused the offer. 他拒绝了提议。	补足1000个单词
+shake	/ʃeɪk/　<b>v.</b>　摇动（shook, shaken）<br>Shake the bottle. 摇一摇瓶子。	补足1000个单词
+shoot	/ʃuːt/　<b>v.</b>　拍摄；射击（shot）<br>Shoot a video. 拍一段视频。	补足1000个单词
+shut	/ʃʌt/　<b>v.</b>　关闭（shut, shut）<br>Shut the window. 关窗。	补足1000个单词
+smile	/smaɪl/　<b>v.</b>　微笑<br>Smile for the photo. 拍照时笑一笑。	补足1000个单词
+steal	/stiːl/　<b>v.</b>　偷（stole, stolen）<br>Someone stole my phone. 有人偷了我的手机。	补足1000个单词
+vote	/vəʊt/　<b>v.</b>　投票<br>Vote for one option. 为一个选项投票。	补足1000个单词
+action	/ˈækʃn/　<b>n.</b>　行动<br>Take action now. 现在采取行动。	补足1000个单词
+activity	/ækˈtɪvəti/　<b>n.</b>　活动<br>A team activity. 团队活动。	补足1000个单词
+article	/ˈɑːtɪkl/　<b>n.</b>　文章<br>Read the article. 阅读文章。	补足1000个单词
+background	/ˈbækɡraʊnd/　<b>n.</b>　背景<br>My work background. 我的工作背景。	补足1000个单词
+board	/bɔːd/　<b>n.</b>　板；看板<br>Write it on the board. 把它写在板上。	补足1000个单词
+building	/ˈbɪldɪŋ/　<b>n.</b>　建筑物<br>A tall building. 一栋高楼。	补足1000个单词
+character	/ˈkærəktə/　<b>n.</b>　字符；人物<br>Enter one character. 输入一个字符。	补足1000个单词
+condition	/kənˈdɪʃn/　<b>n.</b>　条件；状况<br>Under this condition. 在这种条件下。	补足1000个单词
+contact	/ˈkɒntækt/　<b>n.</b>　联系人；联系<br>Add a new contact. 添加联系人。	补足1000个单词
+dream	/driːm/　<b>n.</b>　梦想；梦<br>Follow your dream. 追随梦想。	补足1000个单词
+field	/fiːld/　<b>n.</b>　领域；字段<br>Fill in this field. 填写这个字段。	补足1000个单词
+ground	/ɡraʊnd/　<b>n.</b>　地面<br>Put it on the ground. 把它放在地上。	补足1000个单词
+knowledge	/ˈnɒlɪdʒ/　<b>n.</b>　知识<br>Basic knowledge. 基础知识。	补足1000个单词
+machine	/məˈʃiːn/　<b>n.</b>　机器<br>The machine is running. 机器正在运转。	补足1000个单词
+member	/ˈmembə/　<b>n.</b>　成员<br>A team member. 团队成员。	补足1000个单词
+memory	/ˈmeməri/　<b>n.</b>　记忆；内存<br>The app uses too much memory. 应用占用太多内存。	补足1000个单词
+nature	/ˈneɪtʃə/　<b>n.</b>　自然<br>Spend time in nature. 去大自然中走走。	补足1000个单词
+opportunity	/ˌɒpəˈtjuːnəti/　<b>n.</b>　机会<br>A good opportunity. 一个好机会。	补足1000个单词
+position	/pəˈzɪʃn/　<b>n.</b>　位置；职位<br>Apply for the position. 申请这个职位。	补足1000个单词
+purpose	/ˈpɜːpəs/　<b>n.</b>　目的<br>What's the purpose? 目的是什么？	补足1000个单词
+ancient	/ˈeɪnʃənt/　<b>adj.</b>　古老的<br>An ancient city. 一座古城。	补足1000个单词
+awake	/əˈweɪk/　<b>adj.</b>　醒着的<br>Are you awake? 你醒着吗？	补足1000个单词
+blind	/blaɪnd/　<b>adj.</b>　失明的；盲目的<br>A blind user. 一位盲人用户。	补足1000个单词
+calm	/kɑːm/　<b>adj.</b>　冷静的<br>Stay calm. 保持冷静。	补足1000个单词
+direct	/dəˈrekt/　<b>adj.</b>　直接的<br>A direct answer. 直接的回答。	补足1000个单词
+excellent	/ˈeksələnt/　<b>adj.</b>　极好的<br>Excellent work. 做得非常好。	补足1000个单词
+fit	/fɪt/　<b>adj.</b>　健康的；合适的<br>This size is a good fit. 这个尺寸很合适。	补足1000个单词
+flat	/flæt/　<b>adj.</b>　平的<br>A flat surface. 平坦的表面。	补足1000个单词
+negative	/ˈneɡətɪv/　<b>adj.</b>　消极的；负的<br>A negative result. 阴性结果。	补足1000个单词
+positive	/ˈpɒzətɪv/　<b>adj.</b>　积极的；正的<br>Positive feedback. 积极反馈。	补足1000个单词
+proud	/praʊd/　<b>adj.</b>　自豪的<br>I'm proud of you. 我为你骄傲。	补足1000个单词
+responsible	/rɪˈspɒnsəbl/　<b>adj.</b>　负责的<br>She is responsible for testing. 她负责测试。	补足1000个单词
+round	/raʊnd/　<b>adj.</b>　圆的<br>A round table. 一张圆桌。	补足1000个单词

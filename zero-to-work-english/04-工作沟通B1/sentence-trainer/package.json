@@ -1,0 +1,38 @@
+{
+  "name": "sentence-trainer",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "generate": "node scripts/generate-cards.mjs && python3 scripts/enrich-cards.py",
+    "predev": "npm run generate",
+    "dev": "vite",
+    "prebuild": "npm run generate",
+    "build": "tsc -b && vite build",
+    "anki:build": "npm run generate && python3 build_anki.py",
+    "ios:copy": "npm run build && cap copy ios",
+    "ios:sync": "npm run build && cap sync ios",
+    "ios:open": "npm run ios:sync && cap open ios",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@capacitor/core": "^7.6.8",
+    "@capacitor/ios": "^7.6.8",
+    "lucide-react": "^1.31.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.6.8",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "oxlint": "^1.75.0",
+    "sharp": "^0.35.3",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.0",
+    "vite-plugin-pwa": "^1.3.0"
+  }
+}

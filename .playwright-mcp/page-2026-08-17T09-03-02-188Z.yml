@@ -1,0 +1,65 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e9]:
+      - strong [ref=e10]: 句练
+      - generic [ref=e11]: 软件英语 · 100 句
+    - generic "连续学习天数" [ref=e13]: "0"
+  - main [ref=e16]:
+    - generic [ref=e1329]:
+      - generic [ref=e1330]:
+        - paragraph [ref=e1331]: 复习节奏
+        - heading "不是刷完，是记住。" [level=1] [ref=e1332]
+        - paragraph [ref=e1333]: 系统根据你的评分安排下一次出现时间。
+      - generic [ref=e1334]:
+        - generic [ref=e1335]:
+          - generic [ref=e1336]: 已学习
+          - strong [ref=e1337]:
+            - text: "0"
+            - generic [ref=e1338]: / 100
+        - generic [ref=e1340]:
+          - generic [ref=e1341]: 已掌握
+          - strong [ref=e1342]: "0"
+          - generic [ref=e1343]: 连续答对 3 次
+        - generic [ref=e1344]:
+          - generic [ref=e1345]: 待复习
+          - strong [ref=e1346]: "0"
+          - generic [ref=e1347]: 现在到期
+        - generic [ref=e1348]:
+          - generic [ref=e1349]: 总复习
+          - strong [ref=e1350]: "0"
+          - generic [ref=e1351]: 每次开口都算
+        - generic [ref=e1352]:
+          - generic [ref=e1353]: 连续天数
+          - strong [ref=e1354]: "0"
+          - generic [ref=e1355]: 保持短而稳定
+      - generic [ref=e1356]:
+        - heading "推荐记忆法" [level=2] [ref=e1357]
+        - list [ref=e1358]:
+          - listitem [ref=e1359]:
+            - generic [ref=e1360]: "01"
+            - generic [ref=e1361]:
+              - strong [ref=e1362]: 主动回忆
+              - paragraph [ref=e1363]: 只看中文，必须先开口，再显示答案。看懂不等于会说。
+          - listitem [ref=e1364]:
+            - generic [ref=e1365]: "02"
+            - generic [ref=e1366]:
+              - strong [ref=e1367]: 意群记忆
+              - paragraph [ref=e1368]: 按斜线分块，不背孤立单词：Can you / give us / an update?
+          - listitem [ref=e1369]:
+            - generic [ref=e1370]: "03"
+            - generic [ref=e1371]:
+              - strong [ref=e1372]: 双速影子跟读
+              - paragraph [ref=e1373]: 清晰分词听边界，自然连读练真实听力，每句各跟三遍。
+          - listitem [ref=e1374]:
+            - generic [ref=e1375]: "04"
+            - generic [ref=e1376]:
+              - strong [ref=e1377]: 替换造句
+              - paragraph [ref=e1378]: 把 [task]、[date]、[feature] 换成当天真实工作，记忆会更牢。
+      - generic [ref=e1383]:
+        - strong [ref=e1384]: 安装到手机
+        - paragraph [ref=e1385]: Android 用浏览器菜单选择“安装应用”；iPhone 在 Safari 点“分享”，再选“添加到主屏幕”。
+      - button "清空学习记录" [ref=e1386] [cursor=pointer]
+  - navigation "主导航" [ref=e41]:
+    - button "学习" [ref=e42] [cursor=pointer]
+    - button "句库" [ref=e46] [cursor=pointer]
+    - button "进度" [active] [ref=e50] [cursor=pointer]

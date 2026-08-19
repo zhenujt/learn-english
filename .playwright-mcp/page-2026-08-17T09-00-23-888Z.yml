@@ -1,0 +1,31 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e9]:
+      - strong [ref=e10]: 句练
+      - generic [ref=e11]: 软件英语 · 100 句
+    - generic "连续学习天数" [ref=e13]: "0"
+  - main [ref=e16]:
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - generic [ref=e20]: 今日复习
+          - strong [ref=e21]:
+            - text: "1"
+            - generic [ref=e22]: / 10
+        - generic "学习进度 1/10" [ref=e23]
+      - article [ref=e25]:
+        - generic [ref=e26]:
+          - generic [ref=e27]: "#001"
+          - generic [ref=e28]: 会议基础表达
+        - generic [ref=e29]:
+          - paragraph [ref=e30]: 看到中文，先说出完整英文
+          - heading "我们开始吧？" [level=1] [ref=e31]
+          - generic [ref=e32]:
+            - text: 回答
+            - paragraph [ref=e33]: 好的，开始吧。
+          - button "显示答案" [ref=e34] [cursor=pointer]
+          - paragraph [ref=e37]: 想不起来也先开口，再翻面核对。
+  - navigation "主导航" [ref=e41]:
+    - button "学习" [ref=e42] [cursor=pointer]
+    - button "句库" [ref=e46] [cursor=pointer]
+    - button "进度" [ref=e50] [cursor=pointer]
