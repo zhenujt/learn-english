@@ -32,17 +32,37 @@ export interface StudyCard {
   grammar: GrammarNote
 }
 
-export type ReviewGrade = 'again' | 'hard' | 'good'
+export type ReviewGrade = 'again' | 'hard' | 'good' | 'easy'
 export type AppView = 'study' | 'library' | 'progress' | 'auth'
 
-/** Persisted spaced-repetition state for one card. */
+/** FSRS memory state persisted for one card. */
 export interface CardProgress {
   cardId: number
-  dueAt: number
-  intervalDays: number
-  repetitions: number
+  due: number
+  stability: number
+  difficulty: number
+  elapsedDays: number
+  scheduledDays: number
+  learningSteps: number
+  reps: number
   lapses: number
-  updatedAt?: number
+  state: number
+  lastReview?: number
+  updatedAt: number
+}
+
+/** One graded review, kept so FSRS parameters can be optimized from real history. */
+export interface ReviewLogEntry {
+  cardId: number
+  rating: number
+  state: number
+  due: number
+  stability: number
+  difficulty: number
+  elapsedDays: number
+  lastElapsedDays: number
+  scheduledDays: number
+  review: number
 }
 
 /** Aggregate review statistics displayed by the progress view. */
@@ -52,4 +72,7 @@ export interface ReviewStats {
   due: number
   totalReviews: number
   streak: number
+  retention: number
+  averageStability: number
+  leeches: number
 }

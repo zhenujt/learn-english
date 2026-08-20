@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { BarChart3, BookOpen, Download, Flame, Library, UserRound } from 'lucide-react'
 import { AuthView, LibraryView, NavButton, ProgressView, StudyView } from './components'
 import { onAuthStateChange, supabase } from './auth'
@@ -12,6 +12,7 @@ const cards = cardsJson as StudyCard[]
 const scheduler = new ReviewScheduler()
 const audioController = new AudioController()
 const cloudProgressSync = new CloudProgressSync(scheduler)
+const EMPTY_PREVIEW: Record<ReviewGrade, string> = { again: '', hard: '', good: '', easy: '' }
 
 interface InstallPromptEvent extends Event {
   prompt: () => Promise<void>
@@ -29,6 +30,7 @@ function App() {
   const [resetRequested, setResetRequested] = useState(false)
   const card = queue[cardIndex]
   const stats = scheduler.getStats()
+  const preview = useMemo(() => (card && revealed ? scheduler.preview(card.id) : EMPTY_PREVIEW), [card, revealed])
 
   useEffect(() => {
     const handlePrompt = (event: Event) => {
@@ -65,8 +67,9 @@ function App() {
   const gradeCard = (grade: ReviewGrade) => {
     if (!card) return
     audioController.stop()
-    scheduler.review(card.id, grade)
+    const updated = scheduler.review(card.id, grade)
     void cloudProgressSync.sync().catch(() => undefined)
+    if (scheduler.isDueThisSession(updated)) setQueue((value) => [...value, card])
     setReviewRevision((value) => value + 1)
     setRevealed(false)
     setCardIndex((value) => value + 1)
@@ -116,7 +119,7 @@ function App() {
       </header>
 
       <main>
-        {activeView === 'study' && <StudyView key={card?.id ?? 'complete'} card={card} current={cardIndex} total={queue.length} revealed={revealed} onReveal={() => setRevealed(true)} onGrade={gradeCard} onPlay={playAudio} onToggleLoop={toggleAudioLoop} onRestart={startNextSession} />}
+        {activeView === 'study' && <StudyView key={card?.id ?? 'complete'} card={card} current={cardIndex} total={queue.length} revealed={revealed} onReveal={() => setRevealed(true)} onGrade={gradeCard} preview={preview} onPlay={playAudio} onToggleLoop={toggleAudioLoop} onRestart={startNextSession} />}
         {activeView === 'library' && <LibraryView cards={cards} onPlay={playAudio} />}
         {activeView === 'progress' && <ProgressView cards={cards} scheduler={scheduler} onReset={startNextSession} />}
         {activeView === 'auth' && <AuthView email={session?.user.email} resetRequested={resetRequested} onSignedOut={() => { setSession(null); setResetRequested(false); setActiveView('study') }} />}

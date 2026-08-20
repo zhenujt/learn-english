@@ -1,5 +1,5 @@
 import { useDeferredValue, useState, type FormEvent, type ReactNode } from 'react'
-import { Check, ChevronRight, CircleAlert, Download, Headphones, LogIn, LogOut, Mail, Repeat2, RotateCcw, Search, Snail, Sparkles, Square, UserRound, Volume2 } from 'lucide-react'
+import { Check, ChevronRight, Download, Headphones, LogIn, LogOut, Mail, Repeat2, RotateCcw, Search, Snail, Sparkles, Square, UserRound, Volume2 } from 'lucide-react'
 import { authConfigured, supabase } from './auth'
 import type { ReviewScheduler } from './services'
 import type { ReviewGrade, StudyCard } from './types'
@@ -11,13 +11,14 @@ interface StudyViewProps {
   revealed: boolean
   onReveal: () => void
   onGrade: (grade: ReviewGrade) => void
+  preview: Record<ReviewGrade, string>
   onPlay: (source: string) => Promise<void>
   onToggleLoop: (sources: string[], onStateChange: (looping: boolean) => void) => void
   onRestart: () => void
 }
 
 /** Renders the active recall card and post-reveal review controls. */
-export function StudyView({ card, current, total, revealed, onReveal, onGrade, onPlay, onToggleLoop, onRestart }: StudyViewProps) {
+export function StudyView({ card, current, total, revealed, onReveal, onGrade, preview, onPlay, onToggleLoop, onRestart }: StudyViewProps) {
   const [looping, setLooping] = useState(false)
 
   if (!card) {
@@ -69,9 +70,10 @@ export function StudyView({ card, current, total, revealed, onReveal, onGrade, o
         <div className="grade-panel">
           <p>刚才能独立说出来吗？</p>
           <div className="grade-buttons">
-            <button className="grade-again" type="button" onClick={() => onGrade('again')}><CircleAlert size={19} /><strong>忘记</strong><small>1 分钟</small></button>
-            <button className="grade-hard" type="button" onClick={() => onGrade('hard')}><RotateCcw size={19} /><strong>困难</strong><small>1 天</small></button>
-            <button className="grade-good" type="button" onClick={() => onGrade('good')}><Check size={19} /><strong>记住</strong><small>3 天</small></button>
+            <button className="grade-again" type="button" onClick={() => onGrade('again')}><strong>重来</strong><small>{preview.again}</small></button>
+            <button className="grade-hard" type="button" onClick={() => onGrade('hard')}><strong>困难</strong><small>{preview.hard}</small></button>
+            <button className="grade-good" type="button" onClick={() => onGrade('good')}><strong>良好</strong><small>{preview.good}</small></button>
+            <button className="grade-easy" type="button" onClick={() => onGrade('easy')}><strong>简单</strong><small>{preview.easy}</small></button>
           </div>
         </div>
       )}
@@ -175,9 +177,12 @@ export function ProgressView({ cards, scheduler, onReset }: { cards: StudyCard[]
       <div className="page-heading"><p className="eyebrow">复习节奏</p><h1>不是刷完，是记住。</h1><p>系统根据你的评分安排下一次出现时间。</p></div>
       <div className="stats-grid">
         <div className="stat-primary"><span>已学习</span><strong>{stats.learned}<small> / {cards.length}</small></strong><div className="progress-track"><span style={{ width: `${stats.learned}%` }}></span></div></div>
-        <div><span>已掌握</span><strong>{stats.mastered}</strong><small>连续答对 3 次</small></div>
+        <div><span>已掌握</span><strong>{stats.mastered}</strong><small>记忆强度超过 21 天</small></div>
         <div><span>待复习</span><strong>{stats.due}</strong><small>现在到期</small></div>
         <div><span>总复习</span><strong>{stats.totalReviews}</strong><small>每次开口都算</small></div>
+        <div><span>真实保持率</span><strong>{Math.round(stats.retention * 100)}%</strong><small>目标 90%</small></div>
+        <div><span>平均记忆强度</span><strong>{stats.averageStability.toFixed(1)}<small> 天</small></strong><small>越大越牢固</small></div>
+        <div><span>顽固卡片</span><strong>{stats.leeches}</strong><small>遗忘 8 次以上</small></div>
         <div><span>连续天数</span><strong>{stats.streak}</strong><small>保持短而稳定</small></div>
       </div>
       <div className="method-section">

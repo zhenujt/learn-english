@@ -7,8 +7,16 @@ A mobile-first, installable learning app for memorizing 100 practical software w
 1. Read the Chinese prompt and say the English pair aloud before revealing it.
 2. Check the sentence pattern, tense, phrase chunks, and vocabulary.
 3. Shadow the clear, word-separated recording, then repeat the natural connected recording without looking.
-4. Grade the recall as **Forgot**, **Hard**, or **Remembered**. The local scheduler decides when the card returns.
+4. Grade the recall as **Again**, **Hard**, **Good**, or **Easy**. Each button shows the interval FSRS would schedule.
 5. Replace the variable phrase in the pattern and create a sentence from your own work.
+
+## Scheduling Algorithm
+
+Reviews are scheduled by [FSRS-6](https://github.com/open-spaced-repetition) through the MIT-licensed `ts-fsrs` package, the same algorithm family Anki ships as its modern scheduler.
+
+Each card stores `stability`, `difficulty`, and `lastReview`. Retrievability is computed from the days actually elapsed, so a card recalled long after its due date earns a much longer next interval instead of a fixed multiple. Intervals target a 90% desired retention, use short-term learning steps, and are fuzzed so reviews do not cluster on one day.
+
+Every graded answer is written to a review log. Those logs are what make it possible to optimize the FSRS parameters against your own memory later.
 
 Study progress is always cached on the device in `localStorage`. When Supabase is configured, email/password accounts and review-progress synchronization are enabled; offline use continues to work and sync resumes after login and a successful network request.
 
