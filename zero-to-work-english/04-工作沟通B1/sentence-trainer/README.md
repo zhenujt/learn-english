@@ -10,7 +10,25 @@ A mobile-first, installable learning app for memorizing 100 practical software w
 4. Grade the recall as **Forgot**, **Hard**, or **Remembered**. The local scheduler decides when the card returns.
 5. Replace the variable phrase in the pattern and create a sentence from your own work.
 
-Study progress stays on the device in `localStorage`. No account or network service is required after the app has been installed and cached.
+Study progress is always cached on the device in `localStorage`. When Supabase is configured, email/password accounts and review-progress synchronization are enabled; offline use continues to work and sync resumes after login and a successful network request.
+
+## Cloud Login and Sync
+
+The app supports email/password registration, login, logout, password-reset email, and a password-update screen opened from the reset link. Supabase is optional: without its public browser settings, the app stays in local-only mode.
+
+1. Create a Supabase project and enable **Authentication > Providers > Email**.
+2. In Supabase **SQL Editor**, run [`supabase/schema.sql`](supabase/schema.sql). Row Level Security ensures each account can access only its own review rows.
+3. In Supabase **Authentication > URL Configuration**, add the deployed URL to **Redirect URLs**:
+
+	`https://zhenujt.github.io/learn-english/`
+
+4. Copy `.env.example` to `.env.local` for local testing and fill in the Supabase project URL and browser `anon` key. Never use or commit a `service_role` key.
+5. In the GitHub repository, add these Actions secrets under **Settings > Secrets and variables > Actions**:
+
+	- `VITE_SUPABASE_URL`
+	- `VITE_SUPABASE_ANON_KEY`
+
+The Pages workflow injects these two public values during the build. After the next push, users can register or log in from the account button. Existing local progress is merged with cloud progress by the most recent card update.
 
 ## Commands
 

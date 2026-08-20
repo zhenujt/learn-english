@@ -1,4 +1,5 @@
 import type { CardProgress, ReviewGrade, ReviewStats, StudyCard } from './types'
+import { supabase } from './auth'
 
 const PROGRESS_KEY = 'sentence-trainer-progress-v1'
 const ACTIVITY_KEY = 'sentence-trainer-activity-v1'
@@ -15,6 +16,22 @@ export class ReviewScheduler {
 
   private writeProgress(progress: Record<number, CardProgress>): void {
     localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress))
+  }
+
+  /** Returns the current local progress for cloud synchronization. */
+  getProgress(): Record<number, CardProgress> {
+    return this.readProgress()
+  }
+
+  /** Merges remote progress, retaining the most recently updated card. */
+  mergeProgress(remoteProgress: Record<number, CardProgress>): void {
+    const localProgress = this.readProgress()
+    const merged = { ...localProgress }
+    for (const [cardId, remote] of Object.entries(remoteProgress)) {
+      const local = localProgress[Number(cardId)]
+      if (!local || (remote.updatedAt ?? 0) >= (local.updatedAt ?? 0)) merged[Number(cardId)] = remote
+    }
+    this.writeProgress(merged)
   }
 
   /** Returns due reviews first, then fills today's session with unseen cards. */
@@ -35,6 +52,7 @@ export class ReviewScheduler {
       intervalDays: 0,
       repetitions: 0,
       lapses: 0,
+      updatedAt: Date.now(),
     }
 
     if (grade === 'again') {
@@ -52,6 +70,8 @@ export class ReviewScheduler {
       current.dueAt = Date.now() + nextInterval * 86_400_000
       current.repetitions += 1
     }
+
+    current.updatedAt = Date.now()
 
     progress[cardId] = current
     this.writeProgress(progress)
@@ -93,6 +113,48 @@ export class ReviewScheduler {
       cursor.setDate(cursor.getDate() - 1)
     }
     return streak
+  }
+}
+
+/** Synchronizes local review progress with the authenticated Supabase user. */
+export class CloudProgressSync {
+  /** Pulls remote rows, merges them locally, then uploads local-only rows. */
+  async sync(): Promise<void> {
+    if (!supabase) return
+    const { data: userData } = await supabase.auth.getUser()
+    if (!userData.user) return
+
+    const { data, error } = await supabase.from('review_progress').select('card_id,due_at,interval_days,repetitions,lapses,updated_at')
+    if (error) throw error
+    const remote = Object.fromEntries((data ?? []).map((row) => [row.card_id, {
+      cardId: row.card_id,
+      dueAt: new Date(row.due_at).getTime(),
+      intervalDays: row.interval_days,
+      repetitions: row.repetitions,
+      lapses: row.lapses,
+      updatedAt: new Date(row.updated_at).getTime(),
+    }]))
+    const scheduler = this.scheduler
+    scheduler.mergeProgress(remote)
+    const rows = Object.values(scheduler.getProgress()).map((progress) => ({
+      user_id: userData.user.id,
+      card_id: progress.cardId,
+      due_at: new Date(progress.dueAt).toISOString(),
+      interval_days: progress.intervalDays,
+      repetitions: progress.repetitions,
+      lapses: progress.lapses,
+      updated_at: new Date(progress.updatedAt ?? Date.now()).toISOString(),
+    }))
+    if (rows.length > 0) {
+      const { error: upsertError } = await supabase.from('review_progress').upsert(rows, { onConflict: 'user_id,card_id' })
+      if (upsertError) throw upsertError
+    }
+  }
+
+  private readonly scheduler: ReviewScheduler
+
+  constructor(scheduler: ReviewScheduler) {
+    this.scheduler = scheduler
   }
 }
 

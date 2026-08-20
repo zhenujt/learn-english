@@ -67,7 +67,8 @@
 }
 
 .streak,
-.icon-button {
+.icon-button,
+.account-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -88,6 +89,22 @@
   width: 40px;
   padding: 0;
   cursor: pointer;
+}
+
+.account-button {
+  min-height: 40px;
+  padding: 0 10px;
+  color: var(--teal);
+  cursor: pointer;
+  gap: 5px;
+}
+
+.account-button span {
+  max-width: 92px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 11px;
+  font-weight: 800;
 }
 
 main {
@@ -569,6 +586,90 @@ main {
   backdrop-filter: blur(16px);
 }
 
+.auth-view {
+  width: min(100%, 460px);
+  margin: 0 auto;
+}
+
+.auth-form {
+  display: grid;
+  margin-top: 28px;
+  gap: 16px;
+}
+
+.auth-form label {
+  display: grid;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  gap: 7px;
+}
+
+.auth-form input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 13px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--white);
+  color: var(--ink);
+}
+
+.auth-form .primary-button {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.auth-form button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.auth-message,
+.auth-error,
+.auth-config-note {
+  margin: 15px 0 0;
+  padding: 12px 14px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.auth-message,
+.auth-config-note {
+  background: var(--teal-soft);
+  color: var(--teal);
+}
+
+.auth-error {
+  background: var(--orange-soft);
+  color: #8a3a2d;
+}
+
+.auth-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+  gap: 12px;
+}
+
+.auth-links button,
+.logout-button {
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  background: transparent;
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.logout-button {
+  margin-top: 28px;
+  color: #8a3a2d;
+}
+
 .study-view:has(.grade-panel) {
   padding-bottom: 108px;
 }
@@ -939,6 +1040,14 @@ main {
   .topbar {
     min-height: 64px;
     padding: 9px 16px;
+  }
+
+  .account-button {
+    padding: 0 8px;
+  }
+
+  .account-button span {
+    max-width: 54px;
   }
 
   .brand-mark {

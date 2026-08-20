@@ -33,7 +33,7 @@ export interface StudyCard {
 }
 
 export type ReviewGrade = 'again' | 'hard' | 'good'
-export type AppView = 'study' | 'library' | 'progress'
+export type AppView = 'study' | 'library' | 'progress' | 'auth'
 
 /** Persisted spaced-repetition state for one card. */
 export interface CardProgress {
@@ -42,6 +42,7 @@ export interface CardProgress {
   intervalDays: number
   repetitions: number
   lapses: number
+  updatedAt?: number
 }
 
 /** Aggregate review statistics displayed by the progress view. */

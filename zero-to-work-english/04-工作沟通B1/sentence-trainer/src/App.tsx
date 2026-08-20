@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react'
-import { BarChart3, BookOpen, Download, Flame, Library } from 'lucide-react'
-import { LibraryView, NavButton, ProgressView, StudyView } from './components'
+import { BarChart3, BookOpen, Download, Flame, Library, UserRound } from 'lucide-react'
+import { AuthView, LibraryView, NavButton, ProgressView, StudyView } from './components'
+import { onAuthStateChange, supabase } from './auth'
 import cardsJson from './data/cards.json'
-import { AudioController, ReviewScheduler } from './services'
+import { AudioController, CloudProgressSync, ReviewScheduler } from './services'
 import type { AppView, ReviewGrade, StudyCard } from './types'
+import type { Session } from '@supabase/supabase-js'
 import './App.css'
 
 const cards = cardsJson as StudyCard[]
 const scheduler = new ReviewScheduler()
 const audioController = new AudioController()
+const cloudProgressSync = new CloudProgressSync(scheduler)
 
 interface InstallPromptEvent extends Event {
   prompt: () => Promise<void>
@@ -22,6 +25,8 @@ function App() {
   const [revealed, setRevealed] = useState(false)
   const [reviewRevision, setReviewRevision] = useState(0)
   const [installPrompt, setInstallPrompt] = useState<InstallPromptEvent | null>(null)
+  const [session, setSession] = useState<Session | null>(null)
+  const [resetRequested, setResetRequested] = useState(false)
   const card = queue[cardIndex]
   const stats = scheduler.getStats()
 
@@ -34,10 +39,34 @@ function App() {
     return () => window.removeEventListener('beforeinstallprompt', handlePrompt)
   }, [])
 
+  useEffect(() => {
+    if (!session) return
+    void cloudProgressSync.sync()
+      .then(() => {
+        setQueue(scheduler.createQueue(cards))
+        setCardIndex(0)
+        setReviewRevision((value) => value + 1)
+      })
+      .catch(() => undefined)
+  }, [session])
+
+  useEffect(() => {
+    if (!supabase) return
+    void supabase.auth.getSession().then(({ data }) => setSession(data.session))
+    return onAuthStateChange((event, nextSession) => {
+      setSession(nextSession)
+      if (event === 'PASSWORD_RECOVERY') {
+        setResetRequested(true)
+        setActiveView('auth')
+      }
+    })
+  }, [])
+
   const gradeCard = (grade: ReviewGrade) => {
     if (!card) return
     audioController.stop()
     scheduler.review(card.id, grade)
+    void cloudProgressSync.sync().catch(() => undefined)
     setReviewRevision((value) => value + 1)
     setRevealed(false)
     setCardIndex((value) => value + 1)
@@ -74,6 +103,10 @@ function App() {
         </div>
         <div className="topbar-actions">
           <div className="streak" title="连续学习天数"><Flame size={18} /> {stats.streak}</div>
+          <button className="account-button" type="button" onClick={() => setActiveView('auth')} title={session ? '账号设置' : '登录账号'}>
+            <UserRound size={18} />
+            <span>{session?.user.email?.split('@')[0] ?? '登录'}</span>
+          </button>
           {installPrompt && (
             <button className="icon-button" type="button" onClick={installApp} title="安装到手机">
               <Download size={20} />
@@ -86,6 +119,7 @@ function App() {
         {activeView === 'study' && <StudyView key={card?.id ?? 'complete'} card={card} current={cardIndex} total={queue.length} revealed={revealed} onReveal={() => setRevealed(true)} onGrade={gradeCard} onPlay={playAudio} onToggleLoop={toggleAudioLoop} onRestart={startNextSession} />}
         {activeView === 'library' && <LibraryView cards={cards} onPlay={playAudio} />}
         {activeView === 'progress' && <ProgressView cards={cards} scheduler={scheduler} onReset={startNextSession} />}
+        {activeView === 'auth' && <AuthView email={session?.user.email} resetRequested={resetRequested} onSignedOut={() => { setSession(null); setResetRequested(false); setActiveView('study') }} />}
       </main>
 
       <nav className="bottom-nav" aria-label="主导航">
