@@ -26,7 +26,7 @@ export function StudyView({ card, current, total, revealed, onReveal, onGrade, p
       <section className="completion-view">
         <div className="completion-check"><Check size={38} /></div>
         <p className="eyebrow">今日完成</p>
-        <h1>十句，已经进脑子了。</h1>
+        <h1>这一组，已经进脑子了。</h1>
         <p>先休息一下。明天系统会把该复习的句子重新排到前面。</p>
         <button className="primary-button" type="button" onClick={onRestart}><RotateCcw size={19} /> 再来一组</button>
       </section>
@@ -162,14 +162,19 @@ export function LibraryView({ cards, onPlay }: { cards: StudyCard[]; onPlay: (so
 }
 
 /** Shows spaced-repetition metrics, memory guidance, and install instructions. */
-export function ProgressView({ cards, scheduler, onReset }: { cards: StudyCard[]; scheduler: ReviewScheduler; onReset: () => void }) {
+export function ProgressView({ cards, scheduler, onReset }: { cards: StudyCard[]; scheduler: ReviewScheduler; onReset: () => Promise<void> }) {
   const [revision, setRevision] = useState(0)
+  const [resetError, setResetError] = useState('')
   const stats = scheduler.getStats()
-  const resetProgress = () => {
+  const resetProgress = async () => {
     if (!window.confirm('确定清空全部学习记录吗？句子和音频不会删除。')) return
-    scheduler.reset()
-    setRevision((value) => value + 1)
-    onReset()
+    setResetError('')
+    try {
+      await onReset()
+      setRevision((value) => value + 1)
+    } catch {
+      setResetError('清空失败，请检查网络后重试。')
+    }
   }
 
   return (
@@ -195,6 +200,7 @@ export function ProgressView({ cards, scheduler, onReset }: { cards: StudyCard[]
         </ol>
       </div>
       <div className="install-note"><Download size={21} /><div><strong>安装到手机</strong><p>Android 用浏览器菜单选择“安装应用”；iPhone 在 Safari 点“分享”，再选“添加到主屏幕”。</p></div></div>
+      {resetError && <p className="auth-error">{resetError}</p>}
       <button className="reset-button" type="button" onClick={resetProgress}>清空学习记录</button>
     </section>
   )

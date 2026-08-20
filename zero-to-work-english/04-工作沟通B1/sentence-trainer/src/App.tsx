@@ -81,6 +81,13 @@ function App() {
     setRevealed(false)
   }
 
+  const resetProgress = async () => {
+    audioController.stop()
+    await cloudProgressSync.clear()
+    startNextSession()
+    setReviewRevision((value) => value + 1)
+  }
+
   const installApp = async () => {
     if (!installPrompt) return
     await installPrompt.prompt()
@@ -121,7 +128,7 @@ function App() {
       <main>
         {activeView === 'study' && <StudyView key={card?.id ?? 'complete'} card={card} current={cardIndex} total={queue.length} revealed={revealed} onReveal={() => setRevealed(true)} onGrade={gradeCard} preview={preview} onPlay={playAudio} onToggleLoop={toggleAudioLoop} onRestart={startNextSession} />}
         {activeView === 'library' && <LibraryView cards={cards} onPlay={playAudio} />}
-        {activeView === 'progress' && <ProgressView cards={cards} scheduler={scheduler} onReset={startNextSession} />}
+        {activeView === 'progress' && <ProgressView cards={cards} scheduler={scheduler} onReset={resetProgress} />}
         {activeView === 'auth' && <AuthView email={session?.user.email} resetRequested={resetRequested} onSignedOut={() => { setSession(null); setResetRequested(false); setActiveView('study') }} />}
       </main>
 
