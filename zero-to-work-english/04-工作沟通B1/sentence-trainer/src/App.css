@@ -475,6 +475,43 @@ main {
   font-size: 15px;
 }
 
+.template-examples {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+}
+
+.template-examples > div {
+  min-width: 0;
+  padding: 14px 28px;
+}
+
+.template-examples > div + div {
+  border-left: 1px solid var(--line);
+}
+
+.template-examples span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--coral-dark);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.template-examples strong {
+  display: block;
+  overflow-wrap: anywhere;
+  font-family: 'Iowan Old Style', Georgia, serif;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.template-examples p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
 .vocabulary-panel {
   border-top: 1.5px solid var(--ink);
 }
@@ -1116,6 +1153,15 @@ main {
   .grammar-grid > div,
   .grammar-grid > div:nth-child(odd) {
     border-right: 0;
+  }
+
+  .template-examples {
+    grid-template-columns: 1fr;
+  }
+
+  .template-examples > div + div {
+    border-top: 1px solid var(--line);
+    border-left: 0;
   }
 
   .word-summary {

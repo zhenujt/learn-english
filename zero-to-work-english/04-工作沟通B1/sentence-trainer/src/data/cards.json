@@ -33,20 +33,12 @@
           "kk": "wi"
         },
         {
-          "word": "get",
-          "partOfSpeech": "v. · 动词",
-          "meaning": "使进入；获得",
-          "americanIpa": "gɪt",
-          "britishIpa": "gɪt",
-          "kk": "gɪt"
-        },
-        {
-          "word": "started",
-          "partOfSpeech": "v. · 动词",
+          "word": "get started",
+          "partOfSpeech": "phr. · 固定短语",
           "meaning": "开始；着手",
-          "americanIpa": "ˈstɑːrtɪd",
-          "britishIpa": "ˈstɑːtɪd",
-          "kk": "ˋstɑrtɪd"
+          "americanIpa": "gɪt ˈstɑːrtɪd",
+          "britishIpa": "gɪt ˈstɑːtɪd",
+          "kk": "gɪt ˋstɑrtɪd"
         },
         {
           "word": "yes",
@@ -72,7 +64,17 @@
           "britishIpa": "bɪˈgɪn",
           "kk": "bɪˋgɪn"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Shall we deploy the fix now?",
+          "chinese": "我们现在部署这个修复好吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -133,30 +135,24 @@
           "kk": "jɛs"
         },
         {
-          "word": "loud",
-          "partOfSpeech": "adj. · 形容词",
-          "meaning": "响亮的；大声地",
-          "americanIpa": "laʊd",
-          "britishIpa": "laʊd",
-          "kk": "laʊd"
-        },
-        {
-          "word": "and",
-          "partOfSpeech": "conj. · 连词",
-          "meaning": "和；并且",
-          "americanIpa": "ənd",
-          "britishIpa": "ənd",
-          "kk": "ənd"
-        },
-        {
-          "word": "clear",
-          "partOfSpeech": "adj. · 形容词",
-          "meaning": "清楚的",
-          "americanIpa": "klɪr",
-          "britishIpa": "klɪr",
-          "kk": "klɪr"
+          "word": "loud and clear",
+          "partOfSpeech": "phr. · 固定短语",
+          "meaning": "声音洪亮清楚；听得很清楚",
+          "americanIpa": "laʊd ənd klɪr",
+          "britishIpa": "laʊd ənd klɪr",
+          "kk": "laʊd ənd klɪr"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Can you review this pull request?",
+          "chinese": "你可以评审这个拉取请求吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -240,7 +236,17 @@
           "britishIpa": "ɪt",
           "kk": "ɪt"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Can you review this pull request?",
+          "chinese": "你可以评审这个拉取请求吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -309,20 +315,12 @@
           "kk": "stɪl"
         },
         {
-          "word": "waiting",
-          "partOfSpeech": "v. · 动词",
+          "word": "waiting for",
+          "partOfSpeech": "phr. v. · 短语动词",
           "meaning": "正在等待",
-          "americanIpa": "ˈweɪtɪŋ",
-          "britishIpa": "ˈweɪtɪŋ",
-          "kk": "ˋweɪtɪŋ"
-        },
-        {
-          "word": "for",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "为了；给；对于",
-          "americanIpa": "fər",
-          "britishIpa": "fər",
-          "kk": "fər"
+          "americanIpa": "ˈweɪtɪŋ fər",
+          "britishIpa": "ˈweɪtɪŋ fər",
+          "kk": "ˋweɪtɪŋ fər"
         },
         {
           "word": "name",
@@ -332,7 +330,17 @@
           "britishIpa": "neɪm",
           "kk": "neɪm"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Is the staging build stable?",
+          "chinese": "预发布版本稳定吗？"
+        },
+        "response": {
+          "english": "The staging build is stable.",
+          "chinese": "预发布版本很稳定。"
+        }
+      }
     }
   },
   {
@@ -449,22 +457,24 @@
           "kk": "ɔn"
         },
         {
-          "word": "next",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "下一个；接下来",
-          "americanIpa": "nɛkst",
-          "britishIpa": "nɛkst",
-          "kk": "nɛkst"
-        },
-        {
-          "word": "steps",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "步骤",
-          "americanIpa": "stɛps",
-          "britishIpa": "stɛps",
-          "kk": "stɛps"
+          "word": "next steps",
+          "partOfSpeech": "n. phr. · 名词短语",
+          "meaning": "后续步骤",
+          "americanIpa": "nɛkst stɛps",
+          "britishIpa": "nɛkst stɛps",
+          "kk": "nɛkst stɛps"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "What is the current release status?",
+          "chinese": "当前的发布状态是什么？"
+        },
+        "response": {
+          "english": "The service should return an empty list.",
+          "chinese": "这个服务应该返回一个空列表。"
+        }
+      }
     }
   },
   {
@@ -548,7 +558,17 @@
           "britishIpa": "ˈmɪnəts",
           "kk": "ˋmɪnəts"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "How does this cache work?",
+          "chinese": "这个缓存如何工作？"
+        },
+        "response": {
+          "english": "I updated the API docs this morning.",
+          "chinese": "我今天上午更新了 API 文档。"
+        }
+      }
     }
   },
   {
@@ -585,20 +605,12 @@
           "kk": "wi"
         },
         {
-          "word": "move",
-          "partOfSpeech": "v. · 动词",
-          "meaning": "移动；继续",
-          "americanIpa": "muv",
-          "britishIpa": "muv",
-          "kk": "muv"
-        },
-        {
-          "word": "on",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "在……上；关于",
-          "americanIpa": "ɔn",
-          "britishIpa": "ɔn",
-          "kk": "ɔn"
+          "word": "move on",
+          "partOfSpeech": "phr. v. · 短语动词",
+          "meaning": "继续；进入下一项",
+          "americanIpa": "muv ɔn",
+          "britishIpa": "muv ɔn",
+          "kk": "muv ɔn"
         },
         {
           "word": "to",
@@ -648,7 +660,17 @@
           "britishIpa": "lɛts",
           "kk": "lɛts"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Can you review this pull request?",
+          "chinese": "你可以评审这个拉取请求吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -717,30 +739,24 @@
           "kk": "æd"
         },
         {
-          "word": "nothing",
-          "partOfSpeech": "pron. · 代词",
-          "meaning": "没有什么",
-          "americanIpa": "ˈnəθɪŋ",
-          "britishIpa": "ˈnəθɪŋ",
-          "kk": "ˋnəθɪŋ"
-        },
-        {
-          "word": "from",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "来自；从",
-          "americanIpa": "frəm",
-          "britishIpa": "frəm",
-          "kk": "frəm"
-        },
-        {
-          "word": "me",
-          "partOfSpeech": "pron. · 代词",
-          "meaning": "我（宾格）",
-          "americanIpa": "mi",
-          "britishIpa": "mi",
-          "kk": "mi"
+          "word": "nothing from me",
+          "partOfSpeech": "expr. · 固定表达",
+          "meaning": "我没有要补充的",
+          "americanIpa": "ˈnəθɪŋ frəm mi",
+          "britishIpa": "ˈnəθɪŋ frəm mi",
+          "kk": "ˋnəθɪŋ frəm mi"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Does this endpoint need authentication?",
+          "chinese": "这个接口需要身份验证吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -841,30 +857,24 @@
           "kk": "ju"
         },
         {
-          "word": "after",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "在……之后",
-          "americanIpa": "ˈæftər",
-          "britishIpa": "ˈɑːftər",
-          "kk": "ˋæftər"
-        },
-        {
-          "word": "the",
-          "partOfSpeech": "det. · 限定词",
-          "meaning": "这个；那个（定冠词）",
-          "americanIpa": "ðə",
-          "britishIpa": "ðə",
-          "kk": "ðə"
-        },
-        {
-          "word": "meeting",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "会议",
-          "americanIpa": "ˈmitɪŋ",
-          "britishIpa": "ˈmitɪŋ",
-          "kk": "ˋmitɪŋ"
+          "word": "after the meeting",
+          "partOfSpeech": "phr. · 固定短语",
+          "meaning": "会议结束后",
+          "americanIpa": "ˈæftər ðə ˈmitɪŋ",
+          "britishIpa": "ˈɑːftər ðə ˈmitɪŋ",
+          "kk": "ˋæftər ðə ˋmitɪŋ"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Can you review this pull request?",
+          "chinese": "你可以评审这个拉取请求吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -917,20 +927,12 @@
           "kk": "ðə"
         },
         {
-          "word": "meeting",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "会议",
-          "americanIpa": "ˈmitɪŋ",
-          "britishIpa": "ˈmitɪŋ",
-          "kk": "ˋmitɪŋ"
-        },
-        {
-          "word": "notes",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "笔记；会议记录",
-          "americanIpa": "noʊts",
-          "britishIpa": "noʊts",
-          "kk": "noʊts"
+          "word": "meeting notes",
+          "partOfSpeech": "n. phr. · 名词短语",
+          "meaning": "会议记录",
+          "americanIpa": "ˈmitɪŋ noʊts",
+          "britishIpa": "ˈmitɪŋ noʊts",
+          "kk": "ˋmitɪŋ noʊts"
         },
         {
           "word": "yes",
@@ -980,7 +982,17 @@
           "britishIpa": "ˈʃɔːtli",
           "kk": "ˋʃɔrtli"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Could you check the error logs?",
+          "chinese": "你可以检查一下错误日志吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -1088,7 +1100,17 @@
           "britishIpa": "pɔɪnt",
           "kk": "pɔɪnt"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Could you check the error logs?",
+          "chinese": "你可以检查一下错误日志吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -1165,22 +1187,24 @@
           "kk": "sˋloʊli"
         },
         {
-          "word": "of",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "……的；属于",
-          "americanIpa": "əv",
-          "britishIpa": "əv",
-          "kk": "əv"
-        },
-        {
-          "word": "course",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "当然；课程",
-          "americanIpa": "kɔːrs",
-          "britishIpa": "kɔːs",
-          "kk": "kɔrs"
+          "word": "of course",
+          "partOfSpeech": "expr. · 固定表达",
+          "meaning": "当然；没问题",
+          "americanIpa": "əv kɔːrs",
+          "britishIpa": "əv kɔːs",
+          "kk": "əv kɔrs"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Could you check the error logs?",
+          "chinese": "你可以检查一下错误日志吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -1225,20 +1249,12 @@
           "kk": "ju"
         },
         {
-          "word": "mean",
-          "partOfSpeech": "v. · 动词",
-          "meaning": "意思是",
-          "americanIpa": "min",
-          "britishIpa": "min",
-          "kk": "min"
-        },
-        {
-          "word": "by",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "通过；由",
-          "americanIpa": "baɪ",
-          "britishIpa": "baɪ",
-          "kk": "baɪ"
+          "word": "mean by",
+          "partOfSpeech": "phr. v. · 短语动词",
+          "meaning": "说……是什么意思",
+          "americanIpa": "min baɪ",
+          "britishIpa": "min baɪ",
+          "kk": "min baɪ"
         },
         {
           "word": "term",
@@ -1257,6 +1273,14 @@
           "kk": "aɪ"
         },
         {
+          "word": "mean",
+          "partOfSpeech": "v. · 动词",
+          "meaning": "意思是",
+          "americanIpa": "min",
+          "britishIpa": "min",
+          "kk": "min"
+        },
+        {
           "word": "simple",
           "partOfSpeech": "adj. · 形容词",
           "meaning": "简单的",
@@ -1272,7 +1296,17 @@
           "britishIpa": "ˌɛkspləˈneɪʃən",
           "kk": "͵ɛkspləˋneɪʃən"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "What does this function return?",
+          "chinese": "这个函数返回什么？"
+        },
+        "response": {
+          "english": "I updated the API docs this morning.",
+          "chinese": "我今天上午更新了 API 文档。"
+        }
+      }
     }
   },
   {
@@ -1365,22 +1399,24 @@
           "kk": "ɪt"
         },
         {
-          "word": "another",
-          "partOfSpeech": "pron. · 代词",
-          "meaning": "另一个",
-          "americanIpa": "əˈnəðər",
-          "britishIpa": "əˈnəðər",
-          "kk": "əˋnəðər"
-        },
-        {
-          "word": "way",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "方式；方法",
-          "americanIpa": "weɪ",
-          "britishIpa": "weɪ",
-          "kk": "weɪ"
+          "word": "another way",
+          "partOfSpeech": "n. phr. · 名词短语",
+          "meaning": "另一种方式",
+          "americanIpa": "əˈnəðər weɪ",
+          "britishIpa": "əˈnəðər weɪ",
+          "kk": "əˋnəðər weɪ"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Could you check the error logs?",
+          "chinese": "你可以检查一下错误日志吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -1456,7 +1492,17 @@
           "britishIpa": "fər",
           "kk": "fər"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Could you check the error logs?",
+          "chinese": "你可以检查一下错误日志吗？"
+        },
+        "response": {
+          "english": "I updated the API docs this morning.",
+          "chinese": "我今天上午更新了 API 文档。"
+        }
+      }
     }
   },
   {
@@ -1548,7 +1594,17 @@
           "britishIpa": "kərˈɛkt",
           "kk": "kərˋɛkt"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Did you update the API docs?",
+          "chinese": "你更新 API 文档了吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -1640,7 +1696,17 @@
           "britishIpa": "æm",
           "kk": "æm"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Is the staging build stable?",
+          "chinese": "预发布版本稳定吗？"
+        },
+        "response": {
+          "english": "The staging build is stable.",
+          "chinese": "预发布版本很稳定。"
+        }
+      }
     }
   },
   {
@@ -1693,28 +1759,12 @@
           "kk": "ðət"
         },
         {
-          "word": "in",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "在……里",
-          "americanIpa": "ɪn",
-          "britishIpa": "ɪn",
-          "kk": "ɪn"
-        },
-        {
-          "word": "the",
-          "partOfSpeech": "det. · 限定词",
-          "meaning": "这个；那个（定冠词）",
-          "americanIpa": "ðə",
-          "britishIpa": "ðə",
-          "kk": "ðə"
-        },
-        {
-          "word": "chat",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "聊天；聊天窗口",
-          "americanIpa": "ʧæt",
-          "britishIpa": "ʧæt",
-          "kk": "ʧæt"
+          "word": "in the chat",
+          "partOfSpeech": "prep. phr. · 介词短语",
+          "meaning": "在聊天窗口中",
+          "americanIpa": "ɪn ðə ʧæt",
+          "britishIpa": "ɪn ðə ʧæt",
+          "kk": "ɪn ðə ʧæt"
         },
         {
           "word": "sure",
@@ -1764,7 +1814,17 @@
           "britishIpa": "naʊ",
           "kk": "naʊ"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Could you check the error logs?",
+          "chinese": "你可以检查一下错误日志吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -1824,7 +1884,17 @@
           "britishIpa": "pɔɪnt",
           "kk": "pɔɪnt"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "What is the current release status?",
+          "chinese": "当前的发布状态是什么？"
+        },
+        "response": {
+          "english": "I updated the API docs this morning.",
+          "chinese": "我今天上午更新了 API 文档。"
+        }
+      }
     }
   },
   {
@@ -1861,20 +1931,12 @@
           "kk": "ðət"
         },
         {
-          "word": "make",
-          "partOfSpeech": "v. · 动词",
-          "meaning": "使得；制作",
-          "americanIpa": "meɪk",
-          "britishIpa": "meɪk",
-          "kk": "meɪk"
-        },
-        {
-          "word": "sense",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "意义；道理",
-          "americanIpa": "sɛns",
-          "britishIpa": "sɛns",
-          "kk": "sɛns"
+          "word": "make sense",
+          "partOfSpeech": "phr. v. · 短语动词",
+          "meaning": "讲得通；容易理解",
+          "americanIpa": "meɪk sɛns",
+          "britishIpa": "meɪk sɛns",
+          "kk": "meɪk sɛns"
         },
         {
           "word": "yes",
@@ -1908,7 +1970,17 @@
           "britishIpa": "naʊ",
           "kk": "naʊ"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Does this endpoint need authentication?",
+          "chinese": "这个接口需要身份验证吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -1992,7 +2064,17 @@
           "britishIpa": "tɑːsk",
           "kk": "tæsk"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "What is the current release status?",
+          "chinese": "当前的发布状态是什么？"
+        },
+        "response": {
+          "english": "The staging build is stable.",
+          "chinese": "预发布版本很稳定。"
+        }
+      }
     }
   },
   {
@@ -2085,22 +2167,24 @@
           "kk": "ˋtɛstɪŋ"
         },
         {
-          "word": "in",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "在……里",
-          "americanIpa": "ɪn",
-          "britishIpa": "ɪn",
-          "kk": "ɪn"
-        },
-        {
-          "word": "progress",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "进展；进度",
-          "americanIpa": "ˈprɑˌgrɛs",
-          "britishIpa": "ˈprɑˌgrɛs",
-          "kk": "ˋprɑ͵grɛs"
+          "word": "in progress",
+          "partOfSpeech": "adj. phr. · 形容词短语",
+          "meaning": "正在进行中",
+          "americanIpa": "ɪn ˈprɑˌgrɛs",
+          "britishIpa": "ɪn ˈprɑˌgrɛs",
+          "kk": "ɪn ˋprɑ͵grɛs"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "What is the current release status?",
+          "chinese": "当前的发布状态是什么？"
+        },
+        "response": {
+          "english": "The staging build is stable.",
+          "chinese": "预发布版本很稳定。"
+        }
+      }
     }
   },
   {
@@ -2137,20 +2221,12 @@
           "kk": "wi"
         },
         {
-          "word": "on",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "在……上；关于",
-          "americanIpa": "ɔn",
-          "britishIpa": "ɔn",
-          "kk": "ɔn"
-        },
-        {
-          "word": "track",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "跟踪；轨道",
-          "americanIpa": "træk",
-          "britishIpa": "træk",
-          "kk": "træk"
+          "word": "on track",
+          "partOfSpeech": "adj. phr. · 形容词短语",
+          "meaning": "进展正常；按计划进行",
+          "americanIpa": "ɔn træk",
+          "britishIpa": "ɔn træk",
+          "kk": "ɔn træk"
         },
         {
           "word": "yes",
@@ -2176,7 +2252,17 @@
           "britishIpa": "deɪt",
           "kk": "deɪt"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Is the staging build stable?",
+          "chinese": "预发布版本稳定吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -2221,20 +2307,12 @@
           "kk": "ɪt"
         },
         {
-          "word": "be",
-          "partOfSpeech": "v. · 动词",
-          "meaning": "是；成为",
-          "americanIpa": "bi",
-          "britishIpa": "bi",
-          "kk": "bi"
-        },
-        {
-          "word": "ready",
-          "partOfSpeech": "adj. · 形容词",
-          "meaning": "准备好的",
-          "americanIpa": "ˈrɛdi",
-          "britishIpa": "ˈrɛdi",
-          "kk": "ˋrɛdi"
+          "word": "be ready",
+          "partOfSpeech": "v. phr. · 动词短语",
+          "meaning": "准备好；完成待用",
+          "americanIpa": "bi ˈrɛdi",
+          "britishIpa": "bi ˈrɛdi",
+          "kk": "bi ˋrɛdi"
         },
         {
           "word": "should",
@@ -2268,7 +2346,17 @@
           "britishIpa": "taɪm",
           "kk": "taɪm"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "When will the test build be ready?",
+          "chinese": "测试版本什么时候可以准备好？"
+        },
+        "response": {
+          "english": "The service should return an empty list.",
+          "chinese": "这个服务应该返回一个空列表。"
+        }
+      }
     }
   },
   {
@@ -2384,7 +2472,17 @@
           "britishIpa": "ˌrivˈju",
           "kk": "͵rivˋju"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "What is the current release status?",
+          "chinese": "当前的发布状态是什么？"
+        },
+        "response": {
+          "english": "I updated the API docs this morning.",
+          "chinese": "我今天上午更新了 API 文档。"
+        }
+      }
     }
   },
   {
@@ -2461,20 +2559,12 @@
           "kk": "æm"
         },
         {
-          "word": "waiting",
-          "partOfSpeech": "v. · 动词",
+          "word": "waiting for",
+          "partOfSpeech": "phr. v. · 短语动词",
           "meaning": "正在等待",
-          "americanIpa": "ˈweɪtɪŋ",
-          "britishIpa": "ˈweɪtɪŋ",
-          "kk": "ˋweɪtɪŋ"
-        },
-        {
-          "word": "for",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "为了；给；对于",
-          "americanIpa": "fər",
-          "britishIpa": "fər",
-          "kk": "fər"
+          "americanIpa": "ˈweɪtɪŋ fər",
+          "britishIpa": "ˈweɪtɪŋ fər",
+          "kk": "ˋweɪtɪŋ fər"
         },
         {
           "word": "access",
@@ -2500,7 +2590,17 @@
           "britishIpa": "dɪˈsɪʒən",
           "kk": "dɪˋsɪʒən"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Is the staging build stable?",
+          "chinese": "预发布版本稳定吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -2577,20 +2677,12 @@
           "kk": "kʊd"
         },
         {
-          "word": "me",
-          "partOfSpeech": "pron. · 代词",
-          "meaning": "我（宾格）",
-          "americanIpa": "mi",
-          "britishIpa": "mi",
-          "kk": "mi"
-        },
-        {
-          "word": "with",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "和；带有；使用",
-          "americanIpa": "wɪθ",
-          "britishIpa": "wɪθ",
-          "kk": "wɪθ"
+          "word": "help me with",
+          "partOfSpeech": "v. phr. · 动词短语",
+          "meaning": "帮助我处理",
+          "americanIpa": "hɛlp mi wɪθ",
+          "britishIpa": "hɛlp mi wɪθ",
+          "kk": "hɛlp mi wɪθ"
         },
         {
           "word": "task",
@@ -2600,7 +2692,17 @@
           "britishIpa": "tɑːsk",
           "kk": "tæsk"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Does this endpoint need authentication?",
+          "chinese": "这个接口需要身份验证吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -2684,7 +2786,17 @@
           "britishIpa": "ˈoʊnər",
           "kk": "ˋoʊnər"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "When will the test build be ready?",
+          "chinese": "测试版本什么时候可以准备好？"
+        },
+        "response": {
+          "english": "The staging build is stable.",
+          "chinese": "预发布版本很稳定。"
+        }
+      }
     }
   },
   {
@@ -2745,20 +2857,12 @@
           "kk": "tæsk"
         },
         {
-          "word": "not",
-          "partOfSpeech": "adv. · 副词",
-          "meaning": "不；没有",
-          "americanIpa": "nɑt",
-          "britishIpa": "nɑt",
-          "kk": "nɑt"
-        },
-        {
-          "word": "yet",
-          "partOfSpeech": "adv. · 副词",
-          "meaning": "还；尚未",
-          "americanIpa": "jɛt",
-          "britishIpa": "jɛt",
-          "kk": "jɛt"
+          "word": "not yet",
+          "partOfSpeech": "expr. · 固定表达",
+          "meaning": "还没有",
+          "americanIpa": "nɑt jɛt",
+          "britishIpa": "nɑt jɛt",
+          "kk": "nɑt jɛt"
         },
         {
           "word": "i",
@@ -2808,7 +2912,17 @@
           "britishIpa": "təˈdeɪ",
           "kk": "təˋdeɪ"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Have you tested this change?",
+          "chinese": "你测试过这项改动了吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -2932,7 +3046,17 @@
           "britishIpa": "nɛkst",
           "kk": "nɛkst"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Can you review this pull request?",
+          "chinese": "你可以评审这个拉取请求吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -3016,7 +3140,17 @@
           "britishIpa": "ɪt",
           "kk": "ɪt"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Can you review this pull request?",
+          "chinese": "你可以评审这个拉取请求吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -3093,30 +3227,24 @@
           "kk": "jɛs"
         },
         {
-          "word": "works",
-          "partOfSpeech": "v. · 动词",
-          "meaning": "可行；有效",
-          "americanIpa": "wərks",
-          "britishIpa": "wərks",
-          "kk": "wərks"
-        },
-        {
-          "word": "for",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "为了；给；对于",
-          "americanIpa": "fər",
-          "britishIpa": "fər",
-          "kk": "fər"
-        },
-        {
-          "word": "me",
-          "partOfSpeech": "pron. · 代词",
-          "meaning": "我（宾格）",
-          "americanIpa": "mi",
-          "britishIpa": "mi",
-          "kk": "mi"
+          "word": "works for me",
+          "partOfSpeech": "expr. · 固定表达",
+          "meaning": "我觉得可以；这个时间适合我",
+          "americanIpa": "wərks fər mi",
+          "britishIpa": "wərks fər mi",
+          "kk": "wərks fər mi"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Could you check the error logs?",
+          "chinese": "你可以检查一下错误日志吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -3232,7 +3360,17 @@
           "britishIpa": "ˌriəˈlɪstɪk",
           "kk": "͵riəˋlɪstɪk"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Can you review this pull request?",
+          "chinese": "你可以评审这个拉取请求吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -3317,14 +3455,24 @@
           "kk": "ɪz"
         },
         {
-          "word": "top",
-          "partOfSpeech": "adj. · 形容词",
-          "meaning": "最高的；首要的",
-          "americanIpa": "tɔp",
-          "britishIpa": "tɔp",
-          "kk": "tɔp"
+          "word": "top priority",
+          "partOfSpeech": "n. phr. · 名词短语",
+          "meaning": "最高优先级",
+          "americanIpa": "tɔp praɪˈɔːrəti",
+          "britishIpa": "tɔp praɪˈɔːrəti",
+          "kk": "tɔp praɪˋɔrəti"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "When will the test build be ready?",
+          "chinese": "测试版本什么时候可以准备好？"
+        },
+        "response": {
+          "english": "The staging build is stable.",
+          "chinese": "预发布版本很稳定。"
+        }
+      }
     }
   },
   {
@@ -3408,7 +3556,17 @@
           "britishIpa": "riˈlis",
           "kk": "riˋlis"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Is the staging build stable?",
+          "chinese": "预发布版本稳定吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -3461,20 +3619,12 @@
           "kk": "ənˋtɪl"
         },
         {
-          "word": "next",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "下一个；接下来",
-          "americanIpa": "nɛkst",
-          "britishIpa": "nɛkst",
-          "kk": "nɛkst"
-        },
-        {
-          "word": "week",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "星期；周",
-          "americanIpa": "wik",
-          "britishIpa": "wik",
-          "kk": "wik"
+          "word": "next week",
+          "partOfSpeech": "n. phr. · 时间短语",
+          "meaning": "下周",
+          "americanIpa": "nɛkst wik",
+          "britishIpa": "nɛkst wik",
+          "kk": "nɛkst wik"
         },
         {
           "word": "yes",
@@ -3516,7 +3666,17 @@
           "britishIpa": "ˈərʤənt",
           "kk": "ˋərʤənt"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Can you review this pull request?",
+          "chinese": "你可以评审这个拉取请求吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -3624,7 +3784,17 @@
           "britishIpa": "deɪz",
           "kk": "deɪz"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "How does this cache work?",
+          "chinese": "这个缓存如何工作？"
+        },
+        "response": {
+          "english": "I updated the API docs this morning.",
+          "chinese": "我今天上午更新了 API 文档。"
+        }
+      }
     }
   },
   {
@@ -3708,7 +3878,17 @@
           "britishIpa": "ˈfiʧər",
           "kk": "ˋfiʧər"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Can you review this pull request?",
+          "chinese": "你可以评审这个拉取请求吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -3753,20 +3933,12 @@
           "kk": "aɪ"
         },
         {
-          "word": "work",
-          "partOfSpeech": "v./n. · 动词/名词",
-          "meaning": "工作；处理",
-          "americanIpa": "wərk",
-          "britishIpa": "wərk",
-          "kk": "wərk"
-        },
-        {
-          "word": "on",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "在……上；关于",
-          "americanIpa": "ɔn",
-          "britishIpa": "ɔn",
-          "kk": "ɔn"
+          "word": "work on",
+          "partOfSpeech": "phr. v. · 短语动词",
+          "meaning": "处理；从事",
+          "americanIpa": "wərk ɔn",
+          "britishIpa": "wərk ɔn",
+          "kk": "wərk ɔn"
         },
         {
           "word": "next",
@@ -3785,20 +3957,12 @@
           "kk": "pliz"
         },
         {
-          "word": "start",
-          "partOfSpeech": "v. · 动词",
-          "meaning": "开始",
-          "americanIpa": "stɑːrt",
-          "britishIpa": "stɑːt",
-          "kk": "stɑrt"
-        },
-        {
-          "word": "with",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "和；带有；使用",
-          "americanIpa": "wɪθ",
-          "britishIpa": "wɪθ",
-          "kk": "wɪθ"
+          "word": "start with",
+          "partOfSpeech": "phr. v. · 短语动词",
+          "meaning": "从……开始",
+          "americanIpa": "stɑːrt wɪθ",
+          "britishIpa": "stɑːt wɪθ",
+          "kk": "stɑrt wɪθ"
         },
         {
           "word": "task",
@@ -3808,7 +3972,17 @@
           "britishIpa": "tɑːsk",
           "kk": "tæsk"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Why did the deployment fail?",
+          "chinese": "这次部署为什么失败了？"
+        },
+        "response": {
+          "english": "I updated the API docs this morning.",
+          "chinese": "我今天上午更新了 API 文档。"
+        }
+      }
     }
   },
   {
@@ -3924,7 +4098,17 @@
           "britishIpa": "təˈdeɪ",
           "kk": "təˋdeɪ"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Can you review this pull request?",
+          "chinese": "你可以评审这个拉取请求吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -4008,7 +4192,17 @@
           "britishIpa": "goʊl",
           "kk": "goʊl"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Why did the deployment fail?",
+          "chinese": "这次部署为什么失败了？"
+        },
+        "response": {
+          "english": "The staging build is stable.",
+          "chinese": "预发布版本很稳定。"
+        }
+      }
     }
   },
   {
@@ -4100,7 +4294,17 @@
           "britishIpa": "grup",
           "kk": "grup"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "When will the test build be ready?",
+          "chinese": "测试版本什么时候可以准备好？"
+        },
+        "response": {
+          "english": "The staging build is stable.",
+          "chinese": "预发布版本很稳定。"
+        }
+      }
     }
   },
   {
@@ -4176,7 +4380,17 @@
           "britishIpa": "ʃʊd",
           "kk": "ʃʊd"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "What is the current release status?",
+          "chinese": "当前的发布状态是什么？"
+        },
+        "response": {
+          "english": "The service should return an empty list.",
+          "chinese": "这个服务应该返回一个空列表。"
+        }
+      }
     }
   },
   {
@@ -4260,7 +4474,17 @@
           "britishIpa": "səˈpɔːt",
           "kk": "səˋpɔrt"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "What is the current release status?",
+          "chinese": "当前的发布状态是什么？"
+        },
+        "response": {
+          "english": "The service should return an empty list.",
+          "chinese": "这个服务应该返回一个空列表。"
+        }
+      }
     }
   },
   {
@@ -4297,20 +4521,12 @@
           "kk": "ðɪs"
         },
         {
-          "word": "in",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "在……里",
-          "americanIpa": "ɪn",
-          "britishIpa": "ɪn",
-          "kk": "ɪn"
-        },
-        {
-          "word": "scope",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "范围",
-          "americanIpa": "skoʊp",
-          "britishIpa": "skoʊp",
-          "kk": "skoʊp"
+          "word": "in scope",
+          "partOfSpeech": "adj. phr. · 形容词短语",
+          "meaning": "在范围内",
+          "americanIpa": "ɪn skoʊp",
+          "britishIpa": "ɪn skoʊp",
+          "kk": "ɪn skoʊp"
         },
         {
           "word": "yes",
@@ -4329,20 +4545,12 @@
           "kk": "ɪt"
         },
         {
-          "word": "part",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "部分",
-          "americanIpa": "pɑːrt",
-          "britishIpa": "pɑːt",
-          "kk": "pɑrt"
-        },
-        {
-          "word": "of",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "……的；属于",
-          "americanIpa": "əv",
-          "britishIpa": "əv",
-          "kk": "əv"
+          "word": "part of",
+          "partOfSpeech": "phr. · 固定短语",
+          "meaning": "……的一部分",
+          "americanIpa": "pɑːrt əv",
+          "britishIpa": "pɑːt əv",
+          "kk": "pɑrt əv"
         },
         {
           "word": "release",
@@ -4352,7 +4560,17 @@
           "britishIpa": "riˈlis",
           "kk": "riˋlis"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Is the staging build stable?",
+          "chinese": "预发布版本稳定吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -4476,7 +4694,17 @@
           "britishIpa": "ˈleɪtər",
           "kk": "ˋleɪtər"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Is the staging build stable?",
+          "chinese": "预发布版本稳定吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -4600,7 +4828,17 @@
           "britishIpa": "ˈmɛsɪʤ",
           "kk": "ˋmɛsɪʤ"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Why did the deployment fail?",
+          "chinese": "这次部署为什么失败了？"
+        },
+        "response": {
+          "english": "The service should return an empty list.",
+          "chinese": "这个服务应该返回一个空列表。"
+        }
+      }
     }
   },
   {
@@ -4717,22 +4955,24 @@
           "kk": "bi"
         },
         {
-          "word": "backward",
-          "partOfSpeech": "adv. · 副词",
-          "meaning": "向后的；向后",
-          "americanIpa": "ˈbækwərd",
-          "britishIpa": "ˈbækwərd",
-          "kk": "ˋbækwərd"
-        },
-        {
-          "word": "compatible",
-          "partOfSpeech": "adj. · 形容词",
-          "meaning": "兼容的",
-          "americanIpa": "kəmˈpætəbəl",
-          "britishIpa": "kəmˈpætəbəl",
-          "kk": "kəmˋpætəbəl"
+          "word": "backward compatible",
+          "partOfSpeech": "adj. phr. · 形容词短语",
+          "meaning": "向后兼容的",
+          "americanIpa": "ˈbækwərd kəmˈpætəbəl",
+          "britishIpa": "ˈbækwərd kəmˈpætəbəl",
+          "kk": "ˋbækwərd kəmˋpætəbəl"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Does this endpoint need authentication?",
+          "chinese": "这个接口需要身份验证吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -4840,7 +5080,17 @@
           "britishIpa": "ˈækʃən",
           "kk": "ˋækʃən"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Can you review this pull request?",
+          "chinese": "你可以评审这个拉取请求吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -4932,7 +5182,17 @@
           "britishIpa": "ˈjɛstərˌdeɪ",
           "kk": "ˋjɛstər͵deɪ"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Have you tested this change?",
+          "chinese": "你测试过这项改动了吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -5056,7 +5316,17 @@
           "britishIpa": "rɪˈzəlt",
           "kk": "rɪˋzəlt"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "How does this cache work?",
+          "chinese": "这个缓存如何工作？"
+        },
+        "response": {
+          "english": "I updated the API docs this morning.",
+          "chinese": "我今天上午更新了 API 文档。"
+        }
+      }
     }
   },
   {
@@ -5180,7 +5450,17 @@
           "britishIpa": "meɪnˈteɪn",
           "kk": "meɪnˋteɪn"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "When will the test build be ready?",
+          "chinese": "测试版本什么时候可以准备好？"
+        },
+        "response": {
+          "english": "The staging build is stable.",
+          "chinese": "预发布版本很稳定。"
+        }
+      }
     }
   },
   {
@@ -5256,7 +5536,17 @@
           "britishIpa": "ɪz",
           "kk": "ɪz"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "What is the current release status?",
+          "chinese": "当前的发布状态是什么？"
+        },
+        "response": {
+          "english": "The staging build is stable.",
+          "chinese": "预发布版本很稳定。"
+        }
+      }
     }
   },
   {
@@ -5364,7 +5654,17 @@
           "britishIpa": "ˈmɛməri",
           "kk": "ˋmɛməri"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "What is the current release status?",
+          "chinese": "当前的发布状态是什么？"
+        },
+        "response": {
+          "english": "The staging build is stable.",
+          "chinese": "预发布版本很稳定。"
+        }
+      }
     }
   },
   {
@@ -5456,7 +5756,17 @@
           "britishIpa": "ɔlˈtərnətɪv",
           "kk": "ɔlˋtərnətɪv"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Does this endpoint need authentication?",
+          "chinese": "这个接口需要身份验证吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -5548,7 +5858,17 @@
           "britishIpa": "smɔl",
           "kk": "smɔl"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Will this change affect existing users?",
+          "chinese": "这项改动会影响现有用户吗？"
+        },
+        "response": {
+          "english": "The service should return an empty list.",
+          "chinese": "这个服务应该返回一个空列表。"
+        }
+      }
     }
   },
   {
@@ -5585,20 +5905,12 @@
           "kk": "ðɪs"
         },
         {
-          "word": "backward",
-          "partOfSpeech": "adv. · 副词",
-          "meaning": "向后的；向后",
-          "americanIpa": "ˈbækwərd",
-          "britishIpa": "ˈbækwərd",
-          "kk": "ˋbækwərd"
-        },
-        {
-          "word": "compatible",
-          "partOfSpeech": "adj. · 形容词",
-          "meaning": "兼容的",
-          "americanIpa": "kəmˈpætəbəl",
-          "britishIpa": "kəmˈpætəbəl",
-          "kk": "kəmˋpætəbəl"
+          "word": "backward compatible",
+          "partOfSpeech": "adj. phr. · 形容词短语",
+          "meaning": "向后兼容的",
+          "americanIpa": "ˈbækwərd kəmˈpætəbəl",
+          "britishIpa": "ˈbækwərd kəmˈpætəbəl",
+          "kk": "ˋbækwərd kəmˋpætəbəl"
         },
         {
           "word": "yes",
@@ -5656,7 +5968,17 @@
           "britishIpa": "wərk",
           "kk": "wərk"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Is the staging build stable?",
+          "chinese": "预发布版本稳定吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -5748,7 +6070,17 @@
           "britishIpa": "ˈɪnstənsɪz",
           "kk": "ˋɪnstənsɪz"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Can you review this pull request?",
+          "chinese": "你可以评审这个拉取请求吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -5785,28 +6117,12 @@
           "kk": "ˋhæpənz"
         },
         {
-          "word": "in",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "在……里",
-          "americanIpa": "ɪn",
-          "britishIpa": "ɪn",
-          "kk": "ɪn"
-        },
-        {
-          "word": "this",
-          "partOfSpeech": "pron. · 代词",
-          "meaning": "这个；这件事",
-          "americanIpa": "ðɪs",
-          "britishIpa": "ðɪs",
-          "kk": "ðɪs"
-        },
-        {
-          "word": "case",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "情况；案例",
-          "americanIpa": "keɪs",
-          "britishIpa": "keɪs",
-          "kk": "keɪs"
+          "word": "in this case",
+          "partOfSpeech": "adv. phr. · 副词短语",
+          "meaning": "在这种情况下",
+          "americanIpa": "ɪn ðɪs keɪs",
+          "britishIpa": "ɪn ðɪs keɪs",
+          "kk": "ɪn ðɪs keɪs"
         },
         {
           "word": "the",
@@ -5864,7 +6180,17 @@
           "britishIpa": "ˌɔtəˈmætɪkli",
           "kk": "͵ɔtəˋmætɪkli"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Why did the deployment fail?",
+          "chinese": "这次部署为什么失败了？"
+        },
+        "response": {
+          "english": "The staging build is stable.",
+          "chinese": "预发布版本很稳定。"
+        }
+      }
     }
   },
   {
@@ -5980,7 +6306,17 @@
           "britishIpa": "riuzd",
           "kk": "riuzd"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Can you review this pull request?",
+          "chinese": "你可以评审这个拉取请求吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -6080,7 +6416,17 @@
           "britishIpa": "ˈmɔːnɪŋ",
           "kk": "ˋmɔrnɪŋ"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Have you tested this change?",
+          "chinese": "你测试过这项改动了吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -6125,28 +6471,12 @@
           "kk": "͵piˋɑr"
         },
         {
-          "word": "ready",
-          "partOfSpeech": "adj. · 形容词",
-          "meaning": "准备好的",
-          "americanIpa": "ˈrɛdi",
-          "britishIpa": "ˈrɛdi",
-          "kk": "ˋrɛdi"
-        },
-        {
-          "word": "for",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "为了；给；对于",
-          "americanIpa": "fər",
-          "britishIpa": "fər",
-          "kk": "fər"
-        },
-        {
-          "word": "review",
-          "partOfSpeech": "v./n. · 动词/名词",
-          "meaning": "评审",
-          "americanIpa": "ˌrivˈju",
-          "britishIpa": "ˌrivˈju",
-          "kk": "͵rivˋju"
+          "word": "ready for review",
+          "partOfSpeech": "adj. phr. · 形容词短语",
+          "meaning": "可以开始评审",
+          "americanIpa": "ˈrɛdi fər ˌrivˈju",
+          "britishIpa": "ˈrɛdi fər ˌrivˈju",
+          "kk": "ˋrɛdi fər ͵rivˋju"
         },
         {
           "word": "yes",
@@ -6163,8 +6493,26 @@
           "americanIpa": "ɪt",
           "britishIpa": "ɪt",
           "kk": "ɪt"
+        },
+        {
+          "word": "ready",
+          "partOfSpeech": "adj. · 形容词",
+          "meaning": "准备好的",
+          "americanIpa": "ˈrɛdi",
+          "britishIpa": "ˈrɛdi",
+          "kk": "ˋrɛdi"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Is the staging build stable?",
+          "chinese": "预发布版本稳定吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -6264,7 +6612,17 @@
           "britishIpa": "təˈdeɪ",
           "kk": "təˋdeɪ"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Could you check the error logs?",
+          "chinese": "你可以检查一下错误日志吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -6372,7 +6730,17 @@
           "britishIpa": "ˈfiʧər",
           "kk": "ˋfiʧər"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "What does this function return?",
+          "chinese": "这个函数返回什么？"
+        },
+        "response": {
+          "english": "I updated the API docs this morning.",
+          "chinese": "我今天上午更新了 API 文档。"
+        }
+      }
     }
   },
   {
@@ -6472,7 +6840,17 @@
           "britishIpa": "ˌɪnəˈgreɪʃən",
           "kk": "͵ɪnəˋgreɪʃən"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Did you update the API docs?",
+          "chinese": "你更新 API 文档了吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -6557,30 +6935,24 @@
           "kk": "wɪl"
         },
         {
-          "word": "make",
-          "partOfSpeech": "v. · 动词",
-          "meaning": "使得；制作",
-          "americanIpa": "meɪk",
-          "britishIpa": "meɪk",
-          "kk": "meɪk"
-        },
-        {
-          "word": "the",
-          "partOfSpeech": "det. · 限定词",
-          "meaning": "这个；那个（定冠词）",
-          "americanIpa": "ðə",
-          "britishIpa": "ðə",
-          "kk": "ðə"
-        },
-        {
-          "word": "change",
-          "partOfSpeech": "v./n. · 动词/名词",
-          "meaning": "改变；变更",
-          "americanIpa": "ʧeɪnʤ",
-          "britishIpa": "ʧeɪnʤ",
-          "kk": "ʧeɪnʤ"
+          "word": "make the change",
+          "partOfSpeech": "v. phr. · 动词短语",
+          "meaning": "进行这项修改",
+          "americanIpa": "meɪk ðə ʧeɪnʤ",
+          "britishIpa": "meɪk ðə ʧeɪnʤ",
+          "kk": "meɪk ðə ʧeɪnʤ"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Could you check the error logs?",
+          "chinese": "你可以检查一下错误日志吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -6688,7 +7060,17 @@
           "britishIpa": "ˈɛrər",
           "kk": "ˋɛrər"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "When will the test build be ready?",
+          "chinese": "测试版本什么时候可以准备好？"
+        },
+        "response": {
+          "english": "I updated the API docs this morning.",
+          "chinese": "我今天上午更新了 API 文档。"
+        }
+      }
     }
   },
   {
@@ -6788,7 +7170,17 @@
           "britishIpa": "brɑːnʧ",
           "kk": "brænʧ"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Can you review this pull request?",
+          "chinese": "你可以评审这个拉取请求吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -6880,7 +7272,17 @@
           "britishIpa": "ˈəpˌdeɪts",
           "kk": "ˋəp͵deɪts"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Have you tested this change?",
+          "chinese": "你测试过这项改动了吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -6972,7 +7374,17 @@
           "britishIpa": "səˈʤɛsʧən",
           "kk": "səˋʤɛsʧən"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Is the staging build stable?",
+          "chinese": "预发布版本稳定吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -7064,7 +7476,17 @@
           "britishIpa": "kənˈsɪstəntli",
           "kk": "kənˋsɪstəntli"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Can you review this pull request?",
+          "chinese": "你可以评审这个拉取请求吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -7109,28 +7531,12 @@
           "kk": "ðə"
         },
         {
-          "word": "steps",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "步骤",
-          "americanIpa": "stɛps",
-          "britishIpa": "stɛps",
-          "kk": "stɛps"
-        },
-        {
-          "word": "to",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "到；向；用于不定式",
-          "americanIpa": "tɪ",
-          "britishIpa": "tɪ",
-          "kk": "tɪ"
-        },
-        {
-          "word": "reproduce",
-          "partOfSpeech": "v. · 动词",
-          "meaning": "复现",
-          "americanIpa": "ˌriprəˈdus",
-          "britishIpa": "ˌriprəˈdus",
-          "kk": "͵riprəˋdus"
+          "word": "steps to reproduce",
+          "partOfSpeech": "n. phr. · 名词短语",
+          "meaning": "复现步骤",
+          "americanIpa": "stɛps tɪ ˌriprəˈdus",
+          "britishIpa": "stɛps tɪ ˌriprəˈdus",
+          "kk": "stɛps tɪ ͵riprəˋdus"
         },
         {
           "word": "it",
@@ -7180,7 +7586,17 @@
           "britishIpa": "tu",
           "kk": "tu"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "What is the current release status?",
+          "chinese": "当前的发布状态是什么？"
+        },
+        "response": {
+          "english": "I updated the API docs this morning.",
+          "chinese": "我今天上午更新了 API 文档。"
+        }
+      }
     }
   },
   {
@@ -7288,7 +7704,17 @@
           "britishIpa": "rɪˈzəlt",
           "kk": "rɪˋzəlt"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "What does this function return?",
+          "chinese": "这个函数返回什么？"
+        },
+        "response": {
+          "english": "I updated the API docs this morning.",
+          "chinese": "我今天上午更新了 API 文档。"
+        }
+      }
     }
   },
   {
@@ -7380,7 +7806,17 @@
           "britishIpa": "rɪˈzəlt",
           "kk": "rɪˋzəlt"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Why did the deployment fail?",
+          "chinese": "这次部署为什么失败了？"
+        },
+        "response": {
+          "english": "I updated the API docs this morning.",
+          "chinese": "我今天上午更新了 API 文档。"
+        }
+      }
     }
   },
   {
@@ -7480,7 +7916,17 @@
           "britishIpa": "ˈloʊkəl",
           "kk": "ˋloʊkəl"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "When will the test build be ready?",
+          "chinese": "测试版本什么时候可以准备好？"
+        },
+        "response": {
+          "english": "The staging build is stable.",
+          "chinese": "预发布版本很稳定。"
+        }
+      }
     }
   },
   {
@@ -7525,20 +7971,12 @@
           "kk": "ə"
         },
         {
-          "word": "known",
-          "partOfSpeech": "adj. · 形容词",
-          "meaning": "已知的",
-          "americanIpa": "noʊn",
-          "britishIpa": "noʊn",
-          "kk": "noʊn"
-        },
-        {
-          "word": "issue",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "问题",
-          "americanIpa": "ˈɪʃu",
-          "britishIpa": "ˈɪʃu",
-          "kk": "ˋɪʃu"
+          "word": "known issue",
+          "partOfSpeech": "n. phr. · 名词短语",
+          "meaning": "已知问题",
+          "americanIpa": "noʊn ˈɪʃu",
+          "britishIpa": "noʊn ˈɪʃu",
+          "kk": "noʊn ˋɪʃu"
         },
         {
           "word": "yes",
@@ -7596,7 +8034,17 @@
           "britishIpa": "ɪt",
           "kk": "ɪt"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Is the staging build stable?",
+          "chinese": "预发布版本稳定吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -7641,20 +8089,12 @@
           "kk": "ə"
         },
         {
-          "word": "release",
-          "partOfSpeech": "v./n. · 动词/名词",
-          "meaning": "发布",
-          "americanIpa": "riˈlis",
-          "britishIpa": "riˈlis",
-          "kk": "riˋlis"
-        },
-        {
-          "word": "blocker",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "阻塞问题",
-          "americanIpa": "ˈblɑkər",
-          "britishIpa": "ˈblɑkər",
-          "kk": "ˋblɑkər"
+          "word": "release blocker",
+          "partOfSpeech": "n. phr. · 名词短语",
+          "meaning": "阻碍发布的问题",
+          "americanIpa": "riˈlis ˈblɑkər",
+          "britishIpa": "riˈlis ˈblɑkər",
+          "kk": "riˋlis ˋblɑkər"
         },
         {
           "word": "yes",
@@ -7689,30 +8129,24 @@
           "kk": "ðə"
         },
         {
-          "word": "main",
-          "partOfSpeech": "adj. · 形容词",
-          "meaning": "主要的",
-          "americanIpa": "meɪn",
-          "britishIpa": "meɪn",
-          "kk": "meɪn"
-        },
-        {
-          "word": "user",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "用户",
-          "americanIpa": "ˈjuzər",
-          "britishIpa": "ˈjuzər",
-          "kk": "ˋjuzər"
-        },
-        {
-          "word": "flow",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "流程",
-          "americanIpa": "floʊ",
-          "britishIpa": "floʊ",
-          "kk": "floʊ"
+          "word": "main user flow",
+          "partOfSpeech": "n. phr. · 名词短语",
+          "meaning": "主要用户流程",
+          "americanIpa": "meɪn ˈjuzər floʊ",
+          "britishIpa": "meɪn ˈjuzər floʊ",
+          "kk": "meɪn ˋjuzər floʊ"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Is the staging build stable?",
+          "chinese": "预发布版本稳定吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -7805,22 +8239,24 @@
           "kk": "ɪt"
         },
         {
-          "word": "in",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "在……里",
-          "americanIpa": "ɪn",
-          "britishIpa": "ɪn",
-          "kk": "ɪn"
-        },
-        {
-          "word": "staging",
-          "partOfSpeech": "n./adj. · 名词/形容词",
-          "meaning": "预发布环境（的）",
-          "americanIpa": "ˈsteɪʤɪŋ",
-          "britishIpa": "ˈsteɪʤɪŋ",
-          "kk": "ˋsteɪʤɪŋ"
+          "word": "in staging",
+          "partOfSpeech": "prep. phr. · 介词短语",
+          "meaning": "在预发布环境中",
+          "americanIpa": "ɪn ˈsteɪʤɪŋ",
+          "britishIpa": "ɪn ˈsteɪʤɪŋ",
+          "kk": "ɪn ˋsteɪʤɪŋ"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Have you tested this change?",
+          "chinese": "你测试过这项改动了吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -7920,7 +8356,17 @@
           "britishIpa": "ˈækʃən",
           "kk": "ˋækʃən"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Does this endpoint need authentication?",
+          "chinese": "这个接口需要身份验证吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -8036,7 +8482,17 @@
           "britishIpa": "ˈtɪkɪt",
           "kk": "ˋtɪkɪt"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Can you review this pull request?",
+          "chinese": "你可以评审这个拉取请求吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -8137,30 +8593,24 @@
           "kk": "mi"
         },
         {
-          "word": "share",
-          "partOfSpeech": "v. · 动词",
-          "meaning": "分享",
-          "americanIpa": "ʃɛr",
-          "britishIpa": "ʃɛr",
-          "kk": "ʃɛr"
-        },
-        {
-          "word": "my",
-          "partOfSpeech": "det. · 限定词",
-          "meaning": "我的",
-          "americanIpa": "maɪ",
-          "britishIpa": "maɪ",
-          "kk": "maɪ"
-        },
-        {
-          "word": "screen",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "屏幕",
-          "americanIpa": "skrin",
-          "britishIpa": "skrin",
-          "kk": "skrin"
+          "word": "share my screen",
+          "partOfSpeech": "v. phr. · 动词短语",
+          "meaning": "共享我的屏幕",
+          "americanIpa": "ʃɛr maɪ skrin",
+          "britishIpa": "ʃɛr maɪ skrin",
+          "kk": "ʃɛr maɪ skrin"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Can you review this pull request?",
+          "chinese": "你可以评审这个拉取请求吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -8205,20 +8655,12 @@
           "kk": "ju"
         },
         {
-          "word": "going",
-          "partOfSpeech": "v. · 动词",
-          "meaning": "正在进行；将要",
-          "americanIpa": "goʊɪŋ",
-          "britishIpa": "goʊɪŋ",
-          "kk": "goʊɪŋ"
-        },
-        {
-          "word": "to",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "到；向；用于不定式",
-          "americanIpa": "tɪ",
-          "britishIpa": "tɪ",
-          "kk": "tɪ"
+          "word": "going to",
+          "partOfSpeech": "v. phr. · 固定结构",
+          "meaning": "将要；打算",
+          "americanIpa": "goʊɪŋ tɪ",
+          "britishIpa": "goʊɪŋ tɪ",
+          "kk": "goʊɪŋ tɪ"
         },
         {
           "word": "show",
@@ -8253,30 +8695,24 @@
           "kk": "ðə"
         },
         {
-          "word": "main",
-          "partOfSpeech": "adj. · 形容词",
-          "meaning": "主要的",
-          "americanIpa": "meɪn",
-          "britishIpa": "meɪn",
-          "kk": "meɪn"
-        },
-        {
-          "word": "user",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "用户",
-          "americanIpa": "ˈjuzər",
-          "britishIpa": "ˈjuzər",
-          "kk": "ˋjuzər"
-        },
-        {
-          "word": "flow",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "流程",
-          "americanIpa": "floʊ",
-          "britishIpa": "floʊ",
-          "kk": "floʊ"
+          "word": "main user flow",
+          "partOfSpeech": "n. phr. · 名词短语",
+          "meaning": "主要用户流程",
+          "americanIpa": "meɪn ˈjuzər floʊ",
+          "britishIpa": "meɪn ˈjuzər floʊ",
+          "kk": "meɪn ˋjuzər floʊ"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "What is the current release status?",
+          "chinese": "当前的发布状态是什么？"
+        },
+        "response": {
+          "english": "The service should return an empty list.",
+          "chinese": "这个服务应该返回一个空列表。"
+        }
+      }
     }
   },
   {
@@ -8360,7 +8796,17 @@
           "britishIpa": "bɪld",
           "kk": "bɪld"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Is the staging build stable?",
+          "chinese": "预发布版本稳定吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -8468,7 +8914,17 @@
           "britishIpa": "bəg",
           "kk": "bəg"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Why did the deployment fail?",
+          "chinese": "这次部署为什么失败了？"
+        },
+        "response": {
+          "english": "I updated the API docs this morning.",
+          "chinese": "我今天上午更新了 API 文档。"
+        }
+      }
     }
   },
   {
@@ -8568,7 +9024,17 @@
           "britishIpa": "ˈpæsɪŋ",
           "kk": "ˋpæsɪŋ"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Is the staging build stable?",
+          "chinese": "预发布版本稳定吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -8621,20 +9087,12 @@
           "kk": "ə"
         },
         {
-          "word": "rollback",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "回滚",
-          "americanIpa": "ˈroʊlˌbæk",
-          "britishIpa": "ˈroʊlˌbæk",
-          "kk": "ˋroʊl͵bæk"
-        },
-        {
-          "word": "plan",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "计划",
-          "americanIpa": "plæn",
-          "britishIpa": "plæn",
-          "kk": "plæn"
+          "word": "rollback plan",
+          "partOfSpeech": "n. phr. · 名词短语",
+          "meaning": "回滚方案",
+          "americanIpa": "ˈroʊlˌbæk plæn",
+          "britishIpa": "ˈroʊlˌbæk plæn",
+          "kk": "ˋroʊl͵bæk plæn"
         },
         {
           "word": "yes",
@@ -8684,7 +9142,17 @@
           "britishIpa": "ˈvərʒən",
           "kk": "ˋvərʒən"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Does this endpoint need authentication?",
+          "chinese": "这个接口需要身份验证吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -8761,22 +9229,24 @@
           "kk": "ɪz"
         },
         {
-          "word": "in",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "在……里",
-          "americanIpa": "ɪn",
-          "britishIpa": "ɪn",
-          "kk": "ɪn"
-        },
-        {
-          "word": "progress",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "进展；进度",
-          "americanIpa": "ˈprɑˌgrɛs",
-          "britishIpa": "ˈprɑˌgrɛs",
-          "kk": "ˋprɑ͵grɛs"
+          "word": "in progress",
+          "partOfSpeech": "adj. phr. · 形容词短语",
+          "meaning": "正在进行中",
+          "americanIpa": "ɪn ˈprɑˌgrɛs",
+          "britishIpa": "ɪn ˈprɑˌgrɛs",
+          "kk": "ɪn ˋprɑ͵grɛs"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Have you tested this change?",
+          "chinese": "你测试过这项改动了吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -8860,7 +9330,17 @@
           "britishIpa": "səkˈsɛsfəli",
           "kk": "səkˋsɛsfəli"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Did you update the API docs?",
+          "chinese": "你更新 API 文档了吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -8952,7 +9432,17 @@
           "britishIpa": "ˈnɔːməl",
           "kk": "ˋnɔrməl"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Is the staging build stable?",
+          "chinese": "预发布版本稳定吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -9005,36 +9495,12 @@
           "kk": "ˋoʊnli"
         },
         {
-          "word": "a",
-          "partOfSpeech": "det. · 限定词",
-          "meaning": "一个（不定冠词）",
-          "americanIpa": "ə",
-          "britishIpa": "ə",
-          "kk": "ə"
-        },
-        {
-          "word": "small",
-          "partOfSpeech": "adj. · 形容词",
-          "meaning": "小的",
-          "americanIpa": "smɔl",
-          "britishIpa": "smɔl",
-          "kk": "smɔl"
-        },
-        {
-          "word": "number",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "数量；编号",
-          "americanIpa": "ˈnəmbər",
-          "britishIpa": "ˈnəmbər",
-          "kk": "ˋnəmbər"
-        },
-        {
-          "word": "of",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "……的；属于",
-          "americanIpa": "əv",
-          "britishIpa": "əv",
-          "kk": "əv"
+          "word": "a small number of",
+          "partOfSpeech": "det. phr. · 数量短语",
+          "meaning": "少量的",
+          "americanIpa": "ə smɔl ˈnəmbər əv",
+          "britishIpa": "ə smɔl ˈnəmbər əv",
+          "kk": "ə smɔl ˋnəmbər əv"
         },
         {
           "word": "users",
@@ -9044,7 +9510,17 @@
           "britishIpa": "ˈjuzərz",
           "kk": "ˋjuzərz"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Is the staging build stable?",
+          "chinese": "预发布版本稳定吗？"
+        },
+        "response": {
+          "english": "The staging build is stable.",
+          "chinese": "预发布版本很稳定。"
+        }
+      }
     }
   },
   {
@@ -9144,7 +9620,17 @@
           "britishIpa": "əˈproʊʧ",
           "kk": "əˋproʊʧ"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "What does this function return?",
+          "chinese": "这个函数返回什么？"
+        },
+        "response": {
+          "english": "The staging build is stable.",
+          "chinese": "预发布版本很稳定。"
+        }
+      }
     }
   },
   {
@@ -9204,7 +9690,17 @@
           "britishIpa": "aɪ",
           "kk": "aɪ"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Does this endpoint need authentication?",
+          "chinese": "这个接口需要身份验证吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -9289,20 +9785,12 @@
           "kk": "æm"
         },
         {
-          "word": "concerned",
-          "partOfSpeech": "adj. · 形容词",
-          "meaning": "担心的",
-          "americanIpa": "kənˈsərnd",
-          "britishIpa": "kənˈsərnd",
-          "kk": "kənˋsərnd"
-        },
-        {
-          "word": "about",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "大约；关于",
-          "americanIpa": "əˈbaʊt",
-          "britishIpa": "əˈbaʊt",
-          "kk": "əˋbaʊt"
+          "word": "concerned about",
+          "partOfSpeech": "adj. phr. · 形容词短语",
+          "meaning": "担心；关切",
+          "americanIpa": "kənˈsərnd əˈbaʊt",
+          "britishIpa": "kənˈsərnd əˈbaʊt",
+          "kk": "kənˋsərnd əˋbaʊt"
         },
         {
           "word": "risk",
@@ -9312,7 +9800,17 @@
           "britishIpa": "rɪsk",
           "kk": "rɪsk"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Does this endpoint need authentication?",
+          "chinese": "这个接口需要身份验证吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -9420,7 +9918,17 @@
           "britishIpa": "ˈsɪmpələr",
           "kk": "ˋsɪmpələr"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "When will the test build be ready?",
+          "chinese": "测试版本什么时候可以准备好？"
+        },
+        "response": {
+          "english": "The staging build is stable.",
+          "chinese": "预发布版本很稳定。"
+        }
+      }
     }
   },
   {
@@ -9457,28 +9965,12 @@
           "kk": "wi"
         },
         {
-          "word": "make",
-          "partOfSpeech": "v. · 动词",
-          "meaning": "使得；制作",
-          "americanIpa": "meɪk",
-          "britishIpa": "meɪk",
-          "kk": "meɪk"
-        },
-        {
-          "word": "a",
-          "partOfSpeech": "det. · 限定词",
-          "meaning": "一个（不定冠词）",
-          "americanIpa": "ə",
-          "britishIpa": "ə",
-          "kk": "ə"
-        },
-        {
-          "word": "decision",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "决定",
-          "americanIpa": "dɪˈsɪʒən",
-          "britishIpa": "dɪˈsɪʒən",
-          "kk": "dɪˋsɪʒən"
+          "word": "make a decision",
+          "partOfSpeech": "v. phr. · 动词短语",
+          "meaning": "作出决定",
+          "americanIpa": "meɪk ə dɪˈsɪʒən",
+          "britishIpa": "meɪk ə dɪˈsɪʒən",
+          "kk": "meɪk ə dɪˋsɪʒən"
         },
         {
           "word": "today",
@@ -9536,7 +10028,17 @@
           "britishIpa": "ˌɪnˌfɔːˈmeɪʃən",
           "kk": "͵ɪn͵fɔrˋmeɪʃən"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Can you review this pull request?",
+          "chinese": "你可以评审这个拉取请求吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   },
   {
@@ -9612,7 +10114,17 @@
           "britishIpa": "dɪˈsɪʒən",
           "kk": "dɪˋsɪʒən"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "What does this function return?",
+          "chinese": "这个函数返回什么？"
+        },
+        "response": {
+          "english": "I updated the API docs this morning.",
+          "chinese": "我今天上午更新了 API 文档。"
+        }
+      }
     }
   },
   {
@@ -9657,20 +10169,12 @@
           "kk": "ðə"
         },
         {
-          "word": "next",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "下一个；接下来",
-          "americanIpa": "nɛkst",
-          "britishIpa": "nɛkst",
-          "kk": "nɛkst"
-        },
-        {
-          "word": "steps",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "步骤",
-          "americanIpa": "stɛps",
-          "britishIpa": "stɛps",
-          "kk": "stɛps"
+          "word": "next steps",
+          "partOfSpeech": "n. phr. · 名词短语",
+          "meaning": "后续步骤",
+          "americanIpa": "nɛkst stɛps",
+          "britishIpa": "nɛkst stɛps",
+          "kk": "nɛkst stɛps"
         },
         {
           "word": "i",
@@ -9712,7 +10216,17 @@
           "britishIpa": "neɪm",
           "kk": "neɪm"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "What is the current release status?",
+          "chinese": "当前的发布状态是什么？"
+        },
+        "response": {
+          "english": "The service should return an empty list.",
+          "chinese": "这个服务应该返回一个空列表。"
+        }
+      }
     }
   },
   {
@@ -9749,20 +10263,12 @@
           "kk": "wɪl"
         },
         {
-          "word": "follow",
-          "partOfSpeech": "v. · 动词",
-          "meaning": "跟随；跟进",
-          "americanIpa": "ˈfɑloʊ",
-          "britishIpa": "ˈfɑloʊ",
-          "kk": "ˋfɑloʊ"
-        },
-        {
-          "word": "up",
-          "partOfSpeech": "adv. · 副词",
-          "meaning": "向上；完成",
-          "americanIpa": "əp",
-          "britishIpa": "əp",
-          "kk": "əp"
+          "word": "follow up",
+          "partOfSpeech": "phr. v. · 短语动词",
+          "meaning": "跟进",
+          "americanIpa": "ˈfɑloʊ əp",
+          "britishIpa": "ˈfɑloʊ əp",
+          "kk": "ˋfɑloʊ əp"
         },
         {
           "word": "i",
@@ -9773,30 +10279,24 @@
           "kk": "aɪ"
         },
         {
-          "word": "after",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "在……之后",
-          "americanIpa": "ˈæftər",
-          "britishIpa": "ˈɑːftər",
-          "kk": "ˋæftər"
-        },
-        {
-          "word": "the",
-          "partOfSpeech": "det. · 限定词",
-          "meaning": "这个；那个（定冠词）",
-          "americanIpa": "ðə",
-          "britishIpa": "ðə",
-          "kk": "ðə"
-        },
-        {
-          "word": "meeting",
-          "partOfSpeech": "n. · 名词",
-          "meaning": "会议",
-          "americanIpa": "ˈmitɪŋ",
-          "britishIpa": "ˈmitɪŋ",
-          "kk": "ˋmitɪŋ"
+          "word": "after the meeting",
+          "partOfSpeech": "phr. · 固定短语",
+          "meaning": "会议结束后",
+          "americanIpa": "ˈæftər ðə ˈmitɪŋ",
+          "britishIpa": "ˈɑːftər ðə ˈmitɪŋ",
+          "kk": "ˋæftər ðə ˋmitɪŋ"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "When will the test build be ready?",
+          "chinese": "测试版本什么时候可以准备好？"
+        },
+        "response": {
+          "english": "The service should return an empty list.",
+          "chinese": "这个服务应该返回一个空列表。"
+        }
+      }
     }
   },
   {
@@ -9841,28 +10341,12 @@
           "kk": "ju"
         },
         {
-          "word": "get",
-          "partOfSpeech": "v. · 动词",
-          "meaning": "使进入；获得",
-          "americanIpa": "gɪt",
-          "britishIpa": "gɪt",
-          "kk": "gɪt"
-        },
-        {
-          "word": "back",
-          "partOfSpeech": "adv. · 副词",
-          "meaning": "回来；返回",
-          "americanIpa": "bæk",
-          "britishIpa": "bæk",
-          "kk": "bæk"
-        },
-        {
-          "word": "to",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "到；向；用于不定式",
-          "americanIpa": "tɪ",
-          "britishIpa": "tɪ",
-          "kk": "tɪ"
+          "word": "get back to",
+          "partOfSpeech": "phr. v. · 短语动词",
+          "meaning": "稍后回复",
+          "americanIpa": "gɪt bæk tɪ",
+          "britishIpa": "gɪt bæk tɪ",
+          "kk": "gɪt bæk tɪ"
         },
         {
           "word": "me",
@@ -9904,7 +10388,17 @@
           "britishIpa": "taɪm",
           "kk": "taɪm"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "When will the test build be ready?",
+          "chinese": "测试版本什么时候可以准备好？"
+        },
+        "response": {
+          "english": "The service should return an empty list.",
+          "chinese": "这个服务应该返回一个空列表。"
+        }
+      }
     }
   },
   {
@@ -9941,20 +10435,12 @@
           "kk": "ðɛr"
         },
         {
-          "word": "anything",
-          "partOfSpeech": "pron. · 代词",
-          "meaning": "任何事物",
-          "americanIpa": "ˈɛniˌθɪŋ",
-          "britishIpa": "ˈɛniˌθɪŋ",
-          "kk": "ˋɛni͵θɪŋ"
-        },
-        {
-          "word": "else",
-          "partOfSpeech": "adv. · 副词",
-          "meaning": "其他；另外",
-          "americanIpa": "ɛls",
-          "britishIpa": "ɛls",
-          "kk": "ɛls"
+          "word": "anything else",
+          "partOfSpeech": "pron. phr. · 代词短语",
+          "meaning": "其他任何事情",
+          "americanIpa": "ˈɛniˌθɪŋ ɛls",
+          "britishIpa": "ˈɛniˌθɪŋ ɛls",
+          "kk": "ˋɛni͵θɪŋ ɛls"
         },
         {
           "word": "no",
@@ -9973,30 +10459,24 @@
           "kk": "ðət"
         },
         {
-          "word": "all",
-          "partOfSpeech": "det. · 限定词",
-          "meaning": "全部",
-          "americanIpa": "ɔl",
-          "britishIpa": "ɔl",
-          "kk": "ɔl"
-        },
-        {
-          "word": "from",
-          "partOfSpeech": "prep. · 介词",
-          "meaning": "来自；从",
-          "americanIpa": "frəm",
-          "britishIpa": "frəm",
-          "kk": "frəm"
-        },
-        {
-          "word": "me",
-          "partOfSpeech": "pron. · 代词",
-          "meaning": "我（宾格）",
-          "americanIpa": "mi",
-          "britishIpa": "mi",
-          "kk": "mi"
+          "word": "all from me",
+          "partOfSpeech": "expr. · 固定表达",
+          "meaning": "我没有其他要补充的了",
+          "americanIpa": "ɔl frəm mi",
+          "britishIpa": "ɔl frəm mi",
+          "kk": "ɔl frəm mi"
         }
-      ]
+      ],
+      "templateExamples": {
+        "question": {
+          "english": "Is the staging build stable?",
+          "chinese": "预发布版本稳定吗？"
+        },
+        "response": {
+          "english": "Yes, I will review it today.",
+          "chinese": "好的，我今天会评审它。"
+        }
+      }
     }
   }
 ]

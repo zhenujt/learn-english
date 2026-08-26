@@ -105,7 +105,7 @@ function AudioPanel({ card, looping, onPlay, onToggleLoop }: { card: StudyCard; 
 function VocabularyPanel({ card }: { card: StudyCard }) {
   return (
     <details className="vocabulary-panel" open>
-      <summary><span>全部词汇 · 美式 IPA / 英式 IPA / KK</span><small>{card.grammar.vocabulary.length} 词</small></summary>
+      <summary><span>全部词汇与短语 · 美式 IPA / 英式 IPA / KK</span><small>{card.grammar.vocabulary.length} 项</small></summary>
       <div className="vocabulary-list">
         {card.grammar.vocabulary.map((item) => (
           <article key={item.word}>
@@ -132,6 +132,18 @@ function GrammarPanel({ card }: { card: StudyCard }) {
         <div><dt>时态</dt><dd>{card.grammar.tense}</dd></div>
         <div className="chunk-row"><dt>意群切块</dt><dd>{card.grammar.chunks}</dd></div>
       </dl>
+      <div className="template-examples">
+        <div>
+          <span>问句模板例句</span>
+          <strong>{card.grammar.templateExamples.question.english}</strong>
+          <p>{card.grammar.templateExamples.question.chinese}</p>
+        </div>
+        <div>
+          <span>回答模板例句</span>
+          <strong>{card.grammar.templateExamples.response.english}</strong>
+          <p>{card.grammar.templateExamples.response.chinese}</p>
+        </div>
+      </div>
       <div className="memory-method"><Headphones size={19} /><p><strong>三遍影子跟读：</strong>先听清晰分词版，看文本跟读；再听自然连读版，不看文本复述；最后替换方括号内容造一个自己的句子。</p></div>
     </div>
   )

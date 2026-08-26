@@ -7,6 +7,76 @@ import eng_to_ipa
 class CourseVocabulary:
     """Resolve vocabulary metadata and phonetics for the workplace course."""
 
+    QUESTION_EXAMPLES = {
+        "Be + 主语 + 表语/现在分词 ...?": ("Is the staging build stable?", "预发布版本稳定吗？"),
+        "Can + 主语 + 动词原形 ...?": ("Can you review this pull request?", "你可以评审这个拉取请求吗？"),
+        "Could + 主语 + 动词原形 ...?（委婉请求）": ("Could you check the error logs?", "你可以检查一下错误日志吗？"),
+        "Did + 主语 + 动词原形 ...?": ("Did you update the API docs?", "你更新 API 文档了吗？"),
+        "Do/Does + 主语 + 动词原形 ...?": ("Does this endpoint need authentication?", "这个接口需要身份验证吗？"),
+        "Have/Has + 主语 + 过去分词 ...?": ("Have you tested this change?", "你测试过这项改动了吗？"),
+        "How + 助动词/be + 主语 + ...?": ("How does this cache work?", "这个缓存如何工作？"),
+        "Shall + we + 动词原形 ...?（提出建议）": ("Shall we deploy the fix now?", "我们现在部署这个修复好吗？"),
+        "What + be + 主语/表语 ...?": ("What is the current release status?", "当前的发布状态是什么？"),
+        "What + do/does/did + 主语 + 动词原形 ...?": ("What does this function return?", "这个函数返回什么？"),
+        "Will + 主语 + 动词原形 ...?": ("Will this change affect existing users?", "这项改动会影响现有用户吗？"),
+        "特殊疑问词 + 助动词/be + 主语 + ...?": ("When will the test build be ready?", "测试版本什么时候可以准备好？"),
+        "疑问词/助动词 + 主语 + 谓语 ...?": ("Why did the deployment fail?", "这次部署为什么失败了？"),
+    }
+
+    RESPONSE_EXAMPLES = {
+        "主语 + be + 表语/现在分词": ("The staging build is stable.", "预发布版本很稳定。"),
+        "主语 + 情态动词 + 动词原形 + 宾语/补语": ("The service should return an empty list.", "这个服务应该返回一个空列表。"),
+        "主语 + 谓语 + 宾语/补语": ("I updated the API docs this morning.", "我今天上午更新了 API 文档。"),
+        "简短回应 + 主语 + 谓语 + 宾语/补语": ("Yes, I will review it today.", "好的，我今天会评审它。"),
+    }
+
+    PHRASES = {
+        "get started": ("phr. · 固定短语", "开始；着手"),
+        "loud and clear": ("phr. · 固定短语", "声音洪亮清楚；听得很清楚"),
+        "move on": ("phr. v. · 短语动词", "继续；进入下一项"),
+        "nothing from me": ("expr. · 固定表达", "我没有要补充的"),
+        "after the meeting": ("phr. · 固定短语", "会议结束后"),
+        "meeting notes": ("n. phr. · 名词短语", "会议记录"),
+        "of course": ("expr. · 固定表达", "当然；没问题"),
+        "mean by": ("phr. v. · 短语动词", "说……是什么意思"),
+        "another way": ("n. phr. · 名词短语", "另一种方式"),
+        "in the chat": ("prep. phr. · 介词短语", "在聊天窗口中"),
+        "make sense": ("phr. v. · 短语动词", "讲得通；容易理解"),
+        "work on": ("phr. v. · 短语动词", "处理；从事"),
+        "in progress": ("adj. phr. · 形容词短语", "正在进行中"),
+        "on track": ("adj. phr. · 形容词短语", "进展正常；按计划进行"),
+        "be ready": ("v. phr. · 动词短语", "准备好；完成待用"),
+        "waiting for": ("phr. v. · 短语动词", "正在等待"),
+        "help me with": ("v. phr. · 动词短语", "帮助我处理"),
+        "not yet": ("expr. · 固定表达", "还没有"),
+        "works for me": ("expr. · 固定表达", "我觉得可以；这个时间适合我"),
+        "top priority": ("n. phr. · 名词短语", "最高优先级"),
+        "next week": ("n. phr. · 时间短语", "下周"),
+        "start with": ("phr. v. · 短语动词", "从……开始"),
+        "in scope": ("adj. phr. · 形容词短语", "在范围内"),
+        "part of": ("phr. · 固定短语", "……的一部分"),
+        "backward compatible": ("adj. phr. · 形容词短语", "向后兼容的"),
+        "in this case": ("adv. phr. · 副词短语", "在这种情况下"),
+        "ready for review": ("adj. phr. · 形容词短语", "可以开始评审"),
+        "make the change": ("v. phr. · 动词短语", "进行这项修改"),
+        "steps to reproduce": ("n. phr. · 名词短语", "复现步骤"),
+        "known issue": ("n. phr. · 名词短语", "已知问题"),
+        "release blocker": ("n. phr. · 名词短语", "阻碍发布的问题"),
+        "main user flow": ("n. phr. · 名词短语", "主要用户流程"),
+        "in staging": ("prep. phr. · 介词短语", "在预发布环境中"),
+        "share my screen": ("v. phr. · 动词短语", "共享我的屏幕"),
+        "going to": ("v. phr. · 固定结构", "将要；打算"),
+        "rollback plan": ("n. phr. · 名词短语", "回滚方案"),
+        "a small number of": ("det. phr. · 数量短语", "少量的"),
+        "concerned about": ("adj. phr. · 形容词短语", "担心；关切"),
+        "make a decision": ("v. phr. · 动词短语", "作出决定"),
+        "next steps": ("n. phr. · 名词短语", "后续步骤"),
+        "follow up": ("phr. v. · 短语动词", "跟进"),
+        "get back to": ("phr. v. · 短语动词", "稍后回复"),
+        "anything else": ("pron. phr. · 代词短语", "其他任何事情"),
+        "all from me": ("expr. · 固定表达", "我没有其他要补充的了"),
+    }
+
     MEANINGS = {
         "shall": "将；……好吗", "we": "我们", "get": "使进入；获得", "started": "开始；着手",
         "yes": "是的；好的", "let's": "让我们……吧", "you": "你；你们", "me": "我（宾格）",
@@ -102,18 +172,41 @@ class CourseVocabulary:
 
     @classmethod
     def tokenize(cls, card: dict[str, Any]) -> list[str]:
-        """Return unique card words in original reading order."""
-        return list(dict.fromkeys(
+        """Return unique words and fixed phrases in original reading order."""
+        words = [
             word.lower().replace("’", "'")
             for word in re.findall(
                 r"[A-Za-z]+(?:['’-][A-Za-z]+)*",
                 f"{card['question']} {card['response']}",
             )
-        ))
+        ]
+        phrase_words = sorted(
+            (phrase.split() for phrase in cls.PHRASES), key=len, reverse=True
+        )
+        units: list[str] = []
+        index = 0
+        while index < len(words):
+            match = next(
+                (
+                    candidate
+                    for candidate in phrase_words
+                    if words[index:index + len(candidate)] == candidate
+                ),
+                None,
+            )
+            if match:
+                units.append(" ".join(match))
+                index += len(match)
+            else:
+                units.append(words[index])
+                index += 1
+        return list(dict.fromkeys(units))
 
     @classmethod
     def metadata(cls, word: str, known_items: dict[str, dict[str, str]]) -> tuple[str, str]:
         """Return normalized POS and Chinese meaning for one word."""
+        if word in cls.PHRASES:
+            return cls.PHRASES[word]
         known = known_items.get(word)
         if known:
             raw_pos = known["partOfSpeech"]
@@ -128,6 +221,12 @@ class CourseVocabulary:
     @classmethod
     def phonetics(cls, word: str) -> tuple[str, str, str]:
         """Return American IPA, British IPA, and KK notation."""
+        if " " in word:
+            pronunciations = [cls.phonetics(part) for part in word.split()]
+            return tuple(
+                " ".join(pronunciation[index] for pronunciation in pronunciations)
+                for index in range(3)
+            )
         if word in cls.PHONETIC_OVERRIDES:
             return cls.PHONETIC_OVERRIDES[word]
         american = eng_to_ipa.convert(word)

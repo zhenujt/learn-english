@@ -8,12 +8,22 @@ export interface VocabularyItem {
   kk: string
 }
 
+/** One bilingual example demonstrating a sentence template. */
+export interface TemplateExample {
+  english: string
+  chinese: string
+}
+
 /** Grammar and chunking guidance for a sentence pair. */
 export interface GrammarNote {
   questionPattern: string
   responsePattern: string
   tense: string
   chunks: string
+  templateExamples: {
+    question: TemplateExample
+    response: TemplateExample
+  }
   vocabulary: VocabularyItem[]
 }
 

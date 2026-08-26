@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parent
 CARDS_PATH = ROOT / "src" / "data" / "cards.json"
 AUDIO_PATH = ROOT / "public" / "audio"
 MEDIA_PATH = ROOT / ".anki_media"
-OUTPUT_PATH = ROOT / "sentence-workplace-english-phonetics-v3.apkg"
+OUTPUT_PATH = ROOT / "sentence-workplace-english-phrases-v4.apkg"
 
 
 def stable_id(value: str, minimum: int = 1000) -> int:
@@ -30,7 +30,79 @@ def stable_id(value: str, minimum: int = 1000) -> int:
 class AnkiDeckBuilder:
     """Build the software workplace sentence deck and its offline media."""
 
-    DECK_NAME = "句练 · 软件职场英语 · 音标词汇版 V3"
+    DECK_NAME = "句练 · 软件职场英语 · 短语例句版 V4"
+    QUESTION_EXAMPLES = {
+        "Be + 主语 + 表语/现在分词 ...?": (
+            "Is the staging build stable?",
+            "预发布版本稳定吗？",
+        ),
+        "Can + 主语 + 动词原形 ...?": (
+            "Can you review this pull request?",
+            "你可以评审这个拉取请求吗？",
+        ),
+        "Could + 主语 + 动词原形 ...?（委婉请求）": (
+            "Could you check the error logs?",
+            "你可以检查一下错误日志吗？",
+        ),
+        "Did + 主语 + 动词原形 ...?": (
+            "Did you update the API docs?",
+            "你更新 API 文档了吗？",
+        ),
+        "Do/Does + 主语 + 动词原形 ...?": (
+            "Does this endpoint need authentication?",
+            "这个接口需要身份验证吗？",
+        ),
+        "Have/Has + 主语 + 过去分词 ...?": (
+            "Have you tested this change?",
+            "你测试过这项改动了吗？",
+        ),
+        "How + 助动词/be + 主语 + ...?": (
+            "How does this cache work?",
+            "这个缓存如何工作？",
+        ),
+        "Shall + we + 动词原形 ...?（提出建议）": (
+            "Shall we deploy the fix now?",
+            "我们现在部署这个修复好吗？",
+        ),
+        "What + be + 主语/表语 ...?": (
+            "What is the current release status?",
+            "当前的发布状态是什么？",
+        ),
+        "What + do/does/did + 主语 + 动词原形 ...?": (
+            "What does this function return?",
+            "这个函数返回什么？",
+        ),
+        "Will + 主语 + 动词原形 ...?": (
+            "Will this change affect existing users?",
+            "这项改动会影响现有用户吗？",
+        ),
+        "特殊疑问词 + 助动词/be + 主语 + ...?": (
+            "When will the test build be ready?",
+            "测试版本什么时候可以准备好？",
+        ),
+        "疑问词/助动词 + 主语 + 谓语 ...?": (
+            "Why did the deployment fail?",
+            "这次部署为什么失败了？",
+        ),
+    }
+    RESPONSE_EXAMPLES = {
+        "主语 + be + 表语/现在分词": (
+            "The staging build is stable.",
+            "预发布版本很稳定。",
+        ),
+        "主语 + 情态动词 + 动词原形 + 宾语/补语": (
+            "The service should return an empty list.",
+            "这个服务应该返回一个空列表。",
+        ),
+        "主语 + 谓语 + 宾语/补语": (
+            "I updated the API docs this morning.",
+            "我今天上午更新了 API 文档。",
+        ),
+        "简短回应 + 主语 + 谓语 + 宾语/补语": (
+            "Yes, I will review it today.",
+            "好的，我今天会评审它。",
+        ),
+    }
 
     def __init__(self) -> None:
         self.model = self._create_model()
@@ -101,6 +173,7 @@ class AnkiDeckBuilder:
             html.escape(grammar["responsePattern"]),
             html.escape(grammar["tense"]),
             html.escape(grammar["chunks"]),
+            self._template_examples_html(grammar),
             vocabulary,
             f"[sound:{aria_natural_name}]",
             f"[sound:{aria_clear_name}]",
@@ -112,7 +185,22 @@ class AnkiDeckBuilder:
             model=self.model,
             fields=fields,
             tags=tags,
-            guid=f"sentence-workplace-phonetics-v3-{card['id']:03d}",
+            guid=f"sentence-workplace-phrases-v4-{card['id']:03d}",
+        )
+
+    def _template_examples_html(self, grammar: dict[str, Any]) -> str:
+        question = self.QUESTION_EXAMPLES[grammar["questionPattern"]]
+        response = self.RESPONSE_EXAMPLES[grammar["responsePattern"]]
+        return (
+            '<div class="template-example">'
+            '<b>问句模板例句</b>'
+            f'<div class="example-en">{html.escape(question[0])}</div>'
+            f'<div class="example-zh">{html.escape(question[1])}</div>'
+            '</div><div class="template-example">'
+            '<b>回答模板例句</b>'
+            f'<div class="example-en">{html.escape(response[0])}</div>'
+            f'<div class="example-zh">{html.escape(response[1])}</div>'
+            '</div>'
         )
 
     def _vocabulary_html(self, card: dict[str, Any]) -> str:
@@ -135,7 +223,7 @@ class AnkiDeckBuilder:
                 f'</div></div>'
             )
         return (
-            f'<details class="vocabulary" open><summary>全部词汇 · {len(words)} 词</summary>'
+            f'<details class="vocabulary" open><summary>全部词汇与短语 · {len(words)} 项</summary>'
             f'{"".join(entries)}</details>'
         )
 
@@ -171,8 +259,8 @@ class AnkiDeckBuilder:
     @staticmethod
     def _create_model() -> genanki.Model:
         return genanki.Model(
-            stable_id("model:sentence-workplace-phonetics-v3"),
-            "句练 · 软件职场英语 · 音标词汇版 V3",
+            stable_id("model:sentence-workplace-phrases-v4"),
+            "句练 · 软件职场英语 · 短语例句版 V4",
             fields=[
                 {"name": "Number"},
                 {"name": "Category"},
@@ -183,6 +271,7 @@ class AnkiDeckBuilder:
                 {"name": "ResponsePattern"},
                 {"name": "Tense"},
                 {"name": "Chunks"},
+                {"name": "TemplateExamples"},
                 {"name": "Vocabulary"},
                 {"name": "NaturalAudio"},
                 {"name": "ClearAudio"},
@@ -288,6 +377,7 @@ class AnkiDeckBuilder:
     <div class="grammar-grid">
         <div><b>常用表达</b>{{Chunks}}</div>
         <div><b>可替换句型</b>{{ResponsePattern}}</div>
+        {{TemplateExamples}}
     </div>
 </details>
 <div class="tip">听清晰分词版跟读三遍，再听自然连读版复述，最后替换句型内容造句。</div>
@@ -330,6 +420,8 @@ hr { border: 0; border-top: 1px solid #d9ded9; margin: 24px 0; }
 .grammar-grid { display: grid; gap: 8px; }
 .grammar-grid > div { background: #fff; border-left: 3px solid #ed5b42; padding: 10px 12px; }
 .grammar-grid b { display: block; font-size: 12px; margin-bottom: 3px; }
+.example-en { font-weight: 700; }
+.example-zh { color: #68736e; font-size: 13px; margin-top: 2px; }
 table { border-collapse: collapse; margin-top: 16px; width: 100%; }
 th, td { border-bottom: 1px solid #d9ded9; font-size: 14px; padding: 8px 5px; }
 th { color: #68736e; text-align: left; }
@@ -343,6 +435,7 @@ th { color: #68736e; text-align: left; }
 .nightMode .response { color: #b9d2c8; }
 .nightMode .meta, .nightMode th { color: #bdc7c2; }
 .nightMode .word-meaning { color: #b9d2c8; }
+.nightMode .example-zh { color: #bdc7c2; }
 .nightMode .reference { border-color: #43534d; }
 .nightMode .reference summary { color: #b9d2c8; }
 .nightMode .tip { color: #17231f; }

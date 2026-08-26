@@ -345,45 +345,30 @@
 
     .reference[open] summary { margin-bottom: 12px; }
 
-    .expression-list {
+    .grammar-grid {
       display: grid;
       gap: 8px;
     }
 
-    .expression-item {
+    .grammar-grid > div {
       background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 7px;
-      padding: 11px 12px;
+      border-left: 3px solid var(--accent-bright);
+      padding: 10px 12px;
     }
 
-    .expression-label {
-      color: var(--accent);
+    .grammar-grid b {
       display: block;
       font-size: 12px;
-      font-weight: 800;
       margin-bottom: 3px;
     }
 
-    .expression-main {
-      font-size: 16px;
-      font-weight: 750;
-    }
+    .example-en { font-weight: 700; }
 
-    .expression-note {
+    .example-zh {
       color: var(--muted);
       font-size: 13px;
-      margin-top: 3px;
+      margin-top: 2px;
     }
-
-    .example-list {
-      display: grid;
-      gap: 7px;
-      margin-top: 7px;
-    }
-
-    .example-row { font-size: 14px; }
-    .example-row span { color: var(--muted); display: block; font-size: 13px; }
 
     .tip {
       background: var(--tip);
@@ -477,8 +462,8 @@
 
           <details class="vocabulary" open>
             <summary class="vocabulary-header">
-              <span class="vocabulary-title">全部词汇 · 美式 IPA / 英式 IPA / KK</span>
-              <span class="vocabulary-count">7 词</span>
+              <span class="vocabulary-title">全部词汇与短语 · 美式 IPA / 英式 IPA / KK</span>
+              <span class="vocabulary-count">6 项</span>
             </summary>
             <div class="word-entry">
               <div class="word-summary"><span class="word">shall</span><span class="part-of-speech">modal v. · 情态动词</span><span class="word-meaning">（用于提议）……好吗</span></div>
@@ -497,19 +482,11 @@
               </div>
             </div>
             <div class="word-entry">
-              <div class="word-summary"><span class="word">get</span><span class="part-of-speech">v. · 动词</span><span class="word-meaning">使进入（某种状态）</span></div>
+              <div class="word-summary"><span class="word">get started</span><span class="part-of-speech">phr. v. · 短语动词</span><span class="word-meaning">开始；着手</span></div>
               <div class="pronunciations">
-                <div class="pronunciation"><span class="pronunciation-label">美式 IPA</span>/ɡet/</div>
-                <div class="pronunciation"><span class="pronunciation-label">英式 IPA</span>/ɡet/</div>
-                <div class="pronunciation"><span class="pronunciation-label">KK</span>/ɡɛt/</div>
-              </div>
-            </div>
-            <div class="word-entry">
-              <div class="word-summary"><span class="word">started</span><span class="part-of-speech">v. · 过去分词</span><span class="word-meaning">开始；着手</span></div>
-              <div class="pronunciations">
-                <div class="pronunciation"><span class="pronunciation-label">美式 IPA</span>/ˈstɑːrtɪd/</div>
-                <div class="pronunciation"><span class="pronunciation-label">英式 IPA</span>/ˈstɑːtɪd/</div>
-                <div class="pronunciation"><span class="pronunciation-label">KK</span>/ˋstɑrtɪd/</div>
+                <div class="pronunciation"><span class="pronunciation-label">美式 IPA</span>/ɡɪt ˈstɑːrtɪd/</div>
+                <div class="pronunciation"><span class="pronunciation-label">英式 IPA</span>/ɡɪt ˈstɑːtɪd/</div>
+                <div class="pronunciation"><span class="pronunciation-label">KK</span>/ɡɪt ˋstɑrtɪd/</div>
               </div>
             </div>
             <div class="word-entry">
@@ -540,24 +517,11 @@
 
           <details class="reference">
             <summary>表达提示</summary>
-            <div class="expression-list">
-              <div class="expression-item">
-                <span class="expression-label">常用表达</span>
-                <div class="expression-main">get started</div>
-                <div class="expression-note">开始；着手。工作交流中常作为一个整体使用。</div>
-              </div>
-              <div class="expression-item">
-                <span class="expression-label">可替换句型</span>
-                <div class="expression-main">Let's + 动词原形</div>
-                <div class="expression-note">表示“让我们……吧”，动词可以根据场景替换。</div>
-              </div>
-              <div class="expression-item">
-                <span class="expression-label">替换练习</span>
-                <div class="example-list">
-                  <div class="example-row">Shall we move on?<span>我们继续下一项吗？</span></div>
-                  <div class="example-row">Let's review the issue.<span>我们来检查一下这个问题吧。</span></div>
-                </div>
-              </div>
+            <div class="grammar-grid">
+              <div><b>常用表达</b>Shall we / get started? → Yes, / let's begin.</div>
+              <div><b>可替换句型</b>Yes, let's begin.</div>
+              <div><b>问句模板例句</b><div class="example-en">Shall we deploy the fix now?</div><div class="example-zh">我们现在部署这个修复好吗？</div></div>
+              <div><b>回答模板例句</b><div class="example-en">Yes, I will review it today.</div><div class="example-zh">好的，我今天会评审它。</div></div>
             </div>
           </details>
 

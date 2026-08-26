@@ -27,12 +27,30 @@ class WebVocabularyEnricher:
                 self._entry(word, known_vocabulary)
                 for word in CourseVocabulary.tokenize(card)
             ]
+            question_example = CourseVocabulary.QUESTION_EXAMPLES[
+                card["grammar"]["questionPattern"]
+            ]
+            response_example = CourseVocabulary.RESPONSE_EXAMPLES[
+                card["grammar"]["responsePattern"]
+            ]
+            card["grammar"]["templateExamples"] = {
+                "question": {
+                    "english": question_example[0],
+                    "chinese": question_example[1],
+                },
+                "response": {
+                    "english": response_example[0],
+                    "chinese": response_example[1],
+                },
+            }
 
         CARDS_PATH.write_text(
             f"{json.dumps(cards, ensure_ascii=False, indent=2)}\n",
             encoding="utf-8",
         )
-        print(f"Enriched {len(cards)} cards with complete vocabulary phonetics.")
+        print(
+            f"Enriched {len(cards)} cards with phrase vocabulary and template examples."
+        )
 
     @staticmethod
     def _entry(
