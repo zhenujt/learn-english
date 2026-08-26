@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parent
 CARDS_PATH = ROOT / "src" / "data" / "cards.json"
 AUDIO_PATH = ROOT / "public" / "audio"
 MEDIA_PATH = ROOT / ".anki_media"
-OUTPUT_PATH = ROOT / "sentence-workplace-english-phrases-v4.apkg"
+OUTPUT_PATH = ROOT / "sentence-workplace-english-phrases-michelle-v5.apkg"
 
 
 def stable_id(value: str, minimum: int = 1000) -> int:
@@ -30,7 +30,7 @@ def stable_id(value: str, minimum: int = 1000) -> int:
 class AnkiDeckBuilder:
     """Build the software workplace sentence deck and its offline media."""
 
-    DECK_NAME = "句练 · 软件职场英语 · 短语例句版 V4"
+    DECK_NAME = "句练 · 软件职场英语 · Michelle 配音版 V5"
     QUESTION_EXAMPLES = {
         "Be + 主语 + 表语/现在分词 ...?": (
             "Is the staging build stable?",
@@ -128,11 +128,19 @@ class AnkiDeckBuilder:
             aria_clear_name = self._stage_audio(card, "clearAudio", "aria_clear")
             jenny_natural_name = self._stage_audio(card, "jennyNaturalAudio", "jenny_natural")
             jenny_clear_name = self._stage_audio(card, "jennyClearAudio", "jenny_clear")
+            michelle_natural_name = self._stage_audio(
+                card, "michelleNaturalAudio", "michelle_natural"
+            )
+            michelle_clear_name = self._stage_audio(
+                card, "michelleClearAudio", "michelle_clear"
+            )
             audio_names = (
                 aria_natural_name,
                 aria_clear_name,
                 jenny_natural_name,
                 jenny_clear_name,
+                michelle_natural_name,
+                michelle_clear_name,
             )
             media_files.extend(str(MEDIA_PATH / name) for name in audio_names)
             self.deck.add_note(self._create_note(card, *audio_names))
@@ -160,6 +168,8 @@ class AnkiDeckBuilder:
         aria_clear_name: str,
         jenny_natural_name: str,
         jenny_clear_name: str,
+        michelle_natural_name: str,
+        michelle_clear_name: str,
     ) -> genanki.Note:
         grammar = card["grammar"]
         vocabulary = self._vocabulary_html(card)
@@ -179,13 +189,15 @@ class AnkiDeckBuilder:
             f"[sound:{aria_clear_name}]",
             f"[sound:{jenny_natural_name}]",
             f"[sound:{jenny_clear_name}]",
+            f"[sound:{michelle_natural_name}]",
+            f"[sound:{michelle_clear_name}]",
         ]
         tags = ["句练", f"编号_{card['id']:03d}", self._tag(card["category"])]
         return genanki.Note(
             model=self.model,
             fields=fields,
             tags=tags,
-            guid=f"sentence-workplace-phrases-v4-{card['id']:03d}",
+            guid=f"sentence-workplace-phrases-michelle-v5-{card['id']:03d}",
         )
 
     def _template_examples_html(self, grammar: dict[str, Any]) -> str:
@@ -259,8 +271,8 @@ class AnkiDeckBuilder:
     @staticmethod
     def _create_model() -> genanki.Model:
         return genanki.Model(
-            stable_id("model:sentence-workplace-phrases-v4"),
-            "句练 · 软件职场英语 · 短语例句版 V4",
+            stable_id("model:sentence-workplace-phrases-michelle-v5"),
+            "句练 · 软件职场英语 · Michelle 配音版 V5",
             fields=[
                 {"name": "Number"},
                 {"name": "Category"},
@@ -277,6 +289,8 @@ class AnkiDeckBuilder:
                 {"name": "ClearAudio"},
                 {"name": "JennyNaturalAudio"},
                 {"name": "JennyClearAudio"},
+                {"name": "MichelleNaturalAudio"},
+                {"name": "MichelleClearAudio"},
             ],
             templates=[
                 {
@@ -303,13 +317,19 @@ class AnkiDeckBuilder:
         <b>Jenny</b>
         <div class="audio-modes"><span>连读 {{JennyNaturalAudio}}</span><span>分词 {{JennyClearAudio}}</span></div>
     </div>
+    <div class="audio-row">
+        <b>Michelle</b>
+        <div class="audio-modes"><span>连读 {{MichelleNaturalAudio}}</span><span>分词 {{MichelleClearAudio}}</span></div>
+    </div>
 </div>
 {{Vocabulary}}
 <div id="loop-audio-sources" hidden
     data-aria-natural="sentence_{{Number}}_aria_natural.mp3"
     data-aria-clear="sentence_{{Number}}_aria_clear.mp3"
     data-jenny-natural="sentence_{{Number}}_jenny_natural.mp3"
-    data-jenny-clear="sentence_{{Number}}_jenny_clear.mp3">
+    data-jenny-clear="sentence_{{Number}}_jenny_clear.mp3"
+    data-michelle-natural="sentence_{{Number}}_michelle_natural.mp3"
+    data-michelle-clear="sentence_{{Number}}_michelle_clear.mp3">
 </div>
 <script>
 (() => {
@@ -322,6 +342,8 @@ class AnkiDeckBuilder:
         sources.dataset.ariaClear,
         sources.dataset.jennyNatural,
         sources.dataset.jennyClear,
+        sources.dataset.michelleNatural,
+        sources.dataset.michelleClear,
     ];
     let active = false;
     let audio = null;
@@ -334,7 +356,7 @@ class AnkiDeckBuilder:
             audio.currentTime = 0;
             audio = null;
         }
-        button.textContent = "循环播放四段音频";
+        button.textContent = "循环播放六段音频";
         button.setAttribute("aria-pressed", "false");
         button.classList.remove("is-playing");
     };

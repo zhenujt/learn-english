@@ -244,6 +244,8 @@ class CourseParser {
         clearAudio: `audio/no-linking/${String(id).padStart(3, '0')}.mp3`,
         jennyNaturalAudio: `audio/jenny/${String(id).padStart(3, '0')}.mp3`,
         jennyClearAudio: `audio/jenny/no-linking/${String(id).padStart(3, '0')}.mp3`,
+        michelleNaturalAudio: `audio/michelle/${String(id).padStart(3, '0')}.mp3`,
+        michelleClearAudio: `audio/michelle/no-linking/${String(id).padStart(3, '0')}.mp3`,
         grammar: this.analyzer.analyze(question, response),
       })
     }
@@ -277,4 +279,4 @@ fs.writeFileSync(outputPath, `${JSON.stringify(cards, null, 2)}\n`)
 fs.rmSync(publicAudioPath, { recursive: true, force: true })
 fs.cpSync(path.join(courseDirectory, 'audio', 'software-business-english'), publicAudioPath, { recursive: true })
 await generateIcons()
-console.log(`Generated ${cards.length} cards with four offline audio tracks each.`)
+console.log(`Generated ${cards.length} cards with six offline audio tracks each.`)

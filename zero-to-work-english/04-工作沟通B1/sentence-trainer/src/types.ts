@@ -39,6 +39,8 @@ export interface StudyCard {
   clearAudio: string
   jennyNaturalAudio: string
   jennyClearAudio: string
+  michelleNaturalAudio: string
+  michelleClearAudio: string
   grammar: GrammarNote
 }
 

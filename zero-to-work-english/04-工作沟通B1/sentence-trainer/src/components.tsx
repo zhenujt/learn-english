@@ -59,6 +59,8 @@ export function StudyView({ card, current, total, revealed, onReveal, onGrade, p
               card.clearAudio,
               card.jennyNaturalAudio,
               card.jennyClearAudio,
+              card.michelleNaturalAudio,
+              card.michelleClearAudio,
             ], setLooping)} />
             <VocabularyPanel card={card} />
             <GrammarPanel card={card} />
@@ -97,6 +99,10 @@ function AudioPanel({ card, looping, onPlay, onToggleLoop }: { card: StudyCard; 
       <div className="voice-row"><strong>Jenny</strong><div className="audio-modes">
         <button className="natural-audio" type="button" onClick={() => onPlay(card.jennyNaturalAudio)}><Volume2 size={17} />连读</button>
         <button className="clear-audio" type="button" onClick={() => onPlay(card.jennyClearAudio)}><Snail size={17} />分词</button>
+      </div></div>
+      <div className="voice-row"><strong>Michelle</strong><div className="audio-modes">
+        <button className="natural-audio" type="button" onClick={() => onPlay(card.michelleNaturalAudio)}><Volume2 size={17} />连读</button>
+        <button className="clear-audio" type="button" onClick={() => onPlay(card.michelleClearAudio)}><Snail size={17} />分词</button>
       </div></div>
     </section>
   )

@@ -47,6 +47,7 @@ class PronunciationAudioGenerator:
         course_directory: Path,
         aria_voice: str,
         jenny_voice: str,
+        michelle_voice: str,
         rate: str,
         force: bool = False,
     ) -> None:
@@ -63,6 +64,11 @@ class PronunciationAudioGenerator:
         self.voice_outputs = (
             VoiceOutput("Aria", aria_voice, self.audio_directory),
             VoiceOutput("Jenny", jenny_voice, self.audio_directory / "jenny"),
+            VoiceOutput(
+                "Michelle",
+                michelle_voice,
+                self.audio_directory / "michelle",
+            ),
         )
 
     async def run(self) -> None:
@@ -224,6 +230,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--voice", default="en-US-AriaNeural")
     parser.add_argument("--jenny-voice", default="en-US-JennyNeural")
+    parser.add_argument("--michelle-voice", default="en-US-MichelleNeural")
     parser.add_argument("--rate", default="-15%")
     parser.add_argument(
         "--force",
@@ -240,6 +247,7 @@ async def main() -> None:
         course_directory=course_directory,
         aria_voice=args.voice,
         jenny_voice=args.jenny_voice,
+        michelle_voice=args.michelle_voice,
         rate=args.rate,
         force=args.force,
     )

@@ -10,6 +10,8 @@
     "clearAudio": "audio/no-linking/001.mp3",
     "jennyNaturalAudio": "audio/jenny/001.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/001.mp3",
+    "michelleNaturalAudio": "audio/michelle/001.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/001.mp3",
     "grammar": {
       "questionPattern": "Shall + we + 动词原形 ...?（提出建议）",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -88,6 +90,8 @@
     "clearAudio": "audio/no-linking/002.mp3",
     "jennyNaturalAudio": "audio/jenny/002.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/002.mp3",
+    "michelleNaturalAudio": "audio/michelle/002.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/002.mp3",
     "grammar": {
       "questionPattern": "Can + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -166,6 +170,8 @@
     "clearAudio": "audio/no-linking/003.mp3",
     "jennyNaturalAudio": "audio/jenny/003.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/003.mp3",
+    "michelleNaturalAudio": "audio/michelle/003.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/003.mp3",
     "grammar": {
       "questionPattern": "Can + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -260,6 +266,8 @@
     "clearAudio": "audio/no-linking/004.mp3",
     "jennyNaturalAudio": "audio/jenny/004.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/004.mp3",
+    "michelleNaturalAudio": "audio/michelle/004.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/004.mp3",
     "grammar": {
       "questionPattern": "Be + 主语 + 表语/现在分词 ...?",
       "responsePattern": "主语 + be + 表语/现在分词",
@@ -354,6 +362,8 @@
     "clearAudio": "audio/no-linking/005.mp3",
     "jennyNaturalAudio": "audio/jenny/005.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/005.mp3",
+    "michelleNaturalAudio": "audio/michelle/005.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/005.mp3",
     "grammar": {
       "questionPattern": "What + be + 主语/表语 ...?",
       "responsePattern": "主语 + 情态动词 + 动词原形 + 宾语/补语",
@@ -488,6 +498,8 @@
     "clearAudio": "audio/no-linking/006.mp3",
     "jennyNaturalAudio": "audio/jenny/006.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/006.mp3",
+    "michelleNaturalAudio": "audio/michelle/006.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/006.mp3",
     "grammar": {
       "questionPattern": "How + 助动词/be + 主语 + ...?",
       "responsePattern": "主语 + 谓语 + 宾语/补语",
@@ -582,6 +594,8 @@
     "clearAudio": "audio/no-linking/007.mp3",
     "jennyNaturalAudio": "audio/jenny/007.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/007.mp3",
+    "michelleNaturalAudio": "audio/michelle/007.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/007.mp3",
     "grammar": {
       "questionPattern": "Can + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -684,6 +698,8 @@
     "clearAudio": "audio/no-linking/008.mp3",
     "jennyNaturalAudio": "audio/jenny/008.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/008.mp3",
+    "michelleNaturalAudio": "audio/michelle/008.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/008.mp3",
     "grammar": {
       "questionPattern": "Do/Does + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -770,6 +786,8 @@
     "clearAudio": "audio/no-linking/009.mp3",
     "jennyNaturalAudio": "audio/jenny/009.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/009.mp3",
+    "michelleNaturalAudio": "audio/michelle/009.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/009.mp3",
     "grammar": {
       "questionPattern": "Can + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -888,6 +906,8 @@
     "clearAudio": "audio/no-linking/010.mp3",
     "jennyNaturalAudio": "audio/jenny/010.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/010.mp3",
+    "michelleNaturalAudio": "audio/michelle/010.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/010.mp3",
     "grammar": {
       "questionPattern": "Could + 主语 + 动词原形 ...?（委婉请求）",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -1006,6 +1026,8 @@
     "clearAudio": "audio/no-linking/011.mp3",
     "jennyNaturalAudio": "audio/jenny/011.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/011.mp3",
+    "michelleNaturalAudio": "audio/michelle/011.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/011.mp3",
     "grammar": {
       "questionPattern": "Could + 主语 + 动词原形 ...?（委婉请求）",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -1124,6 +1146,8 @@
     "clearAudio": "audio/no-linking/012.mp3",
     "jennyNaturalAudio": "audio/jenny/012.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/012.mp3",
+    "michelleNaturalAudio": "audio/michelle/012.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/012.mp3",
     "grammar": {
       "questionPattern": "Could + 主语 + 动词原形 ...?（委婉请求）",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -1218,6 +1242,8 @@
     "clearAudio": "audio/no-linking/013.mp3",
     "jennyNaturalAudio": "audio/jenny/013.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/013.mp3",
+    "michelleNaturalAudio": "audio/michelle/013.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/013.mp3",
     "grammar": {
       "questionPattern": "What + do/does/did + 主语 + 动词原形 ...?",
       "responsePattern": "主语 + 谓语 + 宾语/补语",
@@ -1320,6 +1346,8 @@
     "clearAudio": "audio/no-linking/014.mp3",
     "jennyNaturalAudio": "audio/jenny/014.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/014.mp3",
+    "michelleNaturalAudio": "audio/michelle/014.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/014.mp3",
     "grammar": {
       "questionPattern": "Could + 主语 + 动词原形 ...?（委婉请求）",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -1430,6 +1458,8 @@
     "clearAudio": "audio/no-linking/015.mp3",
     "jennyNaturalAudio": "audio/jenny/015.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/015.mp3",
+    "michelleNaturalAudio": "audio/michelle/015.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/015.mp3",
     "grammar": {
       "questionPattern": "Could + 主语 + 动词原形 ...?（委婉请求）",
       "responsePattern": "主语 + 谓语 + 宾语/补语",
@@ -1516,6 +1546,8 @@
     "clearAudio": "audio/no-linking/016.mp3",
     "jennyNaturalAudio": "audio/jenny/016.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/016.mp3",
+    "michelleNaturalAudio": "audio/michelle/016.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/016.mp3",
     "grammar": {
       "questionPattern": "Did + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -1618,6 +1650,8 @@
     "clearAudio": "audio/no-linking/017.mp3",
     "jennyNaturalAudio": "audio/jenny/017.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/017.mp3",
+    "michelleNaturalAudio": "audio/michelle/017.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/017.mp3",
     "grammar": {
       "questionPattern": "Be + 主语 + 表语/现在分词 ...?",
       "responsePattern": "主语 + be + 表语/现在分词",
@@ -1720,6 +1754,8 @@
     "clearAudio": "audio/no-linking/018.mp3",
     "jennyNaturalAudio": "audio/jenny/018.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/018.mp3",
+    "michelleNaturalAudio": "audio/michelle/018.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/018.mp3",
     "grammar": {
       "questionPattern": "Could + 主语 + 动词原形 ...?（委婉请求）",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -1838,6 +1874,8 @@
     "clearAudio": "audio/no-linking/019.mp3",
     "jennyNaturalAudio": "audio/jenny/019.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/019.mp3",
+    "michelleNaturalAudio": "audio/michelle/019.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/019.mp3",
     "grammar": {
       "questionPattern": "What + be + 主语/表语 ...?",
       "responsePattern": "主语 + 谓语 + 宾语/补语",
@@ -1908,6 +1946,8 @@
     "clearAudio": "audio/no-linking/020.mp3",
     "jennyNaturalAudio": "audio/jenny/020.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/020.mp3",
+    "michelleNaturalAudio": "audio/michelle/020.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/020.mp3",
     "grammar": {
       "questionPattern": "Do/Does + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -1994,6 +2034,8 @@
     "clearAudio": "audio/no-linking/021.mp3",
     "jennyNaturalAudio": "audio/jenny/021.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/021.mp3",
+    "michelleNaturalAudio": "audio/michelle/021.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/021.mp3",
     "grammar": {
       "questionPattern": "What + be + 主语/表语 ...?",
       "responsePattern": "主语 + be + 表语/现在分词",
@@ -2088,6 +2130,8 @@
     "clearAudio": "audio/no-linking/022.mp3",
     "jennyNaturalAudio": "audio/jenny/022.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/022.mp3",
+    "michelleNaturalAudio": "audio/michelle/022.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/022.mp3",
     "grammar": {
       "questionPattern": "What + be + 主语/表语 ...?",
       "responsePattern": "主语 + be + 表语/现在分词",
@@ -2198,6 +2242,8 @@
     "clearAudio": "audio/no-linking/023.mp3",
     "jennyNaturalAudio": "audio/jenny/023.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/023.mp3",
+    "michelleNaturalAudio": "audio/michelle/023.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/023.mp3",
     "grammar": {
       "questionPattern": "Be + 主语 + 表语/现在分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -2276,6 +2322,8 @@
     "clearAudio": "audio/no-linking/024.mp3",
     "jennyNaturalAudio": "audio/jenny/024.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/024.mp3",
+    "michelleNaturalAudio": "audio/michelle/024.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/024.mp3",
     "grammar": {
       "questionPattern": "特殊疑问词 + 助动词/be + 主语 + ...?",
       "responsePattern": "主语 + 情态动词 + 动词原形 + 宾语/补语",
@@ -2370,6 +2418,8 @@
     "clearAudio": "audio/no-linking/025.mp3",
     "jennyNaturalAudio": "audio/jenny/025.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/025.mp3",
+    "michelleNaturalAudio": "audio/michelle/025.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/025.mp3",
     "grammar": {
       "questionPattern": "What + be + 主语/表语 ...?",
       "responsePattern": "主语 + 谓语 + 宾语/补语",
@@ -2496,6 +2546,8 @@
     "clearAudio": "audio/no-linking/026.mp3",
     "jennyNaturalAudio": "audio/jenny/026.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/026.mp3",
+    "michelleNaturalAudio": "audio/michelle/026.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/026.mp3",
     "grammar": {
       "questionPattern": "Be + 主语 + 表语/现在分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -2614,6 +2666,8 @@
     "clearAudio": "audio/no-linking/027.mp3",
     "jennyNaturalAudio": "audio/jenny/027.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/027.mp3",
+    "michelleNaturalAudio": "audio/michelle/027.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/027.mp3",
     "grammar": {
       "questionPattern": "Do/Does + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -2716,6 +2770,8 @@
     "clearAudio": "audio/no-linking/028.mp3",
     "jennyNaturalAudio": "audio/jenny/028.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/028.mp3",
+    "michelleNaturalAudio": "audio/michelle/028.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/028.mp3",
     "grammar": {
       "questionPattern": "特殊疑问词 + 助动词/be + 主语 + ...?",
       "responsePattern": "主语 + be + 表语/现在分词",
@@ -2810,6 +2866,8 @@
     "clearAudio": "audio/no-linking/029.mp3",
     "jennyNaturalAudio": "audio/jenny/029.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/029.mp3",
+    "michelleNaturalAudio": "audio/michelle/029.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/029.mp3",
     "grammar": {
       "questionPattern": "Have/Has + 主语 + 过去分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -2936,6 +2994,8 @@
     "clearAudio": "audio/no-linking/030.mp3",
     "jennyNaturalAudio": "audio/jenny/030.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/030.mp3",
+    "michelleNaturalAudio": "audio/michelle/030.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/030.mp3",
     "grammar": {
       "questionPattern": "Can + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -3070,6 +3130,8 @@
     "clearAudio": "audio/no-linking/031.mp3",
     "jennyNaturalAudio": "audio/jenny/031.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/031.mp3",
+    "michelleNaturalAudio": "audio/michelle/031.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/031.mp3",
     "grammar": {
       "questionPattern": "Can + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -3164,6 +3226,8 @@
     "clearAudio": "audio/no-linking/032.mp3",
     "jennyNaturalAudio": "audio/jenny/032.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/032.mp3",
+    "michelleNaturalAudio": "audio/michelle/032.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/032.mp3",
     "grammar": {
       "questionPattern": "Could + 主语 + 动词原形 ...?（委婉请求）",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -3258,6 +3322,8 @@
     "clearAudio": "audio/no-linking/033.mp3",
     "jennyNaturalAudio": "audio/jenny/033.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/033.mp3",
+    "michelleNaturalAudio": "audio/michelle/033.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/033.mp3",
     "grammar": {
       "questionPattern": "Can + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -3384,6 +3450,8 @@
     "clearAudio": "audio/no-linking/034.mp3",
     "jennyNaturalAudio": "audio/jenny/034.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/034.mp3",
+    "michelleNaturalAudio": "audio/michelle/034.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/034.mp3",
     "grammar": {
       "questionPattern": "特殊疑问词 + 助动词/be + 主语 + ...?",
       "responsePattern": "主语 + be + 表语/现在分词",
@@ -3486,6 +3554,8 @@
     "clearAudio": "audio/no-linking/035.mp3",
     "jennyNaturalAudio": "audio/jenny/035.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/035.mp3",
+    "michelleNaturalAudio": "audio/michelle/035.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/035.mp3",
     "grammar": {
       "questionPattern": "Be + 主语 + 表语/现在分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -3580,6 +3650,8 @@
     "clearAudio": "audio/no-linking/036.mp3",
     "jennyNaturalAudio": "audio/jenny/036.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/036.mp3",
+    "michelleNaturalAudio": "audio/michelle/036.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/036.mp3",
     "grammar": {
       "questionPattern": "Can + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -3690,6 +3762,8 @@
     "clearAudio": "audio/no-linking/037.mp3",
     "jennyNaturalAudio": "audio/jenny/037.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/037.mp3",
+    "michelleNaturalAudio": "audio/michelle/037.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/037.mp3",
     "grammar": {
       "questionPattern": "How + 助动词/be + 主语 + ...?",
       "responsePattern": "主语 + 谓语 + 宾语/补语",
@@ -3808,6 +3882,8 @@
     "clearAudio": "audio/no-linking/038.mp3",
     "jennyNaturalAudio": "audio/jenny/038.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/038.mp3",
+    "michelleNaturalAudio": "audio/michelle/038.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/038.mp3",
     "grammar": {
       "questionPattern": "Can + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -3902,6 +3978,8 @@
     "clearAudio": "audio/no-linking/039.mp3",
     "jennyNaturalAudio": "audio/jenny/039.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/039.mp3",
+    "michelleNaturalAudio": "audio/michelle/039.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/039.mp3",
     "grammar": {
       "questionPattern": "疑问词/助动词 + 主语 + 谓语 ...?",
       "responsePattern": "主语 + 谓语 + 宾语/补语",
@@ -3996,6 +4074,8 @@
     "clearAudio": "audio/no-linking/040.mp3",
     "jennyNaturalAudio": "audio/jenny/040.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/040.mp3",
+    "michelleNaturalAudio": "audio/michelle/040.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/040.mp3",
     "grammar": {
       "questionPattern": "Can + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -4122,6 +4202,8 @@
     "clearAudio": "audio/no-linking/041.mp3",
     "jennyNaturalAudio": "audio/jenny/041.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/041.mp3",
+    "michelleNaturalAudio": "audio/michelle/041.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/041.mp3",
     "grammar": {
       "questionPattern": "疑问词/助动词 + 主语 + 谓语 ...?",
       "responsePattern": "主语 + be + 表语/现在分词",
@@ -4216,6 +4298,8 @@
     "clearAudio": "audio/no-linking/042.mp3",
     "jennyNaturalAudio": "audio/jenny/042.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/042.mp3",
+    "michelleNaturalAudio": "audio/michelle/042.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/042.mp3",
     "grammar": {
       "questionPattern": "特殊疑问词 + 助动词/be + 主语 + ...?",
       "responsePattern": "主语 + be + 表语/现在分词",
@@ -4318,6 +4402,8 @@
     "clearAudio": "audio/no-linking/043.mp3",
     "jennyNaturalAudio": "audio/jenny/043.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/043.mp3",
+    "michelleNaturalAudio": "audio/michelle/043.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/043.mp3",
     "grammar": {
       "questionPattern": "What + be + 主语/表语 ...?",
       "responsePattern": "主语 + 情态动词 + 动词原形 + 宾语/补语",
@@ -4404,6 +4490,8 @@
     "clearAudio": "audio/no-linking/044.mp3",
     "jennyNaturalAudio": "audio/jenny/044.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/044.mp3",
+    "michelleNaturalAudio": "audio/michelle/044.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/044.mp3",
     "grammar": {
       "questionPattern": "What + be + 主语/表语 ...?",
       "responsePattern": "主语 + 情态动词 + 动词原形 + 宾语/补语",
@@ -4498,6 +4586,8 @@
     "clearAudio": "audio/no-linking/045.mp3",
     "jennyNaturalAudio": "audio/jenny/045.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/045.mp3",
+    "michelleNaturalAudio": "audio/michelle/045.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/045.mp3",
     "grammar": {
       "questionPattern": "Be + 主语 + 表语/现在分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -4584,6 +4674,8 @@
     "clearAudio": "audio/no-linking/046.mp3",
     "jennyNaturalAudio": "audio/jenny/046.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/046.mp3",
+    "michelleNaturalAudio": "audio/michelle/046.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/046.mp3",
     "grammar": {
       "questionPattern": "Be + 主语 + 表语/现在分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -4718,6 +4810,8 @@
     "clearAudio": "audio/no-linking/047.mp3",
     "jennyNaturalAudio": "audio/jenny/047.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/047.mp3",
+    "michelleNaturalAudio": "audio/michelle/047.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/047.mp3",
     "grammar": {
       "questionPattern": "疑问词/助动词 + 主语 + 谓语 ...?",
       "responsePattern": "主语 + 情态动词 + 动词原形 + 宾语/补语",
@@ -4852,6 +4946,8 @@
     "clearAudio": "audio/no-linking/048.mp3",
     "jennyNaturalAudio": "audio/jenny/048.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/048.mp3",
+    "michelleNaturalAudio": "audio/michelle/048.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/048.mp3",
     "grammar": {
       "questionPattern": "Do/Does + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -4986,6 +5082,8 @@
     "clearAudio": "audio/no-linking/049.mp3",
     "jennyNaturalAudio": "audio/jenny/049.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/049.mp3",
+    "michelleNaturalAudio": "audio/michelle/049.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/049.mp3",
     "grammar": {
       "questionPattern": "Can + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -5104,6 +5202,8 @@
     "clearAudio": "audio/no-linking/050.mp3",
     "jennyNaturalAudio": "audio/jenny/050.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/050.mp3",
+    "michelleNaturalAudio": "audio/michelle/050.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/050.mp3",
     "grammar": {
       "questionPattern": "Have/Has + 主语 + 过去分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -5206,6 +5306,8 @@
     "clearAudio": "audio/no-linking/051.mp3",
     "jennyNaturalAudio": "audio/jenny/051.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/051.mp3",
+    "michelleNaturalAudio": "audio/michelle/051.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/051.mp3",
     "grammar": {
       "questionPattern": "How + 助动词/be + 主语 + ...?",
       "responsePattern": "主语 + 谓语 + 宾语/补语",
@@ -5340,6 +5442,8 @@
     "clearAudio": "audio/no-linking/052.mp3",
     "jennyNaturalAudio": "audio/jenny/052.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/052.mp3",
+    "michelleNaturalAudio": "audio/michelle/052.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/052.mp3",
     "grammar": {
       "questionPattern": "特殊疑问词 + 助动词/be + 主语 + ...?",
       "responsePattern": "主语 + be + 表语/现在分词",
@@ -5474,6 +5578,8 @@
     "clearAudio": "audio/no-linking/053.mp3",
     "jennyNaturalAudio": "audio/jenny/053.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/053.mp3",
+    "michelleNaturalAudio": "audio/michelle/053.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/053.mp3",
     "grammar": {
       "questionPattern": "What + be + 主语/表语 ...?",
       "responsePattern": "主语 + be + 表语/现在分词",
@@ -5560,6 +5666,8 @@
     "clearAudio": "audio/no-linking/054.mp3",
     "jennyNaturalAudio": "audio/jenny/054.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/054.mp3",
+    "michelleNaturalAudio": "audio/michelle/054.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/054.mp3",
     "grammar": {
       "questionPattern": "What + be + 主语/表语 ...?",
       "responsePattern": "主语 + be + 表语/现在分词",
@@ -5678,6 +5786,8 @@
     "clearAudio": "audio/no-linking/055.mp3",
     "jennyNaturalAudio": "audio/jenny/055.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/055.mp3",
+    "michelleNaturalAudio": "audio/michelle/055.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/055.mp3",
     "grammar": {
       "questionPattern": "Do/Does + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -5780,6 +5890,8 @@
     "clearAudio": "audio/no-linking/056.mp3",
     "jennyNaturalAudio": "audio/jenny/056.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/056.mp3",
+    "michelleNaturalAudio": "audio/michelle/056.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/056.mp3",
     "grammar": {
       "questionPattern": "Will + 主语 + 动词原形 ...?",
       "responsePattern": "主语 + 情态动词 + 动词原形 + 宾语/补语",
@@ -5882,6 +5994,8 @@
     "clearAudio": "audio/no-linking/057.mp3",
     "jennyNaturalAudio": "audio/jenny/057.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/057.mp3",
+    "michelleNaturalAudio": "audio/michelle/057.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/057.mp3",
     "grammar": {
       "questionPattern": "Be + 主语 + 表语/现在分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -5992,6 +6106,8 @@
     "clearAudio": "audio/no-linking/058.mp3",
     "jennyNaturalAudio": "audio/jenny/058.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/058.mp3",
+    "michelleNaturalAudio": "audio/michelle/058.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/058.mp3",
     "grammar": {
       "questionPattern": "Can + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -6094,6 +6210,8 @@
     "clearAudio": "audio/no-linking/059.mp3",
     "jennyNaturalAudio": "audio/jenny/059.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/059.mp3",
+    "michelleNaturalAudio": "audio/michelle/059.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/059.mp3",
     "grammar": {
       "questionPattern": "疑问词/助动词 + 主语 + 谓语 ...?",
       "responsePattern": "主语 + be + 表语/现在分词",
@@ -6204,6 +6322,8 @@
     "clearAudio": "audio/no-linking/060.mp3",
     "jennyNaturalAudio": "audio/jenny/060.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/060.mp3",
+    "michelleNaturalAudio": "audio/michelle/060.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/060.mp3",
     "grammar": {
       "questionPattern": "Can + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -6330,6 +6450,8 @@
     "clearAudio": "audio/no-linking/061.mp3",
     "jennyNaturalAudio": "audio/jenny/061.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/061.mp3",
+    "michelleNaturalAudio": "audio/michelle/061.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/061.mp3",
     "grammar": {
       "questionPattern": "Have/Has + 主语 + 过去分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -6440,6 +6562,8 @@
     "clearAudio": "audio/no-linking/062.mp3",
     "jennyNaturalAudio": "audio/jenny/062.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/062.mp3",
+    "michelleNaturalAudio": "audio/michelle/062.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/062.mp3",
     "grammar": {
       "questionPattern": "Be + 主语 + 表语/现在分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -6526,6 +6650,8 @@
     "clearAudio": "audio/no-linking/063.mp3",
     "jennyNaturalAudio": "audio/jenny/063.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/063.mp3",
+    "michelleNaturalAudio": "audio/michelle/063.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/063.mp3",
     "grammar": {
       "questionPattern": "Could + 主语 + 动词原形 ...?（委婉请求）",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -6636,6 +6762,8 @@
     "clearAudio": "audio/no-linking/064.mp3",
     "jennyNaturalAudio": "audio/jenny/064.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/064.mp3",
+    "michelleNaturalAudio": "audio/michelle/064.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/064.mp3",
     "grammar": {
       "questionPattern": "What + do/does/did + 主语 + 动词原形 ...?",
       "responsePattern": "主语 + 谓语 + 宾语/补语",
@@ -6754,6 +6882,8 @@
     "clearAudio": "audio/no-linking/065.mp3",
     "jennyNaturalAudio": "audio/jenny/065.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/065.mp3",
+    "michelleNaturalAudio": "audio/michelle/065.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/065.mp3",
     "grammar": {
       "questionPattern": "Did + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -6864,6 +6994,8 @@
     "clearAudio": "audio/no-linking/066.mp3",
     "jennyNaturalAudio": "audio/jenny/066.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/066.mp3",
+    "michelleNaturalAudio": "audio/michelle/066.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/066.mp3",
     "grammar": {
       "questionPattern": "Could + 主语 + 动词原形 ...?（委婉请求）",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -6966,6 +7098,8 @@
     "clearAudio": "audio/no-linking/067.mp3",
     "jennyNaturalAudio": "audio/jenny/067.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/067.mp3",
+    "michelleNaturalAudio": "audio/michelle/067.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/067.mp3",
     "grammar": {
       "questionPattern": "特殊疑问词 + 助动词/be + 主语 + ...?",
       "responsePattern": "主语 + 谓语 + 宾语/补语",
@@ -7084,6 +7218,8 @@
     "clearAudio": "audio/no-linking/068.mp3",
     "jennyNaturalAudio": "audio/jenny/068.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/068.mp3",
+    "michelleNaturalAudio": "audio/michelle/068.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/068.mp3",
     "grammar": {
       "questionPattern": "Can + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -7194,6 +7330,8 @@
     "clearAudio": "audio/no-linking/069.mp3",
     "jennyNaturalAudio": "audio/jenny/069.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/069.mp3",
+    "michelleNaturalAudio": "audio/michelle/069.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/069.mp3",
     "grammar": {
       "questionPattern": "Have/Has + 主语 + 过去分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -7296,6 +7434,8 @@
     "clearAudio": "audio/no-linking/070.mp3",
     "jennyNaturalAudio": "audio/jenny/070.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/070.mp3",
+    "michelleNaturalAudio": "audio/michelle/070.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/070.mp3",
     "grammar": {
       "questionPattern": "Be + 主语 + 表语/现在分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -7398,6 +7538,8 @@
     "clearAudio": "audio/no-linking/071.mp3",
     "jennyNaturalAudio": "audio/jenny/071.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/071.mp3",
+    "michelleNaturalAudio": "audio/michelle/071.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/071.mp3",
     "grammar": {
       "questionPattern": "Can + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -7500,6 +7642,8 @@
     "clearAudio": "audio/no-linking/072.mp3",
     "jennyNaturalAudio": "audio/jenny/072.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/072.mp3",
+    "michelleNaturalAudio": "audio/michelle/072.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/072.mp3",
     "grammar": {
       "questionPattern": "What + be + 主语/表语 ...?",
       "responsePattern": "主语 + 谓语 + 宾语/补语",
@@ -7610,6 +7754,8 @@
     "clearAudio": "audio/no-linking/073.mp3",
     "jennyNaturalAudio": "audio/jenny/073.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/073.mp3",
+    "michelleNaturalAudio": "audio/michelle/073.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/073.mp3",
     "grammar": {
       "questionPattern": "What + do/does/did + 主语 + 动词原形 ...?",
       "responsePattern": "主语 + 谓语 + 宾语/补语",
@@ -7728,6 +7874,8 @@
     "clearAudio": "audio/no-linking/074.mp3",
     "jennyNaturalAudio": "audio/jenny/074.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/074.mp3",
+    "michelleNaturalAudio": "audio/michelle/074.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/074.mp3",
     "grammar": {
       "questionPattern": "疑问词/助动词 + 主语 + 谓语 ...?",
       "responsePattern": "主语 + 谓语 + 宾语/补语",
@@ -7830,6 +7978,8 @@
     "clearAudio": "audio/no-linking/075.mp3",
     "jennyNaturalAudio": "audio/jenny/075.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/075.mp3",
+    "michelleNaturalAudio": "audio/michelle/075.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/075.mp3",
     "grammar": {
       "questionPattern": "特殊疑问词 + 助动词/be + 主语 + ...?",
       "responsePattern": "主语 + be + 表语/现在分词",
@@ -7940,6 +8090,8 @@
     "clearAudio": "audio/no-linking/076.mp3",
     "jennyNaturalAudio": "audio/jenny/076.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/076.mp3",
+    "michelleNaturalAudio": "audio/michelle/076.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/076.mp3",
     "grammar": {
       "questionPattern": "Be + 主语 + 表语/现在分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -8058,6 +8210,8 @@
     "clearAudio": "audio/no-linking/077.mp3",
     "jennyNaturalAudio": "audio/jenny/077.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/077.mp3",
+    "michelleNaturalAudio": "audio/michelle/077.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/077.mp3",
     "grammar": {
       "questionPattern": "Be + 主语 + 表语/现在分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -8160,6 +8314,8 @@
     "clearAudio": "audio/no-linking/078.mp3",
     "jennyNaturalAudio": "audio/jenny/078.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/078.mp3",
+    "michelleNaturalAudio": "audio/michelle/078.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/078.mp3",
     "grammar": {
       "questionPattern": "Have/Has + 主语 + 过去分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -8270,6 +8426,8 @@
     "clearAudio": "audio/no-linking/079.mp3",
     "jennyNaturalAudio": "audio/jenny/079.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/079.mp3",
+    "michelleNaturalAudio": "audio/michelle/079.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/079.mp3",
     "grammar": {
       "questionPattern": "Do/Does + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -8380,6 +8538,8 @@
     "clearAudio": "audio/no-linking/080.mp3",
     "jennyNaturalAudio": "audio/jenny/080.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/080.mp3",
+    "michelleNaturalAudio": "audio/michelle/080.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/080.mp3",
     "grammar": {
       "questionPattern": "Can + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -8506,6 +8666,8 @@
     "clearAudio": "audio/no-linking/081.mp3",
     "jennyNaturalAudio": "audio/jenny/081.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/081.mp3",
+    "michelleNaturalAudio": "audio/michelle/081.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/081.mp3",
     "grammar": {
       "questionPattern": "Can + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -8624,6 +8786,8 @@
     "clearAudio": "audio/no-linking/082.mp3",
     "jennyNaturalAudio": "audio/jenny/082.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/082.mp3",
+    "michelleNaturalAudio": "audio/michelle/082.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/082.mp3",
     "grammar": {
       "questionPattern": "What + be + 主语/表语 ...?",
       "responsePattern": "主语 + 情态动词 + 动词原形 + 宾语/补语",
@@ -8726,6 +8890,8 @@
     "clearAudio": "audio/no-linking/083.mp3",
     "jennyNaturalAudio": "audio/jenny/083.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/083.mp3",
+    "michelleNaturalAudio": "audio/michelle/083.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/083.mp3",
     "grammar": {
       "questionPattern": "Be + 主语 + 表语/现在分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -8820,6 +8986,8 @@
     "clearAudio": "audio/no-linking/084.mp3",
     "jennyNaturalAudio": "audio/jenny/084.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/084.mp3",
+    "michelleNaturalAudio": "audio/michelle/084.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/084.mp3",
     "grammar": {
       "questionPattern": "疑问词/助动词 + 主语 + 谓语 ...?",
       "responsePattern": "主语 + 谓语 + 宾语/补语",
@@ -8938,6 +9106,8 @@
     "clearAudio": "audio/no-linking/085.mp3",
     "jennyNaturalAudio": "audio/jenny/085.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/085.mp3",
+    "michelleNaturalAudio": "audio/michelle/085.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/085.mp3",
     "grammar": {
       "questionPattern": "Be + 主语 + 表语/现在分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -9048,6 +9218,8 @@
     "clearAudio": "audio/no-linking/086.mp3",
     "jennyNaturalAudio": "audio/jenny/086.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/086.mp3",
+    "michelleNaturalAudio": "audio/michelle/086.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/086.mp3",
     "grammar": {
       "questionPattern": "Do/Does + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -9166,6 +9338,8 @@
     "clearAudio": "audio/no-linking/087.mp3",
     "jennyNaturalAudio": "audio/jenny/087.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/087.mp3",
+    "michelleNaturalAudio": "audio/michelle/087.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/087.mp3",
     "grammar": {
       "questionPattern": "Have/Has + 主语 + 过去分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -9260,6 +9434,8 @@
     "clearAudio": "audio/no-linking/088.mp3",
     "jennyNaturalAudio": "audio/jenny/088.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/088.mp3",
+    "michelleNaturalAudio": "audio/michelle/088.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/088.mp3",
     "grammar": {
       "questionPattern": "Did + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -9354,6 +9530,8 @@
     "clearAudio": "audio/no-linking/089.mp3",
     "jennyNaturalAudio": "audio/jenny/089.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/089.mp3",
+    "michelleNaturalAudio": "audio/michelle/089.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/089.mp3",
     "grammar": {
       "questionPattern": "Be + 主语 + 表语/现在分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -9456,6 +9634,8 @@
     "clearAudio": "audio/no-linking/090.mp3",
     "jennyNaturalAudio": "audio/jenny/090.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/090.mp3",
+    "michelleNaturalAudio": "audio/michelle/090.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/090.mp3",
     "grammar": {
       "questionPattern": "Be + 主语 + 表语/现在分词 ...?",
       "responsePattern": "主语 + be + 表语/现在分词",
@@ -9534,6 +9714,8 @@
     "clearAudio": "audio/no-linking/091.mp3",
     "jennyNaturalAudio": "audio/jenny/091.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/091.mp3",
+    "michelleNaturalAudio": "audio/michelle/091.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/091.mp3",
     "grammar": {
       "questionPattern": "What + do/does/did + 主语 + 动词原形 ...?",
       "responsePattern": "主语 + be + 表语/现在分词",
@@ -9644,6 +9826,8 @@
     "clearAudio": "audio/no-linking/092.mp3",
     "jennyNaturalAudio": "audio/jenny/092.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/092.mp3",
+    "michelleNaturalAudio": "audio/michelle/092.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/092.mp3",
     "grammar": {
       "questionPattern": "Do/Does + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -9714,6 +9898,8 @@
     "clearAudio": "audio/no-linking/093.mp3",
     "jennyNaturalAudio": "audio/jenny/093.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/093.mp3",
+    "michelleNaturalAudio": "audio/michelle/093.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/093.mp3",
     "grammar": {
       "questionPattern": "Do/Does + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -9824,6 +10010,8 @@
     "clearAudio": "audio/no-linking/094.mp3",
     "jennyNaturalAudio": "audio/jenny/094.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/094.mp3",
+    "michelleNaturalAudio": "audio/michelle/094.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/094.mp3",
     "grammar": {
       "questionPattern": "特殊疑问词 + 助动词/be + 主语 + ...?",
       "responsePattern": "主语 + be + 表语/现在分词",
@@ -9942,6 +10130,8 @@
     "clearAudio": "audio/no-linking/095.mp3",
     "jennyNaturalAudio": "audio/jenny/095.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/095.mp3",
+    "michelleNaturalAudio": "audio/michelle/095.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/095.mp3",
     "grammar": {
       "questionPattern": "Can + 主语 + 动词原形 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
@@ -10052,6 +10242,8 @@
     "clearAudio": "audio/no-linking/096.mp3",
     "jennyNaturalAudio": "audio/jenny/096.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/096.mp3",
+    "michelleNaturalAudio": "audio/michelle/096.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/096.mp3",
     "grammar": {
       "questionPattern": "What + do/does/did + 主语 + 动词原形 ...?",
       "responsePattern": "主语 + 谓语 + 宾语/补语",
@@ -10138,6 +10330,8 @@
     "clearAudio": "audio/no-linking/097.mp3",
     "jennyNaturalAudio": "audio/jenny/097.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/097.mp3",
+    "michelleNaturalAudio": "audio/michelle/097.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/097.mp3",
     "grammar": {
       "questionPattern": "What + be + 主语/表语 ...?",
       "responsePattern": "主语 + 情态动词 + 动词原形 + 宾语/补语",
@@ -10240,6 +10434,8 @@
     "clearAudio": "audio/no-linking/098.mp3",
     "jennyNaturalAudio": "audio/jenny/098.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/098.mp3",
+    "michelleNaturalAudio": "audio/michelle/098.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/098.mp3",
     "grammar": {
       "questionPattern": "特殊疑问词 + 助动词/be + 主语 + ...?",
       "responsePattern": "主语 + 情态动词 + 动词原形 + 宾语/补语",
@@ -10310,6 +10506,8 @@
     "clearAudio": "audio/no-linking/099.mp3",
     "jennyNaturalAudio": "audio/jenny/099.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/099.mp3",
+    "michelleNaturalAudio": "audio/michelle/099.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/099.mp3",
     "grammar": {
       "questionPattern": "特殊疑问词 + 助动词/be + 主语 + ...?",
       "responsePattern": "主语 + 情态动词 + 动词原形 + 宾语/补语",
@@ -10412,6 +10610,8 @@
     "clearAudio": "audio/no-linking/100.mp3",
     "jennyNaturalAudio": "audio/jenny/100.mp3",
     "jennyClearAudio": "audio/jenny/no-linking/100.mp3",
+    "michelleNaturalAudio": "audio/michelle/100.mp3",
+    "michelleClearAudio": "audio/michelle/no-linking/100.mp3",
     "grammar": {
       "questionPattern": "Be + 主语 + 表语/现在分词 ...?",
       "responsePattern": "简短回应 + 主语 + 谓语 + 宾语/补语",
