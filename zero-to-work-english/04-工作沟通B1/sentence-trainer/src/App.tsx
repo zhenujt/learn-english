@@ -23,6 +23,7 @@ function App() {
   const [activeView, setActiveView] = useState<AppView>('study')
   const [queue, setQueue] = useState(() => scheduler.createQueue(cards))
   const [cardIndex, setCardIndex] = useState(0)
+  const [reviewedCards, setReviewedCards] = useState<StudyCard[]>([])
   const [revealed, setRevealed] = useState(false)
   const [reviewRevision, setReviewRevision] = useState(0)
   const [installPrompt, setInstallPrompt] = useState<InstallPromptEvent | null>(null)
@@ -47,6 +48,7 @@ function App() {
       .then(() => {
         setQueue(scheduler.createQueue(cards))
         setCardIndex(0)
+        setReviewedCards([])
         setReviewRevision((value) => value + 1)
       })
       .catch(() => undefined)
@@ -67,6 +69,7 @@ function App() {
   const gradeCard = (grade: ReviewGrade) => {
     if (!card) return
     audioController.stop()
+    setReviewedCards((reviewed) => reviewed.some((item) => item.id === card.id) ? reviewed : [...reviewed, card])
     const updated = scheduler.review(card.id, grade)
     void cloudProgressSync.sync().catch(() => undefined)
     if (scheduler.isDueThisSession(updated)) setQueue((value) => [...value, card])
@@ -78,6 +81,7 @@ function App() {
   const startNextSession = () => {
     setQueue(scheduler.createQueue(cards))
     setCardIndex(0)
+    setReviewedCards([])
     setRevealed(false)
   }
 
@@ -126,7 +130,7 @@ function App() {
       </header>
 
       <main>
-        {activeView === 'study' && <StudyView key={card?.id ?? 'complete'} card={card} current={cardIndex} total={queue.length} revealed={revealed} onReveal={() => setRevealed(true)} onGrade={gradeCard} preview={preview} onPlay={playAudio} onToggleLoop={toggleAudioLoop} onRestart={startNextSession} />}
+        {activeView === 'study' && <StudyView key={card?.id ?? 'complete'} card={card} current={cardIndex} total={queue.length} reviewedCards={reviewedCards} revealed={revealed} onReveal={() => setRevealed(true)} onGrade={gradeCard} preview={preview} onPlay={playAudio} onToggleLoop={toggleAudioLoop} onRestart={startNextSession} />}
         {activeView === 'library' && <LibraryView cards={cards} onPlay={playAudio} />}
         {activeView === 'progress' && <ProgressView cards={cards} scheduler={scheduler} onReset={resetProgress} />}
         {activeView === 'auth' && <AuthView email={session?.user.email} resetRequested={resetRequested} onSignedOut={() => { setSession(null); setResetRequested(false); setActiveView('study') }} />}

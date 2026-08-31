@@ -1,5 +1,5 @@
 import { useDeferredValue, useState, type FormEvent, type ReactNode } from 'react'
-import { Check, ChevronRight, Download, Headphones, LogIn, LogOut, Mail, Repeat2, RotateCcw, Search, Snail, Sparkles, Square, UserRound, Volume2 } from 'lucide-react'
+import { Check, ChevronRight, Download, Eye, EyeOff, Headphones, LogIn, LogOut, Mail, Repeat2, RotateCcw, Search, Snail, Sparkles, Square, UserRound, Volume2 } from 'lucide-react'
 import { authConfigured, supabase } from './auth'
 import type { ReviewScheduler } from './services'
 import type { ReviewGrade, StudyCard } from './types'
@@ -8,6 +8,7 @@ interface StudyViewProps {
   card: StudyCard | undefined
   current: number
   total: number
+  reviewedCards: StudyCard[]
   revealed: boolean
   onReveal: () => void
   onGrade: (grade: ReviewGrade) => void
@@ -18,8 +19,32 @@ interface StudyViewProps {
 }
 
 /** Renders the active recall card and post-reveal review controls. */
-export function StudyView({ card, current, total, revealed, onReveal, onGrade, preview, onPlay, onToggleLoop, onRestart }: StudyViewProps) {
+export function StudyView({ card, current, total, reviewedCards, revealed, onReveal, onGrade, preview, onPlay, onToggleLoop, onRestart }: StudyViewProps) {
   const [looping, setLooping] = useState(false)
+  const [typing, setTyping] = useState(false)
+  const [typedAnswer, setTypedAnswer] = useState('')
+  const [typingCorrect, setTypingCorrect] = useState<boolean | null>(null)
+  const [showAllReviewEnglish, setShowAllReviewEnglish] = useState(false)
+  const [revealedReviewCards, setRevealedReviewCards] = useState<Set<number>>(() => new Set())
+
+  const toggleReviewCard = (cardId: number) => {
+    if (showAllReviewEnglish) {
+      setShowAllReviewEnglish(false)
+      setRevealedReviewCards(new Set(reviewedCards.filter((item) => item.id !== cardId).map((item) => item.id)))
+      return
+    }
+    setRevealedReviewCards((current) => {
+      const next = new Set(current)
+      if (next.has(cardId)) next.delete(cardId)
+      else next.add(cardId)
+      return next
+    })
+  }
+
+  const toggleAllReviewEnglish = () => {
+    setShowAllReviewEnglish((visible) => !visible)
+    setRevealedReviewCards(new Set())
+  }
 
   if (!card) {
     return (
@@ -27,7 +52,45 @@ export function StudyView({ card, current, total, revealed, onReveal, onGrade, p
         <div className="completion-check"><Check size={38} /></div>
         <p className="eyebrow">今日完成</p>
         <h1>这一组，已经进脑子了。</h1>
-        <p>先休息一下。明天系统会把该复习的句子重新排到前面。</p>
+        <p>快速浏览本次学过的内容不会改变复习进度。</p>
+        {reviewedCards.length > 0 && (
+          <section className="session-review" aria-label="本次学习回顾">
+            <div className="session-review-heading">
+              <div><span>本次回顾</span><strong>{reviewedCards.length} 句</strong></div>
+              <button type="button" aria-pressed={showAllReviewEnglish} onClick={toggleAllReviewEnglish}>
+                {showAllReviewEnglish ? <EyeOff size={16} /> : <Eye size={16} />}
+                {showAllReviewEnglish ? '隐藏全部英文' : '显示全部英文'}
+              </button>
+            </div>
+            <div className="session-review-list">
+              {reviewedCards.map((reviewedCard, index) => {
+                const englishVisible = showAllReviewEnglish || revealedReviewCards.has(reviewedCard.id)
+                return (
+                  <article key={reviewedCard.id}>
+                    <div className="review-item-number">{String(index + 1).padStart(2, '0')}</div>
+                    <div className="review-item-copy">
+                      <span>{reviewedCard.category}</span>
+                      <button className="review-prompt" type="button" aria-expanded={englishVisible} onClick={() => toggleReviewCard(reviewedCard.id)}>
+                        <span>{reviewedCard.questionZh} · {reviewedCard.responseZh}</span>
+                        <small>{englishVisible ? '隐藏英文' : '点击显示英文'}</small>
+                      </button>
+                      {englishVisible && (
+                        <div className="review-answer">
+                          <h2>{reviewedCard.question}</h2>
+                          <strong>{reviewedCard.response}</strong>
+                          <div className="review-vocabulary">
+                            {reviewedCard.grammar.vocabulary.slice(0, 4).map((item) => <span key={item.word}>{item.word}<small>{item.meaning}</small></span>)}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <button className="review-play" type="button" onClick={() => void onPlay(reviewedCard.michelleNaturalAudio)} title="播放 Michelle 朗读" aria-label={`播放第 ${index + 1} 句`}><Volume2 size={19} /></button>
+                  </article>
+                )
+              })}
+            </div>
+          </section>
+        )}
         <button className="primary-button" type="button" onClick={onRestart}><RotateCcw size={19} /> 再来一组</button>
       </section>
     )
@@ -44,16 +107,33 @@ export function StudyView({ card, current, total, revealed, onReveal, onGrade, p
         <div className="card-meta"><span>#{String(card.id).padStart(3, '0')}</span><span>{card.category}</span></div>
         {!revealed ? (
           <div className="recall-face">
-            <p className="prompt-label">看到中文，先说出完整英文</p>
+            <p className="prompt-label">先看中文，再显示标准英文</p>
             <h1>{card.questionZh}</h1>
             <div className="reply-cue"><span>回答</span><p>{card.responseZh}</p></div>
             <button className="reveal-button" type="button" onClick={onReveal}>显示答案 <ChevronRight size={20} /></button>
-            <p className="recall-tip"><Sparkles size={17} /> 想不起来也先开口，再翻面核对。</p>
+            <p className="recall-tip"><Sparkles size={17} /> 看完答案后隐藏文本，再完整输入一遍。</p>
           </div>
         ) : (
           <div className="answer-face">
-            <div className="sentence-block"><span className="sentence-role">QUESTION</span><h1>{card.question}</h1><p>{card.questionZh}</p></div>
-            <div className="sentence-block response-block"><span className="sentence-role">RESPONSE</span><h2>{card.response}</h2><p>{card.responseZh}</p></div>
+            <div className="answer-copy" hidden={typing && typingCorrect === null}>
+              <div className="sentence-block"><span className="sentence-role">QUESTION</span><h1>{card.question}</h1><p>{card.questionZh}</p></div>
+              <div className="sentence-block response-block"><span className="sentence-role">RESPONSE</span><h2>{card.response}</h2><p>{card.responseZh}</p></div>
+            </div>
+            <section className="typing-practice" aria-label="英文输入练习">
+              {!typing ? (
+                <button className="typing-start" type="button" onClick={() => setTyping(true)}>隐藏答案，再手动输入英文</button>
+              ) : (
+                <>
+                  <label htmlFor="typed-answer">输入完整英文问答</label>
+                  <textarea id="typed-answer" rows={4} value={typedAnswer} onChange={(event) => { setTypedAnswer(event.target.value); setTypingCorrect(null) }} autoFocus autoCapitalize="sentences" spellCheck={false} placeholder="Question...&#10;Response..." />
+                  <button className="typing-check" type="button" onClick={() => {
+                    const normalize = (value: string) => value.trim().replace(/\s+/g, ' ').toLowerCase()
+                    setTypingCorrect(normalize(typedAnswer) === normalize(`${card.question} ${card.response}`))
+                  }}>核对输入</button>
+                  {typingCorrect !== null && <p className={typingCorrect ? 'typing-correct' : 'typing-wrong'}>{typingCorrect ? '输入正确，请按真实难度评分。' : '与标准答案不一致，请选择“重来”重新学习。'}</p>}
+                </>
+              )}
+            </section>
             <AudioPanel card={card} looping={looping} onPlay={(source) => { setLooping(false); void onPlay(source) }} onToggleLoop={() => onToggleLoop([
               card.naturalAudio,
               card.clearAudio,
@@ -70,12 +150,12 @@ export function StudyView({ card, current, total, revealed, onReveal, onGrade, p
 
       {revealed && (
         <div className="grade-panel">
-          <p>刚才能独立说出来吗？</p>
+          <p>{typingCorrect === false ? '输入有误，这张卡需要重新学习。' : typingCorrect ? '输入正确，请按实际回忆难度评分。' : '不输入也可以，直接按当前熟悉度评分。'}</p>
           <div className="grade-buttons">
             <button className="grade-again" type="button" onClick={() => onGrade('again')}><strong>重来</strong><small>{preview.again}</small></button>
-            <button className="grade-hard" type="button" onClick={() => onGrade('hard')}><strong>困难</strong><small>{preview.hard}</small></button>
-            <button className="grade-good" type="button" onClick={() => onGrade('good')}><strong>良好</strong><small>{preview.good}</small></button>
-            <button className="grade-easy" type="button" onClick={() => onGrade('easy')}><strong>简单</strong><small>{preview.easy}</small></button>
+            {typingCorrect !== false && <button className="grade-hard" type="button" onClick={() => onGrade('hard')}><strong>困难</strong><small>{preview.hard}</small></button>}
+            {typingCorrect !== false && <button className="grade-good" type="button" onClick={() => onGrade('good')}><strong>良好</strong><small>{preview.good}</small></button>}
+            {typingCorrect !== false && <button className="grade-easy" type="button" onClick={() => onGrade('easy')}><strong>简单</strong><small>{preview.easy}</small></button>}
           </div>
         </div>
       )}
@@ -211,7 +291,7 @@ export function ProgressView({ cards, scheduler, onReset }: { cards: StudyCard[]
       <div className="method-section">
         <h2>推荐记忆法</h2>
         <ol>
-          <li><span>01</span><div><strong>主动回忆</strong><p>只看中文，必须先开口，再显示答案。看懂不等于会说。</p></div></li>
+          <li><span>01</span><div><strong>答案后默写</strong><p>先看中文和标准英文，再隐藏答案完整输入。输入有误就选择“重来”。</p></div></li>
           <li><span>02</span><div><strong>意群记忆</strong><p>按斜线分块，不背孤立单词：Can you / give us / an update?</p></div></li>
           <li><span>03</span><div><strong>双速影子跟读</strong><p>清晰分词听边界，自然连读练真实听力，每句各跟三遍。</p></div></li>
           <li><span>04</span><div><strong>替换造句</strong><p>把 [task]、[date]、[feature] 换成当天真实工作，记忆会更牢。</p></div></li>

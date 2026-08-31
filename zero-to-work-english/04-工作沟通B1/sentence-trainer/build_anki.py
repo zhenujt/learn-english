@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parent
 CARDS_PATH = ROOT / "src" / "data" / "cards.json"
 AUDIO_PATH = ROOT / "public" / "audio"
 MEDIA_PATH = ROOT / ".anki_media"
-OUTPUT_PATH = ROOT / "sentence-workplace-english-phrases-michelle-v5.apkg"
+OUTPUT_PATH = ROOT / "sentence-workplace-english-phrases-michelle-v6.apkg"
 
 
 def stable_id(value: str, minimum: int = 1000) -> int:
@@ -30,7 +30,7 @@ def stable_id(value: str, minimum: int = 1000) -> int:
 class AnkiDeckBuilder:
     """Build the software workplace sentence deck and its offline media."""
 
-    DECK_NAME = "句练 · 软件职场英语 · Michelle 配音版 V5"
+    DECK_NAME = "句练 · 软件职场英语 · Michelle 配音版 V6"
     QUESTION_EXAMPLES = {
         "Be + 主语 + 表语/现在分词 ...?": (
             "Is the staging build stable?",
@@ -178,6 +178,7 @@ class AnkiDeckBuilder:
             html.escape(card["category"]),
             self._pair(card["questionZh"], card["responseZh"]),
             self._pair(card["question"], card["response"]),
+            html.escape(f"{card['question']}\n{card['response']}"),
             f"<div>{html.escape(card['questionZh'])}</div><div>{html.escape(card['responseZh'])}</div>",
             html.escape(grammar["questionPattern"]),
             html.escape(grammar["responsePattern"]),
@@ -197,7 +198,7 @@ class AnkiDeckBuilder:
             model=self.model,
             fields=fields,
             tags=tags,
-            guid=f"sentence-workplace-phrases-michelle-v5-{card['id']:03d}",
+            guid=f"sentence-workplace-phrases-michelle-v6-{card['id']:03d}",
         )
 
     def _template_examples_html(self, grammar: dict[str, Any]) -> str:
@@ -271,13 +272,14 @@ class AnkiDeckBuilder:
     @staticmethod
     def _create_model() -> genanki.Model:
         return genanki.Model(
-            stable_id("model:sentence-workplace-phrases-michelle-v5"),
-            "句练 · 软件职场英语 · Michelle 配音版 V5",
+            stable_id("model:sentence-workplace-phrases-michelle-v6"),
+            "句练 · 软件职场英语 · Michelle 配音版 V6",
             fields=[
                 {"name": "Number"},
                 {"name": "Category"},
                 {"name": "Prompt"},
                 {"name": "English"},
+                {"name": "TypedEnglish"},
                 {"name": "Translation"},
                 {"name": "QuestionPattern"},
                 {"name": "ResponsePattern"},
@@ -297,12 +299,13 @@ class AnkiDeckBuilder:
                     "name": "中文回忆英文",
                     "qfmt": """
 <div class="meta">#{{Number}} · {{Category}}</div>
-<div class="eyebrow">先完整说出英文问答</div>
+<div class="eyebrow">第 1 步 · 看中文</div>
 <div class="prompt">{{Prompt}}</div>
 """,
                     "afmt": """
 {{FrontSide}}
 <hr>
+<div class="eyebrow">第 2 步 · 先看标准英文并朗读</div>
 <div class="answer">{{English}}</div>
 <div class="audio-panel">
     <div class="audio-panel-header">
@@ -323,6 +326,16 @@ class AnkiDeckBuilder:
     </div>
 </div>
 {{Vocabulary}}
+<section class="typing-practice" id="typing-practice">
+    <div class="eyebrow">第 3 步 · 隐藏答案，再手动输入英文</div>
+    <button class="typing-button" id="start-typing" type="button">隐藏答案并开始输入</button>
+    <div id="typing-controls" hidden>
+        <textarea id="typed-answer" rows="4" autocomplete="off" autocapitalize="sentences" spellcheck="false" placeholder="输入完整英文问答"></textarea>
+        <button class="typing-button" id="check-typing" type="button">核对输入</button>
+    </div>
+    <div id="typing-feedback" aria-live="polite"></div>
+    <div id="expected-answer" hidden>{{text:TypedEnglish}}</div>
+</section>
 <div id="loop-audio-sources" hidden
     data-aria-natural="sentence_{{Number}}_aria_natural.mp3"
     data-aria-clear="sentence_{{Number}}_aria_clear.mp3"
@@ -392,6 +405,31 @@ class AnkiDeckBuilder:
     });
 
     window.sentenceLoopPlayer = { stop };
+
+    const answer = document.querySelector(".answer");
+    const startTyping = document.getElementById("start-typing");
+    const typingControls = document.getElementById("typing-controls");
+    const typedAnswer = document.getElementById("typed-answer");
+    const checkTyping = document.getElementById("check-typing");
+    const feedback = document.getElementById("typing-feedback");
+    const expected = document.getElementById("expected-answer").textContent;
+    const normalize = (value) => value.trim().replace(/\s+/g, " ").toLowerCase();
+
+    startTyping.addEventListener("click", () => {
+        answer.hidden = true;
+        startTyping.hidden = true;
+        typingControls.hidden = false;
+        typedAnswer.focus();
+    });
+
+    checkTyping.addEventListener("click", () => {
+        const correct = normalize(typedAnswer.value) === normalize(expected);
+        answer.hidden = false;
+        feedback.textContent = correct
+            ? "输入正确，可以选择合适的评分。"
+            : "与标准答案不一致，请选择“重来（Again）”重新学习。";
+        feedback.className = correct ? "typing-correct" : "typing-wrong";
+    });
 })();
 </script>
 <details class="reference">
@@ -413,6 +451,13 @@ class AnkiDeckBuilder:
 .prompt, .answer { font-size: 24px; font-weight: 750; }
 .sentence + .sentence { margin-top: 12px; }
 .response { color: #3f5d53; }
+.typing-practice { border-top: 1px solid #d9ded9; margin-top: 22px; padding-top: 20px; }
+.typing-button { background: #17231f; border: 0; border-radius: 6px; color: #fff; cursor: pointer; font-size: 14px; font-weight: 800; min-height: 42px; padding: 9px 14px; width: 100%; }
+#typed-answer { background: #fff; border: 2px solid #9ba69f; border-radius: 6px; box-sizing: border-box; color: #17231f; font-family: inherit; font-size: 18px; line-height: 1.45; margin-bottom: 10px; padding: 12px 14px; resize: vertical; width: 100%; }
+#typed-answer:focus { border-color: #c94b37; outline: 3px solid rgba(201, 75, 55, .14); }
+#typing-feedback { font-size: 14px; font-weight: 800; margin-top: 10px; min-height: 22px; }
+.typing-correct { color: #087849; }
+.typing-wrong { color: #b43f2d; }
 hr { border: 0; border-top: 1px solid #d9ded9; margin: 24px 0; }
 .vocabulary { background: #fff; border: 1px solid #d9ded9; border-radius: 7px; margin-top: 16px; overflow: hidden; }
 .vocabulary > summary { color: #68736e; cursor: pointer; font-size: 12px; font-weight: 800; list-style-position: inside; padding: 9px 12px; }
@@ -461,6 +506,8 @@ th { color: #68736e; text-align: left; }
 .nightMode .reference { border-color: #43534d; }
 .nightMode .reference summary { color: #b9d2c8; }
 .nightMode .tip { color: #17231f; }
+.nightMode #typed-answer { background: #22312c; border-color: #68736e; color: #f7f8f3; }
+.nightMode .typing-button { background: #f5c84c; color: #17231f; }
 """,
         )
 

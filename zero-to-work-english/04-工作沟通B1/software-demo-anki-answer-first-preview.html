@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>软件英语 Anki · 答案优先演示</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #e7ebe5;
+      --paper: #faf9f4;
+      --ink: #17231f;
+      --muted: #66736d;
+      --line: #d4dad5;
+      --accent: #b84231;
+      --accent-dark: #923426;
+      --answer: #086846;
+      --correct: #087849;
+      --wrong: #b72e26;
+      --surface: #fff;
+      --shadow: 0 22px 60px rgba(23, 35, 31, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(23, 35, 31, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(23, 35, 31, 0.04) 1px, transparent 1px),
+        var(--page);
+      background-size: 24px 24px;
+      color: var(--ink);
+      font-family: "Avenir Next", "PingFang SC", sans-serif;
+    }
+
+    button, input { font: inherit; }
+
+    .shell {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-height: 100vh;
+    }
+
+    header {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      min-height: 58px;
+      padding: 10px 18px;
+    }
+
+    .title {
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .status {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .stage {
+      display: grid;
+      justify-items: center;
+      padding: 14px 18px 32px;
+    }
+
+    .card {
+      align-self: start;
+      background: var(--paper);
+      border: 1px solid rgba(102, 115, 109, 0.2);
+      border-radius: 7px;
+      box-shadow: var(--shadow);
+      max-width: 680px;
+      min-height: 430px;
+      padding: 28px;
+      width: min(100%, 680px);
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .step {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      margin-top: 28px;
+    }
+
+    .prompt {
+      font-size: 28px;
+      font-weight: 750;
+      line-height: 1.45;
+      margin-top: 10px;
+    }
+
+    .answer-panel {
+      border-top: 1px solid var(--line);
+      margin-top: 28px;
+      padding-top: 24px;
+    }
+
+    .answer-row {
+      align-items: start;
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr auto;
+    }
+
+    .answer {
+      color: var(--answer);
+      font-size: 27px;
+      font-weight: 750;
+      line-height: 1.4;
+    }
+
+    .icon-button {
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--ink);
+      cursor: pointer;
+      display: inline-flex;
+      height: 42px;
+      justify-content: center;
+      width: 42px;
+    }
+
+    .icon-button:hover { border-color: var(--accent); }
+
+    .input-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 800;
+      margin: 24px 0 8px;
+    }
+
+    input {
+      background: var(--surface);
+      border: 2px solid #9ba69f;
+      border-radius: 6px;
+      color: var(--ink);
+      font-size: 19px;
+      line-height: 1.4;
+      padding: 13px 14px;
+      width: 100%;
+    }
+
+    input:focus {
+      border-color: var(--accent);
+      outline: 3px solid rgba(184, 66, 49, 0.14);
+    }
+
+    .feedback {
+      font-size: 14px;
+      font-weight: 700;
+      min-height: 22px;
+      padding-top: 8px;
+    }
+
+    .feedback.correct { color: var(--correct); }
+    .feedback.wrong { color: var(--wrong); }
+
+    .actions {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 18px;
+    }
+
+    .button {
+      border: 0;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 800;
+      min-height: 46px;
+      padding: 10px 14px;
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .button-primary:hover { background: var(--accent-dark); }
+
+    .button-secondary {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: var(--ink);
+    }
+
+    [hidden] { display: none !important; }
+
+    @media (max-width: 520px) {
+      .stage { padding: 8px 10px 20px; }
+      .card { min-height: calc(100vh - 78px); padding: 22px 18px; }
+      .prompt { font-size: 24px; }
+      .answer { font-size: 23px; }
+      .actions { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div>
+        <div class="title">答案优先 · Anki 流程演示</div>
+        <div class="status" id="status">第 1 / 3 张</div>
+      </div>
+      <div class="status">Michelle · -10%</div>
+    </header>
+
+    <div class="stage">
+      <main class="card">
+        <div class="meta" id="meta"></div>
+        <div class="step">第 1 步 · 看中文</div>
+        <div class="prompt" id="chinese"></div>
+
+        <button class="button button-primary" id="show-answer" type="button" style="margin-top: 32px; width: 100%;">
+          显示英文答案
+        </button>
+
+        <section class="answer-panel" id="answer-panel" hidden>
+          <div class="step" style="margin-top: 0;">第 2 步 · 先看答案并朗读</div>
+          <div class="answer-row">
+            <div class="answer" id="english"></div>
+            <button class="icon-button" id="play-audio" type="button" title="播放 Michelle 朗读" aria-label="播放 Michelle 朗读">▶</button>
+          </div>
+
+          <label class="input-label" for="typed-answer">第 3 步 · 隐去答案后，输入完整英文</label>
+          <input id="typed-answer" type="text" autocomplete="off" autocapitalize="sentences" spellcheck="false" placeholder="在这里输入英文">
+          <div class="feedback" id="feedback" aria-live="polite"></div>
+
+          <div class="actions">
+            <button class="button button-secondary" id="hide-and-type" type="button">隐藏答案再输入</button>
+            <button class="button button-primary" id="check-answer" type="button">核对输入</button>
+          </div>
+          <div class="actions" id="rating-actions" hidden>
+            <button class="button button-secondary" id="again" type="button">重来（Again）</button>
+            <button class="button button-primary" id="next" type="button">正确，下一张</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <audio id="audio"></audio>
+
+  <script>
+    const cards = [
+      {
+        section: "只记住一个固定套路",
+        chinese: "我点击这个按钮。弹框打开。",
+        english: "I click this button. The dialog opens.",
+        audio: "audio/software-demo-playbook-michelle/demo_playbook_001_michelle.mp3"
+      },
+      {
+        section: "只记住一个固定套路",
+        chinese: "我选择 Active。表格更新。",
+        english: "I select Active. The table updates.",
+        audio: "audio/software-demo-playbook-michelle/demo_playbook_002_michelle.mp3"
+      },
+      {
+        section: "只记住一个固定套路",
+        chinese: "我输入关键词。匹配结果出现。",
+        english: "I enter a keyword. The matching results appear.",
+        audio: "audio/software-demo-playbook-michelle/demo_playbook_003_michelle.mp3"
+      }
+    ];
+
+    const elements = {
+      status: document.querySelector("#status"),
+      meta: document.querySelector("#meta"),
+      chinese: document.querySelector("#chinese"),
+      showAnswer: document.querySelector("#show-answer"),
+      answerPanel: document.querySelector("#answer-panel"),
+      english: document.querySelector("#english"),
+      playAudio: document.querySelector("#play-audio"),
+      typedAnswer: document.querySelector("#typed-answer"),
+      feedback: document.querySelector("#feedback"),
+      hideAndType: document.querySelector("#hide-and-type"),
+      checkAnswer: document.querySelector("#check-answer"),
+      ratingActions: document.querySelector("#rating-actions"),
+      again: document.querySelector("#again"),
+      next: document.querySelector("#next"),
+      audio: document.querySelector("#audio")
+    };
+
+    let currentIndex = 0;
+
+    function normalize(value) {
+      return value.trim().replace(/\s+/g, " ").toLowerCase();
+    }
+
+    function renderCard() {
+      const card = cards[currentIndex];
+      elements.status.textContent = `第 ${currentIndex + 1} / ${cards.length} 张`;
+      elements.meta.textContent = `#${String(currentIndex + 1).padStart(3, "0")} · ${card.section}`;
+      elements.chinese.textContent = card.chinese;
+      elements.english.textContent = card.english;
+      elements.audio.src = card.audio;
+      elements.showAnswer.hidden = false;
+      elements.answerPanel.hidden = true;
+      elements.english.hidden = false;
+      elements.typedAnswer.value = "";
+      elements.feedback.textContent = "";
+      elements.feedback.className = "feedback";
+      elements.ratingActions.hidden = true;
+    }
+
+    elements.showAnswer.addEventListener("click", () => {
+      elements.showAnswer.hidden = true;
+      elements.answerPanel.hidden = false;
+      elements.audio.play().catch(() => {});
+    });
+
+    elements.playAudio.addEventListener("click", () => {
+      elements.audio.currentTime = 0;
+      elements.audio.play().catch(() => {});
+    });
+
+    elements.hideAndType.addEventListener("click", () => {
+      elements.english.hidden = true;
+      elements.typedAnswer.focus();
+    });
+
+    elements.checkAnswer.addEventListener("click", () => {
+      const card = cards[currentIndex];
+      const isCorrect = normalize(elements.typedAnswer.value) === normalize(card.english);
+      elements.english.hidden = false;
+      elements.feedback.textContent = isCorrect
+        ? "完全正确。可以进入下一张。"
+        : "与标准答案不一致。请选择重来，再输入一次。";
+      elements.feedback.className = `feedback ${isCorrect ? "correct" : "wrong"}`;
+      elements.ratingActions.hidden = false;
+    });
+
+    elements.typedAnswer.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") elements.checkAnswer.click();
+    });
+
+    elements.again.addEventListener("click", () => {
+      elements.typedAnswer.value = "";
+      elements.english.hidden = true;
+      elements.feedback.textContent = "已重置。请重新输入完整英文。";
+      elements.feedback.className = "feedback wrong";
+      elements.ratingActions.hidden = true;
+      elements.typedAnswer.focus();
+    });
+
+    elements.next.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % cards.length;
+      renderCard();
+    });
+
+    renderCard();
+  </script>
+</body>
+</html>

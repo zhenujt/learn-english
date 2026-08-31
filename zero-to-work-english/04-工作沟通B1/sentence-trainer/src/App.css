@@ -326,6 +326,58 @@ main {
   color: var(--teal);
 }
 
+.typing-practice {
+  display: grid;
+  padding: 22px 28px;
+  border-top: 1px solid var(--line);
+  background: var(--teal-soft);
+  gap: 10px;
+}
+
+.typing-practice label {
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.typing-practice textarea {
+  width: 100%;
+  min-height: 116px;
+  padding: 13px 14px;
+  border: 1.5px solid var(--ink);
+  border-radius: 5px;
+  background: var(--white);
+  color: var(--ink);
+  font: 17px/1.5 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  resize: vertical;
+}
+
+.typing-practice textarea:focus {
+  outline: 3px solid rgba(14, 105, 85, 0.16);
+}
+
+.typing-start,
+.typing-check {
+  min-height: 46px;
+  padding: 10px 14px;
+  border: 1.5px solid var(--ink);
+  border-radius: 5px;
+  background: var(--ink);
+  color: var(--white);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.typing-correct,
+.typing-wrong {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.typing-correct { color: var(--teal); }
+.typing-wrong { color: #b43f2d; }
+
 .audio-row {
   border-top: 1px solid var(--line);
 }
@@ -721,7 +773,7 @@ main {
 
 .grade-buttons {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(86px, 1fr));
   gap: 7px;
 }
 
@@ -1056,6 +1108,151 @@ main {
   text-align: center;
 }
 
+.session-review {
+  width: min(100%, 760px);
+  margin-top: 36px;
+  border-top: 2px solid var(--ink);
+  text-align: left;
+}
+
+.session-review-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  padding: 16px 0 12px;
+  gap: 16px;
+}
+
+.session-review-heading div {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.session-review-heading span,
+.session-review-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.session-review-heading strong {
+  font-family: 'Iowan Old Style', 'STSong', Georgia, serif;
+  font-size: 25px;
+}
+
+.session-review-heading > button {
+  display: flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 10px;
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.session-review-list {
+  border-bottom: 1px solid var(--ink);
+}
+
+.session-review-list article {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 38px;
+  padding: 17px 0;
+  border-top: 1px solid #d9ded9;
+  gap: 12px;
+}
+
+.review-item-number,
+.review-item-copy > span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.review-prompt {
+  display: flex;
+  width: 100%;
+  align-items: start;
+  justify-content: space-between;
+  margin-top: 4px;
+  padding: 7px 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  gap: 12px;
+}
+
+.review-prompt > span {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.review-prompt > small {
+  flex: 0 0 auto;
+  color: var(--orange);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.review-answer {
+  padding-top: 8px;
+  border-top: 1px dashed #cbd2ce;
+}
+
+.review-answer h2 {
+  margin: 0 0 4px;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.review-answer > strong {
+  font-size: 14px;
+}
+
+.review-vocabulary {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 11px;
+  gap: 6px;
+}
+
+.review-vocabulary span {
+  padding: 5px 7px;
+  border: 1px solid #cbd2ce;
+  border-radius: 4px;
+  background: var(--white);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.review-vocabulary small {
+  margin-left: 5px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.review-play {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--ink);
+  cursor: pointer;
+}
+
 .completion-check {
   display: grid;
   width: 78px;
@@ -1208,6 +1405,22 @@ main {
   .page-heading h1,
   .completion-view h1 {
     font-size: 29px;
+  }
+
+  .completion-view {
+    padding: 48px 0;
+  }
+
+  .completion-view > p,
+  .completion-view > h1,
+  .completion-view > .eyebrow {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .session-review-list article {
+    grid-template-columns: 28px minmax(0, 1fr) 36px;
+    gap: 8px;
   }
 }
 
