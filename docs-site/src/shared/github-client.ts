@@ -1,0 +1,185 @@
+import { MarkdownValidator } from "./markdown-validator";
+
+export interface GitHubSaveResult {
+  revision: string;
+  commitSha: string;
+  commitUrl?: string;
+}
+
+export interface WorkflowRun {
+  status: "queued" | "in_progress" | "completed";
+  conclusion: string | null;
+  url?: string;
+}
+
+const tokenStorageKey = "docs-github-token";
+
+/**
+ * Commits a single Markdown file straight to the GitHub Contents API.
+ * The token lives only in sessionStorage, so it disappears when the tab closes.
+ */
+export class GitHubDocumentClient {
+  private readonly validator = new MarkdownValidator();
+
+  public constructor(
+    private readonly repository: string,
+    private readonly branch: string,
+  ) {}
+  public get isConfigured(): boolean {
+    return Boolean(this.repository && this.branch);
+  }
+
+  public get token(): string {
+    return sessionStorage.getItem(tokenStorageKey) ?? "";
+  }
+
+  public set token(value: string) {
+    const trimmed = value.trim();
+    if (trimmed) sessionStorage.setItem(tokenStorageKey, trimmed);
+    else sessionStorage.removeItem(tokenStorageKey);
+  }
+
+  /**
+   * @throws {SaveError} When validation fails or GitHub rejects the update.
+   */
+  public async save(
+    path: string,
+    content: string,
+    expectedRevision: string,
+  ): Promise<GitHubSaveResult> {
+    const validation = this.validator.validate(content);
+    if (!validation.valid) throw new SaveError(validation.errors);
+    if (!this.token) throw new SaveError(["Add a GitHub token before saving."]);
+
+    const current = await this.read(path);
+    if (current.revision !== expectedRevision) {
+      throw new SaveError([
+        "This file changed on GitHub after you opened it. Reload before saving.",
+      ]);
+    }
+
+    const response = await fetch(this.contentsUrl(path), {
+      method: "PUT",
+      headers: this.headers(),
+      body: JSON.stringify({
+        message: `docs: update ${path.split("/").at(-1)}`,
+        content: encodeBase64(content),
+        sha: current.sha,
+        branch: this.branch,
+      }),
+    });
+
+    if (!response.ok) throw new SaveError([await describeFailure(response)]);
+    const result = (await response.json()) as {
+      commit?: { sha?: string; html_url?: string };
+    };
+    return {
+      revision: await hash(content),
+      commitSha: result.commit?.sha ?? "",
+      commitUrl: result.commit?.html_url,
+    };
+  }
+
+  /**
+   * Finds the Actions run for a commit. Returns undefined while GitHub is still
+   * creating it, or when the token cannot read Actions.
+   */
+  public async findWorkflowRun(
+    commitSha: string,
+  ): Promise<WorkflowRun | undefined> {
+    const response = await fetch(
+      `https://api.github.com/repos/${this.repository}/actions/runs?head_sha=${commitSha}&per_page=1`,
+      { headers: this.headers() },
+    );
+    if (!response.ok) return undefined;
+
+    const body = (await response.json()) as {
+      workflow_runs?: {
+        status: WorkflowRun["status"];
+        conclusion: string | null;
+        html_url?: string;
+      }[];
+    };
+    const run = body.workflow_runs?.[0];
+    if (!run) return undefined;
+    return {
+      status: run.status,
+      conclusion: run.conclusion,
+      url: run.html_url,
+    };
+  }
+
+  private async read(path: string): Promise<{ sha: string; revision: string }> {
+    const response = await fetch(
+      `${this.contentsUrl(path)}?ref=${encodeURIComponent(this.branch)}`,
+      { headers: this.headers() },
+    );
+    if (!response.ok) throw new SaveError([await describeFailure(response)]);
+
+    const document = (await response.json()) as {
+      content: string;
+      sha: string;
+    };
+    return {
+      sha: document.sha,
+      revision: await hash(decodeBase64(document.content)),
+    };
+  }
+
+  private contentsUrl(path: string): string {
+    const encodedPath = path.split("/").map(encodeURIComponent).join("/");
+    return `https://api.github.com/repos/${this.repository}/contents/${encodedPath}`;
+  }
+
+  private headers(): HeadersInit {
+    return {
+      Accept: "application/vnd.github+json",
+      Authorization: `Bearer ${this.token}`,
+      "Content-Type": "application/json",
+      "X-GitHub-Api-Version": "2022-11-28",
+    };
+  }
+}
+
+export class SaveError extends Error {
+  public constructor(public readonly errors: string[]) {
+    super(errors[0]);
+  }
+}
+
+async function describeFailure(response: Response): Promise<string> {
+  if (response.status === 401) return "The GitHub token is invalid or expired.";
+  if (response.status === 403)
+    return "The token lacks 'Contents: Read and write' permission on this repository.";
+  if (response.status === 404)
+    return "The repository, branch, or file was not found for this token.";
+  if (response.status === 409)
+    return "The branch moved while saving. Reload and try again.";
+  return `GitHub rejected the request (${response.status}).`;
+}
+
+async function hash(content: string): Promise<string> {
+  const digest = await crypto.subtle.digest(
+    "SHA-256",
+    new TextEncoder().encode(content),
+  );
+  return [...new Uint8Array(digest)]
+    .map((value) => value.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+function encodeBase64(content: string): string {
+  const bytes = new TextEncoder().encode(content);
+  let binary = "";
+  for (let offset = 0; offset < bytes.length; offset += 32_768) {
+    binary += String.fromCharCode(...bytes.subarray(offset, offset + 32_768));
+  }
+  return btoa(binary);
+}
+
+function decodeBase64(content: string): string {
+  const bytes = Uint8Array.from(atob(content.replace(/\n/g, "")), (character) =>
+    character.charCodeAt(0),
+  );
+  return new TextDecoder().decode(bytes);
+}

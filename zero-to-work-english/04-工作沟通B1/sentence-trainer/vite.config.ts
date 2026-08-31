@@ -31,6 +31,8 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,png,json,mp3}'],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+        // The docs editor is a separate app inside this service worker's scope.
+        navigateFallbackDenylist: [/\/docs-simple-grammar\//],
       },
     }),
   ],
