@@ -1,0 +1,4 @@
+project_id = "learn-english"
+
+[functions.github-proxy]
+verify_jwt = false

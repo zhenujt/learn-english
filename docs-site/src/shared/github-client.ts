@@ -14,6 +14,13 @@ export interface WorkflowRun {
 
 const tokenStorageKey = "docs-github-token";
 
+// Networks that block api.github.com can point this at a same-purpose proxy.
+const apiBase = (
+  import.meta.env.VITE_GITHUB_API_BASE?.trim() || "https://api.github.com"
+).replace(/\/$/, "");
+// Supabase gateways reject anonymous calls without this.
+const apiKey = import.meta.env.VITE_GITHUB_API_KEY?.trim();
+
 /**
  * Commits a single Markdown file straight to the GitHub Contents API.
  * The token lives only in sessionStorage, so it disappears when the tab closes.
@@ -88,7 +95,7 @@ export class GitHubDocumentClient {
     commitSha: string,
   ): Promise<WorkflowRun | undefined> {
     const response = await fetch(
-      `https://api.github.com/repos/${this.repository}/actions/runs?head_sha=${commitSha}&per_page=1`,
+      `${apiBase}/repos/${this.repository}/actions/runs?head_sha=${commitSha}&per_page=1`,
       { headers: this.headers() },
     );
     if (!response.ok) return undefined;
@@ -128,15 +135,18 @@ export class GitHubDocumentClient {
 
   private contentsUrl(path: string): string {
     const encodedPath = path.split("/").map(encodeURIComponent).join("/");
-    return `https://api.github.com/repos/${this.repository}/contents/${encodedPath}`;
+    return `${apiBase}/repos/${this.repository}/contents/${encodedPath}`;
   }
 
   private headers(): HeadersInit {
     return {
       Accept: "application/vnd.github+json",
       Authorization: `Bearer ${this.token}`,
+      // Supabase's gateway consumes Authorization, so proxies read this instead.
+      "X-GitHub-Token": this.token,
       "Content-Type": "application/json",
       "X-GitHub-Api-Version": "2022-11-28",
+      ...(apiKey ? { apikey: apiKey } : {}),
     };
   }
 }

@@ -3,6 +3,8 @@
 interface ImportMetaEnv {
   readonly VITE_GITHUB_REPOSITORY?: string;
   readonly VITE_GITHUB_BRANCH?: string;
+  readonly VITE_GITHUB_API_BASE?: string;
+  readonly VITE_GITHUB_API_KEY?: string;
 }
 
 declare module "virtual:analysis-documents" {
