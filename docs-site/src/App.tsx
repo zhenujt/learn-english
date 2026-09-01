@@ -15,6 +15,7 @@ import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import documents from "virtual:analysis-documents";
 import { GitHubDocumentClient, SaveError } from "./shared/github-client";
+import { RichMarkdownEditor } from "./RichMarkdownEditor";
 
 interface Heading {
   level: number;
@@ -41,6 +42,52 @@ interface SaveResponse {
 
 const defaultDocumentPath =
   "zero-to-work-english/04-工作沟通B1/software-workplace-grammar-guide.zh.md";
+const lastDocumentStorageKey = "docs-last-document";
+const readingPositionsStorageKey = "docs-reading-positions";
+
+class ReadingProgressStore {
+  public readLastDocument(): string | undefined {
+    try {
+      return localStorage.getItem(lastDocumentStorageKey) ?? undefined;
+    } catch {
+      return undefined;
+    }
+  }
+
+  public saveLastDocument(path: string): void {
+    try {
+      localStorage.setItem(lastDocumentStorageKey, path);
+    } catch {
+      // Browsing still works when storage is unavailable.
+    }
+  }
+
+  public readPosition(path: string): number {
+    try {
+      const positions = JSON.parse(
+        localStorage.getItem(readingPositionsStorageKey) ?? "{}",
+      ) as Record<string, unknown>;
+      const position = positions[path];
+      return typeof position === "number" && position >= 0 ? position : 0;
+    } catch {
+      return 0;
+    }
+  }
+
+  public savePosition(path: string, position: number): void {
+    try {
+      const positions = JSON.parse(
+        localStorage.getItem(readingPositionsStorageKey) ?? "{}",
+      ) as Record<string, unknown>;
+      positions[path] = Math.max(0, Math.round(position));
+      localStorage.setItem(readingPositionsStorageKey, JSON.stringify(positions));
+    } catch {
+      // Browsing still works when storage is unavailable.
+    }
+  }
+}
+
+const readingProgress = new ReadingProgressStore();
 
 const slugify = (value: string) =>
   value
@@ -50,7 +97,9 @@ const slugify = (value: string) =>
     .replace(/\s+/g, "-");
 
 const readDocumentPath = () =>
-  new URL(window.location.href).searchParams.get("doc") ?? defaultDocumentPath;
+  new URL(window.location.href).searchParams.get("doc") ??
+  readingProgress.readLastDocument() ??
+  defaultDocumentPath;
 
 const getHeadings = (content: string): Heading[] =>
   [...content.matchAll(/^(#{2,3})\s+(.+)$/gm)].map((match) => ({
@@ -119,6 +168,7 @@ export function App() {
   const [progress, setProgress] = useState<Progress>();
   const [token, setToken] = useState(() => github.token);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const documentMainRef = useRef<HTMLElement>(null);
   const activeDocument = catalog.find(activePath);
   const draft = drafts[activePath] ?? activeDocument.content;
   const persistedContent = savedContent[activePath] ?? activeDocument.content;
@@ -134,11 +184,18 @@ export function App() {
   }, []);
 
   useLayoutEffect(() => {
-    window.scrollTo({ top: 0, behavior: "auto" });
     setSaveState("idle");
     setSaveErrors([]);
     setIsEditing(false);
   }, [activePath]);
+
+  useLayoutEffect(() => {
+    if (isEditing || !documentMainRef.current) return;
+    documentMainRef.current.scrollTo({
+      top: readingProgress.readPosition(activePath),
+      behavior: "auto",
+    });
+  }, [activePath, isEditing]);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -163,6 +220,10 @@ export function App() {
   }, [saveState]);
 
   const selectDocument = (path: string) => {
+    if (documentMainRef.current) {
+      readingProgress.savePosition(activePath, documentMainRef.current.scrollTop);
+    }
+    readingProgress.saveLastDocument(path);
     const url = new URL(window.location.href);
     url.searchParams.set("doc", path);
     url.hash = "";
@@ -457,12 +518,10 @@ export function App() {
                 <small>Kept in this tab only; cleared when you close it.</small>
               </label>
             )}
-            <textarea
-              className="markdown-editor"
-              aria-label="Markdown editor"
-              value={draft}
-              onChange={(event) => updateDraft(event.target.value)}
-              spellCheck={false}
+            <RichMarkdownEditor
+              key={activePath}
+              markdown={draft}
+              onChange={updateDraft}
             />
           </section>
 
@@ -482,7 +541,13 @@ export function App() {
         </main>
       ) : (
         <>
-          <main className="document-main">
+          <main
+            className="document-main"
+            ref={documentMainRef}
+            onScroll={(event) =>
+              readingProgress.savePosition(activePath, event.currentTarget.scrollTop)
+            }
+          >
             <div className="document-kicker">
               {activeDocument.section.replace(/^\d+\.\s*/, "")}
             </div>

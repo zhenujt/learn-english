@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@toast-ui/editor": "^3.2.2",
     "@vitejs/plugin-react": "latest",
     "lucide-react": "latest",
     "react": "latest",
@@ -25,5 +26,8 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest"
+  },
+  "overrides": {
+    "dompurify": "3.4.14"
   }
 }

@@ -408,23 +408,135 @@ button {
 .token-field small {
   text-transform: none;
 }
-.markdown-editor {
+.rich-markdown-editor {
   width: 100%;
   min-height: 0;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.editor-mode-control {
+  min-height: 42px;
+  flex: 0 0 42px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  border-bottom: 1px solid var(--line);
+  background: #e8e5dc;
+}
+.editor-mode-control button {
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--muted);
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  cursor: pointer;
+}
+.editor-mode-control button:hover {
+  color: var(--ink);
+  background: rgba(251, 250, 246, 0.72);
+}
+.editor-mode-control button.active {
+  border-color: #b8cfc7;
+  background: var(--paper);
+  color: var(--accent);
+}
+.editor-mode-content,
+.rich-editor-surface {
+  min-height: 0;
+  flex: 1;
+}
+.rich-editor-surface {
+  height: 100%;
+}
+.markdown-source-editor {
+  width: 100%;
+  height: 100%;
   resize: none;
   padding: 24px;
   border: 0;
   outline: 0;
-  background: transparent;
+  background: #f7f5ef;
   color: #292c28;
   font-family: "DM Mono", monospace;
   font-size: 13px;
   line-height: 1.7;
   tab-size: 2;
 }
-.markdown-editor:focus {
+.markdown-source-editor:focus {
   box-shadow: inset 3px 0 0 var(--accent);
+}
+.rich-markdown-editor .toastui-editor-defaultUI {
+  height: 100% !important;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.rich-markdown-editor .toastui-editor-toolbar {
+  height: auto;
+  min-height: 46px;
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--line);
+  background: #efede6;
+}
+.rich-markdown-editor .toastui-editor-toolbar-group {
+  margin-right: 10px;
+}
+.rich-markdown-editor .toastui-editor-toolbar-icons {
+  border-color: transparent;
+  background-color: transparent;
+}
+.rich-markdown-editor .toastui-editor-toolbar-icons:hover,
+.rich-markdown-editor .toastui-editor-toolbar-icons.active {
+  border-color: #b8cfc7;
+  background-color: var(--accent-soft);
+}
+.rich-markdown-editor .toastui-editor-main {
+  min-height: 0;
+}
+.rich-markdown-editor .toastui-editor-md-container,
+.rich-markdown-editor .toastui-editor-ww-container {
+  background: #f7f5ef;
+}
+.rich-markdown-editor .toastui-editor-contents,
+.rich-markdown-editor .ProseMirror {
+  padding: 24px;
+  color: #292c28;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.rich-markdown-editor .toastui-editor-md-container .toastui-editor {
+  font-family: "DM Mono", monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  tab-size: 2;
+}
+.rich-markdown-editor .toastui-editor-mode-switch {
+  height: 42px;
+  border-top: 1px solid var(--line);
+  background: #efede6;
+}
+.rich-markdown-editor .tab-item {
+  height: 32px;
+  margin-top: 9px;
+  border: 0;
+  color: var(--muted);
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+}
+.rich-markdown-editor .tab-item.active {
+  border-bottom: 2px solid var(--accent);
+  color: var(--accent);
+  background: var(--paper);
 }
 .validation-errors {
   display: flex;
@@ -675,8 +787,42 @@ button {
   .pane-header code {
     max-width: 42vw;
   }
-  .markdown-editor {
+  .rich-markdown-editor .toastui-editor-toolbar {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-inline: 8px;
+    scrollbar-width: thin;
+  }
+  .rich-markdown-editor .toastui-editor-toolbar-group {
+    display: inline-flex;
+    float: none;
+    white-space: nowrap;
+  }
+  .rich-markdown-editor .toastui-editor-toolbar-icons {
+    width: 42px;
+    height: 42px;
+  }
+  .editor-mode-control {
+    min-height: 50px;
+    flex-basis: 50px;
+    overflow-x: auto;
+    padding-inline: 8px;
+  }
+  .editor-mode-control button {
+    height: 40px;
+    min-width: max-content;
+    padding-inline: 12px;
+  }
+  .markdown-source-editor {
     padding: 18px;
+    font-size: 12px;
+  }
+  .rich-markdown-editor .toastui-editor-contents,
+  .rich-markdown-editor .ProseMirror {
+    padding: 18px;
+    font-size: 14px;
+  }
+  .rich-markdown-editor .toastui-editor-md-container .toastui-editor {
     font-size: 12px;
   }
   .markdown-body h1 {
