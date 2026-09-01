@@ -4,6 +4,9 @@ import {
   Check,
   ChevronDown,
   FileText,
+  GraduationCap,
+  Eye,
+  Layers,
   Menu,
   Pencil,
   Save,
@@ -16,6 +19,14 @@ import remarkGfm from "remark-gfm";
 import documents from "virtual:analysis-documents";
 import { GitHubDocumentClient, SaveError } from "./shared/github-client";
 import { RichMarkdownEditor } from "./RichMarkdownEditor";
+import { SaveReviewDialog, type DocumentDiff } from "./SaveReviewDialog";
+import { StudyPanel } from "./StudyPanel";
+import { StudySyncClient } from "./shared/study-sync";
+import {
+  DocumentWorkspaceStore,
+  type DocumentStudyState,
+  type StudySnapshot,
+} from "./shared/workspace-store";
 
 interface Heading {
   level: number;
@@ -38,6 +49,12 @@ interface SaveResponse {
     content: string;
     revision: string;
   };
+}
+
+interface BatchSaveResponse {
+  valid?: boolean;
+  errors?: string[];
+  documents?: SaveResponse["document"][];
 }
 
 const defaultDocumentPath =
@@ -88,6 +105,8 @@ class ReadingProgressStore {
 }
 
 const readingProgress = new ReadingProgressStore();
+const workspace = new DocumentWorkspaceStore();
+const studySync = new StudySyncClient();
 
 const slugify = (value: string) =>
   value
@@ -125,7 +144,24 @@ async function saveToLocalServer(
   return result.document.revision;
 }
 
-export class DocumentCatalog {
+async function saveManyToLocalServer(
+  changes: { path: string; content: string; expectedRevision: string }[],
+): Promise<Record<string, string>> {
+  const response = await fetch("/api/documents", {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ changes }),
+  });
+  const result = (await response.json()) as BatchSaveResponse;
+  if (!response.ok || !result.documents) {
+    throw new SaveError(result.errors ?? ["The documents could not be saved."]);
+  }
+  return Object.fromEntries(
+    result.documents.map((document) => [document!.path, document!.revision]),
+  );
+}
+
+class DocumentCatalog {
   public readonly sections = Array.from(
     new Set(documents.map((document) => document.section)),
   );
@@ -153,13 +189,22 @@ const github = new GitHubDocumentClient(
 const savesToGitHub = github.isConfigured;
 
 export function App() {
+  const storedDrafts = useRef(workspace.readDrafts());
   const [activePath, setActivePath] = useState(readDocumentPath);
   const [query, setQuery] = useState("");
   const [navigationOpen, setNavigationOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-  const [drafts, setDrafts] = useState<Record<string, string>>({});
+  const [drafts, setDrafts] = useState<Record<string, string>>(() =>
+    Object.fromEntries(
+      Object.entries(storedDrafts.current).map(([path, entry]) => [path, entry.content]),
+    ),
+  );
   const [savedContent, setSavedContent] = useState<Record<string, string>>({});
-  const [revisions, setRevisions] = useState<Record<string, string>>({});
+  const [revisions, setRevisions] = useState<Record<string, string>>(() =>
+    Object.fromEntries(
+      Object.entries(storedDrafts.current).map(([path, entry]) => [path, entry.baseRevision]),
+    ),
+  );
   const [saveState, setSaveState] = useState<
     "idle" | "saving" | "saved" | "error"
   >("idle");
@@ -167,6 +212,17 @@ export function App() {
   const [commitUrl, setCommitUrl] = useState<string>();
   const [progress, setProgress] = useState<Progress>();
   const [token, setToken] = useState(() => github.token);
+  const [reviewDocuments, setReviewDocuments] = useState<DocumentDiff[]>([]);
+  const [study, setStudy] = useState<StudySnapshot>(() =>
+    workspace.dailyTasks(documents.map((document) => document.path)),
+  );
+  const [studyOpen, setStudyOpen] = useState(false);
+  const [activeHeading, setActiveHeading] = useState("");
+  const [userEmail, setUserEmail] = useState<string>();
+  const [syncMessage, setSyncMessage] = useState("");
+  const [exerciseMode, setExerciseMode] = useState(false);
+  const [wrongOnly, setWrongOnly] = useState(false);
+  const [mobileEditorView, setMobileEditorView] = useState<"edit" | "preview">("edit");
   const searchInputRef = useRef<HTMLInputElement>(null);
   const documentMainRef = useRef<HTMLElement>(null);
   const activeDocument = catalog.find(activePath);
@@ -176,12 +232,71 @@ export function App() {
   const filteredDocuments = catalog.filter(query);
   const displayContent = isEditing ? draft : persistedContent;
   const headings = getHeadings(displayContent);
+  const dirtyPaths = documents
+    .map((document) => document.path)
+    .filter((path) => {
+      const document = catalog.find(path);
+      return drafts[path] !== undefined && drafts[path] !== (savedContent[path] ?? document.content);
+    });
+  const studyDocument = study.documents[activePath] ?? workspace.document(activePath);
+  const dailyTasks = study.dailyPaths
+    .filter((path) => documents.some((document) => document.path === path))
+    .map((path) => ({ path, title: catalog.find(path).title }));
+  const exerciseCount = (persistedContent.match(/<details(?:\s[^>]*)?>/gi) ?? []).length;
 
   useEffect(() => {
-    const onPopState = () => setActivePath(readDocumentPath());
+    const url = new URL(window.location.href);
+    if (url.searchParams.has("doc")) return;
+    url.searchParams.set("doc", activePath);
+    window.history.replaceState({}, "", url);
+  }, []);
+
+  useEffect(() => {
+    const onPopState = () => {
+      const nextPath = readDocumentPath();
+      if (nextPath === activePath) return;
+      if (isDirty && !window.confirm("This document has a local draft. Leave it and continue?")) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("doc", activePath);
+        url.hash = "";
+        window.history.pushState({}, "", url);
+        return;
+      }
+      setActivePath(nextPath);
+    };
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
+  }, [activePath, isDirty]);
+
+  useEffect(() => {
+    if (!dirtyPaths.length) return;
+    const warn = (event: BeforeUnloadEvent) => event.preventDefault();
+    window.addEventListener("beforeunload", warn);
+    return () => window.removeEventListener("beforeunload", warn);
+  }, [dirtyPaths.length]);
+
+  useEffect(() => {
+    if (!studySync.configured) return;
+    void studySync.user()
+      .then((user) => setUserEmail(user?.email))
+      .catch((error: unknown) => {
+        setSyncMessage(error instanceof Error ? error.message : "Could not read the sync session");
+      });
   }, []);
+
+  useEffect(() => {
+    const answers = documentMainRef.current?.querySelectorAll<HTMLDetailsElement>(
+      ".markdown-body details",
+    );
+    answers?.forEach((answer, index) => {
+      answer.classList.toggle("exercise-answer", exerciseMode);
+      answer.classList.toggle(
+        "exercise-correct",
+        wrongOnly && studyDocument.exerciseResults[String(index)] === true,
+      );
+      if (exerciseMode) answer.open = false;
+    });
+  }, [activePath, exerciseMode, isEditing, wrongOnly, studyDocument.exerciseResults]);
 
   useLayoutEffect(() => {
     setSaveState("idle");
@@ -203,10 +318,14 @@ export function App() {
         event.preventDefault();
         searchInputRef.current?.focus();
       }
-      if (event.key === "Escape") setNavigationOpen(false);
+      if (event.key === "Escape") {
+        setNavigationOpen(false);
+        setStudyOpen(false);
+        setReviewDocuments([]);
+      }
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "s") {
         event.preventDefault();
-        if (isEditing) void saveDocument();
+        if (isEditing) reviewSave([activePath]);
       }
     };
     window.addEventListener("keydown", onKeyDown);
@@ -220,6 +339,7 @@ export function App() {
   }, [saveState]);
 
   const selectDocument = (path: string) => {
+    if (isDirty && !window.confirm("This document has a local draft. Leave it and continue?")) return;
     if (documentMainRef.current) {
       readingProgress.savePosition(activePath, documentMainRef.current.scrollTop);
     }
@@ -235,6 +355,15 @@ export function App() {
 
   const updateDraft = (content: string) => {
     setDrafts((current) => ({ ...current, [activePath]: content }));
+    if (content === persistedContent) {
+      workspace.removeDraft(activePath);
+    } else {
+      workspace.saveDraft(
+        activePath,
+        content,
+        revisions[activePath] ?? activeDocument.revision,
+      );
+    }
     setSaveState("idle");
     setSaveErrors([]);
   };
@@ -243,9 +372,12 @@ export function App() {
     setSaveState("idle");
     setSaveErrors([]);
     setProgress(undefined);
+    setMobileEditorView("edit");
     setIsEditing(true);
   };
   const cancelEditing = () => {
+    if (isDirty && !window.confirm("Discard the local draft for this document?")) return;
+    workspace.removeDraft(activePath);
     setDrafts((current) => ({
       ...current,
       [activePath]: persistedContent,
@@ -253,6 +385,19 @@ export function App() {
     setSaveState("idle");
     setSaveErrors([]);
     setIsEditing(false);
+  };
+
+  const reviewSave = (paths: string[]) => {
+    const changed = paths.filter((path) => dirtyPaths.includes(path));
+    if (!changed.length || saveState === "saving") return;
+    setReviewDocuments(changed.map((path) => {
+      const document = catalog.find(path);
+      return {
+        path,
+        before: savedContent[path] ?? document.content,
+        after: drafts[path] ?? document.content,
+      };
+    }));
   };
 
   const trackDeployment = async (commitSha: string) => {
@@ -282,31 +427,41 @@ export function App() {
     );
   };
 
-  const saveDocument = async () => {
-    if (!isDirty || saveState === "saving") return;
+  const saveDocuments = async () => {
+    if (!reviewDocuments.length || saveState === "saving") return;
     setSaveState("saving");
     setSaveErrors([]);
-    const expectedRevision = revisions[activePath] ?? activeDocument.revision;
 
     try {
+      const changes = reviewDocuments.map((document) => ({
+        path: document.path,
+        content: document.after,
+        expectedRevision: revisions[document.path] ?? catalog.find(document.path).revision,
+      }));
       const result = savesToGitHub
-        ? await github.save(activePath, draft, expectedRevision)
+        ? await github.saveMany(changes)
         : {
-            revision: await saveToLocalServer(
-              activePath,
-              draft,
-              expectedRevision,
-            ),
+            revisions: reviewDocuments.length === 1
+              ? {
+                  [changes[0].path]: await saveToLocalServer(
+                    changes[0].path,
+                    changes[0].content,
+                    changes[0].expectedRevision,
+                  ),
+                }
+              : await saveManyToLocalServer(changes),
           };
 
-      setSavedContent((current) => ({ ...current, [activePath]: draft }));
-      setRevisions((current) => ({
+      setSavedContent((current) => ({
         ...current,
-        [activePath]: result.revision,
+        ...Object.fromEntries(changes.map((change) => [change.path, change.content])),
       }));
+      setRevisions((current) => ({ ...current, ...result.revisions }));
+      changes.forEach((change) => workspace.removeDraft(change.path));
       setCommitUrl("commitUrl" in result ? result.commitUrl : undefined);
       setSaveState("saved");
       setIsEditing(false);
+      setReviewDocuments([]);
 
       if ("commitSha" in result && result.commitSha) {
         setProgress({ stage: "committed" });
@@ -324,6 +479,64 @@ export function App() {
             ],
       );
     }
+  };
+
+  const updateStudyDocument = (
+    update: Partial<Omit<DocumentStudyState, "updatedAt">>,
+  ) => setStudy(workspace.updateDocument(activePath, update));
+
+  const syncStudy = async () => {
+    try {
+      setSyncMessage("Syncing…");
+      const cloud = await studySync.pull();
+      const merged = cloud ? workspace.mergeCloud(cloud) : workspace.readStudy();
+      await studySync.push(merged);
+      setStudy(merged);
+      const syncedPosition = merged.documents[activePath]?.scrollTop;
+      if (typeof syncedPosition === "number") {
+        documentMainRef.current?.scrollTo({ top: syncedPosition, behavior: "auto" });
+        readingProgress.savePosition(activePath, syncedPosition);
+      }
+      setSyncMessage("Synced");
+    } catch (error) {
+      setSyncMessage(error instanceof Error ? error.message : "Sync failed");
+    }
+  };
+
+  const sendMagicLink = async (email: string) => {
+    try {
+      await studySync.sendMagicLink(email);
+      setSyncMessage("Check your email for the sign-in link.");
+    } catch (error) {
+      setSyncMessage(error instanceof Error ? error.message : "Sign-in failed");
+    }
+  };
+
+  const signOut = async () => {
+    try {
+      await studySync.signOut();
+      setUserEmail(undefined);
+      setSyncMessage("Signed out");
+    } catch (error) {
+      setSyncMessage(error instanceof Error ? error.message : "Sign-out failed");
+    }
+  };
+
+  const handleDocumentScroll = (element: HTMLElement) => {
+    readingProgress.savePosition(activePath, element.scrollTop);
+    const scrollRange = Math.max(1, element.scrollHeight - element.clientHeight);
+    const progressValue = Math.min(100, (element.scrollTop / scrollRange) * 100);
+    if (Math.round(progressValue) !== Math.round(studyDocument.progress)) {
+      setStudy(workspace.updateDocument(activePath, {
+        scrollTop: element.scrollTop,
+        progress: progressValue,
+        status: studyDocument.status === "not-started" ? "learning" : studyDocument.status,
+      }));
+    }
+    const current = [...element.querySelectorAll<HTMLElement>(".markdown-body h2, .markdown-body h3")]
+      .filter((heading) => heading.offsetTop <= element.scrollTop + 140)
+      .at(-1);
+    setActiveHeading(current?.textContent ?? "");
   };
 
   return (
@@ -368,7 +581,7 @@ export function App() {
               </button>
               <button
                 className="save-button"
-                onClick={() => void saveDocument()}
+                onClick={() => reviewSave([activePath])}
                 disabled={!isDirty || saveState === "saving"}
               >
                 <Save size={16} /> Save
@@ -376,6 +589,11 @@ export function App() {
             </>
           ) : (
             <>
+              {dirtyPaths.length > 0 && (
+                <button className="batch-save-button" onClick={() => reviewSave(dirtyPaths)}>
+                  <Layers size={16} /> Save all ({dirtyPaths.length})
+                </button>
+              )}
               {progress && (
                 <span
                   className={`deploy-status ${progress.stage}`}
@@ -415,6 +633,9 @@ export function App() {
               </button>
             </>
           )}
+          <button className="icon-button study-button" onClick={() => setStudyOpen(true)} aria-label="Open study tools">
+            <GraduationCap size={19} />
+          </button>
         </div>
       </header>
 
@@ -485,7 +706,25 @@ export function App() {
       )}
 
       {isEditing ? (
-        <main className="editor-workspace">
+        <main className={`editor-workspace mobile-view-${mobileEditorView}`}>
+          <div className="mobile-editor-view-control" aria-label="Mobile editor view">
+            <button
+              className={mobileEditorView === "edit" ? "active" : ""}
+              type="button"
+              aria-pressed={mobileEditorView === "edit"}
+              onClick={() => setMobileEditorView("edit")}
+            >
+              <Pencil size={15} /> Editor
+            </button>
+            <button
+              className={mobileEditorView === "preview" ? "active" : ""}
+              type="button"
+              aria-pressed={mobileEditorView === "preview"}
+              onClick={() => setMobileEditorView("preview")}
+            >
+              <Eye size={15} /> Preview
+            </button>
+          </div>
           <section className="editor-pane">
             <div className="pane-header">
               <div>
@@ -544,9 +783,7 @@ export function App() {
           <main
             className="document-main"
             ref={documentMainRef}
-            onScroll={(event) =>
-              readingProgress.savePosition(activePath, event.currentTarget.scrollTop)
-            }
+            onScroll={(event) => handleDocumentScroll(event.currentTarget)}
           >
             <div className="document-kicker">
               {activeDocument.section.replace(/^\d+\.\s*/, "")}
@@ -562,7 +799,7 @@ export function App() {
               {headings.map((heading) => (
                 <a
                   key={`${heading.id}-${heading.label}`}
-                  className={heading.level === 3 ? "nested" : ""}
+                  className={`${heading.level === 3 ? "nested" : ""} ${heading.label === activeHeading ? "active" : ""}`}
                   href={`#${heading.id}`}
                 >
                   {heading.label}
@@ -576,6 +813,37 @@ export function App() {
             </div>
           </aside>
         </>
+      )}
+      <StudyPanel
+        open={studyOpen}
+        path={activePath}
+        activeHeading={activeHeading}
+        state={studyDocument}
+        exerciseCount={exerciseCount}
+        dailyTasks={dailyTasks}
+        syncConfigured={studySync.configured}
+        userEmail={userEmail}
+        syncMessage={syncMessage}
+        exerciseMode={exerciseMode}
+        wrongOnly={wrongOnly}
+        onClose={() => setStudyOpen(false)}
+        onSelectDocument={selectDocument}
+        onUpdate={updateStudyDocument}
+        onMagicLink={sendMagicLink}
+        onSignOut={signOut}
+        onSync={syncStudy}
+        onExerciseMode={setExerciseMode}
+        onWrongOnly={setWrongOnly}
+      />
+      {studyOpen && <button className="study-scrim" aria-label="Close study tools" onClick={() => setStudyOpen(false)} />}
+      {reviewDocuments.length > 0 && (
+        <SaveReviewDialog
+          documents={reviewDocuments}
+          saving={saveState === "saving"}
+          errors={saveErrors}
+          onCancel={() => setReviewDocuments([])}
+          onConfirm={() => void saveDocuments()}
+        />
       )}
     </div>
   );

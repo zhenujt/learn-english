@@ -1,12 +1,13 @@
 name: Deploy GitHub Pages
 
 # One repository has a single Pages site, so both apps ship in one artifact:
-# sentence-trainer at /<repo>/ and the docs editor at /<repo>/docs-simple-grammar/.
+# sentence-trainer at /<repo>/anki/ and the docs editor at /<repo>/docs-simple-grammar/.
 on:
   push:
     branches: [main]
     paths:
       - ".github/workflows/deploy-pages.yml"
+      - ".github/pages/**"
       - "zero-to-work-english/04-工作沟通B1/sentence-trainer/**"
       - "docs-site/**"
       - "**/*.md"
@@ -51,6 +52,7 @@ jobs:
       - name: Build sentence trainer
         working-directory: ${{ env.TRAINER_DIR }}
         env:
+          VITE_BASE_PATH: /${{ github.event.repository.name }}/anki/
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
         run: npm run build
@@ -66,13 +68,17 @@ jobs:
           VITE_GITHUB_REPOSITORY: ${{ github.repository }}
           VITE_GITHUB_BRANCH: ${{ github.ref_name }}
           VITE_GITHUB_API_BASE: ${{ vars.DOCS_GITHUB_API_BASE }}
-          VITE_GITHUB_API_KEY: ${{ vars.DOCS_GITHUB_API_KEY }}
+          VITE_GITHUB_API_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
         run: npm run build
 
       - name: Combine both sites
         run: |
           mkdir -p _site
-          cp -r "$TRAINER_DIR/dist/." _site/
+          cp -r .github/pages/. _site/
+          mkdir -p _site/anki
+          cp -r "$TRAINER_DIR/dist/." _site/anki/
           mkdir -p _site/docs-simple-grammar
           cp -r docs-site/dist/. _site/docs-simple-grammar/
 

@@ -37,6 +37,7 @@ button {
 
 .app-shell {
   height: 100vh;
+  height: 100dvh;
   display: grid;
   grid-template-columns: 292px minmax(0, 1fr) 238px;
   grid-template-rows: 64px minmax(0, 1fr);
@@ -150,7 +151,9 @@ button {
 }
 .edit-button,
 .save-button,
-.cancel-button {
+.cancel-button,
+.batch-save-button,
+.secondary-command {
   height: 36px;
   display: flex;
   align-items: center;
@@ -171,6 +174,16 @@ button {
   border: 1px solid var(--line);
   background: transparent;
   color: var(--muted);
+}
+.batch-save-button,
+.secondary-command {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--accent);
+}
+.batch-save-button:hover,
+.secondary-command:hover {
+  border-color: var(--accent);
 }
 .edit-button:hover,
 .save-button:hover:not(:disabled) {
@@ -336,6 +349,9 @@ button {
   display: grid;
   grid-template-columns: minmax(320px, 1fr) minmax(320px, 1fr);
   background: var(--paper);
+}
+.mobile-editor-view-control {
+  display: none;
 }
 .editor-pane,
 .preview-pane {
@@ -672,6 +688,10 @@ button {
 .page-outline a:hover {
   color: var(--accent);
 }
+.page-outline a.active {
+  color: var(--accent);
+  font-weight: 700;
+}
 .page-outline a.nested {
   padding-left: 12px;
 }
@@ -691,6 +711,234 @@ button {
 .scrim {
   display: none;
 }
+
+.study-panel {
+  position: fixed;
+  inset: 64px 0 0 auto;
+  z-index: 60;
+  width: min(390px, 92vw);
+  overflow-y: auto;
+  border-left: 1px solid var(--line);
+  background: var(--paper);
+  box-shadow: -20px 0 55px rgba(32, 35, 31, 0.14);
+  transform: translateX(105%);
+  transition: transform 180ms ease;
+}
+.study-panel.is-open {
+  transform: translateX(0);
+}
+.study-panel > header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(251, 250, 246, 0.95);
+}
+.study-panel > header > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.study-panel section {
+  padding: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.study-panel select,
+.study-panel textarea,
+.study-panel input {
+  width: 100%;
+  padding: 10px 11px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #fff;
+  color: var(--ink);
+}
+.study-panel textarea {
+  min-height: 78px;
+  margin: 10px 0;
+  resize: vertical;
+}
+.study-panel form {
+  display: grid;
+  gap: 9px;
+}
+.study-label,
+.study-section-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 10px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+}
+.current-heading {
+  display: block;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+}
+.progress-track {
+  height: 5px;
+  margin-top: 12px;
+  overflow: hidden;
+  background: #dfddd5;
+}
+.progress-track span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+.bookmark-list article {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+}
+.bookmark-list p,
+.study-panel section > p {
+  margin: 4px 0 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  margin: 12px 0;
+}
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 9px 0;
+  font-size: 12px;
+}
+.study-panel .toggle-row input {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  accent-color: var(--accent);
+}
+.markdown-body details.exercise-answer > summary {
+  cursor: pointer;
+}
+.markdown-body details.exercise-correct {
+  display: none;
+}
+.exercise-grid > div {
+  display: grid;
+  grid-template-columns: 1fr 30px 30px;
+  align-items: center;
+  border: 1px solid var(--line);
+  font-size: 11px;
+}
+.exercise-grid > div.correct { border-color: var(--accent); }
+.exercise-grid > div.wrong { border-color: var(--signal); }
+.exercise-grid span { padding-left: 7px; }
+.exercise-grid button {
+  height: 30px;
+  border: 0;
+  border-left: 1px solid var(--line);
+  background: transparent;
+  cursor: pointer;
+}
+.daily-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.daily-list button {
+  padding: 9px 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  font-size: 12px;
+  cursor: pointer;
+}
+.daily-list button.active { color: var(--accent); font-weight: 700; }
+.sync-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.study-panel small {
+  display: block;
+  margin-top: 9px;
+  color: var(--muted);
+}
+.study-scrim {
+  position: fixed;
+  inset: 64px 0 0;
+  z-index: 50;
+  border: 0;
+  background: rgba(25, 28, 25, 0.36);
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(25, 28, 25, 0.58);
+}
+.save-review {
+  width: min(920px, 100%);
+  max-height: min(780px, calc(100vh - 48px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--paper);
+  box-shadow: 0 24px 80px rgba(15, 20, 17, 0.24);
+}
+.save-review > header,
+.save-review > footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.save-review h2 { margin: 4px 0 0; font-size: 18px; }
+.save-review > footer {
+  justify-content: flex-end;
+  border-top: 1px solid var(--line);
+  border-bottom: 0;
+}
+.diff-documents { overflow: auto; padding: 16px 20px; }
+.diff-documents details { margin-bottom: 12px; border: 1px solid var(--line); }
+.diff-documents summary {
+  padding: 11px 13px;
+  overflow-wrap: anywhere;
+  background: #ebe8df;
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  cursor: pointer;
+}
+.diff-view {
+  margin: 0;
+  overflow-x: auto;
+  padding: 12px 0;
+  background: #282b27;
+  color: #f2f0e8;
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  line-height: 1.55;
+}
+.diff-view span { display: block; min-width: max-content; padding: 0 14px; white-space: pre; }
+.diff-view .added { background: #17463e; color: #d7f5e9; }
+.diff-view .removed { background: #5b2b25; color: #ffe2dc; }
 
 @media (max-width: 1080px) {
   .app-shell {
@@ -731,6 +979,12 @@ button {
   .topbar-actions {
     gap: 8px;
   }
+  .brand > span:last-child,
+  .batch-save-button svg,
+  .edit-button svg {
+    display: none;
+  }
+  .batch-save-button { padding-inline: 9px; }
   .save-status {
     display: none;
   }
@@ -762,9 +1016,46 @@ button {
     background: rgba(25, 28, 25, 0.4);
   }
   .editor-workspace {
-    overflow-y: auto;
+    height: 100%;
+    overflow: hidden;
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(420px, 65vh) auto;
+    grid-template-rows: 48px minmax(0, 1fr);
+  }
+  .mobile-editor-view-control {
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--line);
+    background: #e8e5dc;
+  }
+  .mobile-editor-view-control button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--muted);
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    cursor: pointer;
+  }
+  .mobile-editor-view-control button.active {
+    border-color: #b8cfc7;
+    background: var(--paper);
+    color: var(--accent);
+  }
+  .editor-pane,
+  .preview-pane {
+    grid-row: 2;
+    min-height: 0;
+  }
+  .editor-workspace.mobile-view-edit .preview-pane,
+  .editor-workspace.mobile-view-preview .editor-pane {
+    display: none;
   }
   .document-main {
     width: 100%;
@@ -772,13 +1063,12 @@ button {
   }
   .editor-pane {
     border-right: 0;
-    border-bottom: 1px solid var(--line);
   }
   .preview-pane {
-    min-height: 70vh;
+    height: 100%;
   }
   .preview-pane .markdown-body {
-    overflow: visible;
+    overflow: auto;
     padding: 34px 20px 72px;
   }
   .pane-header {
@@ -794,13 +1084,16 @@ button {
     scrollbar-width: thin;
   }
   .rich-markdown-editor .toastui-editor-toolbar-group {
-    display: inline-flex;
-    float: none;
+    margin-right: 0;
     white-space: nowrap;
   }
   .rich-markdown-editor .toastui-editor-toolbar-icons {
-    width: 42px;
-    height: 42px;
+    width: 32px;
+    height: 32px;
+    margin: 7px 4px;
+  }
+  .app-shell.is-editing .study-button {
+    display: none;
   }
   .editor-mode-control {
     min-height: 50px;
@@ -838,4 +1131,11 @@ button {
   .markdown-body table {
     white-space: normal;
   }
+  .study-panel { top: 58px; }
+  .study-scrim { top: 58px; }
+  .modal-backdrop { padding: 10px; }
+  .save-review { max-height: calc(100vh - 20px); }
+  .save-review > header,
+  .save-review > footer,
+  .diff-documents { padding-inline: 14px; }
 }

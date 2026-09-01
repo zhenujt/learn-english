@@ -28,7 +28,7 @@ The app supports email/password registration, login, logout, password-reset emai
 2. In Supabase **SQL Editor**, run [`supabase/schema.sql`](supabase/schema.sql). Row Level Security ensures each account can access only its own review rows.
 3. In Supabase **Authentication > URL Configuration**, add the deployed URL to **Redirect URLs**:
 
-	`https://zhenujt.github.io/learn-english/`
+	`https://zhenujt.github.io/learn-english/anki/`
 
 4. Copy `.env.example` to `.env.local` for local testing and fill in the Supabase project URL and browser `anon` key. Never use or commit a `service_role` key.
 5. In the GitHub repository, add these Actions secrets under **Settings > Secrets and variables > Actions**:

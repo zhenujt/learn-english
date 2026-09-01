@@ -44,6 +44,15 @@ function RichEditorSurface({ markdown, onChange }: RichMarkdownEditorProps) {
     if (!mountRef.current) return;
 
     const protectedBlocks = new ProtectedHtmlBlocks();
+    const toolbarItems = window.matchMedia("(max-width: 760px)").matches
+      ? [["heading", "bold", "italic", "ul", "ol", "link", "code"]]
+      : [
+          ["heading", "bold", "italic", "strike"],
+          ["hr", "quote"],
+          ["ul", "ol", "task", "indent", "outdent"],
+          ["table", "link"],
+          ["code", "codeblock"],
+        ];
     const editor = new Editor({
       el: mountRef.current,
       height: "100%",
@@ -52,13 +61,7 @@ function RichEditorSurface({ markdown, onChange }: RichMarkdownEditorProps) {
       initialValue: protectedBlocks.protect(initialMarkdownRef.current),
       previewStyle: "tab",
       usageStatistics: false,
-      toolbarItems: [
-        ["heading", "bold", "italic", "strike"],
-        ["hr", "quote"],
-        ["ul", "ol", "task", "indent", "outdent"],
-        ["table", "link"],
-        ["code", "codeblock"],
-      ],
+      toolbarItems,
       events: {
         change: () => {
           const restored = protectedBlocks.restore(editor.getMarkdown());

@@ -4,6 +4,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import react from "@vitejs/plugin-react";
 import { defineConfig, type Plugin } from "vite";
+import { VitePWA } from "vite-plugin-pwa";
 import { MarkdownValidator } from "./src/shared/markdown-validator.ts";
 
 const siteDirectory = path.dirname(fileURLToPath(import.meta.url));
@@ -121,12 +122,18 @@ class MarkdownDocumentsPlugin {
                 path?: string;
                 content?: string;
                 expectedRevision?: string;
+                changes?: {
+                  path?: string;
+                  content?: string;
+                  expectedRevision?: string;
+                }[];
               };
-              if (
-                typeof payload.path !== "string" ||
-                typeof payload.content !== "string" ||
-                typeof payload.expectedRevision !== "string"
-              ) {
+              const changes = payload.changes ?? [payload];
+              if (!changes.length || changes.some((change) =>
+                typeof change.path !== "string" ||
+                typeof change.content !== "string" ||
+                typeof change.expectedRevision !== "string"
+              )) {
                 response.statusCode = 400;
                 response.end(
                   JSON.stringify({
@@ -138,36 +145,37 @@ class MarkdownDocumentsPlugin {
                 return;
               }
 
-              const currentDocument = this.repository.find(payload.path);
-              if (!currentDocument)
-                throw new Error("Document path is not editable.");
-              if (currentDocument.revision !== payload.expectedRevision) {
-                response.statusCode = 409;
-                response.end(
-                  JSON.stringify({
-                    errors: [
-                      "This file changed on disk after you opened it. Reload before saving to avoid overwriting those changes.",
-                    ],
-                  }),
-                );
-                return;
+              for (const change of changes) {
+                const currentDocument = this.repository.find(change.path!);
+                if (!currentDocument)
+                  throw new Error(`${change.path}: Document path is not editable.`);
+                if (currentDocument.revision !== change.expectedRevision) {
+                  response.statusCode = 409;
+                  response.end(JSON.stringify({
+                    errors: [`${change.path}: This file changed on disk after you opened it. Reload before saving.`],
+                  }));
+                  return;
+                }
+                const validation = this.validator.validate(change.content!);
+                if (!validation.valid) {
+                  response.statusCode = 422;
+                  response.end(JSON.stringify({
+                    valid: false,
+                    errors: validation.errors.map((error) => `${change.path}: ${error}`),
+                  }));
+                  return;
+                }
               }
 
-              const validation = this.validator.validate(payload.content);
-              if (!validation.valid) {
-                response.statusCode = 422;
-                response.end(JSON.stringify(validation));
-                return;
-              }
-
-              this.internalWrites.add(
-                path.resolve(repositoryDirectory, payload.path),
-              );
-              const document = this.repository.save(
-                payload.path,
-                payload.content,
-              );
-              response.end(JSON.stringify({ valid: true, document }));
+              const savedDocuments = changes.map((change) => {
+                this.internalWrites.add(path.resolve(repositoryDirectory, change.path!));
+                return this.repository.save(change.path!, change.content!);
+              });
+              response.end(JSON.stringify({
+                valid: true,
+                document: savedDocuments[0],
+                documents: savedDocuments,
+              }));
             } catch (error) {
               response.statusCode = 400;
               response.end(
@@ -197,7 +205,38 @@ class MarkdownDocumentsPlugin {
 
 export default defineConfig({
   base: process.env.VITE_BASE_PATH || "/",
-  plugins: [react(), new MarkdownDocumentsPlugin().create()],
+  plugins: [
+    react(),
+    new MarkdownDocumentsPlugin().create(),
+    VitePWA({
+      registerType: "autoUpdate",
+      includeAssets: ["docs-icon.svg"],
+      manifest: {
+        name: "Learn English Docs",
+        short_name: "English Docs",
+        description: "Offline English learning notes, exercises, and review tools",
+        lang: "en",
+        theme_color: "#006b5f",
+        background_color: "#f4f2ec",
+        display: "standalone",
+        start_url: "./",
+        scope: "./",
+        icons: [
+          {
+            src: "docs-icon.svg",
+            sizes: "any",
+            type: "image/svg+xml",
+            purpose: "any maskable",
+          },
+        ],
+      },
+      workbox: {
+        globPatterns: ["**/*.{js,css,html,svg,json}"],
+        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+        navigateFallback: "index.html",
+      },
+    }),
+  ],
   server: {
     host: "127.0.0.1",
     port: 4174,

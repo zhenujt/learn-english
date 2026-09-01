@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
-  base: process.env.GITHUB_ACTIONS ? '/learn-english/' : '/',
+  base: process.env.VITE_BASE_PATH || '/',
   plugins: [
     react(),
     VitePWA({
@@ -31,8 +31,6 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,png,json,mp3}'],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
-        // The docs editor is a separate app inside this service worker's scope.
-        navigateFallbackDenylist: [/\/docs-simple-grammar\//],
       },
     }),
   ],

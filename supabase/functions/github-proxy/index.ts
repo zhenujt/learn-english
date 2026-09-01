@@ -12,7 +12,7 @@ Deno.serve(async (request: Request) => {
   const cors: Record<string, string> = {
     "Access-Control-Allow-Origin":
       origin === ALLOWED_ORIGIN ? ALLOWED_ORIGIN : "null",
-    "Access-Control-Allow-Methods": "GET, PUT, OPTIONS",
+    "Access-Control-Allow-Methods": "GET, PUT, POST, PATCH, OPTIONS",
     "Access-Control-Allow-Headers":
       "Authorization, Content-Type, Accept, X-GitHub-Api-Version, X-GitHub-Token, apikey",
     "Access-Control-Max-Age": "86400",
@@ -49,7 +49,7 @@ Deno.serve(async (request: Request) => {
       "X-GitHub-Api-Version": "2022-11-28",
       "User-Agent": "docs-editor-proxy",
     },
-    body: request.method === "PUT" ? await request.text() : undefined,
+    body: request.method === "GET" ? undefined : await request.text(),
   });
 
   return new Response(await upstream.text(), {
@@ -62,6 +62,12 @@ function isAllowed(path: string, method: string): boolean {
   if (path.startsWith(`repos/${ALLOWED_REPO}/contents/`)) {
     return method === "GET" || method === "PUT";
   }
+  if (path === `repos/${ALLOWED_REPO}/git/blobs`) return method === "POST";
+  if (path === `repos/${ALLOWED_REPO}/git/trees`) return method === "POST";
+  if (path === `repos/${ALLOWED_REPO}/git/commits`) return method === "POST";
+  if (path.startsWith(`repos/${ALLOWED_REPO}/git/commits/`)) return method === "GET";
+  if (path.startsWith(`repos/${ALLOWED_REPO}/git/ref/heads/`)) return method === "GET";
+  if (path.startsWith(`repos/${ALLOWED_REPO}/git/refs/heads/`)) return method === "PATCH";
   return path === `repos/${ALLOWED_REPO}/actions/runs` && method === "GET";
 }
 

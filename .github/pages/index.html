@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="refresh" content="2;url=./anki/" />
+    <title>Learn English</title>
+  </head>
+  <body>
+    <main>
+      <p>Opening <a href="./anki/">Anki sentence trainer</a>…</p>
+    </main>
+    <script>
+      const rootPath = new URL("./", window.location.href).pathname;
+      const redirect = () => window.location.replace("./anki/");
+
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .getRegistrations()
+          .then((registrations) =>
+            Promise.all(
+              registrations
+                .filter(
+                  (registration) =>
+                    new URL(registration.scope).pathname === rootPath,
+                )
+                .map((registration) => registration.unregister()),
+            ),
+          )
+          .finally(redirect);
+      } else {
+        redirect();
+      }
+    </script>
+  </body>
+</html>
