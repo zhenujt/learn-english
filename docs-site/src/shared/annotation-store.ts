@@ -11,13 +11,45 @@ export interface TextAnnotation {
   deletedAt?: string;
 }
 
-const annotationsKey = "docs-annotations-v1";
+const legacyAnnotationsKey = "docs-annotations-v1";
+const annotationsKeyPrefix = "docs-annotations-v2";
+const uuidPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+const validTimestamp = (value: unknown): value is string =>
+  typeof value === "string" && Number.isFinite(Date.parse(value));
 
 /** Stores text annotations locally and merges independently updated cloud records. */
 export class AnnotationStore {
+  private scope = "anonymous";
+
+  /** @returns The local-storage key for the active account scope. */
+  public get storageKey(): string {
+    return `${annotationsKeyPrefix}:${this.scope}`;
+  }
+
+  /**
+   * Selects the local annotation scope without importing anonymous records.
+   * @param userId Authenticated Supabase user ID, or undefined for anonymous storage.
+   * @returns Valid annotations stored in the selected scope.
+   */
+  public setScope(userId?: string): TextAnnotation[] {
+    if (userId && !uuidPattern.test(userId)) {
+      throw new Error("The annotation account ID is invalid.");
+    }
+    this.scope = userId ? `user:${userId}` : "anonymous";
+    if (this.scope === "anonymous" && localStorage.getItem(this.storageKey) === null) {
+      const legacy = localStorage.getItem(legacyAnnotationsKey);
+      if (legacy !== null) {
+        localStorage.setItem(this.storageKey, legacy);
+        localStorage.removeItem(legacyAnnotationsKey);
+      }
+    }
+    return this.readAll();
+  }
+
   public readAll(): TextAnnotation[] {
     try {
-      const value = JSON.parse(localStorage.getItem(annotationsKey) ?? "[]") as unknown;
+      const value = JSON.parse(localStorage.getItem(this.storageKey) ?? "[]") as unknown;
       return Array.isArray(value) ? value.filter(this.isAnnotation) : [];
     } catch {
       return [];
@@ -58,21 +90,20 @@ export class AnnotationStore {
     if (!value || typeof value !== "object") return false;
     const annotation = value as Partial<TextAnnotation>;
     return Boolean(
-      annotation.id &&
-      annotation.documentPath &&
-      annotation.quote &&
-      typeof annotation.startOffset === "number" &&
+      typeof annotation.id === "string" && uuidPattern.test(annotation.id) &&
+      typeof annotation.documentPath === "string" && annotation.documentPath.length > 0 &&
+      typeof annotation.quote === "string" && annotation.quote.length > 0 && annotation.quote.length <= 500 &&
+      typeof annotation.prefix === "string" &&
+      typeof annotation.suffix === "string" &&
+      typeof annotation.startOffset === "number" && Number.isInteger(annotation.startOffset) && annotation.startOffset >= 0 &&
       typeof annotation.note === "string" &&
-      annotation.createdAt &&
-      annotation.updatedAt,
+      validTimestamp(annotation.createdAt) &&
+      validTimestamp(annotation.updatedAt) &&
+      (annotation.deletedAt === undefined || validTimestamp(annotation.deletedAt)),
     );
   };
 
   private write(annotations: TextAnnotation[]): void {
-    try {
-      localStorage.setItem(annotationsKey, JSON.stringify(annotations));
-    } catch {
-      // Reading remains available when browser storage is unavailable.
-    }
+    localStorage.setItem(this.storageKey, JSON.stringify(annotations));
   }
 }

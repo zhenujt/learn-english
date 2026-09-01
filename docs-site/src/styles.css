@@ -420,6 +420,11 @@ button {
   outline: 0;
   box-shadow: 0 0 0 2px var(--accent-soft);
 }
+.annotation-error {
+  margin: -8px 18px 16px;
+  color: #a33820;
+  font-size: 12px;
+}
 .annotation-dialog > footer {
   display: flex;
   justify-content: flex-end;

@@ -22,23 +22,31 @@ interface TextAnnotationsProps {
 const contextLength = 40;
 
 function findAnnotationOffset(text: string, annotation: TextAnnotation): number {
-  if (text.slice(annotation.startOffset, annotation.startOffset + annotation.quote.length) === annotation.quote) {
-    return annotation.startOffset;
-  }
-  let bestOffset = -1;
-  let bestScore = -1;
+  const offsets: number[] = [];
   let offset = text.indexOf(annotation.quote);
   while (offset >= 0) {
+    offsets.push(offset);
+    offset = text.indexOf(annotation.quote, offset + 1);
+  }
+  if (offsets.length === 1) return offsets[0];
+  if (offsets.length === 0) return -1;
+
+  let bestOffset = -1;
+  let bestScore = -1;
+  let bestDistance = Number.POSITIVE_INFINITY;
+  for (const offset of offsets) {
     const prefix = text.slice(Math.max(0, offset - contextLength), offset);
     const suffix = text.slice(offset + annotation.quote.length, offset + annotation.quote.length + contextLength);
     const score = commonSuffix(prefix, annotation.prefix) + commonPrefix(suffix, annotation.suffix);
-    if (score > bestScore) {
+    const distance = Math.abs(offset - annotation.startOffset);
+    if (score > bestScore || (score === bestScore && distance < bestDistance)) {
       bestOffset = offset;
       bestScore = score;
+      bestDistance = distance;
     }
-    offset = text.indexOf(annotation.quote, offset + 1);
   }
-  return bestOffset;
+  const availableContext = annotation.prefix.length + annotation.suffix.length;
+  return bestScore >= Math.min(8, availableContext) ? bestOffset : -1;
 }
 
 function commonPrefix(left: string, right: string): number {
@@ -69,12 +77,22 @@ function applyHighlight(container: HTMLElement, annotation: TextAnnotation): voi
   if (start < 0) return;
   const end = start + annotation.quote.length;
   let offset = 0;
-  for (const node of textNodes(container)) {
+  const nodes = textNodes(container);
+  const targetNodes: Text[] = [];
+  for (const node of nodes) {
     const nodeStart = offset;
     const nodeEnd = offset + (node.nodeValue?.length ?? 0);
     offset = nodeEnd;
     if (nodeEnd <= start || nodeStart >= end) continue;
-    if (node.parentElement?.closest("mark[data-annotation-id]")) continue;
+    if (node.parentElement?.closest("mark[data-annotation-id]")) return;
+    targetNodes.push(node);
+  }
+  offset = 0;
+  for (const node of nodes) {
+    const nodeStart = offset;
+    const nodeEnd = offset + (node.nodeValue?.length ?? 0);
+    offset = nodeEnd;
+    if (!targetNodes.includes(node)) continue;
     const range = document.createRange();
     range.setStart(node, Math.max(0, start - nodeStart));
     range.setEnd(node, Math.min(nodeEnd, end) - nodeStart);
@@ -91,6 +109,7 @@ export function TextAnnotations(props: TextAnnotationsProps) {
   const [selectionAnchor, setSelectionAnchor] = useState<SelectionAnchor>();
   const [editing, setEditing] = useState<TextAnnotation | "new">();
   const [note, setNote] = useState("");
+  const [error, setError] = useState("");
   const selectionTimerRef = useRef<number | undefined>(undefined);
   const editingAnchorRef = useRef<SelectionAnchor | undefined>(undefined);
 
@@ -104,7 +123,10 @@ export function TextAnnotations(props: TextAnnotationsProps) {
       if (!mark) return;
       const annotation = props.annotations.find((item) => item.id === mark.dataset.annotationId);
       if (!annotation) return;
+      event.preventDefault();
+      event.stopPropagation();
       setSelectionAnchor(undefined);
+      setError("");
       setNote(annotation.note);
       setEditing(annotation);
     };
@@ -121,7 +143,9 @@ export function TextAnnotations(props: TextAnnotationsProps) {
         if (!container || !selection || selection.isCollapsed || selection.rangeCount === 0) return;
         const range = selection.getRangeAt(0);
         if (!container.contains(range.commonAncestorContainer)) return;
-        if ((range.commonAncestorContainer.parentElement)?.closest("mark[data-annotation-id]")) return;
+        const overlapsAnnotation = [...container.querySelectorAll("mark[data-annotation-id]")]
+          .some((mark) => range.intersectsNode(mark));
+        if (overlapsAnnotation) return;
         const quote = selection.toString().trim();
         if (!quote || quote.length > 500) return;
         const before = document.createRange();
@@ -161,31 +185,43 @@ export function TextAnnotations(props: TextAnnotationsProps) {
   const beginCreate = () => {
     editingAnchorRef.current = selectionAnchor;
     setNote("");
+    setError("");
     setEditing("new");
+    window.getSelection()?.removeAllRanges();
+  };
+
+  const closeDialog = () => {
+    setEditing(undefined);
+    setSelectionAnchor(undefined);
+    setError("");
+    editingAnchorRef.current = undefined;
+    window.clearTimeout(selectionTimerRef.current);
     window.getSelection()?.removeAllRanges();
   };
 
   const save = () => {
     const now = new Date().toISOString();
     const anchor = editingAnchorRef.current;
-    if (editing === "new" && anchor) {
-      props.onSave({
-        id: crypto.randomUUID(),
-        documentPath: props.documentPath,
-        quote: anchor.quote,
-        prefix: anchor.prefix,
-        suffix: anchor.suffix,
-        startOffset: anchor.startOffset,
-        note: note.trim(),
-        createdAt: now,
-        updatedAt: now,
-      });
-    } else if (editing && editing !== "new") {
-      props.onSave({ ...editing, note: note.trim(), updatedAt: now });
+    try {
+      if (editing === "new" && anchor) {
+        props.onSave({
+          id: crypto.randomUUID(),
+          documentPath: props.documentPath,
+          quote: anchor.quote,
+          prefix: anchor.prefix,
+          suffix: anchor.suffix,
+          startOffset: anchor.startOffset,
+          note: note.trim(),
+          createdAt: now,
+          updatedAt: now,
+        });
+      } else if (editing && editing !== "new") {
+        props.onSave({ ...editing, note: note.trim(), updatedAt: now });
+      }
+      closeDialog();
+    } catch {
+      setError("Could not save this note in browser storage.");
     }
-    setEditing(undefined);
-    setSelectionAnchor(undefined);
-    editingAnchorRef.current = undefined;
   };
 
   return (
@@ -202,21 +238,22 @@ export function TextAnnotations(props: TextAnnotationsProps) {
         </button>
       )}
       {editing && (
-        <div className="annotation-backdrop" role="presentation">
-          <form className="annotation-dialog" onSubmit={(event) => { event.preventDefault(); save(); }}>
+        <div className="annotation-backdrop">
+          <form className="annotation-dialog" role="dialog" aria-modal="true" aria-label="Text note" onSubmit={(event) => { event.preventDefault(); save(); }}>
             <header>
               <div>
                 <span className="pane-label">Text note</span>
                 <strong>“{editing === "new" ? editingAnchorRef.current?.quote : editing.quote}”</strong>
               </div>
-              <button type="button" className="icon-button" aria-label="Close annotation" onClick={() => setEditing(undefined)}><X size={18} /></button>
+              <button type="button" className="icon-button" aria-label="Close annotation" onClick={closeDialog}><X size={18} /></button>
             </header>
             <textarea autoFocus value={note} onChange={(event) => setNote(event.target.value)} placeholder="Translation or note" />
+            {error && <p className="annotation-error" role="alert">{error}</p>}
             <footer>
               {editing !== "new" && (
-                <button type="button" className="delete-annotation" onClick={() => { props.onDelete(editing.id); setEditing(undefined); }}><Trash2 size={15} /> Delete</button>
+                <button type="button" className="delete-annotation" onClick={() => { try { props.onDelete(editing.id); closeDialog(); } catch { setError("Could not delete this note from browser storage."); } }}><Trash2 size={15} /> Delete</button>
               )}
-              <button type="button" className="cancel-button" onClick={() => setEditing(undefined)}>Cancel</button>
+              <button type="button" className="cancel-button" onClick={closeDialog}>Cancel</button>
               <button type="submit" className="save-button">Save note</button>
             </footer>
           </form>

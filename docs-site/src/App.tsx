@@ -234,6 +234,7 @@ export function App() {
   const [mobileEditorView, setMobileEditorView] = useState<"edit" | "preview">("edit");
   const searchInputRef = useRef<HTMLInputElement>(null);
   const documentMainRef = useRef<HTMLElement>(null);
+  const syncInFlightRef = useRef(false);
   const activeDocument = catalog.find(activePath);
   const draft = drafts[activePath] ?? activeDocument.content;
   const persistedContent = savedContent[activePath] ?? activeDocument.content;
@@ -290,11 +291,24 @@ export function App() {
   useEffect(() => {
     if (!studySync.configured) return;
     void studySync.user()
-      .then((user) => setUserEmail(user?.email))
+      .then((user) => {
+        setUserEmail(user?.email);
+        setAnnotations(annotationStore.setScope(user?.id));
+      })
       .catch((error: unknown) => {
         setSyncMessage(error instanceof Error ? error.message : "Could not read the sync session");
       });
   }, []);
+
+  useEffect(() => {
+    const refreshAnnotations = (event: StorageEvent) => {
+      if (event.key === annotationStore.storageKey) {
+        setAnnotations(annotationStore.readAll());
+      }
+    };
+    window.addEventListener("storage", refreshAnnotations);
+    return () => window.removeEventListener("storage", refreshAnnotations);
+  }, [userEmail]);
 
   useEffect(() => {
     const answers = documentMainRef.current?.querySelectorAll<HTMLDetailsElement>(
@@ -498,20 +512,30 @@ export function App() {
   ) => setStudy(workspace.updateDocument(activePath, update));
 
   const syncStudy = async () => {
+    if (syncInFlightRef.current) return;
+    syncInFlightRef.current = true;
     try {
       setSyncMessage("Syncing…");
+      const user = await studySync.user();
+      if (!user) throw new Error("Sign in before syncing.");
+      setAnnotations(annotationStore.setScope(user.id));
+      const syncStorageKey = annotationStore.storageKey;
       const [cloud, cloudAnnotations] = await Promise.all([
         studySync.pull(),
         studySync.pullAnnotations(),
       ]);
+      if (annotationStore.storageKey !== syncStorageKey) return;
       const merged = cloud ? workspace.mergeCloud(cloud) : workspace.readStudy();
       const mergedAnnotations = annotationStore.mergeCloud(cloudAnnotations);
       await Promise.all([
         studySync.push(merged),
         studySync.pushAnnotations(mergedAnnotations),
       ]);
+      const canonicalAnnotations = await studySync.pullAnnotations();
+      if (annotationStore.storageKey !== syncStorageKey) return;
+      const finalAnnotations = annotationStore.mergeCloud(canonicalAnnotations);
       setStudy(merged);
-      setAnnotations(mergedAnnotations);
+      setAnnotations(finalAnnotations);
       const syncedPosition = merged.documents[activePath]?.scrollTop;
       if (typeof syncedPosition === "number") {
         documentMainRef.current?.scrollTo({ top: syncedPosition, behavior: "auto" });
@@ -520,6 +544,8 @@ export function App() {
       setSyncMessage("Synced");
     } catch (error) {
       setSyncMessage(error instanceof Error ? error.message : "Sync failed");
+    } finally {
+      syncInFlightRef.current = false;
     }
   };
 
@@ -536,6 +562,7 @@ export function App() {
     try {
       await studySync.signOut();
       setUserEmail(undefined);
+      setAnnotations(annotationStore.setScope());
       setSyncMessage("Signed out");
     } catch (error) {
       setSyncMessage(error instanceof Error ? error.message : "Sign-out failed");
