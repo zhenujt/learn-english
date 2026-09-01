@@ -35,7 +35,7 @@ const apiKey = import.meta.env.VITE_GITHUB_API_KEY?.trim();
 
 /**
  * Commits a single Markdown file straight to the GitHub Contents API.
- * The token lives only in sessionStorage, so it disappears when the tab closes.
+ * The token lives in localStorage so it remains available across browser sessions.
  */
 export class GitHubDocumentClient {
   private readonly validator = new MarkdownValidator();
@@ -49,13 +49,21 @@ export class GitHubDocumentClient {
   }
 
   public get token(): string {
-    return sessionStorage.getItem(tokenStorageKey) ?? "";
+    const storedToken = localStorage.getItem(tokenStorageKey);
+    if (storedToken) return storedToken;
+
+    const legacyToken = sessionStorage.getItem(tokenStorageKey);
+    if (!legacyToken) return "";
+    localStorage.setItem(tokenStorageKey, legacyToken);
+    sessionStorage.removeItem(tokenStorageKey);
+    return legacyToken;
   }
 
   public set token(value: string) {
     const trimmed = value.trim();
-    if (trimmed) sessionStorage.setItem(tokenStorageKey, trimmed);
-    else sessionStorage.removeItem(tokenStorageKey);
+    if (trimmed) localStorage.setItem(tokenStorageKey, trimmed);
+    else localStorage.removeItem(tokenStorageKey);
+    sessionStorage.removeItem(tokenStorageKey);
   }
 
   /**

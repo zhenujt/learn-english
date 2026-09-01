@@ -754,7 +754,7 @@ export function App() {
                     setToken(event.target.value);
                   }}
                 />
-                <small>Kept in this tab only; cleared when you close it.</small>
+                <small>Saved in this browser until you clear the field.</small>
               </label>
             )}
             <RichMarkdownEditor
