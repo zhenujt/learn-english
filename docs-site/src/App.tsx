@@ -21,6 +21,11 @@ import { GitHubDocumentClient, SaveError } from "./shared/github-client";
 import { RichMarkdownEditor } from "./RichMarkdownEditor";
 import { SaveReviewDialog, type DocumentDiff } from "./SaveReviewDialog";
 import { StudyPanel } from "./StudyPanel";
+import { TextAnnotations } from "./TextAnnotations";
+import {
+  AnnotationStore,
+  type TextAnnotation,
+} from "./shared/annotation-store";
 import { StudySyncClient } from "./shared/study-sync";
 import {
   DocumentWorkspaceStore,
@@ -106,6 +111,7 @@ class ReadingProgressStore {
 
 const readingProgress = new ReadingProgressStore();
 const workspace = new DocumentWorkspaceStore();
+const annotationStore = new AnnotationStore();
 const studySync = new StudySyncClient();
 
 const slugify = (value: string) =>
@@ -216,6 +222,9 @@ export function App() {
   const [study, setStudy] = useState<StudySnapshot>(() =>
     workspace.dailyTasks(documents.map((document) => document.path)),
   );
+  const [annotations, setAnnotations] = useState<TextAnnotation[]>(() =>
+    annotationStore.readAll(),
+  );
   const [studyOpen, setStudyOpen] = useState(false);
   const [activeHeading, setActiveHeading] = useState("");
   const [userEmail, setUserEmail] = useState<string>();
@@ -243,6 +252,9 @@ export function App() {
     .filter((path) => documents.some((document) => document.path === path))
     .map((path) => ({ path, title: catalog.find(path).title }));
   const exerciseCount = (persistedContent.match(/<details(?:\s[^>]*)?>/gi) ?? []).length;
+  const activeAnnotations = annotations.filter(
+    (annotation) => annotation.documentPath === activePath && !annotation.deletedAt,
+  );
 
   useEffect(() => {
     const url = new URL(window.location.href);
@@ -488,10 +500,18 @@ export function App() {
   const syncStudy = async () => {
     try {
       setSyncMessage("Syncing…");
-      const cloud = await studySync.pull();
+      const [cloud, cloudAnnotations] = await Promise.all([
+        studySync.pull(),
+        studySync.pullAnnotations(),
+      ]);
       const merged = cloud ? workspace.mergeCloud(cloud) : workspace.readStudy();
-      await studySync.push(merged);
+      const mergedAnnotations = annotationStore.mergeCloud(cloudAnnotations);
+      await Promise.all([
+        studySync.push(merged),
+        studySync.pushAnnotations(mergedAnnotations),
+      ]);
       setStudy(merged);
+      setAnnotations(mergedAnnotations);
       const syncedPosition = merged.documents[activePath]?.scrollTop;
       if (typeof syncedPosition === "number") {
         documentMainRef.current?.scrollTo({ top: syncedPosition, behavior: "auto" });
@@ -520,6 +540,25 @@ export function App() {
     } catch (error) {
       setSyncMessage(error instanceof Error ? error.message : "Sign-out failed");
     }
+  };
+
+  const saveAnnotation = (annotation: TextAnnotation) => {
+    setAnnotations(annotationStore.save(annotation));
+  };
+
+  const deleteAnnotation = (id: string) => {
+    setAnnotations(annotationStore.remove(id));
+  };
+
+  const selectAnnotation = (id: string) => {
+    setStudyOpen(false);
+    window.requestAnimationFrame(() => {
+      const mark = documentMainRef.current?.querySelector<HTMLElement>(
+        `mark[data-annotation-id="${CSS.escape(id)}"]`,
+      );
+      mark?.scrollIntoView({ behavior: "smooth", block: "center" });
+      mark?.click();
+    });
   };
 
   const handleDocumentScroll = (element: HTMLElement) => {
@@ -791,6 +830,9 @@ export function App() {
             <MarkdownContent
               content={persistedContent}
               documentPath={activeDocument.path}
+              annotations={activeAnnotations}
+              onSaveAnnotation={saveAnnotation}
+              onDeleteAnnotation={deleteAnnotation}
             />
           </main>
           <aside className="page-outline">
@@ -826,6 +868,7 @@ export function App() {
         syncMessage={syncMessage}
         exerciseMode={exerciseMode}
         wrongOnly={wrongOnly}
+        annotations={activeAnnotations}
         onClose={() => setStudyOpen(false)}
         onSelectDocument={selectDocument}
         onUpdate={updateStudyDocument}
@@ -834,6 +877,8 @@ export function App() {
         onSync={syncStudy}
         onExerciseMode={setExerciseMode}
         onWrongOnly={setWrongOnly}
+        onSelectAnnotation={selectAnnotation}
+        onDeleteAnnotation={deleteAnnotation}
       />
       {studyOpen && <button className="study-scrim" aria-label="Close study tools" onClick={() => setStudyOpen(false)} />}
       {reviewDocuments.length > 0 && (
@@ -852,39 +897,59 @@ export function App() {
 function MarkdownContent({
   content,
   documentPath,
+  annotations,
+  onSaveAnnotation,
+  onDeleteAnnotation,
 }: {
   content: string;
   documentPath: string;
+  annotations?: TextAnnotation[];
+  onSaveAnnotation?: (annotation: TextAnnotation) => void;
+  onDeleteAnnotation?: (id: string) => void;
 }) {
+  const articleRef = useRef<HTMLElement>(null);
+  const annotationKey = annotations
+    ?.map((annotation) => `${annotation.id}:${annotation.updatedAt}`)
+    .join("|");
   return (
-    <article className="markdown-body">
-      <ReactMarkdown
-        key={documentPath}
-        rehypePlugins={[rehypeRaw]}
-        remarkPlugins={[remarkGfm]}
-        components={{
-          h1: ({ children }) => (
-            <h1 id={slugify(String(children))}>{children}</h1>
-          ),
-          h2: ({ children }) => (
-            <h2 id={slugify(String(children))}>{children}</h2>
-          ),
-          h3: ({ children }) => (
-            <h3 id={slugify(String(children))}>{children}</h3>
-          ),
-          a: ({ href, children }) => (
-            <a
-              href={href}
-              target={href?.startsWith("http") ? "_blank" : undefined}
-              rel="noreferrer"
-            >
-              {children}
-            </a>
-          ),
-        }}
-      >
-        {content}
-      </ReactMarkdown>
-    </article>
+    <>
+      <article className="markdown-body" ref={articleRef} key={`${documentPath}:${annotationKey}`}>
+        <ReactMarkdown
+          rehypePlugins={[rehypeRaw]}
+          remarkPlugins={[remarkGfm]}
+          components={{
+            h1: ({ children }) => (
+              <h1 id={slugify(String(children))}>{children}</h1>
+            ),
+            h2: ({ children }) => (
+              <h2 id={slugify(String(children))}>{children}</h2>
+            ),
+            h3: ({ children }) => (
+              <h3 id={slugify(String(children))}>{children}</h3>
+            ),
+            a: ({ href, children }) => (
+              <a
+                href={href}
+                target={href?.startsWith("http") ? "_blank" : undefined}
+                rel="noreferrer"
+              >
+                {children}
+              </a>
+            ),
+          }}
+        >
+          {content}
+        </ReactMarkdown>
+      </article>
+      {annotations && onSaveAnnotation && onDeleteAnnotation && (
+        <TextAnnotations
+          containerRef={articleRef}
+          documentPath={documentPath}
+          annotations={annotations}
+          onSave={onSaveAnnotation}
+          onDelete={onDeleteAnnotation}
+        />
+      )}
+    </>
   );
 }

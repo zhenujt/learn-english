@@ -343,6 +343,137 @@ button {
   text-transform: uppercase;
 }
 
+.text-annotation-highlight {
+  padding: 1px 0;
+  border-bottom: 2px solid #c58b12;
+  background: #fff0a8;
+  color: inherit;
+  cursor: pointer;
+}
+.text-annotation-highlight:hover {
+  background: #ffe37a;
+}
+.add-annotation-button {
+  position: fixed;
+  z-index: 55;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid #004f47;
+  border-radius: 5px;
+  background: var(--accent);
+  box-shadow: 0 8px 24px rgba(32, 35, 31, 0.2);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  transform: translate(-100%, -100%);
+  cursor: pointer;
+}
+.annotation-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(25, 28, 25, 0.45);
+}
+.annotation-dialog {
+  width: min(460px, 100%);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  box-shadow: 0 24px 70px rgba(25, 28, 25, 0.28);
+}
+.annotation-dialog > header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px;
+  border-bottom: 1px solid var(--line);
+}
+.annotation-dialog > header > div {
+  min-width: 0;
+  display: grid;
+  gap: 7px;
+}
+.annotation-dialog > header strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.annotation-dialog textarea {
+  width: calc(100% - 36px);
+  min-height: 130px;
+  margin: 18px;
+  padding: 12px;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: white;
+}
+.annotation-dialog textarea:focus {
+  border-color: var(--accent);
+  outline: 0;
+  box-shadow: 0 0 0 2px var(--accent-soft);
+}
+.annotation-dialog > footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 0 18px 18px;
+}
+.annotation-dialog .delete-annotation {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: auto;
+  border: 0;
+  background: transparent;
+  color: #a33820;
+  cursor: pointer;
+}
+.annotation-list {
+  display: grid;
+  gap: 8px;
+}
+.annotation-list article {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  border: 1px solid var(--line);
+  border-left: 3px solid #c58b12;
+  border-radius: 4px;
+  background: white;
+}
+.annotation-list article > button:first-child {
+  min-width: 0;
+  flex: 1;
+  display: grid;
+  gap: 4px;
+  padding: 10px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+.annotation-list article > button:first-child strong,
+.annotation-list article > button:first-child span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.annotation-list article > button:first-child span {
+  color: var(--muted);
+  font-size: 12px;
+}
+.annotation-list .icon-button {
+  margin: 5px 5px 0 0;
+}
+
 .editor-workspace {
   min-width: 0;
   min-height: 0;
@@ -964,6 +1095,22 @@ button {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 58px minmax(0, 1fr);
+  }
+  .add-annotation-button {
+    inset: auto 12px calc(12px + env(safe-area-inset-bottom)) 12px !important;
+    justify-content: center;
+    min-height: 46px;
+    transform: none;
+  }
+  .annotation-backdrop {
+    align-items: end;
+    padding: 0;
+  }
+  .annotation-dialog {
+    width: 100%;
+    padding-bottom: env(safe-area-inset-bottom);
+    border-width: 1px 0 0;
+    border-radius: 6px 6px 0 0;
   }
   .topbar {
     height: 58px;

@@ -5,11 +5,13 @@ import {
   Cloud,
   LogIn,
   LogOut,
+  MessageSquarePlus,
   RotateCcw,
   Target,
   Trash2,
   X,
 } from "lucide-react";
+import type { TextAnnotation } from "./shared/annotation-store";
 import type { DocumentStudyState, LearningStatus } from "./shared/workspace-store";
 
 interface TaskDocument {
@@ -29,6 +31,7 @@ interface StudyPanelProps {
   syncMessage: string;
   exerciseMode: boolean;
   wrongOnly: boolean;
+  annotations: TextAnnotation[];
   onClose: () => void;
   onSelectDocument: (path: string) => void;
   onUpdate: (update: Partial<Omit<DocumentStudyState, "updatedAt">>) => void;
@@ -37,6 +40,8 @@ interface StudyPanelProps {
   onSync: () => Promise<void>;
   onExerciseMode: (enabled: boolean) => void;
   onWrongOnly: (enabled: boolean) => void;
+  onSelectAnnotation: (id: string) => void;
+  onDeleteAnnotation: (id: string) => void;
 }
 
 const statuses: { value: LearningStatus; label: string }[] = [
@@ -94,6 +99,23 @@ export function StudyPanel(props: StudyPanelProps) {
           <span style={{ width: `${props.state.progress}%` }} />
         </div>
       </section>
+
+      {props.annotations.length > 0 && (
+        <section>
+          <div className="study-section-title"><MessageSquarePlus size={16} /> Text notes</div>
+          <div className="annotation-list">
+            {props.annotations.map((annotation) => (
+              <article key={annotation.id}>
+                <button type="button" onClick={() => props.onSelectAnnotation(annotation.id)}>
+                  <strong>{annotation.quote}</strong>
+                  <span>{annotation.note || "No note"}</span>
+                </button>
+                <button className="icon-button" type="button" aria-label={`Delete note for ${annotation.quote}`} onClick={() => props.onDeleteAnnotation(annotation.id)}><Trash2 size={15} /></button>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section>
         <div className="study-section-title"><BookmarkPlus size={16} /> Bookmark & note</div>
