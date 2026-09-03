@@ -24,6 +24,7 @@ interface AnalysisDocument {
   section: string;
   content: string;
   revision: string;
+  audioPath?: string;
 }
 
 class MarkdownDocumentRepository {
@@ -79,6 +80,11 @@ class MarkdownDocumentRepository {
       .split(path.sep)
       .join("/");
     const segments = relativePath.split("/");
+    const canonicalAudioPath = relativePath.endsWith(".zh.md")
+      ? `${relativePath.slice(0, -6)}.md`
+      : relativePath;
+    const audioFileName = `${crypto.createHash("sha256").update(canonicalAudioPath).digest("hex").slice(0, 20)}.mp3`;
+    const audioPath = `audio/documents/${audioFileName}`;
     return {
       path: relativePath,
       title:
@@ -86,6 +92,9 @@ class MarkdownDocumentRepository {
       section: segments.length > 1 ? segments[0] : "Root",
       content,
       revision: crypto.createHash("sha256").update(content).digest("hex"),
+      audioPath: fs.existsSync(path.join(siteDirectory, "public", audioPath))
+        ? audioPath
+        : undefined,
     };
   }
 }

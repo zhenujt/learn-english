@@ -13,6 +13,7 @@ import {
   Pencil,
   Save,
   Search,
+  Volume2,
   X,
 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
@@ -69,6 +70,7 @@ const defaultDocumentPath =
 const lastDocumentStorageKey = "docs-last-document";
 const readingPositionsStorageKey = "docs-reading-positions";
 const readingAppearanceStorageKey = "docs-reading-appearance";
+const audioPositionsStorageKey = "docs-audio-positions";
 
 type ReadingMode = "cool" | "soft" | "crisp";
 type ReadingSize = "small" | "medium" | "large";
@@ -144,7 +146,48 @@ class ReadingProgressStore {
   }
 }
 
+class AudioProgressStore {
+  public readPosition(path: string): number {
+    try {
+      const positions = JSON.parse(
+        localStorage.getItem(audioPositionsStorageKey) ?? "{}",
+      ) as Record<string, unknown>;
+      const position = positions[path];
+      return typeof position === "number" && Number.isFinite(position) && position > 0
+        ? position
+        : 0;
+    } catch {
+      return 0;
+    }
+  }
+
+  public savePosition(path: string, position: number): void {
+    try {
+      const positions = JSON.parse(
+        localStorage.getItem(audioPositionsStorageKey) ?? "{}",
+      ) as Record<string, unknown>;
+      positions[path] = Math.max(0, position);
+      localStorage.setItem(audioPositionsStorageKey, JSON.stringify(positions));
+    } catch {
+      // Audio playback still works when storage is unavailable.
+    }
+  }
+
+  public clearPosition(path: string): void {
+    try {
+      const positions = JSON.parse(
+        localStorage.getItem(audioPositionsStorageKey) ?? "{}",
+      ) as Record<string, unknown>;
+      delete positions[path];
+      localStorage.setItem(audioPositionsStorageKey, JSON.stringify(positions));
+    } catch {
+      // Audio playback still works when storage is unavailable.
+    }
+  }
+}
+
 const readingProgress = new ReadingProgressStore();
+const audioProgress = new AudioProgressStore();
 const readingAppearanceStore = new ReadingAppearanceStore();
 const workspace = new DocumentWorkspaceStore();
 const annotationStore = new AnnotationStore();
@@ -161,6 +204,9 @@ const readDocumentPath = () =>
   new URL(window.location.href).searchParams.get("doc") ??
   readingProgress.readLastDocument() ??
   defaultDocumentPath;
+
+const canonicalAudioDocumentPath = (path: string) =>
+  path.endsWith(".zh.md") ? `${path.slice(0, -6)}.md` : path;
 
 const getHeadings = (content: string): Heading[] =>
   [...content.matchAll(/^(#{2,3})\s+(.+)$/gm)].map((match) => ({
@@ -968,6 +1014,8 @@ export function App() {
             <MarkdownContent
               content={draft}
               documentPath={activeDocument.path}
+              documentTitle={activeDocument.title}
+              audioPath={activeDocument.audioPath}
             />
           </section>
         </main>
@@ -984,6 +1032,8 @@ export function App() {
             <MarkdownContent
               content={persistedContent}
               documentPath={activeDocument.path}
+              documentTitle={activeDocument.title}
+              audioPath={activeDocument.audioPath}
               annotations={activeAnnotations}
               onSaveAnnotation={saveAnnotation}
               onDeleteAnnotation={deleteAnnotation}
@@ -1051,12 +1101,16 @@ export function App() {
 function MarkdownContent({
   content,
   documentPath,
+  documentTitle,
+  audioPath,
   annotations,
   onSaveAnnotation,
   onDeleteAnnotation,
 }: {
   content: string;
   documentPath: string;
+  documentTitle: string;
+  audioPath?: string;
   annotations?: TextAnnotation[];
   onSaveAnnotation?: (annotation: TextAnnotation) => void;
   onDeleteAnnotation?: (id: string) => void;
@@ -1073,7 +1127,14 @@ function MarkdownContent({
           remarkPlugins={[remarkGfm]}
           components={{
             h1: ({ children }) => (
-              <h1 id={slugify(String(children))}>{children}</h1>
+              <>
+                <h1 id={slugify(String(children))}>{children}</h1>
+                <DocumentAudioPlayer
+                  title={documentTitle}
+                  documentPath={documentPath}
+                  audioPath={audioPath}
+                />
+              </>
             ),
             h2: ({ children }) => (
               <h2 id={slugify(String(children))}>{children}</h2>
@@ -1105,5 +1166,84 @@ function MarkdownContent({
         />
       )}
     </>
+  );
+}
+
+function DocumentAudioPlayer({
+  title,
+  documentPath,
+  audioPath,
+}: {
+  title: string;
+  documentPath: string;
+  audioPath?: string;
+}) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const savedPositionRef = useRef(0);
+  const lastSavedAtRef = useRef(0);
+  const progressKey = canonicalAudioDocumentPath(documentPath);
+
+  const saveCurrentPosition = () => {
+    const audio = audioRef.current;
+    if (!audio || !Number.isFinite(audio.currentTime) || audio.currentTime <= 0) return;
+    audioProgress.savePosition(progressKey, audio.currentTime);
+    lastSavedAtRef.current = Date.now();
+  };
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio || !audioPath) return;
+
+    const savedPosition = audioProgress.readPosition(progressKey);
+    savedPositionRef.current = savedPosition;
+    const restorePosition = () => {
+      if (
+        savedPositionRef.current > 0 &&
+        Number.isFinite(audio.duration) &&
+        audio.duration > 1
+      ) {
+        audio.currentTime = Math.min(savedPositionRef.current, audio.duration - 1);
+      }
+    };
+    if (audio.readyState >= 1) restorePosition();
+    else audio.addEventListener("loadedmetadata", restorePosition);
+
+    const saveWhenHidden = () => {
+      if (document.visibilityState === "hidden") saveCurrentPosition();
+    };
+    document.addEventListener("visibilitychange", saveWhenHidden);
+    return () => {
+      saveCurrentPosition();
+      audio.removeEventListener("loadedmetadata", restorePosition);
+      document.removeEventListener("visibilitychange", saveWhenHidden);
+    };
+  }, [audioPath, progressKey]);
+
+  return (
+    <section className={`document-audio ${audioPath ? "is-ready" : "is-pending"}`} aria-label="Document audio">
+      <div className="document-audio-heading">
+        <Volume2 size={18} />
+        <div>
+          <strong>例句跟读</strong>
+          <span>中文 1 遍 · Michelle 慢速英文 3 遍</span>
+        </div>
+      </div>
+      {audioPath ? (
+        <audio
+          ref={audioRef}
+          controls
+          preload="metadata"
+          src={`${import.meta.env.BASE_URL}${audioPath}`}
+          aria-label={`${title} 例句音频`}
+          onTimeUpdate={() => {
+            if (Date.now() - lastSavedAtRef.current >= 1000) saveCurrentPosition();
+          }}
+          onPause={saveCurrentPosition}
+          onEnded={() => audioProgress.clearPosition(progressKey)}
+        />
+      ) : (
+        <span className="audio-pending">该文档的音频正在准备中</span>
+      )}
+    </section>
   );
 }

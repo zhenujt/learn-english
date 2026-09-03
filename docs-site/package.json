@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "audio:document": "../.venv/bin/python scripts/generate_document_audio.py",
+    "audio:all": "../.venv/bin/python scripts/generate_document_audio.py --all"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.109.0",

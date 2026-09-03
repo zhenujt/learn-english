@@ -35,6 +35,24 @@
 
 每一课都有英文复习版，路径相同但去掉 `.zh`：例如 `01-word-classes-and-sentence-parts.md`。
 
+## 文档音频
+
+文档网站会在每篇 Markdown 标题下显示音频区域。生成后的音频依次朗读每组已有中英例句：中文一遍，然后使用慢速 `en-US-MichelleNeural` 朗读英文三遍。
+
+安装 `edge-tts` 和 FFmpeg 后，可以生成单篇文档音频：
+
+```sh
+npm --prefix docs-site run audio:document -- "path/to/lesson.zh.md"
+```
+
+也可以增量生成所有符合条件的文档：
+
+```sh
+npm --prefix docs-site run audio:all
+```
+
+语音分段缓存位于 `docs-site/.audio-cache`，最终 MP3 位于 `docs-site/public/audio/documents`。
+
 ## 达标标准
 
 - 基础篇后：能介绍自己、描述日程、询问和回答工作中的简单问题。
