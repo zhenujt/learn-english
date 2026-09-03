@@ -7,7 +7,9 @@ import {
   GraduationCap,
   Eye,
   Layers,
+  LogIn,
   Menu,
+  Palette,
   Pencil,
   Save,
   Search,
@@ -66,6 +68,39 @@ const defaultDocumentPath =
   "zero-to-work-english/04-工作沟通B1/software-workplace-grammar-guide.zh.md";
 const lastDocumentStorageKey = "docs-last-document";
 const readingPositionsStorageKey = "docs-reading-positions";
+const readingAppearanceStorageKey = "docs-reading-appearance";
+
+type ReadingMode = "cool" | "soft" | "crisp";
+type ReadingSize = "small" | "medium" | "large";
+
+interface ReadingAppearance {
+  mode: ReadingMode;
+  size: ReadingSize;
+}
+
+class ReadingAppearanceStore {
+  public read(): ReadingAppearance {
+    try {
+      const value = JSON.parse(
+        localStorage.getItem(readingAppearanceStorageKey) ?? "{}",
+      ) as Partial<ReadingAppearance>;
+      return {
+        mode: value.mode === "soft" || value.mode === "crisp" ? value.mode : "cool",
+        size: value.size === "small" || value.size === "large" ? value.size : "medium",
+      };
+    } catch {
+      return { mode: "cool", size: "medium" };
+    }
+  }
+
+  public save(appearance: ReadingAppearance): void {
+    try {
+      localStorage.setItem(readingAppearanceStorageKey, JSON.stringify(appearance));
+    } catch {
+      // Reading controls still work for the current session.
+    }
+  }
+}
 
 class ReadingProgressStore {
   public readLastDocument(): string | undefined {
@@ -110,6 +145,7 @@ class ReadingProgressStore {
 }
 
 const readingProgress = new ReadingProgressStore();
+const readingAppearanceStore = new ReadingAppearanceStore();
 const workspace = new DocumentWorkspaceStore();
 const annotationStore = new AnnotationStore();
 const studySync = new StudySyncClient();
@@ -232,8 +268,13 @@ export function App() {
   const [exerciseMode, setExerciseMode] = useState(false);
   const [wrongOnly, setWrongOnly] = useState(false);
   const [mobileEditorView, setMobileEditorView] = useState<"edit" | "preview">("edit");
+  const [readingAppearance, setReadingAppearance] = useState<ReadingAppearance>(() =>
+    readingAppearanceStore.read(),
+  );
+  const [appearanceOpen, setAppearanceOpen] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const documentMainRef = useRef<HTMLElement>(null);
+  const appearanceRef = useRef<HTMLDetailsElement>(null);
   const syncInFlightRef = useRef(false);
   const activeDocument = catalog.find(activePath);
   const draft = drafts[activePath] ?? activeDocument.content;
@@ -263,6 +304,22 @@ export function App() {
     url.searchParams.set("doc", activePath);
     window.history.replaceState({}, "", url);
   }, []);
+
+  useEffect(() => {
+    if (!appearanceOpen) return;
+    const dismiss = (event: PointerEvent) => {
+      if (!appearanceRef.current?.contains(event.target as Node)) setAppearanceOpen(false);
+    };
+    const dismissWithKeyboard = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setAppearanceOpen(false);
+    };
+    document.addEventListener("pointerdown", dismiss);
+    document.addEventListener("keydown", dismissWithKeyboard);
+    return () => {
+      document.removeEventListener("pointerdown", dismiss);
+      document.removeEventListener("keydown", dismissWithKeyboard);
+    };
+  }, [appearanceOpen]);
 
   useEffect(() => {
     const onPopState = () => {
@@ -558,6 +615,17 @@ export function App() {
     }
   };
 
+  const openSignIn = () => {
+    setStudyOpen(true);
+    window.requestAnimationFrame(() => {
+      const input = document.querySelector<HTMLInputElement>(
+        ".study-panel input[type=email]",
+      );
+      input?.scrollIntoView({ block: "center" });
+      input?.focus({ preventScroll: true });
+    });
+  };
+
   const signOut = async () => {
     try {
       await studySync.signOut();
@@ -605,8 +673,16 @@ export function App() {
     setActiveHeading(current?.textContent ?? "");
   };
 
+  const updateReadingAppearance = (update: Partial<ReadingAppearance>) => {
+    const next = { ...readingAppearance, ...update };
+    setReadingAppearance(next);
+    readingAppearanceStore.save(next);
+  };
+
   return (
-    <div className={`app-shell ${isEditing ? "is-editing" : ""}`}>
+    <div
+      className={`app-shell reading-${readingAppearance.mode} reading-${readingAppearance.size} ${isEditing ? "is-editing" : ""}`}
+    >
       <header className="topbar">
         <button
           className="icon-button menu-button"
@@ -698,6 +774,57 @@ export function App() {
                 <Pencil size={16} /> Edit
               </button>
             </>
+          )}
+          {!isEditing && studySync.configured && !userEmail && (
+            <button className="secondary-command sign-in-button" onClick={openSignIn}>
+              <LogIn size={16} /> Sign in
+            </button>
+          )}
+          {!isEditing && (
+            <details className="appearance-control" open={appearanceOpen} ref={appearanceRef}>
+              <summary
+                className="icon-button"
+                aria-label="Reading appearance"
+                title="Reading appearance"
+                onClick={(event) => {
+                  event.preventDefault();
+                  setAppearanceOpen((open) => !open);
+                }}
+              >
+                <Palette size={19} />
+              </summary>
+              <div className="appearance-menu">
+                <span className="appearance-label">Reading mode</span>
+                <div className="reading-mode-options">
+                  {(["cool", "soft", "crisp"] as const).map((mode) => (
+                    <button
+                      type="button"
+                      className={readingAppearance.mode === mode ? "active" : ""}
+                      onClick={() => updateReadingAppearance({ mode })}
+                      key={mode}
+                    >
+                      <span className={`mode-swatch ${mode}`} />
+                      {mode === "cool" ? "Cool" : mode === "soft" ? "Soft" : "Crisp"}
+                      {readingAppearance.mode === mode && <Check size={14} />}
+                    </button>
+                  ))}
+                </div>
+                <span className="appearance-label">Text size</span>
+                <div className="reading-size-options" aria-label="Reading text size">
+                  {(["small", "medium", "large"] as const).map((size, index) => (
+                    <button
+                      type="button"
+                      className={readingAppearance.size === size ? "active" : ""}
+                      aria-label={`${size} reading text`}
+                      onClick={() => updateReadingAppearance({ size })}
+                      key={size}
+                    >
+                      A{index === 0 ? "−" : index === 2 ? "+" : ""}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </details>
           )}
           <button className="icon-button study-button" onClick={() => setStudyOpen(true)} aria-label="Open study tools">
             <GraduationCap size={19} />

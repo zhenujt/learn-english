@@ -2,16 +2,32 @@
 
 :root {
   font-family: "Manrope", sans-serif;
-  color: #20231f;
-  background: #f4f2ec;
+  color: #192724;
+  background: #edf3f1;
   font-synthesis: none;
-  --ink: #20231f;
-  --muted: #676a64;
-  --line: #d8d5cc;
-  --paper: #fbfaf6;
-  --accent: #006b5f;
-  --accent-soft: #dcebe6;
-  --signal: #d74b2a;
+  --ink: #192724;
+  --muted: #5b6b67;
+  --line: #cbd8d4;
+  --paper: #f8fbfa;
+  --accent: #006f68;
+  --accent-soft: #d5ebe6;
+  --signal: #c94b36;
+  --canvas: #edf3f1;
+  --topbar-surface: rgba(237, 243, 241, 0.94);
+  --navigation-surface: rgba(248, 251, 250, 0.68);
+  --body-text: #293936;
+  --quote-surface: #e6efec;
+  --quote-text: #465b56;
+  --code-surface: #e1ebe8;
+  --code-block: #f5f5f7;
+  --code-block-text: #1d1d1f;
+  --code-block-line: #d2d2d7;
+  --code-block-accent: #0071e3;
+  --table-heading: #dfe9e6;
+  --highlight: #f6e59c;
+  --highlight-hover: #f2d96f;
+  --highlight-text: #26302c;
+  --reading-size: 16px;
 }
 
 * {
@@ -23,8 +39,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background:
-    radial-gradient(circle at 75% 0%, #e5eee7 0, transparent 27rem), #f4f2ec;
+  background: linear-gradient(135deg, #edf3f1 0%, #f5f8f7 52%, #e8f0ed 100%);
 }
 button,
 input,
@@ -42,6 +57,61 @@ button {
   grid-template-columns: 292px minmax(0, 1fr) 238px;
   grid-template-rows: 64px minmax(0, 1fr);
   overflow: hidden;
+  background: var(--canvas);
+}
+.app-shell.reading-soft {
+  --ink: #202a25;
+  --muted: #59665f;
+  --line: #ced6d0;
+  --paper: #fafcf8;
+  --accent: #176650;
+  --accent-soft: #deece4;
+  --signal: #bc513e;
+  --canvas: #f0f3ee;
+  --topbar-surface: rgba(240, 243, 238, 0.95);
+  --navigation-surface: rgba(250, 252, 248, 0.72);
+  --body-text: #34423b;
+  --quote-surface: #e9eee8;
+  --quote-text: #4a5951;
+  --code-surface: #e5ebe5;
+  --code-block: #f5f5f7;
+  --code-block-text: #1d1d1f;
+  --code-block-line: #d2d2d7;
+  --code-block-accent: #0071e3;
+  --table-heading: #e3e9e3;
+  --highlight: #f2e5a9;
+  --highlight-hover: #ecd982;
+  --highlight-text: #30362e;
+}
+.app-shell.reading-crisp {
+  --ink: #101917;
+  --muted: #44524f;
+  --line: #aebfba;
+  --paper: #ffffff;
+  --accent: #005f59;
+  --accent-soft: #cce7e1;
+  --signal: #b83c2b;
+  --canvas: #f5f9f8;
+  --topbar-surface: rgba(245, 249, 248, 0.97);
+  --navigation-surface: rgba(255, 255, 255, 0.82);
+  --body-text: #152522;
+  --quote-surface: #dfebe8;
+  --quote-text: #2c413c;
+  --code-surface: #dbe8e4;
+  --code-block: #f5f5f7;
+  --code-block-text: #1d1d1f;
+  --code-block-line: #c7c7cc;
+  --code-block-accent: #0066cc;
+  --table-heading: #d8e6e2;
+  --highlight: #f4df7d;
+  --highlight-hover: #edcf49;
+  --highlight-text: #1c241f;
+}
+.app-shell.reading-small {
+  --reading-size: 15px;
+}
+.app-shell.reading-large {
+  --reading-size: 18px;
 }
 .app-shell.is-editing {
   grid-template-columns: 292px minmax(0, 1fr);
@@ -54,7 +124,7 @@ button {
   display: flex;
   align-items: center;
   padding: 0 24px;
-  background: rgba(244, 242, 236, 0.92);
+  background: var(--topbar-surface);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(14px);
 }
@@ -87,6 +157,102 @@ button {
   display: flex;
   align-items: center;
   gap: 16px;
+}
+.appearance-control {
+  position: relative;
+}
+.appearance-control > summary {
+  list-style: none;
+}
+.appearance-control > summary::-webkit-details-marker {
+  display: none;
+}
+.appearance-control[open] > summary,
+.appearance-control > summary:hover {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.appearance-menu {
+  position: absolute;
+  top: 44px;
+  right: 0;
+  z-index: 80;
+  width: 286px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  box-shadow: 0 18px 50px rgba(20, 37, 33, 0.2);
+}
+.appearance-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.reading-mode-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.reading-mode-options button {
+  min-width: 0;
+  display: grid;
+  place-items: center;
+  gap: 5px;
+  min-height: 64px;
+  padding: 7px 4px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 11px;
+  cursor: pointer;
+}
+.reading-mode-options button.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.mode-swatch {
+  width: 32px;
+  height: 16px;
+  border: 1px solid rgba(25, 39, 36, 0.18);
+  border-radius: 3px;
+  background: linear-gradient(90deg, #edf3f1 50%, #293936 50%);
+}
+.mode-swatch.soft {
+  background: linear-gradient(90deg, #f0f3ee 50%, #34423b 50%);
+}
+.mode-swatch.crisp {
+  background: linear-gradient(90deg, #ffffff 50%, #152522 50%);
+}
+.reading-size-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.reading-size-options button {
+  height: 38px;
+  border: 0;
+  border-right: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+.reading-size-options button:last-child {
+  border-right: 0;
+}
+.reading-size-options button.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
 }
 .save-status {
   display: flex;
@@ -187,7 +353,7 @@ button {
 }
 .edit-button:hover,
 .save-button:hover:not(:disabled) {
-  background: #00594f;
+  background: #005b56;
 }
 .cancel-button:hover {
   border-color: #aaa79f;
@@ -221,7 +387,7 @@ button {
   overflow: hidden;
   padding: 24px 16px;
   border-right: 1px solid var(--line);
-  background: rgba(251, 250, 246, 0.55);
+  background: var(--navigation-surface);
 }
 .navigation-header {
   display: flex;
@@ -345,13 +511,13 @@ button {
 
 .text-annotation-highlight {
   padding: 1px 0;
-  border-bottom: 2px solid #c58b12;
-  background: #fff0a8;
-  color: inherit;
+  border-bottom: 2px solid #a97812;
+  background: var(--highlight);
+  color: var(--highlight-text);
   cursor: pointer;
 }
 .text-annotation-highlight:hover {
-  background: #ffe37a;
+  background: var(--highlight-hover);
 }
 .add-annotation-button {
   position: fixed;
@@ -707,9 +873,9 @@ button {
   padding: 42px 48px 86px;
 }
 .markdown-body {
-  color: #30332f;
-  font-size: 15px;
-  line-height: 1.78;
+  color: var(--body-text);
+  font-size: var(--reading-size);
+  line-height: 1.82;
 }
 .markdown-body h1 {
   max-width: 760px;
@@ -748,23 +914,26 @@ button {
   margin: 24px 0;
   padding: 12px 18px;
   border-left: 3px solid var(--signal);
-  background: #f0eee7;
-  color: #555852;
+  background: var(--quote-surface);
+  color: var(--quote-text);
 }
 .markdown-body code {
   font-family: "DM Mono", monospace;
   font-size: 0.88em;
   padding: 2px 5px;
   border-radius: 3px;
-  background: #ebe8df;
+  background: var(--code-surface);
 }
 .markdown-body pre {
   max-width: 100%;
   overflow-x: auto;
-  padding: 18px;
-  border: 1px solid var(--line);
-  background: #262924;
-  color: #f5f3eb;
+  padding: 18px 20px;
+  border: 1px solid var(--code-block-line);
+  border-left: 3px solid var(--code-block-accent);
+  border-radius: 8px;
+  background: var(--code-block);
+  color: var(--code-block-text);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 .markdown-body pre code {
   padding: 0;
@@ -791,7 +960,7 @@ button {
 }
 .markdown-body th {
   color: var(--ink);
-  background: #e9e6dd;
+  background: var(--table-heading);
   font-size: 12px;
 }
 .markdown-body hr {
@@ -1131,6 +1300,12 @@ button {
   .topbar-actions {
     gap: 8px;
   }
+  .appearance-menu {
+    position: fixed;
+    top: 64px;
+    right: 12px;
+    width: min(286px, calc(100vw - 24px));
+  }
   .brand > span:last-child,
   .batch-save-button svg,
   .edit-button svg {
@@ -1278,7 +1453,11 @@ button {
     font-size: 20px;
   }
   .markdown-body {
-    font-size: 14px;
+    font-size: var(--reading-size);
+  }
+  .markdown-body pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
   }
   .markdown-body table {
     white-space: normal;
