@@ -28,7 +28,7 @@ export class AnnotationStore {
   }
 
   /**
-   * Selects the local annotation scope without importing anonymous records.
+   * Selects the local annotation scope and migrates anonymous records on sign-in.
    * @param userId Authenticated Supabase user ID, or undefined for anonymous storage.
    * @returns Valid annotations stored in the selected scope.
    */
@@ -36,6 +36,7 @@ export class AnnotationStore {
     if (userId && !uuidPattern.test(userId)) {
       throw new Error("The annotation account ID is invalid.");
     }
+    const anonymousAnnotations = userId ? this.readScope("anonymous") : [];
     this.scope = userId ? `user:${userId}` : "anonymous";
     if (this.scope === "anonymous" && localStorage.getItem(this.storageKey) === null) {
       const legacy = localStorage.getItem(legacyAnnotationsKey);
@@ -44,12 +45,22 @@ export class AnnotationStore {
         localStorage.removeItem(legacyAnnotationsKey);
       }
     }
+    if (userId && anonymousAnnotations.length > 0) {
+      const annotations = this.merge(anonymousAnnotations, this.readAll());
+      this.write(annotations);
+      localStorage.removeItem(`${annotationsKeyPrefix}:anonymous`);
+      return annotations;
+    }
     return this.readAll();
   }
 
   public readAll(): TextAnnotation[] {
+    return this.readScope(this.scope);
+  }
+
+  private readScope(scope: string): TextAnnotation[] {
     try {
-      const value = JSON.parse(localStorage.getItem(this.storageKey) ?? "[]") as unknown;
+      const value = JSON.parse(localStorage.getItem(`${annotationsKeyPrefix}:${scope}`) ?? "[]") as unknown;
       return Array.isArray(value) ? value.filter(this.isAnnotation) : [];
     } catch {
       return [];
@@ -74,16 +85,29 @@ export class AnnotationStore {
   }
 
   public mergeCloud(cloud: TextAnnotation[]): TextAnnotation[] {
-    const merged = new Map<string, TextAnnotation>();
-    for (const annotation of [...cloud, ...this.readAll()]) {
-      const current = merged.get(annotation.id);
-      if (!current || annotation.updatedAt >= current.updatedAt) {
-        merged.set(annotation.id, annotation);
-      }
-    }
-    const annotations = [...merged.values()];
+    const annotations = this.merge(cloud, this.readAll());
     this.write(annotations);
     return annotations;
+  }
+
+  private merge(...sources: TextAnnotation[][]): TextAnnotation[] {
+    const merged = new Map<string, TextAnnotation>();
+    for (const annotations of sources) {
+      for (const annotation of annotations) {
+        const current = merged.get(annotation.id);
+        if (!current) {
+          merged.set(annotation.id, annotation);
+          continue;
+        }
+        const newer = annotation.updatedAt >= current.updatedAt ? annotation : current;
+        const older = newer === annotation ? current : annotation;
+        const note = !newer.deletedAt && !newer.note.trim() && older.note.trim()
+          ? older.note
+          : newer.note;
+        merged.set(annotation.id, { ...newer, note });
+      }
+    }
+    return [...merged.values()];
   }
 
   private readonly isAnnotation = (value: unknown): value is TextAnnotation => {

@@ -48,6 +48,17 @@ const emptyDocument = (): DocumentStudyState => ({
   updatedAt: new Date(0).toISOString(),
 });
 
+const mergeBookmarks = (cloud: Bookmark[], local: Bookmark[]): Bookmark[] => {
+  const bookmarks = new Map(cloud.map((bookmark) => [bookmark.id, bookmark]));
+  for (const localBookmark of local) {
+    const cloudBookmark = bookmarks.get(localBookmark.id);
+    if (!cloudBookmark || localBookmark.note.trim() || !cloudBookmark.note.trim()) {
+      bookmarks.set(localBookmark.id, localBookmark);
+    }
+  }
+  return [...bookmarks.values()];
+};
+
 /** Stores local drafts separately from syncable learning data. */
 export class DocumentWorkspaceStore {
   public readDrafts(): Record<string, DraftEntry> {
@@ -108,9 +119,17 @@ export class DocumentWorkspaceStore {
     const documents = { ...cloud.documents };
     for (const [path, localDocument] of Object.entries(local.documents)) {
       const cloudDocument = documents[path];
-      if (!cloudDocument || localDocument.updatedAt >= cloudDocument.updatedAt) {
+      if (!cloudDocument) {
         documents[path] = localDocument;
+        continue;
       }
+      const newerDocument = localDocument.updatedAt >= cloudDocument.updatedAt
+        ? localDocument
+        : cloudDocument;
+      documents[path] = {
+        ...newerDocument,
+        bookmarks: mergeBookmarks(cloudDocument.bookmarks ?? [], localDocument.bookmarks ?? []),
+      };
     }
     const newerSnapshot = local.updatedAt >= cloud.updatedAt ? local : cloud;
     const updatedAt = Object.values(documents).reduce(
