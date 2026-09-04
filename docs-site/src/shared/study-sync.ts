@@ -1,18 +1,11 @@
-import { createClient, type SupabaseClient, type User } from "@supabase/supabase-js";
+import { type SupabaseClient, type User } from "@supabase/supabase-js";
 import type { StudySnapshot } from "./workspace-store";
 import type { TextAnnotation } from "./annotation-store";
+import { supabase } from "../../../shared/auth/auth-client";
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL?.trim();
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY?.trim();
-
-/** Provides optional email authentication and cross-device study-state sync. */
+/** Syncs study state and annotations using the shared authentication session. */
 export class StudySyncClient {
-  private readonly client: SupabaseClient | undefined =
-    supabaseUrl && supabaseAnonKey
-      ? createClient(supabaseUrl, supabaseAnonKey, {
-          auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
-        })
-      : undefined;
+  private readonly client: SupabaseClient | undefined = supabase ?? undefined;
 
   public get configured(): boolean {
     return Boolean(this.client);
@@ -21,15 +14,6 @@ export class StudySyncClient {
   public async user(): Promise<User | null> {
     if (!this.client) return null;
     return (await this.client.auth.getUser()).data.user;
-  }
-
-  public async sendMagicLink(email: string): Promise<void> {
-    if (!this.client) throw new Error("Supabase sync is not configured.");
-    const { error } = await this.client.auth.signInWithOtp({
-      email,
-      options: { emailRedirectTo: window.location.href },
-    });
-    if (error) throw error;
   }
 
   public async signOut(): Promise<void> {

@@ -35,7 +35,7 @@ interface StudyPanelProps {
   onClose: () => void;
   onSelectDocument: (path: string) => void;
   onUpdate: (update: Partial<Omit<DocumentStudyState, "updatedAt">>) => void;
-  onMagicLink: (email: string) => Promise<void>;
+  onOpenSignIn: () => void;
   onSignOut: () => Promise<void>;
   onSync: () => Promise<void>;
   onExerciseMode: (enabled: boolean) => void;
@@ -54,7 +54,6 @@ const statuses: { value: LearningStatus; label: string }[] = [
 /** Provides document-level study controls without modifying the Markdown source. */
 export function StudyPanel(props: StudyPanelProps) {
   const [note, setNote] = useState("");
-  const [email, setEmail] = useState("");
   const exerciseResults = Object.values(props.state.exerciseResults);
   const correct = exerciseResults.filter(Boolean).length;
 
@@ -186,10 +185,9 @@ export function StudyPanel(props: StudyPanelProps) {
               </div>
             </>
           ) : (
-            <form onSubmit={(event) => { event.preventDefault(); void props.onMagicLink(email); }}>
-              <input type="email" required value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email for magic link" />
-              <button className="secondary-command" type="submit"><LogIn size={15} /> Send link</button>
-            </form>
+            <button className="secondary-command" onClick={props.onOpenSignIn}>
+              <LogIn size={15} /> 登录账号
+            </button>
           )}
           {props.syncMessage && <small>{props.syncMessage}</small>}
         </section>

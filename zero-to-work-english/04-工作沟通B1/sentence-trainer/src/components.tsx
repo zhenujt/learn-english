@@ -1,6 +1,5 @@
-import { useDeferredValue, useState, type FormEvent, type ReactNode } from 'react'
-import { Check, ChevronRight, Download, Eye, EyeOff, Headphones, LogIn, LogOut, Mail, Repeat2, RotateCcw, Search, Snail, Sparkles, Square, UserRound, Volume2 } from 'lucide-react'
-import { authConfigured, supabase } from './auth'
+import { useDeferredValue, useState, type ReactNode } from 'react'
+import { Check, ChevronRight, Download, Eye, EyeOff, Headphones, Repeat2, RotateCcw, Search, Snail, Sparkles, Square, Volume2 } from 'lucide-react'
 import type { ReviewScheduler } from './services'
 import type { ReviewGrade, StudyCard } from './types'
 
@@ -300,67 +299,6 @@ export function ProgressView({ cards, scheduler, onReset }: { cards: StudyCard[]
       <div className="install-note"><Download size={21} /><div><strong>安装到手机</strong><p>Android 用浏览器菜单选择“安装应用”；iPhone 在 Safari 点“分享”，再选“添加到主屏幕”。</p></div></div>
       {resetError && <p className="auth-error">{resetError}</p>}
       <button className="reset-button" type="button" onClick={resetProgress}>清空学习记录</button>
-    </section>
-  )
-}
-
-type AuthMode = 'login' | 'signup' | 'forgot' | 'reset'
-
-/** Provides email/password login, registration, password reset, and logout. */
-export function AuthView({ email, resetRequested, onSignedOut }: { email?: string; resetRequested: boolean; onSignedOut: () => void }) {
-  const [mode, setMode] = useState<AuthMode>(resetRequested ? 'reset' : 'login')
-  const [formEmail, setFormEmail] = useState(email ?? '')
-  const [password, setPassword] = useState('')
-  const [pending, setPending] = useState(false)
-  const [message, setMessage] = useState('')
-  const [error, setError] = useState('')
-
-  const submit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setMessage('')
-    setError('')
-    if (!supabase) {
-      setError('云端登录尚未配置，当前使用本地模式。')
-      return
-    }
-    setPending(true)
-    const result = mode === 'forgot'
-      ? await supabase.auth.resetPasswordForEmail(formEmail, { redirectTo: window.location.origin })
-      : mode === 'reset'
-        ? await supabase.auth.updateUser({ password })
-      : mode === 'signup'
-        ? await supabase.auth.signUp({ email: formEmail, password })
-        : await supabase.auth.signInWithPassword({ email: formEmail, password })
-    setPending(false)
-    if (result.error) {
-      setError(result.error.message)
-      return
-    }
-    if (mode === 'forgot') setMessage('重置密码邮件已发送，请检查邮箱。')
-    if (mode === 'reset') setMessage('密码已更新，请使用新密码登录。')
-    if (mode === 'signup') setMessage('注册成功，请检查邮箱完成验证。')
-    if (mode === 'login') setMessage('登录成功。')
-  }
-
-  const title = mode === 'login' ? '登录账号' : mode === 'signup' ? '创建账号' : mode === 'forgot' ? '找回密码' : '设置新密码'
-
-  return (
-    <section className="auth-view">
-      <div className="page-heading"><p className="eyebrow">云端同步</p><h1>{title}</h1><p>{mode === 'forgot' ? '输入注册邮箱，我们会发送密码重置链接。' : mode === 'reset' ? '请输入新的账号密码。' : '登录后可以在不同设备同步学习记录。'}</p></div>
-      <form className="auth-form" onSubmit={submit}>
-        {mode !== 'reset' && <label>邮箱<input type="email" autoComplete="email" value={formEmail} onChange={(event) => setFormEmail(event.target.value)} required placeholder="you@example.com" /></label>}
-        {mode !== 'forgot' && <label>密码<input type="password" autoComplete={mode === 'login' ? 'current-password' : 'new-password'} value={password} onChange={(event) => setPassword(event.target.value)} minLength={6} required placeholder="至少 6 位" /></label>}
-        <button className="primary-button" type="submit" disabled={pending}>{pending ? '处理中…' : mode === 'login' ? <><LogIn size={18} /> 登录</> : mode === 'signup' ? <><UserRound size={18} /> 注册</> : mode === 'reset' ? <><UserRound size={18} /> 更新密码</> : <><Mail size={18} /> 发送重置邮件</>}</button>
-      </form>
-      {message && <p className="auth-message">{message}</p>}
-      {error && <p className="auth-error">{error}</p>}
-      {authConfigured ? (
-        <div className="auth-links">
-          {mode === 'login' && <><button type="button" onClick={() => setMode('forgot')}>忘记密码？</button><button type="button" onClick={() => setMode('signup')}>创建新账号</button></>}
-          {mode !== 'login' && mode !== 'reset' && <button type="button" onClick={() => setMode('login')}>返回登录</button>}
-        </div>
-      ) : <p className="auth-config-note">管理员还没有配置 Supabase，网站目前仍可直接使用本地学习模式。</p>}
-      {email && <button className="logout-button" type="button" onClick={async () => { await supabase?.auth.signOut(); onSignedOut() }}><LogOut size={17} /> 退出登录</button>}
     </section>
   )
 }

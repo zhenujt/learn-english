@@ -30,6 +30,9 @@ import {
   type TextAnnotation,
 } from "./shared/annotation-store";
 import { StudySyncClient } from "./shared/study-sync";
+import { AuthDialog } from "../../shared/auth/AuthDialog";
+import { auth } from "../../shared/auth/auth-client";
+import "../../shared/auth/auth-dialog.css";
 import {
   DocumentWorkspaceStore,
   type DocumentStudyState,
@@ -318,6 +321,7 @@ export function App() {
     readingAppearanceStore.read(),
   );
   const [appearanceOpen, setAppearanceOpen] = useState(false);
+  const [authOpen, setAuthOpen] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const documentMainRef = useRef<HTMLElement>(null);
   const appearanceRef = useRef<HTMLDetailsElement>(null);
@@ -401,6 +405,11 @@ export function App() {
       .catch((error: unknown) => {
         setSyncMessage(error instanceof Error ? error.message : "Could not read the sync session");
       });
+    // Picks up sign-in and sign-out performed in the trainer app or another tab.
+    return auth.onChange((_event, session) => {
+      setUserEmail(session?.user.email);
+      setAnnotations(annotationStore.setScope(session?.user.id));
+    });
   }, []);
 
   useEffect(() => {
@@ -652,24 +661,17 @@ export function App() {
     }
   };
 
-  const sendMagicLink = async (email: string) => {
-    try {
-      await studySync.sendMagicLink(email);
-      setSyncMessage("Check your email for the sign-in link.");
-    } catch (error) {
-      setSyncMessage(error instanceof Error ? error.message : "Sign-in failed");
-    }
-  };
+  const openSignIn = () => setAuthOpen(true);
 
-  const openSignIn = () => {
-    setStudyOpen(true);
-    window.requestAnimationFrame(() => {
-      const input = document.querySelector<HTMLInputElement>(
-        ".study-panel input[type=email]",
-      );
-      input?.scrollIntoView({ block: "center" });
-      input?.focus({ preventScroll: true });
-    });
+  const refreshSignedInUser = () => {
+    void auth
+      .currentUser()
+      .then((user) => {
+        setUserEmail(user?.email);
+        setAnnotations(annotationStore.setScope(user?.id));
+        if (user) void syncStudy();
+      })
+      .catch(() => setSyncMessage("Could not read the sync session"));
   };
 
   const signOut = async () => {
@@ -1076,7 +1078,7 @@ export function App() {
         onClose={() => setStudyOpen(false)}
         onSelectDocument={selectDocument}
         onUpdate={updateStudyDocument}
-        onMagicLink={sendMagicLink}
+        onOpenSignIn={openSignIn}
         onSignOut={signOut}
         onSync={syncStudy}
         onExerciseMode={setExerciseMode}
@@ -1094,6 +1096,17 @@ export function App() {
           onConfirm={() => void saveDocuments()}
         />
       )}
+      <AuthDialog
+        open={authOpen}
+        email={userEmail}
+        onClose={() => setAuthOpen(false)}
+        onSignedIn={refreshSignedInUser}
+        onSignedOut={() => {
+          setUserEmail(undefined);
+          setAnnotations(annotationStore.setScope());
+          setSyncMessage("Signed out");
+        }}
+      />
     </div>
   );
 }

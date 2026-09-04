@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
 import { BarChart3, BookOpen, Download, Flame, Library, UserRound } from 'lucide-react'
-import { AuthView, LibraryView, NavButton, ProgressView, StudyView } from './components'
+import { LibraryView, NavButton, ProgressView, StudyView } from './components'
 import { onAuthStateChange, supabase } from './auth'
+import { AuthDialog } from '../../../../shared/auth/AuthDialog'
+import '../../../../shared/auth/auth-dialog.css'
 import cardsJson from './data/cards.json'
 import { AudioController, CloudProgressSync, ReviewScheduler } from './services'
 import type { AppView, ReviewGrade, StudyCard } from './types'
@@ -29,6 +31,7 @@ function App() {
   const [installPrompt, setInstallPrompt] = useState<InstallPromptEvent | null>(null)
   const [session, setSession] = useState<Session | null>(null)
   const [resetRequested, setResetRequested] = useState(false)
+  const [authOpen, setAuthOpen] = useState(false)
   const card = queue[cardIndex]
   const stats = scheduler.getStats()
   const preview = useMemo(() => (card && revealed ? scheduler.preview(card.id) : EMPTY_PREVIEW), [card, revealed])
@@ -61,7 +64,7 @@ function App() {
       setSession(nextSession)
       if (event === 'PASSWORD_RECOVERY') {
         setResetRequested(true)
-        setActiveView('auth')
+        setAuthOpen(true)
       }
     })
   }, [])
@@ -117,7 +120,7 @@ function App() {
         </div>
         <div className="topbar-actions">
           <div className="streak" title="连续学习天数"><Flame size={18} /> {stats.streak}</div>
-          <button className="account-button" type="button" onClick={() => setActiveView('auth')} title={session ? '账号设置' : '登录账号'}>
+          <button className="account-button" type="button" onClick={() => setAuthOpen(true)} title={session ? '账号设置' : '登录账号'}>
             <UserRound size={18} />
             <span>{session?.user.email?.split('@')[0] ?? '登录'}</span>
           </button>
@@ -133,7 +136,6 @@ function App() {
         {activeView === 'study' && <StudyView key={card?.id ?? 'complete'} card={card} current={cardIndex} total={queue.length} reviewedCards={reviewedCards} revealed={revealed} onReveal={() => setRevealed(true)} onGrade={gradeCard} preview={preview} onPlay={playAudio} onToggleLoop={toggleAudioLoop} onRestart={startNextSession} />}
         {activeView === 'library' && <LibraryView cards={cards} onPlay={playAudio} />}
         {activeView === 'progress' && <ProgressView cards={cards} scheduler={scheduler} onReset={resetProgress} />}
-        {activeView === 'auth' && <AuthView email={session?.user.email} resetRequested={resetRequested} onSignedOut={() => { setSession(null); setResetRequested(false); setActiveView('study') }} />}
       </main>
 
       <nav className="bottom-nav" aria-label="主导航">
@@ -141,6 +143,14 @@ function App() {
         <NavButton active={activeView === 'library'} icon={<Library />} label="句库" onClick={() => setActiveView('library')} />
         <NavButton active={activeView === 'progress'} icon={<BarChart3 />} label="进度" onClick={() => setActiveView('progress')} />
       </nav>
+
+      <AuthDialog
+        open={authOpen}
+        email={session?.user.email}
+        initialMode={resetRequested ? 'reset' : 'login'}
+        onClose={() => { setAuthOpen(false); setResetRequested(false) }}
+        onSignedOut={() => { setSession(null); setResetRequested(false); setActiveView('study') }}
+      />
     </div>
   )
 }
