@@ -186,18 +186,33 @@ write -> wrote -> written
 
 ### 预备 7：从左到右拆句
 
-遇到长句时，不要逐词翻译，先按意义分块：
+遇到长句时，不要逐词翻译。可以使用下面两种分块方式。
+
+**形式一：按意义分块（跟读和口语时推荐）**
 
 ```text
-We need / to test the fix / before release.
-我们需要 / 测试这个修复 / 在发布之前。
+We / need to test the fix / before release.
+我们 / 需要测试这个修复 / 在发布之前。
 ```
+
+`need to + 动词原形` 是常用结构，表示“需要做某事”。按意义理解和练习口语时，应把 `need to test` 作为一个整体。
+
+**形式二：按句法结构分块（分析语法时使用）**
+
+```text
+We / need / to test the fix / before release.
+主语 / 谓语动词 / 不定式补语 / 时间状语
+```
+
+这里把 `need` 看作谓语动词，把 `to test the fix` 看作它后面的不定式补语。这种拆法有助于分析语法结构，但不适合初学者跟读或记忆固定表达。
+
+两种形式都可以，但用途不同：**说和记时不拆 `need to`，分析语法时可以拆开。**
 
 按三个问题阅读：
 
 1. 谁或什么？`We`
-2. 做什么或什么状态？`need`
-3. 补充了什么？`to test the fix before release`
+2. 需要做什么？`need to test the fix`
+3. 什么时候？`before release`
 
 再看一个问句：
 
