@@ -11,6 +11,7 @@ import {
   Trash2,
   X,
 } from "lucide-react";
+import { BasicRichTextEditor, RichTextContent } from "./BasicRichTextEditor";
 import type { TextAnnotation } from "./shared/annotation-store";
 import type { DocumentStudyState, LearningStatus } from "./shared/workspace-store";
 
@@ -105,10 +106,12 @@ export function StudyPanel(props: StudyPanelProps) {
           <div className="annotation-list">
             {props.annotations.map((annotation) => (
               <article key={annotation.id}>
-                <button type="button" onClick={() => props.onSelectAnnotation(annotation.id)}>
+                <div className="annotation-list-copy">
+                  <button type="button" onClick={() => props.onSelectAnnotation(annotation.id)}>
                   <strong>{annotation.quote}</strong>
-                  <span>{annotation.note || "No note"}</span>
-                </button>
+                  </button>
+                  {annotation.note ? <RichTextContent value={annotation.note} /> : <span>No note</span>}
+                </div>
                 <button className="icon-button" type="button" aria-label={`Delete note for ${annotation.quote}`} onClick={() => props.onDeleteAnnotation(annotation.id)}><Trash2 size={15} /></button>
               </article>
             ))}
@@ -119,12 +122,12 @@ export function StudyPanel(props: StudyPanelProps) {
       <section>
         <div className="study-section-title"><BookmarkPlus size={16} /> Bookmark & note</div>
         <strong className="current-heading">{props.activeHeading || "Current position"}</strong>
-        <textarea value={note} onChange={(event) => setNote(event.target.value)} placeholder="Optional note" />
+        <BasicRichTextEditor value={note} onChange={setNote} ariaLabel="Bookmark note" placeholder="Optional note" minHeight={150} />
         <button className="secondary-command" onClick={addBookmark}><BookmarkPlus size={15} /> Add bookmark</button>
         <div className="bookmark-list">
           {props.state.bookmarks.map((bookmark) => (
             <article key={bookmark.id}>
-              <div><strong>{bookmark.heading}</strong>{bookmark.note && <p>{bookmark.note}</p>}</div>
+              <div><strong>{bookmark.heading}</strong>{bookmark.note && <RichTextContent value={bookmark.note} />}</div>
               <button
                 className="icon-button"
                 aria-label={`Delete bookmark ${bookmark.heading}`}

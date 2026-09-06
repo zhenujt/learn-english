@@ -76,6 +76,36 @@ function RichEditorSurface({ markdown, onChange }: RichMarkdownEditorProps) {
   return <div className="rich-editor-surface" ref={mountRef} />;
 }
 
+function MarkdownEditorSurface({ markdown, onChange }: RichMarkdownEditorProps) {
+  const mountRef = useRef<HTMLDivElement>(null);
+  const initialMarkdownRef = useRef(markdown);
+  const onChangeRef = useRef(onChange);
+
+  useEffect(() => {
+    onChangeRef.current = onChange;
+  }, [onChange]);
+
+  useEffect(() => {
+    if (!mountRef.current) return;
+    const editor = new Editor({
+      el: mountRef.current,
+      height: "100%",
+      hideModeSwitch: true,
+      initialEditType: "markdown",
+      initialValue: initialMarkdownRef.current,
+      previewStyle: "tab",
+      usageStatistics: false,
+      toolbarItems: [],
+      events: {
+        change: () => onChangeRef.current(editor.getMarkdown()),
+      },
+    });
+    return () => editor.destroy();
+  }, []);
+
+  return <div className="markdown-editor-surface" aria-label="Markdown source editor" ref={mountRef} />;
+}
+
 /**
  * Provides WYSIWYG and Markdown editing while keeping Markdown as the source of truth.
  *
@@ -114,13 +144,7 @@ export function RichMarkdownEditor({
         {mode === "rich" ? (
           <RichEditorSurface markdown={markdown} onChange={onChange} />
         ) : (
-          <textarea
-            className="markdown-source-editor"
-            aria-label="Markdown source editor"
-            value={markdown}
-            onChange={(event) => onChange(event.target.value)}
-            spellCheck={false}
-          />
+          <MarkdownEditorSurface markdown={markdown} onChange={onChange} />
         )}
       </div>
     </div>

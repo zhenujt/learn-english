@@ -6,6 +6,7 @@ import {
   FileText,
   GraduationCap,
   Eye,
+  Hash,
   Layers,
   LibraryBig,
   LogIn,
@@ -957,6 +958,9 @@ export function App() {
           </button>
           <a className="icon-button words-button" href={`${import.meta.env.VITE_SITE_BASE_PATH ?? import.meta.env.BASE_URL}words`} aria-label="Open my words" title="My words">
             <LibraryBig size={19} />
+          </a>
+          <a className="icon-button" href={`${import.meta.env.VITE_SITE_BASE_PATH ?? import.meta.env.BASE_URL}number`} aria-label="Open number practice" title="Numbers and calendar">
+            <Hash size={19} />
           </a>
         </div>
       </header>

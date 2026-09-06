@@ -14,7 +14,9 @@ import {
 } from "lucide-react";
 import { AuthDialog } from "../../shared/auth/AuthDialog";
 import { auth } from "../../shared/auth/auth-client";
+import { BasicRichTextEditor, RichTextContent } from "./BasicRichTextEditor";
 import { JennySpeechClient } from "./shared/jenny-speech";
+import { richTextToPlainText } from "./shared/rich-text";
 import { WordStore, type SavedWord } from "./shared/word-store";
 import { WordSyncClient } from "./shared/word-sync";
 
@@ -65,7 +67,7 @@ export function WordsPage() {
     return words
       .filter((word) => !word.deletedAt)
       .filter((word) => !normalized ||
-        `${word.word} ${word.meaning} ${word.example} ${word.pronunciationNote}`
+        `${word.word} ${richTextToPlainText(word.meaning)} ${richTextToPlainText(word.example)} ${word.pronunciationNote}`
           .toLowerCase()
           .includes(normalized))
       .sort((left, right) => right.updatedAt.localeCompare(left.updatedAt));
@@ -249,13 +251,14 @@ export function WordsPage() {
   };
 
   const speak = async (text: string, language: "en-US" | "zh-CN", key: string) => {
-    if (!text.trim()) return;
+    const spokenText = richTextToPlainText(text);
+    if (!spokenText) return;
     if (language !== "en-US") {
-      await speakWithSystem(text, language, key);
+      await speakWithSystem(spokenText, language, key);
       return;
     }
     if (!jennySpeech.available) {
-      await speakWithSystem(text, language, key);
+      await speakWithSystem(spokenText, language, key);
       return;
     }
 
@@ -264,7 +267,7 @@ export function WordsPage() {
     window.speechSynthesis?.cancel();
     setSpeechFeedback({ key, message: "正在生成 Jenny 语音…", error: false });
     try {
-      const blob = await jennySpeech.synthesize(text);
+      const blob = await jennySpeech.synthesize(spokenText);
       if (request !== speechRequestRef.current) return;
       const audioUrl = URL.createObjectURL(blob);
       const audio = new Audio(audioUrl);
@@ -277,11 +280,11 @@ export function WordsPage() {
         }
       };
       audio.onerror = () => {
-        if (audioRef.current === audio) void speakWithSystem(text, language, key, true);
+        if (audioRef.current === audio) void speakWithSystem(spokenText, language, key, true);
       };
       await audio.play();
     } catch {
-      if (request === speechRequestRef.current) await speakWithSystem(text, language, key, true);
+      if (request === speechRequestRef.current) await speakWithSystem(spokenText, language, key, true);
     }
   };
 
@@ -357,7 +360,7 @@ export function WordsPage() {
                   <span className="word-field-label">意思</span>
                   {word.meaning ? (
                     <div className="word-spoken-line">
-                      <p>{word.meaning}</p>
+                      <RichTextContent value={word.meaning} />
                       <button className={`word-audio${speechFeedback?.key === `${word.id}:meaning` && !speechFeedback.error ? " is-speaking" : ""}`} onClick={() => void speak(word.meaning, /[\u3400-\u9fff]/.test(word.meaning) ? "zh-CN" : "en-US", `${word.id}:meaning`)} aria-label="朗读意思" title="朗读意思"><Volume2 size={16} /></button>
                     </div>
                   ) : <p className="word-missing">尚未添加意思</p>}
@@ -366,7 +369,7 @@ export function WordsPage() {
                   <span className="word-field-label">例句</span>
                   {word.example ? (
                     <div className="word-spoken-line">
-                      <p>{word.example}</p>
+                      <RichTextContent value={word.example} />
                       <button className={`word-audio${speechFeedback?.key === `${word.id}:example` && !speechFeedback.error ? " is-speaking" : ""}`} onClick={() => void speak(word.example, "en-US", `${word.id}:example`)} aria-label="朗读例句" title="朗读例句"><Volume2 size={16} /></button>
                     </div>
                   ) : <p className="word-missing">尚未添加例句</p>}
@@ -396,8 +399,8 @@ export function WordsPage() {
                 <label><span className="word-field-heading">读音 / IPA <small>可选</small></span><input value={draft.pronunciation} onChange={(event) => setDraft({ ...draft, pronunciation: event.target.value })} placeholder="/ˈθʌrə/" /></label>
                 <label><span className="word-field-heading">发音提示 <small>可选</small></span><input value={draft.pronunciationNote} onChange={(event) => setDraft({ ...draft, pronunciationNote: event.target.value })} placeholder="例如：THUR-oh，注意 th" /></label>
               </div>
-              <label><span className="word-field-heading">意思 <small>可选</small></span><textarea rows={3} value={draft.meaning} onChange={(event) => setDraft({ ...draft, meaning: event.target.value })} placeholder="输入中文或英文释义" /></label>
-              <label><span className="word-field-heading">例句 <small>可选</small></span><textarea rows={3} value={draft.example} onChange={(event) => setDraft({ ...draft, example: event.target.value })} placeholder="We need a thorough review before the demo." /></label>
+              <label><span className="word-field-heading">意思 <small>可选</small></span><BasicRichTextEditor value={draft.meaning} onChange={(meaning) => setDraft((current) => ({ ...current, meaning }))} ariaLabel="意思" placeholder="输入中文或英文释义" /></label>
+              <label><span className="word-field-heading">例句 <small>可选</small></span><BasicRichTextEditor value={draft.example} onChange={(example) => setDraft((current) => ({ ...current, example }))} ariaLabel="例句" placeholder="We need a thorough review before the demo." /></label>
               <div className="word-dialog-actions">
                 <button type="button" className="cancel-button" onClick={() => setFormOpen(false)}>取消</button>
                 <button type="submit" className="save-button"><Check size={16} /> 保存</button>

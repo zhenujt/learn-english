@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState, type RefObject } from "react";
 import { MessageSquarePlus, Trash2, X } from "lucide-react";
+import { BasicRichTextEditor } from "./BasicRichTextEditor";
 import type { TextAnnotation } from "./shared/annotation-store";
+import { richTextToPlainText } from "./shared/rich-text";
 
 interface SelectionAnchor {
   quote: string;
@@ -20,28 +22,6 @@ interface TextAnnotationsProps {
 }
 
 const contextLength = 40;
-
-function clipboardNoteText(clipboard: DataTransfer): string {
-  const plainText = clipboard.getData("text/plain").replace(/\r\n?/g, "\n");
-  if (plainText.includes("\n")) return plainText;
-
-  const html = clipboard.getData("text/html");
-  if (!html) return plainText;
-  const document = new DOMParser().parseFromString(html, "text/html");
-  document.querySelectorAll("br").forEach((element) => element.replaceWith("\n"));
-  document.querySelectorAll("li").forEach((element) => {
-    element.prepend("• ");
-    element.append("\n");
-  });
-  document.querySelectorAll("p, div, h1, h2, h3, h4, h5, h6, blockquote").forEach((element) => {
-    element.append("\n");
-  });
-  return (document.body.textContent ?? plainText)
-    .replace(/\u00a0/g, " ")
-    .replace(/[ \t]+\n/g, "\n")
-    .replace(/\n{3,}/g, "\n\n")
-    .trim();
-}
 
 function findAnnotationOffset(text: string, annotation: TextAnnotation): number {
   const offsets: number[] = [];
@@ -121,7 +101,7 @@ function applyHighlight(container: HTMLElement, annotation: TextAnnotation): voi
     const mark = document.createElement("mark");
     mark.className = "text-annotation-highlight";
     mark.dataset.annotationId = annotation.id;
-    mark.title = annotation.note;
+    mark.title = richTextToPlainText(annotation.note);
     range.surroundContents(mark);
   }
 }
@@ -221,14 +201,6 @@ export function TextAnnotations(props: TextAnnotationsProps) {
     window.getSelection()?.removeAllRanges();
   };
 
-  const pasteNote = (event: React.ClipboardEvent<HTMLTextAreaElement>) => {
-    const pastedText = clipboardNoteText(event.clipboardData);
-    if (!pastedText) return;
-    event.preventDefault();
-    const target = event.currentTarget;
-    setNote(`${note.slice(0, target.selectionStart)}${pastedText}${note.slice(target.selectionEnd)}`);
-  };
-
   const save = () => {
     const now = new Date().toISOString();
     const anchor = editingAnchorRef.current;
@@ -277,15 +249,16 @@ export function TextAnnotations(props: TextAnnotationsProps) {
               </div>
               <button type="button" className="icon-button" aria-label="Close annotation" onClick={closeDialog}><X size={18} /></button>
             </header>
-            <textarea
-              autoFocus
-              rows={10}
-              wrap="soft"
-              value={note}
-              onChange={(event) => setNote(event.target.value)}
-              onPaste={pasteNote}
-              placeholder="Translation or note"
-            />
+            <div className="annotation-rich-editor">
+              <BasicRichTextEditor
+                value={note}
+                onChange={setNote}
+                ariaLabel="Translation or note"
+                placeholder="Translation or note"
+                minHeight={260}
+                autoFocus
+              />
+            </div>
             {error && <p className="annotation-error" role="alert">{error}</p>}
             <footer>
               {editing !== "new" && (
