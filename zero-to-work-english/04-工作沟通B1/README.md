@@ -58,6 +58,8 @@ LGTM (Looks good to me).             我看没问题（评审通过）。
 
 ## 专项学习资料
 
+- [14 天软件会议与 Demo 生存训练（中文）](software-meeting-demo-14-day.zh.md)：零基础快速入口，每天完成一个真实会议或演示任务。
+- [14-Day Software Meeting and Demo Survival Course (English)](software-meeting-demo-14-day.md): The English-only companion for review and immersion.
 - [软件职场英语语法全解（中文）](software-workplace-grammar-guide.zh.md)：从单词角色、`be`、人称和动词变化开始，通过 12 周路线逐步学习软件工作表达。
 - [Software Workplace Grammar（English）](software-workplace-grammar-guide.md)：使用英文复习同一套零基础语法路线与软件工作例句。
 

@@ -25,6 +25,7 @@ interface AnalysisDocument {
   content: string;
   revision: string;
   audioPath?: string;
+  audioPlaylistPath?: string;
 }
 
 class MarkdownDocumentRepository {
@@ -85,6 +86,7 @@ class MarkdownDocumentRepository {
       : relativePath;
     const audioFileName = `${crypto.createHash("sha256").update(canonicalAudioPath).digest("hex").slice(0, 20)}.mp3`;
     const audioPath = `audio/documents/${audioFileName}`;
+    const audioPlaylistPath = audioPath.replace(/\.mp3$/, ".playlist.json");
     return {
       path: relativePath,
       title:
@@ -94,6 +96,9 @@ class MarkdownDocumentRepository {
       revision: crypto.createHash("sha256").update(content).digest("hex"),
       audioPath: fs.existsSync(path.join(siteDirectory, "public", audioPath))
         ? audioPath
+        : undefined,
+      audioPlaylistPath: fs.existsSync(path.join(siteDirectory, "public", audioPlaylistPath))
+        ? audioPlaylistPath
         : undefined,
     };
   }

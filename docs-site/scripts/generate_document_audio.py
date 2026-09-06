@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import hashlib
+import json
 import re
 import shutil
 import subprocess
@@ -39,6 +40,11 @@ class DocumentAudioNaming:
     def output_path(cls, document_path: Path) -> Path:
         digest = hashlib.sha256(cls.canonical_path(document_path).encode("utf-8")).hexdigest()[:20]
         return AUDIO_DIRECTORY / f"{digest}.mp3"
+
+    @classmethod
+    def playlist_path(cls, document_path: Path) -> Path:
+        digest = hashlib.sha256(cls.canonical_path(document_path).encode("utf-8")).hexdigest()[:20]
+        return AUDIO_DIRECTORY / f"{digest}.playlist.json"
 
 
 class MarkdownExampleExtractor:
@@ -162,6 +168,12 @@ class EdgeSpeechSynthesizer:
     CHINESE_RATE = "-10%"
     ENGLISH_RATE = "-20%"
     REQUEST_TIMEOUT_SECONDS = 45
+    ENGLISH_VOICES = (
+        ("michelle-us", "Michelle · 美音", "en-US-MichelleNeural"),
+        ("jenny-us", "Jenny · 美音", "en-US-JennyNeural"),
+        ("ava-us", "Ava · 美音", "en-US-AvaMultilingualNeural"),
+        ("sonia-uk", "Sonia · 英音", "en-GB-SoniaNeural"),
+    )
 
     def __init__(self) -> None:
         self.semaphore = asyncio.Semaphore(3)
@@ -200,10 +212,15 @@ class EdgeSpeechSynthesizer:
 
 
 class DocumentAudioGenerator:
-    def __init__(self, force: bool = False) -> None:
+    def __init__(self, force: bool = False, english_voice_id: str = "michelle-us") -> None:
         self.force = force
         self.extractor = MarkdownExampleExtractor()
         self.synthesizer = EdgeSpeechSynthesizer()
+        self.english_voice = next(
+            voice
+            for voice_id, _, voice in self.synthesizer.ENGLISH_VOICES
+            if voice_id == english_voice_id
+        )
 
     async def generate(self, document_path: Path) -> Path:
         examples = self.extractor.extract(document_path)
@@ -225,7 +242,7 @@ class DocumentAudioGenerator:
             english_sentence = self._finish_sentence(example.english, ".")
             requests.append((
                 " ... ".join([english_sentence] * 3),
-                self.synthesizer.ENGLISH_VOICE,
+                self.english_voice,
                 self.synthesizer.ENGLISH_RATE,
             ))
         segment_paths = await self.synthesizer.synthesize_many(requests)
@@ -235,6 +252,91 @@ class DocumentAudioGenerator:
         print(f"examples={len(examples)}")
         print(f"output={output_path.relative_to(REPOSITORY_DIRECTORY)}")
         return output_path
+
+    async def generate_playlist(
+        self,
+        document_path: Path,
+        english_repetitions: int,
+    ) -> Path:
+        examples = self.extractor.extract(document_path)
+        if not examples:
+            raise ValueError(f"No bilingual examples found in {document_path}")
+        output_path = DocumentAudioNaming.playlist_path(document_path)
+        if output_path.is_file() and output_path.stat().st_size > 0 and not self.force:
+            print(f"skip={output_path.relative_to(REPOSITORY_DIRECTORY)}")
+            return output_path
+
+        requests: list[tuple[str, str, str]] = []
+        for example in examples:
+            requests.append((
+                self._finish_sentence(example.chinese, "。"),
+                self.synthesizer.CHINESE_VOICE,
+                self.synthesizer.CHINESE_RATE,
+            ))
+            for _, _, voice in self.synthesizer.ENGLISH_VOICES:
+                requests.append((
+                    self._finish_sentence(example.english, "."),
+                    voice,
+                    self.synthesizer.ENGLISH_RATE,
+                ))
+
+        segment_paths = await self.synthesizer.synthesize_many(requests)
+        if len(requests) != len(segment_paths):
+            raise RuntimeError("Audio synthesis returned an unexpected number of segments")
+        request_paths = dict(zip(requests, segment_paths))
+        playlist_examples = []
+        for example in examples:
+            chinese_request = (
+                self._finish_sentence(example.chinese, "。"),
+                self.synthesizer.CHINESE_VOICE,
+                self.synthesizer.CHINESE_RATE,
+            )
+            english_audio = {}
+            for voice_id, _, voice in self.synthesizer.ENGLISH_VOICES:
+                english_request = (
+                    self._finish_sentence(example.english, "."),
+                    voice,
+                    self.synthesizer.ENGLISH_RATE,
+                )
+                english_audio[voice_id] = self._publish_segment(request_paths[english_request])
+            playlist_examples.append({
+                "chinese": example.chinese,
+                "english": example.english,
+                "chineseAudio": self._publish_segment(request_paths[chinese_request]),
+                "englishAudio": english_audio,
+            })
+
+        manifest = {
+            "version": 1,
+            "chineseVoice": {
+                "id": "xiaoxiao-cn",
+                "label": "Xiaoxiao · 中文",
+            },
+            "englishRepeatCount": english_repetitions,
+            "voices": [
+                {"id": voice_id, "label": label}
+                for voice_id, label, _ in self.synthesizer.ENGLISH_VOICES
+            ],
+            "examples": playlist_examples,
+        }
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        output_path.write_text(
+            json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        print(f"segments={len(segment_paths)}")
+        print(f"examples={len(examples)}")
+        print(f"output={output_path.relative_to(REPOSITORY_DIRECTORY)}")
+        return output_path
+
+    @staticmethod
+    def _publish_segment(source_path: Path) -> str:
+        segment_directory = AUDIO_DIRECTORY / "segments"
+        segment_directory.mkdir(parents=True, exist_ok=True)
+        output_path = segment_directory / source_path.name
+        if not output_path.is_file() or output_path.stat().st_size == 0:
+            shutil.copy2(source_path, output_path)
+        return output_path.relative_to(SITE_DIRECTORY / "public").as_posix()
 
     @staticmethod
     def _finish_sentence(value: str, punctuation: str) -> str:
@@ -294,7 +396,17 @@ async def main() -> None:
     parser.add_argument("--all", action="store_true", help="Generate audio for every eligible document")
     parser.add_argument("--dry-run", action="store_true", help="Extract and report examples without TTS")
     parser.add_argument("--force", action="store_true", help="Replace existing document MP3 files")
+    parser.add_argument("--playlist", action="store_true", help="Generate a selectable multi-voice segment playlist")
+    parser.add_argument(
+        "--english-voice",
+        choices=[voice_id for voice_id, _, _ in EdgeSpeechSynthesizer.ENGLISH_VOICES],
+        default="michelle-us",
+        help="English voice for a full document MP3",
+    )
+    parser.add_argument("--english-repetitions", type=int, default=10, help="English plays per phrase in playlist mode")
     args = parser.parse_args()
+    if not 1 <= args.english_repetitions <= 20:
+        parser.error("--english-repetitions must be between 1 and 20.")
     finder = MarkdownDocumentFinder()
     paths = finder.find_all() if args.all else [finder.resolve(value) for value in args.documents]
     if not paths:
@@ -309,10 +421,13 @@ async def main() -> None:
                 print(f"  {example.chinese} -> {example.english}")
         return
 
-    generator = DocumentAudioGenerator(force=args.force)
+    generator = DocumentAudioGenerator(force=args.force, english_voice_id=args.english_voice)
     for path in paths:
         try:
-            await generator.generate(path)
+            if args.playlist:
+                await generator.generate_playlist(path, args.english_repetitions)
+            else:
+                await generator.generate(path)
         except ValueError as error:
             print(f"skip={error}")
 

@@ -17,6 +17,7 @@ declare module "virtual:analysis-documents" {
     content: string;
     revision: string;
     audioPath?: string;
+    audioPlaylistPath?: string;
   }
 
   const documents: AnalysisDocument[];

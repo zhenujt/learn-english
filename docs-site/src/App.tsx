@@ -11,6 +11,7 @@ import {
   Menu,
   Palette,
   Pencil,
+  Play,
   Save,
   Search,
   Volume2,
@@ -74,6 +75,8 @@ const lastDocumentStorageKey = "docs-last-document";
 const readingPositionsStorageKey = "docs-reading-positions";
 const readingAppearanceStorageKey = "docs-reading-appearance";
 const audioPositionsStorageKey = "docs-audio-positions";
+const audioPlaylistProgressStorageKey = "docs-audio-playlist-progress";
+const audioVoiceStorageKey = "docs-audio-voice";
 
 type ReadingMode = "cool" | "soft" | "crisp";
 type ReadingSize = "small" | "medium" | "large";
@@ -81,6 +84,26 @@ type ReadingSize = "small" | "medium" | "large";
 interface ReadingAppearance {
   mode: ReadingMode;
   size: ReadingSize;
+}
+
+interface AudioPlaylistManifest {
+  version: 1;
+  chineseVoice: { id: string; label: string };
+  englishRepeatCount: number;
+  voices: { id: string; label: string }[];
+  examples: {
+    chinese: string;
+    english: string;
+    chineseAudio: string;
+    englishAudio: Record<string, string>;
+  }[];
+}
+
+interface AudioPlaylistProgress {
+  exampleIndex: number;
+  phase: "chinese" | "english";
+  englishPlayNumber: number;
+  currentTime: number;
 }
 
 class ReadingAppearanceStore {
@@ -189,8 +212,62 @@ class AudioProgressStore {
   }
 }
 
+class AudioPlaylistSettingsStore {
+  public readProgress(path: string): AudioPlaylistProgress | undefined {
+    try {
+      const progress = JSON.parse(
+        localStorage.getItem(audioPlaylistProgressStorageKey) ?? "{}",
+      ) as Record<string, AudioPlaylistProgress>;
+      return progress[path];
+    } catch {
+      return undefined;
+    }
+  }
+
+  public saveProgress(path: string, progress: AudioPlaylistProgress): void {
+    try {
+      const values = JSON.parse(
+        localStorage.getItem(audioPlaylistProgressStorageKey) ?? "{}",
+      ) as Record<string, AudioPlaylistProgress>;
+      values[path] = progress;
+      localStorage.setItem(audioPlaylistProgressStorageKey, JSON.stringify(values));
+    } catch {
+      // Playlist playback still works when storage is unavailable.
+    }
+  }
+
+  public clearProgress(path: string): void {
+    try {
+      const values = JSON.parse(
+        localStorage.getItem(audioPlaylistProgressStorageKey) ?? "{}",
+      ) as Record<string, AudioPlaylistProgress>;
+      delete values[path];
+      localStorage.setItem(audioPlaylistProgressStorageKey, JSON.stringify(values));
+    } catch {
+      // Playlist playback still works when storage is unavailable.
+    }
+  }
+
+  public readVoice(): string | undefined {
+    try {
+      return localStorage.getItem(audioVoiceStorageKey) ?? undefined;
+    } catch {
+      return undefined;
+    }
+  }
+
+  public saveVoice(voiceId: string): void {
+    try {
+      localStorage.setItem(audioVoiceStorageKey, voiceId);
+    } catch {
+      // Voice selection still works for the current session.
+    }
+  }
+}
+
 const readingProgress = new ReadingProgressStore();
 const audioProgress = new AudioProgressStore();
+const audioPlaylistSettings = new AudioPlaylistSettingsStore();
 const readingAppearanceStore = new ReadingAppearanceStore();
 const workspace = new DocumentWorkspaceStore();
 const annotationStore = new AnnotationStore();
@@ -1018,6 +1095,7 @@ export function App() {
               documentPath={activeDocument.path}
               documentTitle={activeDocument.title}
               audioPath={activeDocument.audioPath}
+              audioPlaylistPath={activeDocument.audioPlaylistPath}
             />
           </section>
         </main>
@@ -1036,6 +1114,7 @@ export function App() {
               documentPath={activeDocument.path}
               documentTitle={activeDocument.title}
               audioPath={activeDocument.audioPath}
+              audioPlaylistPath={activeDocument.audioPlaylistPath}
               annotations={activeAnnotations}
               onSaveAnnotation={saveAnnotation}
               onDeleteAnnotation={deleteAnnotation}
@@ -1116,6 +1195,7 @@ function MarkdownContent({
   documentPath,
   documentTitle,
   audioPath,
+  audioPlaylistPath,
   annotations,
   onSaveAnnotation,
   onDeleteAnnotation,
@@ -1124,14 +1204,48 @@ function MarkdownContent({
   documentPath: string;
   documentTitle: string;
   audioPath?: string;
+  audioPlaylistPath?: string;
   annotations?: TextAnnotation[];
   onSaveAnnotation?: (annotation: TextAnnotation) => void;
   onDeleteAnnotation?: (id: string) => void;
 }) {
   const articleRef = useRef<HTMLElement>(null);
+  const sentenceAudioRef = useRef<HTMLAudioElement | null>(null);
+  const [audioPlaylist, setAudioPlaylist] = useState<AudioPlaylistManifest>();
   const annotationKey = annotations
     ?.map((annotation) => `${annotation.id}:${annotation.updatedAt}`)
     .join("|");
+
+  useEffect(() => {
+    sentenceAudioRef.current?.pause();
+    sentenceAudioRef.current = null;
+    setAudioPlaylist(undefined);
+    if (!audioPlaylistPath) return;
+
+    const controller = new AbortController();
+    void fetch(`${import.meta.env.BASE_URL}${audioPlaylistPath}`, { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error("Could not load sentence audio.");
+        return response.json() as Promise<AudioPlaylistManifest>;
+      })
+      .then(setAudioPlaylist)
+      .catch((error: unknown) => {
+        if (!(error instanceof DOMException && error.name === "AbortError")) {
+          console.error(error);
+        }
+      });
+    return () => controller.abort();
+  }, [audioPlaylistPath]);
+
+  useEffect(() => () => sentenceAudioRef.current?.pause(), []);
+
+  const playSentence = (audioPath: string) => {
+    sentenceAudioRef.current?.pause();
+    const audio = new Audio(`${import.meta.env.BASE_URL}${audioPath}`);
+    sentenceAudioRef.current = audio;
+    void audio.play();
+  };
+
   return (
     <>
       <article className="markdown-body" ref={articleRef} key={`${documentPath}:${annotationKey}`}>
@@ -1146,6 +1260,7 @@ function MarkdownContent({
                   title={documentTitle}
                   documentPath={documentPath}
                   audioPath={audioPath}
+                  audioPlaylistPath={audioPlaylistPath}
                 />
               </>
             ),
@@ -1164,6 +1279,63 @@ function MarkdownContent({
                 {children}
               </a>
             ),
+            code: ({ className, children, ...props }) => {
+              const value = String(children).replace(/\n$/, "");
+              const inlineExample = !className
+                ? audioPlaylist?.examples.find((example) => example.english === value)
+                : undefined;
+              if (inlineExample) {
+                return (
+                  <span className="inline-audio-example">
+                    <code {...props}>{children}</code>
+                    <button
+                      type="button"
+                      className="sentence-audio-button is-inline"
+                      aria-label={`播放：${inlineExample.english}`}
+                      title="播放 Jenny 英文朗读"
+                      onClick={() => playSentence(inlineExample.englishAudio["jenny-us"])}
+                    >
+                      <Play size={12} fill="currentColor" />
+                    </button>
+                  </span>
+                );
+              }
+              const lines = value.split("\n").map((line) => line.trim()).filter(Boolean);
+              const examples = className === "language-text" && audioPlaylist && lines.length % 2 === 0
+                ? lines.reduce<AudioPlaylistManifest["examples"]>((matches, english, index) => {
+                    if (index % 2 !== 0) return matches;
+                    const chinese = lines[index + 1];
+                    const example = audioPlaylist.examples.find(
+                      (candidate) => candidate.english === english && candidate.chinese === chinese,
+                    );
+                    return example ? [...matches, example] : matches;
+                  }, [])
+                : [];
+              if (examples.length * 2 !== lines.length) {
+                return <code className={className} {...props}>{children}</code>;
+              }
+              return (
+                <span className="bilingual-example-list">
+                  {examples.map((example) => (
+                    <span className="bilingual-example" key={`${example.english}:${example.chinese}`}>
+                      <span className="bilingual-example-copy">
+                        <strong>{example.english}</strong>
+                        <span>{example.chinese}</span>
+                      </span>
+                      <button
+                        type="button"
+                        className="sentence-audio-button"
+                        aria-label={`播放：${example.english}`}
+                        title="播放 Jenny 英文朗读"
+                        onClick={() => playSentence(example.englishAudio["jenny-us"])}
+                      >
+                        <Play size={15} fill="currentColor" />
+                      </button>
+                    </span>
+                  ))}
+                </span>
+              );
+            },
           }}
         >
           {content}
@@ -1186,10 +1358,42 @@ function DocumentAudioPlayer({
   title,
   documentPath,
   audioPath,
+  audioPlaylistPath,
 }: {
   title: string;
   documentPath: string;
   audioPath?: string;
+  audioPlaylistPath?: string;
+}) {
+  if (!audioPath && audioPlaylistPath) {
+    return (
+      <DocumentAudioPlaylistPlayer
+        title={title}
+        documentPath={documentPath}
+        playlistPath={audioPlaylistPath}
+      />
+    );
+  }
+  return (
+    <LegacyDocumentAudioPlayer
+      title={title}
+      documentPath={documentPath}
+      audioPath={audioPath}
+      voiceLabel={audioPlaylistPath ? "Jenny 慢速英文" : "Michelle 慢速英文"}
+    />
+  );
+}
+
+function LegacyDocumentAudioPlayer({
+  title,
+  documentPath,
+  audioPath,
+  voiceLabel,
+}: {
+  title: string;
+  documentPath: string;
+  audioPath?: string;
+  voiceLabel: string;
 }) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const savedPositionRef = useRef(0);
@@ -1238,7 +1442,7 @@ function DocumentAudioPlayer({
         <Volume2 size={18} />
         <div>
           <strong>例句跟读</strong>
-          <span>中文 1 遍 · Michelle 慢速英文 3 遍</span>
+          <span>中文 1 遍 · {voiceLabel} 3 遍</span>
         </div>
       </div>
       {audioPath ? (
@@ -1256,6 +1460,174 @@ function DocumentAudioPlayer({
         />
       ) : (
         <span className="audio-pending">该文档的音频正在准备中</span>
+      )}
+    </section>
+  );
+}
+
+function DocumentAudioPlaylistPlayer({
+  title,
+  documentPath,
+  playlistPath,
+}: {
+  title: string;
+  documentPath: string;
+  playlistPath: string;
+}) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const shouldContinueRef = useRef(false);
+  const restoreTimeRef = useRef(0);
+  const lastSavedAtRef = useRef(0);
+  const progressKey = canonicalAudioDocumentPath(documentPath);
+  const [manifest, setManifest] = useState<AudioPlaylistManifest>();
+  const [voiceId, setVoiceId] = useState("");
+  const [exampleIndex, setExampleIndex] = useState(0);
+  const [phase, setPhase] = useState<"chinese" | "english">("chinese");
+  const [englishPlayNumber, setEnglishPlayNumber] = useState(1);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    void fetch(`${import.meta.env.BASE_URL}${playlistPath}`, { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error("Could not load the audio playlist.");
+        return response.json() as Promise<AudioPlaylistManifest>;
+      })
+      .then((value) => {
+        if (!value.examples.length || !value.voices.length) {
+          throw new Error("The audio playlist is empty.");
+        }
+        const savedVoice = audioPlaylistSettings.readVoice();
+        setVoiceId(value.voices.some((voice) => voice.id === savedVoice)
+          ? savedVoice!
+          : value.voices[0].id);
+        const saved = audioPlaylistSettings.readProgress(progressKey);
+        if (saved && saved.exampleIndex < value.examples.length) {
+          setExampleIndex(saved.exampleIndex);
+          setPhase(saved.phase);
+          setEnglishPlayNumber(saved.englishPlayNumber);
+          restoreTimeRef.current = saved.currentTime;
+        }
+        setManifest(value);
+      })
+      .catch((error: unknown) => {
+        if (!(error instanceof DOMException && error.name === "AbortError")) {
+          console.error(error);
+        }
+      });
+    return () => controller.abort();
+  }, [playlistPath, progressKey]);
+
+  const example = manifest?.examples[exampleIndex];
+  const segmentPath = phase === "chinese"
+    ? example?.chineseAudio
+    : example?.englishAudio[voiceId];
+
+  const saveProgress = () => {
+    const audio = audioRef.current;
+    audioPlaylistSettings.saveProgress(progressKey, {
+      exampleIndex,
+      phase,
+      englishPlayNumber,
+      currentTime: audio && Number.isFinite(audio.currentTime) ? audio.currentTime : 0,
+    });
+    lastSavedAtRef.current = Date.now();
+  };
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio || !segmentPath) return;
+    if (shouldContinueRef.current) void audio.play();
+  }, [segmentPath, exampleIndex, phase, englishPlayNumber, voiceId]);
+
+  useEffect(() => () => saveProgress(), [exampleIndex, phase, englishPlayNumber]);
+
+  const advance = () => {
+    if (!manifest) return;
+    if (phase === "chinese") {
+      setPhase("english");
+      setEnglishPlayNumber(1);
+      return;
+    }
+    if (englishPlayNumber < manifest.englishRepeatCount) {
+      setEnglishPlayNumber((current) => current + 1);
+      return;
+    }
+    if (exampleIndex + 1 < manifest.examples.length) {
+      setExampleIndex((current) => current + 1);
+      setPhase("chinese");
+      setEnglishPlayNumber(1);
+      return;
+    }
+    shouldContinueRef.current = false;
+    audioPlaylistSettings.clearProgress(progressKey);
+    setExampleIndex(0);
+    setPhase("chinese");
+    setEnglishPlayNumber(1);
+  };
+
+  return (
+    <section className="document-audio document-audio-playlist" aria-label="Document audio">
+      <div className="document-audio-heading">
+        <Volume2 size={18} />
+        <div>
+          <strong>会议与 Demo 跟读</strong>
+          <span>中文 1 遍 · 英文 {manifest?.englishRepeatCount ?? 10} 遍 · 自动保存进度</span>
+        </div>
+      </div>
+      {manifest && example && segmentPath ? (
+        <div className="playlist-player">
+          <div className="playlist-controls">
+            <label>
+              英文声音
+              <select
+                value={voiceId}
+                onChange={(event) => {
+                  shouldContinueRef.current = false;
+                  setVoiceId(event.target.value);
+                  audioPlaylistSettings.saveVoice(event.target.value);
+                }}
+              >
+                {manifest.voices.map((voice) => (
+                  <option key={voice.id} value={voice.id}>{voice.label}</option>
+                ))}
+              </select>
+            </label>
+            <span>{exampleIndex + 1} / {manifest.examples.length}</span>
+            <span>{phase === "chinese" ? "中文" : `英文 ${englishPlayNumber} / ${manifest.englishRepeatCount}`}</span>
+          </div>
+          <div className="playlist-caption">
+            <strong>{example.english}</strong>
+            <span>{example.chinese}</span>
+          </div>
+          <audio
+            key={`${segmentPath}:${englishPlayNumber}`}
+            ref={audioRef}
+            controls
+            preload="metadata"
+            src={`${import.meta.env.BASE_URL}${segmentPath}`}
+            aria-label={`${title} 跟读音频`}
+            onLoadedMetadata={(event) => {
+              if (restoreTimeRef.current > 0) {
+                event.currentTarget.currentTime = Math.min(
+                  restoreTimeRef.current,
+                  Math.max(0, event.currentTarget.duration - 0.1),
+                );
+                restoreTimeRef.current = 0;
+              }
+            }}
+            onPlay={() => { shouldContinueRef.current = true; }}
+            onPause={() => {
+              if (!audioRef.current?.ended) shouldContinueRef.current = false;
+              saveProgress();
+            }}
+            onTimeUpdate={() => {
+              if (Date.now() - lastSavedAtRef.current >= 1000) saveProgress();
+            }}
+            onEnded={advance}
+          />
+        </div>
+      ) : (
+        <span className="audio-pending">正在加载多声音频</span>
       )}
     </section>
   );
