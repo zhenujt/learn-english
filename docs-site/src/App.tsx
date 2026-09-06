@@ -7,6 +7,7 @@ import {
   GraduationCap,
   Eye,
   Layers,
+  LibraryBig,
   LogIn,
   Menu,
   Palette,
@@ -954,6 +955,9 @@ export function App() {
           <button className="icon-button study-button" onClick={() => setStudyOpen(true)} aria-label="Open study tools">
             <GraduationCap size={19} />
           </button>
+          <a className="icon-button words-button" href={`${import.meta.env.BASE_URL}words`} aria-label="Open my words" title="My words">
+            <LibraryBig size={19} />
+          </a>
         </div>
       </header>
 
