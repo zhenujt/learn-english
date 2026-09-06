@@ -1,4 +1,5 @@
 import crypto from "node:crypto";
+import { spawn } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -217,11 +218,73 @@ class MarkdownDocumentsPlugin {
   }
 }
 
+class JennySpeechPlugin {
+  public create(): Plugin {
+    return {
+      name: "jenny-speech",
+      configureServer: (server) => {
+        server.middlewares.use("/api/word-audio", (request, response, next) => {
+          if (request.method !== "POST") return next();
+
+          let body = "";
+          request.setEncoding("utf8");
+          request.on("data", (chunk) => {
+            body += chunk;
+            if (body.length > 2_000) request.destroy();
+          });
+          request.on("end", () => {
+            try {
+              const payload = JSON.parse(body) as { text?: unknown };
+              const text = typeof payload.text === "string" ? payload.text.trim() : "";
+              if (!text || text.length > 300) {
+                response.statusCode = 400;
+                response.end(JSON.stringify({ message: "Text must contain 1-300 characters." }));
+                return;
+              }
+
+              const command = path.join(repositoryDirectory, ".venv/bin/edge-tts");
+              const process = spawn(command, [
+                "--voice", "en-US-JennyNeural",
+                "--rate=-15%",
+                "--text", text,
+              ]);
+              const audio: Buffer[] = [];
+              let error = "";
+              process.stdout.on("data", (chunk: Buffer) => audio.push(chunk));
+              process.stderr.on("data", (chunk: Buffer) => { error += chunk.toString(); });
+              process.on("error", () => {
+                response.statusCode = 503;
+                response.end(JSON.stringify({ message: "Local Jenny speech is unavailable." }));
+              });
+              process.on("close", (code) => {
+                if (response.writableEnded) return;
+                if (code !== 0 || audio.length === 0) {
+                  console.error("Local Jenny synthesis failed", error);
+                  response.statusCode = 502;
+                  response.end(JSON.stringify({ message: "Jenny speech is temporarily unavailable." }));
+                  return;
+                }
+                response.setHeader("Content-Type", "audio/mpeg");
+                response.setHeader("Cache-Control", "private, max-age=86400");
+                response.end(Buffer.concat(audio));
+              });
+            } catch {
+              response.statusCode = 400;
+              response.end(JSON.stringify({ message: "Invalid request." }));
+            }
+          });
+        });
+      },
+    };
+  }
+}
+
 export default defineConfig({
   base: process.env.VITE_BASE_PATH || "/",
   plugins: [
     react(),
     new MarkdownDocumentsPlugin().create(),
+    new JennySpeechPlugin().create(),
     VitePWA({
       registerType: "autoUpdate",
       includeAssets: ["docs-icon.svg"],

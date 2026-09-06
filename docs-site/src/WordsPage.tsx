@@ -14,9 +14,11 @@ import {
 } from "lucide-react";
 import { AuthDialog } from "../../shared/auth/AuthDialog";
 import { auth } from "../../shared/auth/auth-client";
+import { JennySpeechClient } from "./shared/jenny-speech";
 import { WordStore, type SavedWord } from "./shared/word-store";
 import { WordSyncClient } from "./shared/word-sync";
 
+const jennySpeech = new JennySpeechClient();
 const wordStore = new WordStore();
 const wordSync = new WordSyncClient();
 
@@ -26,6 +28,12 @@ interface WordDraft {
   meaning: string;
   example: string;
   pronunciationNote: string;
+}
+
+interface SpeechFeedback {
+  key: string;
+  message: string;
+  error: boolean;
 }
 
 const emptyDraft: WordDraft = {
@@ -46,7 +54,11 @@ export function WordsPage() {
   const [userEmail, setUserEmail] = useState<string>();
   const [authOpen, setAuthOpen] = useState(false);
   const [syncMessage, setSyncMessage] = useState(wordSync.configured ? "" : "仅保存在此设备");
+  const [speechFeedback, setSpeechFeedback] = useState<SpeechFeedback>();
   const syncingRef = useRef(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
+  const speechRequestRef = useRef(0);
 
   const activeWords = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -105,6 +117,13 @@ export function WordsPage() {
     return () => window.removeEventListener("storage", refresh);
   }, [userEmail]);
 
+  useEffect(() => () => {
+    speechRequestRef.current += 1;
+    audioRef.current?.pause();
+    if (audioRef.current?.src.startsWith("blob:")) URL.revokeObjectURL(audioRef.current.src);
+    window.speechSynthesis?.cancel();
+  }, []);
+
   const openCreate = () => {
     setEditingId(undefined);
     setDraft(emptyDraft);
@@ -150,17 +169,120 @@ export function WordsPage() {
     if (userEmail) window.setTimeout(() => void sync(), 0);
   };
 
-  const speak = (text: string, language: "en-US" | "zh-CN") => {
+  const waitForVoices = async () => {
+    if (window.speechSynthesis.getVoices().length > 0) return;
+    await new Promise<void>((resolve) => {
+      const timeout = window.setTimeout(finish, 1800);
+      function finish() {
+        window.clearTimeout(timeout);
+        window.speechSynthesis.removeEventListener("voiceschanged", finish);
+        resolve();
+      }
+      window.speechSynthesis.addEventListener("voiceschanged", finish, { once: true });
+    });
+  };
+
+  const stopAudio = () => {
+    const audio = audioRef.current;
+    audio?.pause();
+    if (audio?.src.startsWith("blob:")) URL.revokeObjectURL(audio.src);
+    audioRef.current = null;
+  };
+
+  const speakWithSystem = async (
+    text: string,
+    language: "en-US" | "zh-CN",
+    key: string,
+    jennyFallback = false,
+  ) => {
     if (!text.trim()) return;
+    if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
+      setSpeechFeedback({ key, message: "当前浏览器不支持备用语音播放", error: true });
+      return;
+    }
+    const request = ++speechRequestRef.current;
+    stopAudio();
     window.speechSynthesis.cancel();
+    setSpeechFeedback({
+      key,
+      message: jennyFallback ? "Jenny 暂不可用，正在使用设备语音…" : "正在准备设备语音…",
+      error: false,
+    });
+    await waitForVoices();
+    if (request !== speechRequestRef.current) return;
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = language;
     utterance.rate = language === "en-US" ? 0.82 : 0.92;
-    const voice = window.speechSynthesis
-      .getVoices()
-      .find((candidate) => candidate.lang.toLowerCase().startsWith(language.slice(0, 2).toLowerCase()));
+    const languagePrefix = language.slice(0, 2).toLowerCase();
+    const voices = window.speechSynthesis.getVoices();
+    const languageVoices = voices.filter((candidate) =>
+      candidate.lang.toLowerCase().startsWith(languagePrefix));
+    const voice = languageVoices.find((candidate) => candidate.lang.toLowerCase() === language.toLowerCase())
+      ?? languageVoices[0];
     if (voice) utterance.voice = voice;
+    let started = false;
+    utterance.onstart = () => {
+      started = true;
+      setSpeechFeedback({
+        key,
+        message: jennyFallback ? "Jenny 暂不可用，已使用设备语音" : "设备语音正在播放",
+        error: false,
+      });
+    };
+    utterance.onend = () => {
+      if (utteranceRef.current === utterance) setSpeechFeedback(undefined);
+    };
+    utterance.onerror = () => {
+      if (utteranceRef.current === utterance) {
+        setSpeechFeedback({ key, message: "无法播放，请检查设备的英文语音设置", error: true });
+      }
+    };
+    utteranceRef.current = utterance;
     window.speechSynthesis.speak(utterance);
+    window.speechSynthesis.resume();
+    window.setTimeout(() => {
+      if (!started && utteranceRef.current === utterance) {
+        window.speechSynthesis.cancel();
+        setSpeechFeedback({ key, message: "Jenny 与设备语音均不可用", error: true });
+      }
+    }, 3000);
+  };
+
+  const speak = async (text: string, language: "en-US" | "zh-CN", key: string) => {
+    if (!text.trim()) return;
+    if (language !== "en-US") {
+      await speakWithSystem(text, language, key);
+      return;
+    }
+    if (!jennySpeech.available) {
+      await speakWithSystem(text, language, key);
+      return;
+    }
+
+    const request = ++speechRequestRef.current;
+    stopAudio();
+    window.speechSynthesis?.cancel();
+    setSpeechFeedback({ key, message: "正在生成 Jenny 语音…", error: false });
+    try {
+      const blob = await jennySpeech.synthesize(text);
+      if (request !== speechRequestRef.current) return;
+      const audioUrl = URL.createObjectURL(blob);
+      const audio = new Audio(audioUrl);
+      audioRef.current = audio;
+      audio.onplaying = () => setSpeechFeedback({ key, message: "Jenny 正在播放", error: false });
+      audio.onended = () => {
+        if (audioRef.current === audio) {
+          stopAudio();
+          setSpeechFeedback(undefined);
+        }
+      };
+      audio.onerror = () => {
+        if (audioRef.current === audio) void speakWithSystem(text, language, key, true);
+      };
+      await audio.play();
+    } catch {
+      if (request === speechRequestRef.current) await speakWithSystem(text, language, key, true);
+    }
   };
 
   return (
@@ -221,19 +343,22 @@ export function WordsPage() {
                 <div className="word-primary">
                   <div className="word-title-line">
                     <h2>{word.word}</h2>
-                    <button className="word-audio" onClick={() => speak(word.word, "en-US")} aria-label={`朗读 ${word.word}`} title="朗读单词">
+                    <button className={`word-audio${speechFeedback?.key === `${word.id}:word` && !speechFeedback.error ? " is-speaking" : ""}`} onClick={() => void speak(word.word, "en-US", `${word.id}:word`)} aria-label={`朗读 ${word.word}`} title="朗读单词">
                       <Volume2 size={17} />
                     </button>
                   </div>
                   {word.pronunciation && <span className="word-pronunciation">{word.pronunciation}</span>}
                   {word.pronunciationNote && <p className="word-note">发音提示：{word.pronunciationNote}</p>}
+                  {speechFeedback?.key.startsWith(`${word.id}:`) && (
+                    <p className={`word-speech-status${speechFeedback.error ? " is-error" : ""}`} role="status">{speechFeedback.message}</p>
+                  )}
                 </div>
                 <div className="word-detail">
                   <span className="word-field-label">意思</span>
                   {word.meaning ? (
                     <div className="word-spoken-line">
                       <p>{word.meaning}</p>
-                      <button className="word-audio" onClick={() => speak(word.meaning, /[\u3400-\u9fff]/.test(word.meaning) ? "zh-CN" : "en-US")} aria-label="朗读意思" title="朗读意思"><Volume2 size={16} /></button>
+                      <button className={`word-audio${speechFeedback?.key === `${word.id}:meaning` && !speechFeedback.error ? " is-speaking" : ""}`} onClick={() => void speak(word.meaning, /[\u3400-\u9fff]/.test(word.meaning) ? "zh-CN" : "en-US", `${word.id}:meaning`)} aria-label="朗读意思" title="朗读意思"><Volume2 size={16} /></button>
                     </div>
                   ) : <p className="word-missing">尚未添加意思</p>}
                 </div>
@@ -242,7 +367,7 @@ export function WordsPage() {
                   {word.example ? (
                     <div className="word-spoken-line">
                       <p>{word.example}</p>
-                      <button className="word-audio" onClick={() => speak(word.example, "en-US")} aria-label="朗读例句" title="朗读例句"><Volume2 size={16} /></button>
+                      <button className={`word-audio${speechFeedback?.key === `${word.id}:example` && !speechFeedback.error ? " is-speaking" : ""}`} onClick={() => void speak(word.example, "en-US", `${word.id}:example`)} aria-label="朗读例句" title="朗读例句"><Volume2 size={16} /></button>
                     </div>
                   ) : <p className="word-missing">尚未添加例句</p>}
                 </div>

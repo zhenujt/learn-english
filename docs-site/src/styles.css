@@ -154,6 +154,11 @@ button {
   color: var(--accent);
   background: var(--accent-soft);
 }
+.word-audio.is-speaking {
+  color: var(--accent);
+  background: var(--accent-soft);
+  animation: word-audio-pulse 900ms ease-in-out infinite alternate;
+}
 .word-list {
   border-top: 1px solid var(--line);
 }
@@ -204,6 +209,14 @@ button {
   color: var(--muted);
   font-size: 12px;
 }
+.word-speech-status {
+  margin: 7px 0 0;
+  color: var(--accent);
+  font-size: 12px;
+}
+.word-speech-status.is-error {
+  color: var(--signal);
+}
 .word-field-label {
   display: block;
   margin-bottom: 2px;
@@ -224,6 +237,9 @@ button {
 .word-actions button.danger:hover {
   color: var(--signal);
   background: #f8e2de;
+}
+@keyframes word-audio-pulse {
+  to { opacity: 0.55; }
 }
 .words-empty {
   min-height: 360px;
