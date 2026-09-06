@@ -1,7 +1,8 @@
 name: Deploy GitHub Pages
 
 # One repository has a single Pages site, so both apps ship in one artifact:
-# sentence-trainer at /<repo>/anki/ and the docs editor at /<repo>/docs-simple-grammar/.
+# sentence-trainer at /<repo>/anki/, docs at /<repo>/docs-simple-grammar/,
+# and vocabulary at /<repo>/words/.
 on:
   push:
     branches: [main]
@@ -65,6 +66,7 @@ jobs:
         working-directory: docs-site
         env:
           VITE_BASE_PATH: /${{ github.event.repository.name }}/docs-simple-grammar/
+          VITE_SITE_BASE_PATH: /${{ github.event.repository.name }}/
           VITE_GITHUB_REPOSITORY: ${{ github.repository }}
           VITE_GITHUB_BRANCH: ${{ github.ref_name }}
           VITE_GITHUB_API_BASE: ${{ vars.DOCS_GITHUB_API_BASE }}
@@ -81,6 +83,8 @@ jobs:
           cp -r "$TRAINER_DIR/dist/." _site/anki/
           mkdir -p _site/docs-simple-grammar
           cp -r docs-site/dist/. _site/docs-simple-grammar/
+          mkdir -p _site/words
+          cp docs-site/dist/index.html _site/words/index.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

@@ -1,6 +1,7 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
+  readonly VITE_SITE_BASE_PATH?: string;
   readonly VITE_GITHUB_REPOSITORY?: string;
   readonly VITE_GITHUB_BRANCH?: string;
   readonly VITE_SUPABASE_URL?: string;
