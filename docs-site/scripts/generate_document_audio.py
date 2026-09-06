@@ -49,12 +49,14 @@ class DocumentAudioNaming:
 
 class MarkdownExampleExtractor:
     EXCLUDED_CUES = ("错误", "不自然", "避免", "❌")
+    FENCED_ONLY_MARKER = "<!-- sentence-audio: fenced-only -->"
 
     def extract(self, document_path: Path) -> list[BilingualExample]:
         content = document_path.read_text(encoding="utf-8")
         examples = self._extract_fenced_examples(content)
-        examples.extend(self._extract_table_examples(content))
-        examples.extend(self._extract_inline_examples(content))
+        if self.FENCED_ONLY_MARKER not in content:
+            examples.extend(self._extract_table_examples(content))
+            examples.extend(self._extract_inline_examples(content))
         return self._unique(examples)
 
     def _extract_fenced_examples(self, content: str) -> list[BilingualExample]:

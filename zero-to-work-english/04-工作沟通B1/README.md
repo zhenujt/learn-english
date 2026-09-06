@@ -62,5 +62,7 @@ LGTM (Looks good to me).             我看没问题（评审通过）。
 - [14-Day Software Meeting and Demo Survival Course (English)](software-meeting-demo-14-day.md): The English-only companion for review and immersion.
 - [软件职场英语语法全解（中文）](software-workplace-grammar-guide.zh.md)：从单词角色、`be`、人称和动词变化开始，通过 12 周路线逐步学习软件工作表达。
 - [Software Workplace Grammar（English）](software-workplace-grammar-guide.md)：使用英文复习同一套零基础语法路线与软件工作例句。
+- [软件职场英语介词（中文）](software-workplace-prepositions.zh.md)：用会议、站会、Bug、代码评审和 Demo 场景掌握高频介词与固定搭配。
+- [Software Workplace Prepositions (English)](software-workplace-prepositions.md): Review common prepositions and reusable chunks through software workplace situations.
 
 > 📚 本阶段课程正在按第 2 阶段的高质量标准逐步编写中。建议先完成第 2、3 阶段，打好基础再进入职场沟通。

@@ -282,7 +282,8 @@ const slugify = (value: string) =>
     .trim()
     .replace(/\s+/g, "-");
 
-const readDocumentPath = () =>
+const readDocumentPath = (preferredPath?: string) =>
+  preferredPath ??
   new URL(window.location.href).searchParams.get("doc") ??
   readingProgress.readLastDocument() ??
   defaultDocumentPath;
@@ -358,9 +359,19 @@ const github = new GitHubDocumentClient(
 );
 const savesToGitHub = github.isConfigured;
 
-export function App() {
+interface AppProps {
+  initialDocumentPath?: string;
+}
+
+/**
+ * Renders the document workspace, optionally opening a fixed initial lesson.
+ *
+ * @param props Initial document selection for standalone lesson routes.
+ * @returns The documentation workspace.
+ */
+export function App({ initialDocumentPath }: AppProps = {}) {
   const storedDrafts = useRef(workspace.readDrafts());
-  const [activePath, setActivePath] = useState(readDocumentPath);
+  const [activePath, setActivePath] = useState(() => readDocumentPath(initialDocumentPath));
   const [query, setQuery] = useState("");
   const [navigationOpen, setNavigationOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);

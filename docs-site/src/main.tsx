@@ -8,9 +8,15 @@ import "./styles.css";
 
 const isWordsRoute = /\/words\/?$/.test(window.location.pathname);
 const isNumberRoute = /\/number\/?$/.test(window.location.pathname);
+const isPrepositionRoute = /\/preposition\/?$/.test(window.location.pathname);
+const prepositionDocumentPath = "zero-to-work-english/04-工作沟通B1/software-workplace-prepositions.zh.md";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    {isWordsRoute ? <WordsPage /> : isNumberRoute ? <NumberPage /> : <App />}
+    {isWordsRoute
+      ? <WordsPage />
+      : isNumberRoute
+        ? <NumberPage />
+        : <App initialDocumentPath={isPrepositionRoute ? prepositionDocumentPath : undefined} />}
   </StrictMode>,
 );

@@ -2,7 +2,7 @@ name: Deploy GitHub Pages
 
 # One repository has a single Pages site, so both apps ship in one artifact:
 # sentence-trainer at /<repo>/anki/, docs at /<repo>/docs-simple-grammar/,
-# and vocabulary at /<repo>/words/.
+# vocabulary at /<repo>/words/, and the preposition lesson at /<repo>/preposition/.
 on:
   push:
     branches: [main]
@@ -85,6 +85,8 @@ jobs:
           cp -r docs-site/dist/. _site/docs-simple-grammar/
           mkdir -p _site/words
           cp docs-site/dist/index.html _site/words/index.html
+          mkdir -p _site/preposition
+          cp docs-site/dist/index.html _site/preposition/index.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
